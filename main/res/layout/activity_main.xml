@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="25dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Torneo de NBA"
+        android:textSize="22dp"
+        android:padding="15dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1° partido"
+        android:padding="10dp"/>
+
+    <TableRow
+        android:paddingBottom="20dp"
+        android:gravity="center">
+        <RadioGroup
+            android:id="@+id/rGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rBtn3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Phoenix Suns"/>
+
+            <RadioButton
+                android:id="@+id/rBtn4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toronto Raptors"
+                android:layout_weight="1"/>
+        </RadioGroup>
+    </TableRow>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2° partido"
+        android:padding="10dp"/>
+
+    <TableRow
+        android:paddingBottom="20dp"
+        android:gravity="center"
+        >
+
+        <RadioGroup
+            android:id="@+id/rGroup2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rBtn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Los Angeles Lakers" />
+
+            <RadioButton
+                android:id="@+id/rBtn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Brooklyn Nets" />
+        </RadioGroup>
+    </TableRow>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3° partido"
+        android:padding="10dp"/>
+
+    <TableRow
+        android:paddingBottom="20dp"
+        android:gravity="center">
+
+        <RadioGroup
+            android:id="@+id/rGroup3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rBtn5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="New York Knicks" />
+
+            <RadioButton
+                android:id="@+id/rBtn6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Sacramento Kings"/>
+        </RadioGroup>
+    </TableRow>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4° partido"
+        android:padding="10dp"/>
+
+    <TableRow
+        android:paddingBottom="50dp"
+        android:gravity="center">
+
+        <RadioGroup
+            android:id="@+id/rGroup4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/rBtn7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Houston Rockets" />
+
+            <RadioButton
+                android:id="@+id/rBtn8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Chicago Bulls"/>
+        </RadioGroup>
+    </TableRow>
+
+    <androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnEnviar1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</TableLayout>
