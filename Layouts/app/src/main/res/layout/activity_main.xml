@@ -49,47 +49,39 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="350dp">
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#001AFF" />
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#673AB7" />
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FF0000" />
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FF6F22" />
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#FFE500" />
-
             <View
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#4CAF50" />
-
         </TableRow>
 
     </TableLayout>
