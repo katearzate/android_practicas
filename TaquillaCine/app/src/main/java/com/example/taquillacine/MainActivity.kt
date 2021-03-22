@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, Adapt
             boletos.add("$i")
         }
         binding.spinnerNumBoletos.adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1, boletos)
-
         binding.spinnerNumBoletos.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 p1?.let {
@@ -61,7 +60,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, Adapt
         binding.btnComprar.setOnClickListener {
             val intent = Intent(this, CompraActivity::class.java)
             var bundle = Bundle()
-            //intent.putExtra("pelicula","sala","horario","nBoletos")
             bundle.putString("pelicula",pelicula)
             bundle.putString("sala",sala)
             bundle.putString("horario",horario)
@@ -73,7 +71,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, Adapt
 
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         p1?.let {
-            // Es un casteo que en Java seria (TextView)it
             val textView = it as TextView
             pelicula = "" + textView.text
             actualizaSeleccion()
@@ -81,7 +78,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, Adapt
     }
 
     private fun actualizaSeleccion() {
-        binding.textSeleccion.text = """
+        binding.textSeleccion.text = """${resources.getString(R.string.eleccion)}:
+            
            ${resources.getString(R.string.pelicula)}: $pelicula
            ${resources.getString(R.string.sala)}: $sala
            ${resources.getString(R.string.horario)}: $horario

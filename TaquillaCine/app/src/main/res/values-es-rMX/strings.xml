@@ -5,7 +5,7 @@
     <string name="sala">Sala</string>
     <string name="horario">Horario</string>
     <string name="noBoletos">Numero de boletos</string>
-    <string name="eleccion">Tu elección</string>
+    <string name="eleccion">Elegido</string>
     <string name="compra">Comprar</string>
     <string name="gracias">Gracias por su compra</string>
     <string-array name="peliculas">

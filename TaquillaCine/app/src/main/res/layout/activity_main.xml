@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_margin="30dp">
+    android:padding="20dp">
 
     <TextView
         android:text="@string/pelicula"
@@ -17,7 +17,8 @@
         android:id="@+id/listViewPeliculas"
         android:entries="@array/peliculas"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"/>
 
     <TextView
         android:text="@string/sala"
@@ -26,7 +27,8 @@
     <ListView
         android:id="@+id/listViewSala"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"/>
 
     <TextView
         android:text="@string/horario"
@@ -36,7 +38,8 @@
         android:id="@+id/spinnerHorarios"
         android:entries="@array/horarios"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp"/>
 
     <TextView
         android:text="@string/noBoletos"
@@ -45,19 +48,17 @@
     <Spinner
         android:id="@+id/spinnerNumBoletos"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"/>
 
-    <TextView
-        android:text="@string/eleccion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/textSeleccion"
         android:textColor="#00f"
         android:textStyle="bold|italic"
+        android:textSize="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_margin="25dp"/>
 
     <Button
         android:id="@+id/btnComprar"
