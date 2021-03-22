@@ -7,6 +7,7 @@
     <string name="noBoletos">Numero de boletos</string>
     <string name="eleccion">Tu elección</string>
     <string name="compra">Comprar</string>
+    
     <string-array name="peliculas">
         <item>El marciano</item>
         <item>Interestelar</item>
