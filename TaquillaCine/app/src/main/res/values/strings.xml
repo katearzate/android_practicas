@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movie theater</string>
+    <string name="pelicula">Film</string>
+    <string name="sala">Room</string>
+    <string name="horario">Time</string>
+    <string name="noBoletos">Number of tickets</string>
+    <string name="eleccion">Your selection</string>
+    <string name="compra">Buy</string>
+    <string-array name="peliculas">
+        <item>The Martian</item>
+        <item>Interestellar</item>
+        <item>Gravity</item>
+    </string-array>
+    <string-array name="horarios">
+        <item>14:00</item>
+        <item>16:00</item>
+        <item>18:00</item>
+        <item>20:00</item>
+    </string-array>
+</resources>
