@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, Adapt
 
         binding.listViewPeliculas.onItemClickListener = this
 
+        //******************** SALAS **************************
         val salas = arrayOf("Normal","4DX")
         binding.listViewSala.adapter = ArrayAdapter(this,android.R.layout.simple_list_item_1, salas)
         binding.listViewSala.onItemClickListener = object : AdapterView.OnItemClickListener {
@@ -36,6 +37,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, Adapt
             }
         }
 
+        //******************* BOLETOS *************************
         val boletos = ArrayList<String>()
         for(i in 1..10) {
             boletos.add("$i")
@@ -50,16 +52,21 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, Adapt
                     actualizaSeleccion()
                 }
             }
-
             override fun onNothingSelected(p0: AdapterView<*>?) {}
         }
 
         binding.spinnerHorarios.onItemSelectedListener = this
 
+        //***************** BOTON COMPRA ************************
         binding.btnComprar.setOnClickListener {
             val intent = Intent(this, CompraActivity::class.java)
-            val datos = arrayOf(pelicula,sala,horario,nBoletos)
-            intent.putExtra("datos",datos)
+            var bundle = Bundle()
+            //intent.putExtra("pelicula","sala","horario","nBoletos")
+            bundle.putString("pelicula",pelicula)
+            bundle.putString("sala",sala)
+            bundle.putString("horario",horario)
+            bundle.putString("noBoletos",nBoletos)
+            intent.putExtras(bundle)
             startActivity(intent)
         }
     }
@@ -75,17 +82,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener, Adapt
 
     private fun actualizaSeleccion() {
         binding.textSeleccion.text = """
-           arregla esto ahora : $pelicula
-           Sala: $sala
-           Horario: $horario
-           Boletos: $nBoletos
+           ${resources.getString(R.string.pelicula)}: $pelicula
+           ${resources.getString(R.string.sala)}: $sala
+           ${resources.getString(R.string.horario)}: $horario
+           ${resources.getString(R.string.noBoletos)}: $nBoletos
         """.trimIndent()
     }
 
+    //************************* HORARIO ***********************
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         horario = resources.getStringArray(R.array.horarios)[p2]
         actualizaSeleccion()
     }
-
     override fun onNothingSelected(p0: AdapterView<*>?) {}
 }

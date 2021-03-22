@@ -12,15 +12,16 @@ class CompraActivity : AppCompatActivity() {
         binding = ActivityCompraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val datos = intent.getStringArrayExtra("datos")
+        val bundle = intent.extras
 
-        binding.txtCompra.text = """¡¡Gracias por tu compra!!!
+        var gracias = resources.getString(R.string.gracias)
+        binding.txtCompra.text = """¡¡$gracias!!
             |
-            |Película: ${datos?.get(0)}
-            |Sala: ${datos?.get(1)}
-            |Horario: ${datos?.get(2)}
-            |Boletos: 
+            |${resources.getString(R.string.pelicula)}: ${bundle!!.getString("pelicula")}
+            |${resources.getString(R.string.sala)}: ${bundle!!.getString("sala")}
+            |${resources.getString(R.string.horario)}: ${bundle!!.getString("horario")}
+            |${resources.getString(R.string.noBoletos)}: ${bundle!!.getString("noBoletos")}
         """.trimMargin()
     }
-
+//|Horario: ${datos?.get(2)}
 }
