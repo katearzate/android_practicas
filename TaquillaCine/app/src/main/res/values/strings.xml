@@ -8,6 +8,7 @@
     <string name="eleccion">Selected</string>
     <string name="compra">Buy</string>
     <string name="gracias">Thank you for purchase</string>
+    <string name="disfrute">Enjoy the film</string>
     <string-array name="peliculas">
         <item>The Martian</item>
         <item>Interestellar</item>
