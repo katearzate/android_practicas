@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Plataforma Escolar</string>
+    <string name="noControl">Numero de control</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="btnlogin">Ingresar</string>
+    <string name="linkSignin">¿No tienes cuenta? Registrate</string>
+
+    <string name="signin">Registrarse</string>
+    <string name="nombre">Nombre</string>
+    <string name="carrera">Carrera</string>
+    <string name="semestre">Semestre</string>
+    <string name="calificaciones">Calificaciones</string>
+    <string name="horario">Horario</string>
+    <string name="reticula">Retícula</string>
+    <string name="datosPersonales">Datos personales</string>
+    <string name="btnSalir">Cerrar sesión</string>
+
+    <string-array name="diasSemana">
+        <item>Lunes</item>
+        <item>Martes</item>
+    </string-array>
+
+</resources>

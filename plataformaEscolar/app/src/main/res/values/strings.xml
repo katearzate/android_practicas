@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">School Platform</string>
+    <string name="noControl">Control number</string>
+    <string name="contrasena">Password</string>
+    <string name="login">Log in</string>
+    <string name="btnlogin">Enter</string>
+    <string name="linkSignin">Don\'t have an account? Sign in</string>
+
+    <string name="signin">Sign in</string>
+    <string name="nombre">Name</string>
+    <string name="carrera">Career</string>
+    <string name="semestre">Semester</string>
+
+    <string name="calificaciones">Scores</string>
+    <string name="horario">Schedule</string>
+    <string name="reticula">Progress</string>
+    <string name="datosPersonales">Personal data</string>
+    <string name="btnSalir">Log out</string>
+
+    <string-array name="diasSemana">
+        <item>Monday</item>
+        <item>Tuesday</item>
+    </string-array>
+</resources>
