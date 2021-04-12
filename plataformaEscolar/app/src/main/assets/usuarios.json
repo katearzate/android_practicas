@@ -1,0 +1,33 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Christina Parra",
+      "noControl": "19161745",
+      "carrera": "TICS",
+      "semestre": 4,
+      "contraseña": 123,
+      "materias": {
+        "lunes": {
+          "10": "desarrollo de aplicaciones para dispositivos moviles",
+          "12": "introduccion a seguridad informatica",
+          "16": "administracion y seguridad de redes",
+          "17": "redes emergentes"
+        },
+        "martes": {
+          "12": "introduccion a seguridad informatica",
+          "14": "administracion y seguridad de redes",
+          "17": "redes emergentes"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "nombre": "Mauricio Gutierrez",
+      "noControl": "18121600",
+      "carrera": "Sistemas",
+      "semestre": 5,
+      "contraseña": 12345
+    }
+  ]
+}

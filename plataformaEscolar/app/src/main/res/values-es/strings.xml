@@ -5,7 +5,7 @@
     <string name="contrasena">Contraseña</string>
     <string name="login">Iniciar sesión</string>
     <string name="btnlogin">Ingresar</string>
-    <string name="linkSignin">¿No tienes cuenta? Registrate</string>
+    <string name="linkSignin">¿No tienes cuenta? <u>Registrate</u></string>
 
     <string name="signin">Registrarse</string>
     <string name="nombre">Nombre</string>
@@ -17,9 +17,9 @@
     <string name="datosPersonales">Datos personales</string>
     <string name="btnSalir">Cerrar sesión</string>
 
-    <string-array name="diasSemana">
-        <item>Lunes</item>
-        <item>Martes</item>
-    </string-array>
-
+    <string name="dia1">Lunes</string>
+    <string name="dia2">Martes</string>
+    <string name="dia3">Miercoles</string>
+    <string name="dia4">Jueves</string>
+    <string name="dia5">Viernes</string>
 </resources>

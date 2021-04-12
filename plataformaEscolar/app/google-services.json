@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "472885457900",
+    "project_id": "plataformaescolar-6aa3d",
+    "storage_bucket": "plataformaescolar-6aa3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:472885457900:android:b1fcaf68bfe28c4aa786c9",
+        "android_client_info": {
+          "package_name": "com.example.plataformaescolar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "472885457900-upvgn6kaccac955bt0lba9me1pc4pg42.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.plataformaescolar",
+            "certificate_hash": "a34be87c324b807076453e6f1f9e00eab0e30a16"
+          }
+        },
+        {
+          "client_id": "472885457900-3061r2jhh3buhoias19cmvp66jnf1po0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSU1YI_jXQsX1B5PCMMb7I2sm9VjGiQH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "472885457900-3061r2jhh3buhoias19cmvp66jnf1po0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

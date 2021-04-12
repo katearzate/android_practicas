@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlataformaEscolar">
-        <activity android:name=".horario"></activity>
-        <activity android:name=".calificaciones" />
-        <activity android:name=".home" />
-        <activity android:name=".SignIn" />
+        <activity android:name=".datosPersonalesActivity"></activity>
+        <activity android:name=".reticulaActivity" />
+        <activity android:name=".horarioActivity" />
+        <activity android:name=".calificacionesActivity" />
+        <activity android:name=".homeActivity" />
+        <activity android:name=".SignInActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

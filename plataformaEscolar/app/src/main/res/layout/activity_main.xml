@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:padding="80dp"
+    android:padding="40dp"
     android:gravity="center_vertical">
 
     <TextView
@@ -15,7 +15,8 @@
         android:text="@string/login"
         android:textStyle="bold"
         android:layout_marginBottom="35dp"
-        android:textSize="24dp"/>
+        android:textSize="24dp"
+        android:textColor="@color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -40,10 +41,12 @@
         android:inputType="textPassword"/>
 
     <TextView
+        android:id="@+id/redirigirSignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/linkSignin"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="20dp"
+        android:linksClickable="true"/>
 
     <Button
         android:id="@+id/btnLogin"

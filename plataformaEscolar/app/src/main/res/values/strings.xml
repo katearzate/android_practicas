@@ -4,7 +4,7 @@
     <string name="contrasena">Password</string>
     <string name="login">Log in</string>
     <string name="btnlogin">Enter</string>
-    <string name="linkSignin">Don\'t have an account? Sign in</string>
+    <string name="linkSignin">Don\'t have an account? <u>Sign in</u></string>
 
     <string name="signin">Sign in</string>
     <string name="nombre">Name</string>
@@ -17,8 +17,9 @@
     <string name="datosPersonales">Personal data</string>
     <string name="btnSalir">Log out</string>
 
-    <string-array name="diasSemana">
-        <item>Monday</item>
-        <item>Tuesday</item>
-    </string-array>
+    <string name="dia1">Monday</string>
+    <string name="dia2">Tuesday</string>
+    <string name="dia3">Wednesday</string>
+    <string name="dia4">Thursday</string>
+    <string name="dia5">Friday</string>
 </resources>
