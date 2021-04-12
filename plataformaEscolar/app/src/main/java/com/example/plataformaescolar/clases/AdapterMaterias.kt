@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolar.R
 
-class MiAdapter (val context: Context, val layout: Int, val lista: List<materia>) : BaseAdapter() {
+class AdapterMaterias (val context: Context, val layout: Int, val lista: List<Materia>) : BaseAdapter() {
+
+
     override fun getCount(): Int {
         return lista.size
     }
@@ -21,7 +24,6 @@ class MiAdapter (val context: Context, val layout: Int, val lista: List<materia>
     override fun getItemId(position: Int): Long {
         return -1
     }
-
 
     //recurso de interfaz (vista inflada)
     override fun getView(position: Int, view: View?, viewGroup: ViewGroup?): View {

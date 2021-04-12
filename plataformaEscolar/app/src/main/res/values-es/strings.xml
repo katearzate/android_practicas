@@ -22,4 +22,6 @@
     <string name="dia3">Miercoles</string>
     <string name="dia4">Jueves</string>
     <string name="dia5">Viernes</string>
+
+    <string name="act">Actualizar</string>
 </resources>

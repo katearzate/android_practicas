@@ -20,8 +20,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
             if(binding.contrasenaLogin.text.isNotEmpty() && binding.noControlLogin.text.isNotEmpty()){
-                val intent = Intent(this, horarioActivity::class.java)
+                val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }
 
@@ -30,8 +31,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-
 
     //Muestra alerta si el numero de control o la contraseña ingresada son erroneas
     private fun showAlert(){
