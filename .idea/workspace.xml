@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="95d0cede-192c-4dc2-9cf2-338701ca27e3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Listas/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Listas/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plataformaEscolar/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plataformaEscolar/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plataformaEscolar/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plataformaEscolar/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plataformaEscolar/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plataformaEscolar/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plataformaEscolar/app/src/main/res/layout/activity_sign_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plataformaEscolar/app/src/main/res/layout/activity_sign_in.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plataformaEscolar/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/plataformaEscolar/app/src/main/res/values/colors.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qwo6e6XB25mrvsZDHf0tDkFUV4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Activities" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="95d0cede-192c-4dc2-9cf2-338701ca27e3" name="Default Changelist" comment="" />
+      <created>1617999838887</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617999838887</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="159" key="FileChooserDialogImpl" timestamp="1618000155868">
+      <screen x="0" y="40" width="1366" height="728" />
+    </state>
+    <state x="463" y="159" key="FileChooserDialogImpl/0.40.1366.728@0.40.1366.728" timestamp="1618000155868" />
+  </component>
+</project>

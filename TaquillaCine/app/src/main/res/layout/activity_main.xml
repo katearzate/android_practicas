@@ -7,7 +7,7 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="20dp">
+    android:padding="18dp">
 
     <TextView
         android:text="@string/pelicula"
@@ -39,7 +39,7 @@
         android:entries="@array/horarios"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="30dp"/>
+        android:paddingBottom="15dp"/>
 
     <TextView
         android:text="@string/noBoletos"
@@ -58,7 +58,7 @@
         android:textSize="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="25dp"/>
+        android:layout_margin="15dp"/>
 
     <Button
         android:id="@+id/btnComprar"
