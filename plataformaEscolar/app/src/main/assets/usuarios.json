@@ -1,7 +1,6 @@
 {
   "usuarios": [
     {
-      "id": 1,
       "nombre": "Christina Parra",
       "noControl": "19161745",
       "carrera": "TICS",
@@ -22,7 +21,6 @@
       }
     },
     {
-      "id": 2,
       "nombre": "Mauricio Gutierrez",
       "noControl": "18121600",
       "carrera": "Sistemas",

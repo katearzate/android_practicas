@@ -24,49 +24,62 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_margin="40dp">
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/noControl"
-            android:paddingBottom="20dp"/>
-
+            android:textStyle="bold"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/nombre"
-            android:paddingBottom="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/carrera"
-            android:paddingBottom="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/noControl"
-            android:paddingBottom="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/semestre"
-            android:paddingBottom="20dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/contrasena"
-            android:paddingBottom="20dp"/>
-
-        <Button
-            android:id="@+id/btnActualizar"
+            android:id="@+id/numeroControlDP"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/act"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"/>
+            android:paddingBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/nombreDP"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/carrera"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/carreraDP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/semestre"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/semestreDP"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contrasena"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/contrasenaDP"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"/>
+
     </LinearLayout>
 
 </LinearLayout>
