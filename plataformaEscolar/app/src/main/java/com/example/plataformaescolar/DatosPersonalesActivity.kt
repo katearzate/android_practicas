@@ -21,11 +21,12 @@ class DatosPersonalesActivity : AppCompatActivity() {
 
         //val usuario1 = Usuario("Katherine","18121600", "TICS","6","123")
         //val jsonString = Gson().toJson(usuario1)
-
+/*
         binding.numeroControlDP.text = "" + jsonElement.get("noControl").asString
         binding.nombreDP.text = "" + jsonElement.get("nombre").asString
         binding.carreraDP.text = "" + jsonElement.get("carrera").asString
         binding.semestreDP.text = "" + jsonElement.get("semestre").asString
         binding.contrasenaDP.text = "" + jsonElement.get("contrasena").asString
+  */
     }
 }

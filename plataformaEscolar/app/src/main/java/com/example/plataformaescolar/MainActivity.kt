@@ -4,16 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
-import com.example.plataformaescolar.clases.Usuario
 import com.example.plataformaescolar.databinding.ActivityMainBinding
-import com.google.gson.Gson
-import com.google.gson.JsonElement
-import com.google.gson.JsonParser
-import com.google.gson.JsonObject
+import org.json.JSONException
 import org.json.JSONObject
-import java.io.BufferedReader
-import java.io.File
-import java.lang.StringBuilder
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val miJson = resources.getString(R.string.jsonUsuarios)
-        val jsonUsuarios = JSONObject(miJson)
+        val jsonUsuarios = JSONObject(miJson)                
         val arrayUsuarios = jsonUsuarios.getJSONArray("usuarios")
 
         //var jsonElement : JsonObject = JsonParser.parseString(Usuario.json).asJsonObject
@@ -34,18 +27,24 @@ class MainActivity : AppCompatActivity() {
             val noControl = binding.noControlLogin.text.toString()
             val contrasena = binding.contrasenaLogin.text.toString()
 
+            var encontrado = false
             for (i in 0..(arrayUsuarios.length()-1)){
+                print("mensaje\n")
+                println(arrayUsuarios[i].toString())
                 val jsonUsuario1 = arrayUsuarios.getJSONObject(i)
                 if (jsonUsuario1.getString("noControl").trim().equals(noControl.trim())
                         && jsonUsuario1.getString("contrasena").trim().equals(contrasena.trim())){
+                    encontrado = true
                     val intent = Intent(this, HomeActivity::class.java)
                     intent.putExtra("usuario", jsonUsuario1.toString())
                     startActivity(intent)
                     finish()
-                }else{
-                    showAlert()
                 }
             }
+            if(!encontrado){
+                showAlert()
+            }
+
             /*if((binding.contrasenaLogin.text.toString() == jsonElement.get("contrasena").asString) &&
                 (binding.noControlLogin.text.toString() == jsonElement.get("noControl").asString)){
                 val intent = Intent(this, HomeActivity::class.java)
@@ -54,6 +53,8 @@ class MainActivity : AppCompatActivity() {
             }else{
                 showAlert()
             }*/
+
+
         }
 
         binding.redirigirSignin.setOnClickListener {
