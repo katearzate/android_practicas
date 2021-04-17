@@ -10,6 +10,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonParser
 import com.google.gson.JsonObject
+import org.json.JSONObject
 import java.io.BufferedReader
 import java.io.File
 import java.lang.StringBuilder
@@ -23,28 +24,41 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var jsonElement : JsonObject = JsonParser.parseString(Usuario.json).asJsonObject
-/*
-        var gson = Gson()
+        val miJson = resources.getString(R.string.jsonUsuarios)
+        val jsonUsuarios = JSONObject(miJson)
+        val arrayUsuarios = jsonUsuarios.getJSONArray("usuarios")
 
-        val bufferedReader: BufferedReader = File(String()).bufferedReader()
-        val inputString = bufferedReader.use { it.readText() }
-        var usuario = gson.fromJson(inputString, SignInActivity::class.java)
-*/
+        //var jsonElement : JsonObject = JsonParser.parseString(Usuario.json).asJsonObject
 
         binding.btnLogin.setOnClickListener {
-            if((binding.contrasenaLogin.text.toString() == jsonElement.get("contrasena").asString) &&
+            val noControl = binding.noControlLogin.text.toString()
+            val contrasena = binding.contrasenaLogin.text.toString()
+
+            for (i in 0..(arrayUsuarios.length()-1)){
+                val jsonUsuario1 = arrayUsuarios.getJSONObject(i)
+                if (jsonUsuario1.getString("noControl").trim().equals(noControl.trim())
+                        && jsonUsuario1.getString("contrasena").trim().equals(contrasena.trim())){
+                    val intent = Intent(this, HomeActivity::class.java)
+                    intent.putExtra("usuario", jsonUsuario1.toString())
+                    startActivity(intent)
+                    finish()
+                }else{
+                    showAlert()
+                }
+            }
+            /*if((binding.contrasenaLogin.text.toString() == jsonElement.get("contrasena").asString) &&
                 (binding.noControlLogin.text.toString() == jsonElement.get("noControl").asString)){
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
                 finish()
             }else{
                 showAlert()
-            }
+            }*/
         }
 
         binding.redirigirSignin.setOnClickListener {
             val intent = Intent(this, SignInActivity::class.java)
+            intent.putExtra("BD", miJson)
             startActivity(intent)
         }
     }

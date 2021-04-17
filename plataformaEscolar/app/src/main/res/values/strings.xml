@@ -24,4 +24,25 @@
     <string name="dia5">Friday</string>
 
     <string name="act">Update</string>
+
+    <string name="jsonUsuarios">
+        {
+            "usuarios" : [
+                {
+                    "nombre": "Katherine Arzate",
+                    "noControl": "18121684",
+                    "carrera": "TICS",
+                    "semestre": 6,
+                    "contrasena": "123"
+                },
+                {
+                    "nombre": "Mauricio Gutierrez",
+                    "noControl": "18121600",
+                    "carrera": "Sistemas",
+                    "semestre": 5,
+                    "contrasena": "12345"
+                }
+            ]
+        }
+    </string>
 </resources>
