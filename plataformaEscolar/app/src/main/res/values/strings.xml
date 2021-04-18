@@ -22,12 +22,192 @@
         }
     </string>
     <string name="jsonMaterias">
-        {
-            "semestre6" : [
+       {
+            "semestre1" : [
+                {
+                    "cali": "84",
+                    "hora": "'14:00'",
+                    "nombre": "'Fundamentos De Investigacion'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'15:00'",
+                    "nombre": "'Taller De Etica'"
+                },
+                {
+                    "cali": "88",
+                    "hora": "'16:00'",
+                    "nombre": "'Matematicas Discretas I'"
+                },
+                {
+                    "cali": "81",
+                    "hora": "'17:00'",
+                    "nombre": "'Calculo Diferencial'"
+                },
+                {
+                    "cali": "95",
+                    "hora": "'18:00'",
+                    "nombre": "'Fundamentos De Programacion'"
+                },
+                {
+                    "cali": "86",
+                    "hora": "'19:00'",
+                    "nombre": "'Introduccion A Las Tics'"
+                }
+            ],
+            "semestre2" : [
+                {
+                    "cali": "100",
+                    "hora": "'07:00'",
+                    "nombre": "'Contabilidad Y Costos'"
+                },
                 {
                     "cali": "100",
                     "hora": "'08:00'",
-                    "nombre": "'Administracion y Seguridad de Redes'"
+                    "nombre": "'Calculo Integral'"
+                },
+                {
+                    "cali": "95",
+                    "hora": "'09:00'",
+                    "nombre": "'Algebra Lineal'"
+                },
+                {
+                    "cali": "81",
+                    "hora": "'17:00'",
+                    "nombre": "'Calculo Diferencial'"
+                },
+                {
+                    "cali": "95",
+                    "hora": "'18:00'",
+                    "nombre": "'Probabilidad Y Estadistica'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'19:00'",
+                    "nombre": "'Matematicas Discretas II'"
+                },
+                {
+                    "cali": "95",
+                    "hora": "'19:00'",
+                    "nombre": "'Programacion Orientada A Objetos'"
+                }
+            ],
+            "semestre3" : [
+                {
+                    "cali": "90",
+                    "hora": "'19:00'",
+                    "nombre": "'Desarrollo Sustentable'"
+                },
+                {
+                    "cali": "95",
+                    "hora": "'16:00'",
+                    "nombre": "'Estructuras Y Organizacion De Datos'"
+                },
+                {
+                    "cali": "94",
+                    "hora": "'17:00'",
+                    "nombre": "'Matematicas Para La Toma De Decisiones'"
+                },
+                {
+                    "cali": "93",
+                    "hora": "'18:00'",
+                    "nombre": "'Fundamentos De Base De Datos'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'19:00'",
+                    "nombre": "'Administracion Gerencial'"
+                },
+                {
+                    "cali": "97",
+                    "hora": "'19:00'",
+                    "nombre": "'Electricidad Y Magnetismo'"
+                }
+            ],
+            "semestre4" : [
+                {
+                    "cali": "100",
+                    "hora": "'14:00'",
+                    "nombre": "'Circuitos Electricos Y Electronicos'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'15:00'",
+                    "nombre": "'Matematicas Aplicadas A Comunicaciones'"
+                },
+                {
+                    "cali": "98",
+                    "hora": "'16:00'",
+                    "nombre": "'Fundamentos De Redes'"
+                },
+                {
+                    "cali": "98",
+                    "hora": "'17:00'",
+                    "nombre": "'Programacion II'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'18:00'",
+                    "nombre": "'Ingenieria De Software'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'19:00'",
+                    "nombre": "'Taller De Base De Datos'"
+                }
+            ],
+            "semestre5" : [
+                {
+                    "cali": "88",
+                    "hora": "'19:00'",
+                    "nombre": "'Administracion De Proyectos'"
+                },
+                {
+                    "cali": "90",
+                    "hora": "'19:00'",
+                    "nombre": "'Arquitectura De Computadoras'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'16:00'",
+                    "nombre": "'Redes De Computadoras'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'17:00'",
+                    "nombre": "'Analisis De Señales Y Sistemas De Comunicacion'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'18:00'",
+                    "nombre": "'Base De Datos Distribuidas'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'19:00'",
+                    "nombre": "'Taller De Ingenieria De Software'"
+                }
+            ],
+            "semestre6" : [
+                {
+                    "cali": "100",
+                    "hora": "'09:00'",
+                    "nombre": "'Programacion Web'"
+                },
+                {
+                    "cali": "94",
+                    "hora": "'09:00'",
+                    "nombre": "'Tecnologias Inalambricas'"
+                },
+                {
+                    "cali": "86",
+                    "hora": "'07:00'",
+                    "nombre": "'Desarrollo De Emprendedores'"
+                },
+                {
+                    "cali": "100",
+                    "hora": "'08:00'",
+                    "nombre": "'Interaccion Humano Computadora'"
                 },
                 {
                     "cali": "95",
@@ -36,26 +216,32 @@
                 },
                 {
                     "cali": "98",
+                    "hora": "'13:00'",
+                    "nombre": "'Sistemas Operativos I'"
+                }
+            ],
+            "semestre7" : [
+                {
                     "hora": "'12:00'",
-                    "nombre": "'Sistemas Operativos'"
+                    "nombre": "'Sistemas Operativos II'"
                 },
                 {
-                    "cali": "100",
                     "hora": "'13:00'",
                     "nombre": "'Introduccion a la Seguridad Informatica'"
                 },
                 {
-                    "cali": "92",
                     "hora": "'14:00'",
-                    "nombre": "'Taller de Investigacion I'"
+                    "nombre": "'Taller De Investigacion I'"
                 },
                 {
-                    "cali": "96",
                     "hora": "'16:00'",
                     "nombre": "'Redes Emergentes'"
                 },
                 {
-                    "cali": "95",
+                    "hora": "'17:00'",
+                    "nombre": "'Negocios Electronicos I'"
+                },
+                {
                     "hora": "'18:00'",
                     "nombre": "'Desarrollo de Aplicaciones para Dispositivos Moviles'"
                 }
