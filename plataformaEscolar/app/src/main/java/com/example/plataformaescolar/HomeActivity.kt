@@ -42,6 +42,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.salir.setOnClickListener {
+            //si cierra sesion, implementar los cambios en datos personales
+            intent.putExtra("usuario", stringUsuario)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

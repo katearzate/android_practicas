@@ -1,5 +1,6 @@
 package com.example.plataformaescolar
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.plataformaescolar.clases.Usuario
@@ -20,8 +21,8 @@ class DatosPersonalesActivity : AppCompatActivity() {
 
         var usuario = intent.getStringExtra("usuario")
         val jsonUsuario = JSONObject(usuario)
-
-        println(usuario)
+        val jsonUsuarioEdit = jsonUsuario
+        println(jsonUsuario)
 
         binding.numeroControlDP.setText(jsonUsuario.getString("noControl"))
         binding.nombreDP.setText(jsonUsuario.getString("nombre"))
@@ -30,14 +31,18 @@ class DatosPersonalesActivity : AppCompatActivity() {
         binding.contrasenaDP.setText(jsonUsuario.getString("contrasena"))
 
         binding.btnActualizar.setOnClickListener {
-            /*val json = JSONObject()
-            json.put("nombre", binding.nombreDP.text.toString())
-            json.put("noControl", binding.numeroControlDP.text.toString())
-            json.put("carrera", binding.carreraDP.text.toString())
-            json.put("semestre", binding.semestreDP.text.toString().toInt())
-            json.put("contrasena", binding.contrasenaDP.text.toString())*/
+            jsonUsuarioEdit.put("nombre", binding.nombreDP.text.toString())
+            jsonUsuarioEdit.put("noControl", binding.numeroControlDP.text.toString())
+            jsonUsuarioEdit.put("carrera", binding.carreraDP.text.toString())
+            jsonUsuarioEdit.put("semestre", binding.semestreDP.text.toString())
+            jsonUsuarioEdit.put("contrasena", binding.contrasenaDP.text.toString())
+            println(jsonUsuarioEdit)
+        }
 
-            
+        binding.btnRegresar.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         //val usuario1 = Usuario("Katherine","18121600", "TICS","6","123")
