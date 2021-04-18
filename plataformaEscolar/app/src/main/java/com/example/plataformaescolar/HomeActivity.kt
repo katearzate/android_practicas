@@ -17,8 +17,8 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         var stringUsuario = intent.getStringExtra("usuario")
-        println("*** USUARIO: ")
-        println(stringUsuario)
+        //println("*** USUARIO: ")
+        //println(stringUsuario)
 
         binding.calificaciones.setOnClickListener {
             val intent = Intent(this, CalificacionesActivity::class.java)

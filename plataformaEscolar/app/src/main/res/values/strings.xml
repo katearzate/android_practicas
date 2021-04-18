@@ -25,37 +25,43 @@
         {
             "semestre6" : [
                 {
-                    "hora": "08:00",
+                    "cali": "100",
+                    "hora": "'08:00'",
                     "nombre": "'Administracion y Seguridad de Redes'"
                 },
                 {
-                    "hora": "11:00",
+                    "cali": "95",
+                    "hora": "'11:00'",
                     "nombre": "'Telecomunicaciones'"
                 },
                 {
-                    "hora": "12:00",
+                    "cali": "98",
+                    "hora": "'12:00'",
                     "nombre": "'Sistemas Operativos'"
                 },
                 {
-                    "hora": "13:00",
+                    "cali": "100",
+                    "hora": "'13:00'",
                     "nombre": "'Introduccion a la Seguridad Informatica'"
                 },
                 {
-                    "hora": "14:00",
+                    "cali": "92",
+                    "hora": "'14:00'",
                     "nombre": "'Taller de Investigacion I'"
                 },
                 {
-                    "hora": "16:00",
+                    "cali": "96",
+                    "hora": "'16:00'",
                     "nombre": "'Redes Emergentes'"
-                }
+                },
                 {
-                    "hora": "18:00",
+                    "cali": "95",
+                    "hora": "'18:00'",
                     "nombre": "'Desarrollo de Aplicaciones para Dispositivos Moviles'"
                 }
             ]
         }
     </string>
-
     <string name="noControl">Control number</string>
     <string name="contrasena">Password</string>
     <string name="login">Log in</string>
