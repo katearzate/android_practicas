@@ -21,6 +21,40 @@
             ]
         }
     </string>
+    <string name="jsonMaterias">
+        {
+            "semestre6" : [
+                {
+                    "hora": "08:00",
+                    "nombre": "'Administracion y Seguridad de Redes'"
+                },
+                {
+                    "hora": "11:00",
+                    "nombre": "'Telecomunicaciones'"
+                },
+                {
+                    "hora": "12:00",
+                    "nombre": "'Sistemas Operativos'"
+                },
+                {
+                    "hora": "13:00",
+                    "nombre": "'Introduccion a la Seguridad Informatica'"
+                },
+                {
+                    "hora": "14:00",
+                    "nombre": "'Taller de Investigacion I'"
+                },
+                {
+                    "hora": "16:00",
+                    "nombre": "'Redes Emergentes'"
+                }
+                {
+                    "hora": "18:00",
+                    "nombre": "'Desarrollo de Aplicaciones para Dispositivos Moviles'"
+                }
+            ]
+        }
+    </string>
 
     <string name="noControl">Numero de control</string>
     <string name="contrasena">Contraseña</string>

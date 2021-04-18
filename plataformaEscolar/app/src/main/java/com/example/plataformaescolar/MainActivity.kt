@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.example.plataformaescolar.databinding.ActivityMainBinding
-import org.json.JSONException
 import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
@@ -18,10 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val miJson = resources.getString(R.string.jsonUsuarios)
-        val jsonUsuarios = JSONObject(miJson)                
+        val jsonUsuarios = JSONObject(miJson)
         val arrayUsuarios = jsonUsuarios.getJSONArray("usuarios")
-
-        //var jsonElement : JsonObject = JsonParser.parseString(Usuario.json).asJsonObject
 
         binding.btnLogin.setOnClickListener {
             val noControl = binding.noControlLogin.text.toString()
@@ -29,14 +26,13 @@ class MainActivity : AppCompatActivity() {
 
             var encontrado = false
             for (i in 0..(arrayUsuarios.length()-1)){
-                print("mensaje\n")
-                println(arrayUsuarios[i].toString())
-                val jsonUsuario1 = arrayUsuarios.getJSONObject(i)
-                if (jsonUsuario1.getString("noControl").trim().equals(noControl.trim())
-                        && jsonUsuario1.getString("contrasena").trim().equals(contrasena.trim())){
+                //println(arrayUsuarios[i].toString())
+                val jsonUsuario = arrayUsuarios.getJSONObject(i)
+                if (jsonUsuario.getString("noControl").trim().equals(noControl.trim())
+                        && jsonUsuario.getString("contrasena").trim().equals(contrasena.trim())){
                     encontrado = true
                     val intent = Intent(this, HomeActivity::class.java)
-                    intent.putExtra("usuario", jsonUsuario1.toString())
+                    intent.putExtra("usuario", jsonUsuario.toString())
                     startActivity(intent)
                     finish()
                 }
@@ -45,6 +41,8 @@ class MainActivity : AppCompatActivity() {
                 showAlert()
             }
 
+            //******* esto se utilizó para mandar llamar el elemento con companion object *********
+            //var jsonElement : JsonObject = JsonParser.parseString(Usuario.json).asJsonObject
             /*if((binding.contrasenaLogin.text.toString() == jsonElement.get("contrasena").asString) &&
                 (binding.noControlLogin.text.toString() == jsonElement.get("noControl").asString)){
                 val intent = Intent(this, HomeActivity::class.java)

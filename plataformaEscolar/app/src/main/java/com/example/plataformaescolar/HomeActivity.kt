@@ -16,6 +16,10 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        var stringUsuario = intent.getStringExtra("usuario")
+        println("*** USUARIO: ")
+        println(stringUsuario)
+
         binding.calificaciones.setOnClickListener {
             val intent = Intent(this, CalificacionesActivity::class.java)
             startActivity(intent)
@@ -33,6 +37,7 @@ class HomeActivity : AppCompatActivity() {
 
         binding.datosPersonales.setOnClickListener {
             val intent = Intent(this, DatosPersonalesActivity::class.java)
+            intent.putExtra("usuario", stringUsuario)
             startActivity(intent)
         }
 

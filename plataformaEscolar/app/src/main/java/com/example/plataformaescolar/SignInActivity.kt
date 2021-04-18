@@ -48,8 +48,8 @@ class SignInActivity : AppCompatActivity() {
             jsonBD.put("usuarios", usuarios)
 
             val intent = Intent(this, HomeActivity::class.java)
-            intent.putExtra("usuarioNvo", json.toString())
-            intent.putExtra("BDNva", jsonBD.toString())
+            intent.putExtra("usuario", json.toString())
+            intent.putExtra("BD", jsonBD.toString())
             startActivity(intent)
             finish()
         }
