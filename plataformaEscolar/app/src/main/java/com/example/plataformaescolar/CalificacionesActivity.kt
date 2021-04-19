@@ -16,6 +16,7 @@ class CalificacionesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCalificacionesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         val json = resources.getString(R.string.jsonMaterias)
         val jsonMaterias = JSONObject(json)
         val arrayMaterias = jsonMaterias.getJSONArray("semestre6")

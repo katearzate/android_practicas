@@ -27,31 +27,37 @@
                 {
                     "cali": "84",
                     "hora": "'14:00'",
+                    "cursando": "false",
                     "nombre": "'Fundamentos De Investigacion'"
                 },
                 {
                     "cali": "100",
                     "hora": "'15:00'",
+                    "cursando": "false",
                     "nombre": "'Taller De Etica'"
                 },
                 {
                     "cali": "88",
                     "hora": "'16:00'",
+                    "cursando": "false",
                     "nombre": "'Matematicas Discretas I'"
                 },
                 {
                     "cali": "81",
                     "hora": "'17:00'",
+                    "cursando": "false",
                     "nombre": "'Calculo Diferencial'"
                 },
                 {
                     "cali": "95",
                     "hora": "'18:00'",
+                    "cursando": "false",
                     "nombre": "'Fundamentos De Programacion'"
                 },
                 {
                     "cali": "86",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Introduccion A Las Tics'"
                 }
             ],
@@ -59,36 +65,43 @@
                 {
                     "cali": "100",
                     "hora": "'07:00'",
+                    "cursando": "false",
                     "nombre": "'Contabilidad Y Costos'"
                 },
                 {
                     "cali": "100",
                     "hora": "'08:00'",
+                    "cursando": "false",
                     "nombre": "'Calculo Integral'"
                 },
                 {
                     "cali": "95",
                     "hora": "'09:00'",
+                    "cursando": "false",
                     "nombre": "'Algebra Lineal'"
                 },
                 {
                     "cali": "81",
                     "hora": "'17:00'",
+                    "cursando": "false",
                     "nombre": "'Calculo Diferencial'"
                 },
                 {
                     "cali": "95",
                     "hora": "'18:00'",
+                    "cursando": "false",
                     "nombre": "'Probabilidad Y Estadistica'"
                 },
                 {
                     "cali": "100",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Matematicas Discretas II'"
                 },
                 {
                     "cali": "95",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Programacion Orientada A Objetos'"
                 }
             ],
@@ -96,31 +109,37 @@
                 {
                     "cali": "90",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Desarrollo Sustentable'"
                 },
                 {
                     "cali": "95",
                     "hora": "'16:00'",
+                    "cursando": "false",
                     "nombre": "'Estructuras Y Organizacion De Datos'"
                 },
                 {
                     "cali": "94",
                     "hora": "'17:00'",
+                    "cursando": "false",
                     "nombre": "'Matematicas Para La Toma De Decisiones'"
                 },
                 {
                     "cali": "93",
                     "hora": "'18:00'",
+                    "cursando": "false",
                     "nombre": "'Fundamentos De Base De Datos'"
                 },
                 {
                     "cali": "100",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Administracion Gerencial'"
                 },
                 {
                     "cali": "97",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Electricidad Y Magnetismo'"
                 }
             ],
@@ -128,31 +147,37 @@
                 {
                     "cali": "100",
                     "hora": "'14:00'",
+                    "cursando": "false",
                     "nombre": "'Circuitos Electricos Y Electronicos'"
                 },
                 {
                     "cali": "100",
                     "hora": "'15:00'",
+                    "cursando": "false",
                     "nombre": "'Matematicas Aplicadas A Comunicaciones'"
                 },
                 {
                     "cali": "98",
                     "hora": "'16:00'",
+                    "cursando": "false",
                     "nombre": "'Fundamentos De Redes'"
                 },
                 {
                     "cali": "98",
                     "hora": "'17:00'",
+                    "cursando": "false",
                     "nombre": "'Programacion II'"
                 },
                 {
                     "cali": "100",
                     "hora": "'18:00'",
+                    "cursando": "false",
                     "nombre": "'Ingenieria De Software'"
                 },
                 {
                     "cali": "100",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Taller De Base De Datos'"
                 }
             ],
@@ -160,31 +185,37 @@
                 {
                     "cali": "88",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Administracion De Proyectos'"
                 },
                 {
                     "cali": "90",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Arquitectura De Computadoras'"
                 },
                 {
                     "cali": "100",
                     "hora": "'16:00'",
+                    "cursando": "false",
                     "nombre": "'Redes De Computadoras'"
                 },
                 {
                     "cali": "100",
                     "hora": "'17:00'",
+                    "cursando": "false",
                     "nombre": "'Analisis De Señales Y Sistemas De Comunicacion'"
                 },
                 {
                     "cali": "100",
                     "hora": "'18:00'",
+                    "cursando": "false",
                     "nombre": "'Base De Datos Distribuidas'"
                 },
                 {
                     "cali": "100",
                     "hora": "'19:00'",
+                    "cursando": "false",
                     "nombre": "'Taller De Ingenieria De Software'"
                 }
             ],
@@ -192,57 +223,69 @@
                 {
                     "cali": "100",
                     "hora": "'09:00'",
+                    "cursando": "false",
                     "nombre": "'Programacion Web'"
                 },
                 {
                     "cali": "94",
                     "hora": "'09:00'",
+                    "cursando": "false",
                     "nombre": "'Tecnologias Inalambricas'"
                 },
                 {
                     "cali": "86",
                     "hora": "'07:00'",
+                    "cursando": "false",
                     "nombre": "'Desarrollo De Emprendedores'"
                 },
                 {
                     "cali": "100",
                     "hora": "'08:00'",
+                    "cursando": "false",
                     "nombre": "'Interaccion Humano Computadora'"
                 },
                 {
                     "cali": "95",
                     "hora": "'11:00'",
+                    "cursando": "true",
                     "nombre": "'Telecomunicaciones'"
                 },
                 {
                     "cali": "98",
                     "hora": "'13:00'",
+                    "cursando": "true",
                     "nombre": "'Sistemas Operativos I'"
                 }
             ],
             "semestre7" : [
                 {
                     "hora": "'12:00'",
+                    "cursando": "false",
                     "nombre": "'Sistemas Operativos II'"
                 },
                 {
                     "hora": "'13:00'",
+                    "cursando": "true",
                     "nombre": "'Introduccion a la Seguridad Informatica'"
                 },
                 {
                     "hora": "'14:00'",
+                    "cursando": "true",
                     "nombre": "'Taller De Investigacion I'"
                 },
                 {
                     "hora": "'16:00'",
+                    "cursando": "true",
                     "nombre": "'Redes Emergentes'"
                 },
                 {
                     "hora": "'17:00'",
+                    "cursando": "true",
                     "nombre": "'Negocios Electronicos I'"
                 },
                 {
                     "hora": "'18:00'",
+                    "cursando": "true",
                     "nombre": "'Desarrollo de Aplicaciones para Dispositivos Moviles'"
                 }
             ]
@@ -261,7 +304,7 @@
     <string name="semestre">Semestre</string>
     <string name="calificaciones">Calificaciones</string>
     <string name="horario">Horario</string>
-    <string name="reticula">Retícula</string>
+    <string name="reticula">Avance reticular</string>
     <string name="datosPersonales">Datos personales</string>
     <string name="btnSalir">Cerrar sesión</string>
 
@@ -271,6 +314,15 @@
     <string name="dia4">Jueves</string>
     <string name="dia5">Viernes</string>
 
+    <string-array name="numSemestres">
+        <item>Semester 1</item>
+        <item>Semester 2</item>
+        <item>Semester 3</item>
+        <item>Semester 4</item>
+        <item>Semester 5</item>
+        <item>Semester 6</item>
+        <item>Semester 7</item>
+    </string-array>
     <string name="act">Actualizar</string>
     <string name="regresar">Regresar</string>
 </resources>
