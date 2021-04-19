@@ -31,6 +31,9 @@ class AdapterReticula (val context: Context, val layout: Int, val lista: List<Ca
         calificacionRet.text = lista.get(position).calificacion
         nomMateriaRet.text = lista.get(position).nomMateriaCalificacion
 
+        if (calificacionRet.toString().trim() == "cursando"){
+            //miView.setBackgroundColor(R.color.morado)
+        }
         return miView
     }
 }
