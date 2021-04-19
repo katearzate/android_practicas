@@ -1,11 +1,14 @@
 package com.example.plataformaescolar.clases
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.plataformaescolar.R
 
 class AdapterReticula (val context: Context, val layout: Int, val lista: List<Calificacion>) : BaseAdapter(){
@@ -31,8 +34,12 @@ class AdapterReticula (val context: Context, val layout: Int, val lista: List<Ca
         calificacionRet.text = lista.get(position).calificacion
         nomMateriaRet.text = lista.get(position).nomMateriaCalificacion
 
-        if (calificacionRet.toString().trim() == "cursando"){
-            //miView.setBackgroundColor(R.color.morado)
+        val conjuntoRet = miView.findViewById<LinearLayout>(R.id.Reticulabackground)
+
+        if (calificacionRet.text.toString() == "cursando"){
+            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.cursando))
+        }else if(calificacionRet.text.toString() == "no cursada"){
+            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.sincursar))
         }
         return miView
     }

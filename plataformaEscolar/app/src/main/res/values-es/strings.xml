@@ -225,7 +225,7 @@
             "semestre7" : [
                 {
                     "hora": "'12:00'",
-                    "cali": "cursando",
+                    "cali": "'no cursada'",
                     "nombre": "'Sistemas Operativos II'"
                 },
                 {
@@ -245,7 +245,7 @@
                 },
                 {
                     "hora": "'17:00'",
-                    "cali": "cursando",
+                    "cali": "100",
                     "nombre": "'Negocios Electronicos I'"
                 },
                 {

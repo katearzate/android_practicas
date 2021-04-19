@@ -19,7 +19,7 @@ class CalificacionesActivity : AppCompatActivity() {
 
         val json = resources.getString(R.string.jsonMaterias)
         val jsonMaterias = JSONObject(json)
-        val arrayMaterias = jsonMaterias.getJSONArray("semestre6")
+        val arrayMaterias = jsonMaterias.getJSONArray("semestre5")
 
         val lista : MutableList<Calificacion> = mutableListOf()
 

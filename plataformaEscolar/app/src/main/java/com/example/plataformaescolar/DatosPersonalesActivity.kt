@@ -41,6 +41,7 @@ class DatosPersonalesActivity : AppCompatActivity() {
 
         binding.btnRegresar.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("usuario", jsonUsuarioEdit.toString())
             startActivity(intent)
             finish()
         }
@@ -51,9 +52,8 @@ class DatosPersonalesActivity : AppCompatActivity() {
         var jsonElement : JsonObject = JsonParser.parseString(Usuario.json).asJsonObject
         binding.numeroControlDP.text = "" + jsonElement.get("noControl").asString
         binding.nombreDP.text = "" + jsonElement.get("nombre").asString
-        binding.carreraDP.text = "" + jsonElement.get("carrera").asString
-        binding.semestreDP.text = "" + jsonElement.get("semestre").asString
-        binding.contrasenaDP.text = "" + jsonElement.get("contrasena").asString
   */
     }
 }
+
+
