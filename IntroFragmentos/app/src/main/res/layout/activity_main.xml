@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="125dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#137373">
+
+        <EditText
+            android:id="@+id/editMsgActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Mensaje"/>
+
+        <Button
+            android:id="@+id/btnActivity"
+            android:text="Enviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.introfragmentos.BlankFragment"
+        android:layout_width="125dp"
+        android:layout_height="match_parent" />
+
+    <fragment
+        android:id="@+id/simpleFrag"
+        android:name="com.example.introfragmentos.SimpleFragment"
+        android:layout_width="125dp"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
