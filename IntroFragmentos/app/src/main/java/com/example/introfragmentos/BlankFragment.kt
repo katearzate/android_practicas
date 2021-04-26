@@ -10,27 +10,9 @@ import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class BlankFragment : Fragment() {
     
-    //private val viewModel: FragmentsViewModel by activityViewModels()
-    //private var model: BetweenFragViewModel?=null
-
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-
-            println("Param1: $param1")
-            println("Param2: $param2")
-        }
-    }
+    private val viewModel: FragActViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,20 +24,16 @@ class BlankFragment : Fragment() {
         val editFragmento = view.findViewById<EditText>(R.id.editMsgFragment)
         val btnFragmento = view.findViewById<Button>(R.id.btnFragment)
 
-        param1?.let {
-            val texto = "El activity dice: $it"
-            editFragmento.setText(texto)
-        }
-
-        param2?.let {
-            println("Parametro 2: $it")
-        }
-
-        //model = activity?.let { ViewModelProvider(it).get(BetweenFragViewModel::class.java) }
-      /*  viewModel.editTextActivity.observe(viewLifecycleOwner, Observer {
+        /*model = activity?.let { ViewModelProvider(it).get(BetweenFragViewModel::class.java) }
+        viewModel.editTextActivity.observe(viewLifecycleOwner, Observer {
             texto -> editFragmento.setText(texto)
         })
-*/
+        */
+
+        viewModel.editMensajeAct.observe(viewLifecycleOwner, Observer {
+            texto -> editFragmento.setText(texto)
+        })
+
         btnFragmento.setOnClickListener {
             val texto = "Fragmento 1 dijo: ${editFragmento.text}"
             editFragmento.setText(null)
@@ -69,14 +47,4 @@ class BlankFragment : Fragment() {
         return view
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BlankFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

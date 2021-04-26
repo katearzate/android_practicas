@@ -5,17 +5,26 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.viewModels
+import androidx.lifecycle.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: FragmentsViewModel by viewModels()
+    private val viewModel: FragActViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val fragmento = supportFragmentManager.findFragmentById(R.id.fragment) as BlankFragment
         val editActivity = findViewById<EditText>(R.id.editMsgActivity)
         val btnActivity = findViewById<Button>(R.id.btnActivity)
+
+        btnActivity.setOnClickListener {
+            editActivity.text.let {
+                viewModel.setMessage("Fragmento 2 dijo: ${it}")
+            }
+            editActivity.setText("")
+        }
 
         /*
         *******    METODO 1 : Forzar a reiniciar el ciclo de creacion   **********
@@ -45,17 +54,6 @@ class MainActivity : AppCompatActivity() {
         **************************************************************************
 
         }*/
-
-
-        val fragmento = supportFragmentManager.findFragmentById(R.id.fragment) as BlankFragment
-        btnActivity.setOnClickListener {
-            editActivity.text.let {
-                viewModel.setMessage("Activity dijo: ${it}")
-            }
-            editActivity.setText("")
-            fragmento.activity?.findViewById<EditText>(R.id.editMsgFragment)
-            //viewModel.setText(texto)
-        }
 
     }
 

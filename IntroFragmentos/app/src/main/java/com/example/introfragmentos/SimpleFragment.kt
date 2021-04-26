@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 
 class SimpleFragment : Fragment() {
+
+    private val viewModel: FragActViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,10 +25,15 @@ class SimpleFragment : Fragment() {
         val btnFrag2 = view.findViewById<Button>(R.id.btnFrag2)
 
         btnFrag2.setOnClickListener {
-            val texto = "Fragmento 2 dijo: ${editFrag2.text}"
-            editFrag2.text = null
+            editFrag2.text.let {
+                viewModel.setMessage("Fragmento 2 dijo: ${it}")
+            }
+            editFrag2.setText("")
 
+            /*val texto = "Fragmento 2 dijo: ${editFrag2.text}"
+            editFrag2.text = null
             activity?.findViewById<EditText>(R.id.editMsgActivity)?.setText(texto)
+             */
         }
 
         return view
