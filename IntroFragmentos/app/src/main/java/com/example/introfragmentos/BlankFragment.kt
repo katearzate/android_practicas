@@ -7,20 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [BlankFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class BlankFragment : Fragment() {
     
-    private val viewModel: ActivityViewModel by ActivityViewModel()
+    //private val viewModel: FragmentsViewModel by activityViewModels()
+    //private var model: BetweenFragViewModel?=null
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -29,11 +26,15 @@ class BlankFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+
+            println("Param1: $param1")
+            println("Param2: $param2")
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_blank, container, false)
@@ -50,6 +51,11 @@ class BlankFragment : Fragment() {
             println("Parametro 2: $it")
         }
 
+        //model = activity?.let { ViewModelProvider(it).get(BetweenFragViewModel::class.java) }
+      /*  viewModel.editTextActivity.observe(viewLifecycleOwner, Observer {
+            texto -> editFragmento.setText(texto)
+        })
+*/
         btnFragmento.setOnClickListener {
             val texto = "Fragmento 1 dijo: ${editFragmento.text}"
             editFragmento.setText(null)
@@ -57,8 +63,9 @@ class BlankFragment : Fragment() {
             val frag2 = activity?.supportFragmentManager?.findFragmentById(R.id.simpleFrag)
             val editFrag2 = frag2?.activity?.findViewById<EditText>(R.id.editMsgFrag2)
             editFrag2?.setText(texto)
-        }
+            //model!!.setMensajeComunicador(editFragmento.text.toString())
 
+        }
         return view
     }
 

@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: ActivityViewModel by vie
+    private val viewModel: FragmentsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +31,8 @@ class MainActivity : AppCompatActivity() {
             transaccion.commit()    //terminar transaccion
         **************************************************************************
         *
-        }*/
+        }
 
-
-        /*
         *******    METODO 2 :    **********
 
         val fragmento = supportFragmentManager.findFragmentById(R.id.fragment) as BlankFragment
@@ -44,15 +43,18 @@ class MainActivity : AppCompatActivity() {
             val editFragmento = fragmento.activity?.findViewById<EditText>(R.id.editMsgFragment)
             editFragmento?.setText(texto)
         **************************************************************************
-        *
+
         }*/
 
+
         val fragmento = supportFragmentManager.findFragmentById(R.id.fragment) as BlankFragment
-
-
         btnActivity.setOnClickListener {
-            val texto = "Activity dijo: ${editActivity.text}"
-            viewModel.setText(texto)
+            editActivity.text.let {
+                viewModel.setMessage("Activity dijo: ${it}")
+            }
+            editActivity.setText("")
+            fragmento.activity?.findViewById<EditText>(R.id.editMsgFragment)
+            //viewModel.setText(texto)
         }
 
     }
