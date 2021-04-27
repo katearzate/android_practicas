@@ -35,10 +35,6 @@ class ActivityFragment : Fragment() {
 
 
         binding.btnEnviarFragment1.setOnClickListener {
-            /*childFragmentManager.setFragmentResult("bundleKey", bundleOf(
-                "Fragmento 1 dijo: ${binding.editMensajeFragment1.text}"))
-            */
-
             val result = "Fragmento 1 dijo que: ${binding.editMensajeFragment1.text}"
             childFragmentManager.setFragmentResult("TextoBundle", bundleOf("bundleKey" to result))
 
@@ -47,6 +43,18 @@ class ActivityFragment : Fragment() {
         }
 
 
+        /*
+        ************ Otro metodo para comunicarse con el sig. fragmento ************
+        btnFragmento.setOnClickListener {
+            val texto = "Fragmento 1 dijo: ${binding.editMensajeFragment1.text}"
+            binding.editMensajeFragment1.setText(null)
+
+            val frag2 = activity?.supportFragmentManager?.findFragmentById(R.id.FragmentFragment)
+            val editFrag2 = frag2?.activity?.findViewById<EditText>(R.id.binding.editMensajeFragment1)
+            editFrag2?.setText(texto)
+        }
+        * **************************************************************************
+         */
 
 
         return binding.root

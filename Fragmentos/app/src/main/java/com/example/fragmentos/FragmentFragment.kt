@@ -28,12 +28,8 @@ class FragmentFragment : Fragment() {
             //println(result)
         }
 
-        companion object {
-
-        }
-
         binding.btnEnviarFragment2.setOnClickListener {
-
+            //Implementar envio del texto de nuevo al mainActivity
         }
 
 

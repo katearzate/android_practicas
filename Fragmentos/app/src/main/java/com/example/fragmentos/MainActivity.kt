@@ -22,5 +22,35 @@ class MainActivity : AppCompatActivity() {
             binding.editMensajeActivity.setText("")
         }
 
+        /*
+        *******    METODO 1 : Forzar a reiniciar el ciclo de creacion   **********
+
+        binding.btnEnviarActivity.setOnClickListener {
+            val texto = binding.editMensajeActivity.text.toString()
+            binding.editMensajeActivity.setText("")
+
+            val fragmento = BlankFragment.newInstance(texto, "param2")
+
+            val transaccion = supportFragmentManager.beginTransaction()
+            transaccion.replace(R.id.fragment1, fragmento)
+            transaccion.commit()    //terminar transaccion
+        **************************************************************************
+        *
+        }
+
+
+        **********    METODO 2 : Utilizar supportFragmentManager   **********
+
+        val fragmento = supportFragmentManager.findFragmentById(R.id.fragment) as BlankFragment
+        binding.btnEnviarActivity.setOnClickListener {
+            val texto = "Activity dijo: ${binding.editMensajeActivity.text}"
+            binding.editMensajeActivity.setText("")
+
+            val editFragmento = fragmento.activity?.findViewById<EditText>(R.id.editMensajeActivity)
+            editFragmento?.setText(texto)
+        **************************************************************************
+        *
+        }*/
+
     }
 }
