@@ -281,6 +281,14 @@
     <string name="dia4">Thursday</string>
     <string name="dia5">Friday</string>
 
+    <string-array name="diasDeLaSemana">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+    </string-array>
+
     <string-array name="numSemestres">
         <item>Semestre 1</item>
         <item>Semestre 2</item>
