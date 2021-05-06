@@ -26,232 +26,322 @@
             "semestre1" : [
                 {
                     "cali": "84",
-                    "hora": "'14:00'",
                     "nombre": "'Fundamentos De Investigacion'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'15:00'",
                     "nombre": "'Taller De Etica'"
                 },
                 {
                     "cali": "88",
-                    "hora": "'16:00'",
                     "nombre": "'Matematicas Discretas I'"
                 },
                 {
                     "cali": "81",
-                    "hora": "'17:00'",
                     "nombre": "'Calculo Diferencial'"
                 },
                 {
                     "cali": "95",
-                    "hora": "'18:00'",
                     "nombre": "'Fundamentos De Programacion'"
                 },
                 {
                     "cali": "86",
-                    "hora": "'19:00'",
                     "nombre": "'Introduccion A Las Tics'"
                 }
             ],
             "semestre2" : [
                 {
                     "cali": "100",
-                    "hora": "'07:00'",
                     "nombre": "'Contabilidad Y Costos'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'08:00'",
                     "nombre": "'Calculo Integral'"
                 },
                 {
                     "cali": "95",
-                    "hora": "'09:00'",
                     "nombre": "'Algebra Lineal'"
                 },
                 {
                     "cali": "81",
-                    "hora": "'17:00'",
                     "nombre": "'Calculo Diferencial'"
                 },
                 {
                     "cali": "95",
-                    "hora": "'18:00'",
                     "nombre": "'Probabilidad Y Estadistica'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'19:00'",
                     "nombre": "'Matematicas Discretas II'"
                 },
                 {
                     "cali": "95",
-                    "hora": "'19:00'",
                     "nombre": "'Programacion Orientada A Objetos'"
                 }
             ],
             "semestre3" : [
                 {
                     "cali": "90",
-                    "hora": "'19:00'",
                     "nombre": "'Desarrollo Sustentable'"
                 },
                 {
                     "cali": "95",
-                    "hora": "'16:00'",
                     "nombre": "'Estructuras Y Organizacion De Datos'"
                 },
                 {
                     "cali": "94",
-                    "hora": "'17:00'",
                     "nombre": "'Matematicas Para La Toma De Decisiones'"
                 },
                 {
                     "cali": "93",
-                    "hora": "'18:00'",
                     "nombre": "'Fundamentos De Base De Datos'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'19:00'",
                     "nombre": "'Administracion Gerencial'"
                 },
                 {
                     "cali": "97",
-                    "hora": "'19:00'",
                     "nombre": "'Electricidad Y Magnetismo'"
                 }
             ],
             "semestre4" : [
                 {
                     "cali": "100",
-                    "hora": "'14:00'",
                     "nombre": "'Circuitos Electricos Y Electronicos'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'15:00'",
                     "nombre": "'Matematicas Aplicadas A Comunicaciones'"
                 },
                 {
                     "cali": "98",
-                    "hora": "'16:00'",
                     "nombre": "'Fundamentos De Redes'"
                 },
                 {
                     "cali": "98",
-                    "hora": "'17:00'",
                     "nombre": "'Programacion II'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'18:00'",
                     "nombre": "'Ingenieria De Software'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'19:00'",
                     "nombre": "'Taller De Base De Datos'"
                 }
             ],
             "semestre5" : [
                 {
                     "cali": "88",
-                    "hora": "'19:00'",
                     "nombre": "'Administracion De Proyectos'"
                 },
                 {
                     "cali": "90",
-                    "hora": "'19:00'",
                     "nombre": "'Arquitectura De Computadoras'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'16:00'",
                     "nombre": "'Redes De Computadoras'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'17:00'",
                     "nombre": "'Analisis De Señales Y Sistemas De Comunicacion'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'18:00'",
                     "nombre": "'Base De Datos Distribuidas'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'19:00'",
                     "nombre": "'Taller De Ingenieria De Software'"
                 }
             ],
             "semestre6" : [
                 {
                     "cali": "100",
-                    "hora": "'09:00'",
                     "nombre": "'Programacion Web'"
                 },
                 {
                     "cali": "94",
-                    "hora": "'09:00'",
-                    "nombre": "'Tecnologias Inalambricas'"
+                    "nombre": "'Tecnologias Inalambricas'",
+                    "creditos": 5,
+                    "horario": [
+                        {
+                            "profesor": "'Ireri Rojas'",
+                            "aula": "F1",
+                            "martes": "09:00-11:00",
+                            "jueves": "09:00-11:00",
+                        }
+                    ]
                 },
                 {
                     "cali": "86",
-                    "hora": "'07:00'",
                     "nombre": "'Desarrollo De Emprendedores'"
                 },
                 {
                     "cali": "100",
-                    "hora": "'08:00'",
                     "nombre": "'Interaccion Humano Computadora'"
                 },
                 {
-                    "cali": "95",
-                    "hora": "'11:00'",
-                    "cali": "cursando",
-                    "nombre": "'Telecomunicaciones'"
+                    "cali": "no cursada",
+                    "nombre": "'Telecomunicaciones'",
+                    "creditos": 4,
+                    "horario": [
+                        {
+                            "profesor": "'Ireri Rojas'",
+                            "aula": "F1",
+                            "lunes": "11:00-12:00",
+                            "martes": "11:00-12:00",
+                            "miercoles": "11:00-12:00",
+                            "jueves": "11:00-12:00",
+                            "viernes": "11:00-12:00"
+                        },
+                        {
+                            "profesor": "'Cristhian Millarez'",
+                            "aula": "F2",
+                            "lunes": "10:00-11:00",
+                            "martes": "10:00-11:00",
+                            "miercoles": "10:00-11:00",
+                            "jueves": "10:00-11:00",
+                            "viernes": "10:00-11:00"
+                        }
+                    ]
                 },
                 {
-                    "cali": "98",
-                    "hora": "'13:00'",
-                    "cali": "cursando",
-                    "nombre": "'Sistemas Operativos I'"
+                    "cali": "'no cursada'",
+                    "nombre": "'Sistemas Operativos I'",
+                    "creditos": 5,
+                    "horario": [
+                        {
+                            "profesor": "'Omar Hernandez'",
+                            "aula": "F1",
+                            "lunes": "12:00-13:00",
+                            "martes": "12:00-13:00",
+                            "jueves": "12:00-13:00",
+                            "viernes": "12:00-13:00"
+                        },
+                        {
+                            "profesor": "'Cristhian Millarez'",
+                            "aula": "F2",
+                            "lunes": "08:00-09:00",
+                            "martes": "08:00-09:00",
+                            "miercoles": "08:00-09:00",
+                            "jueves": "08:00-09:00"
+                        }
+                    ]
                 }
             ],
             "semestre7" : [
                 {
-                    "hora": "'12:00'",
                     "cali": "'no cursada'",
                     "nombre": "'Sistemas Operativos II'"
                 },
                 {
-                    "hora": "'13:00'",
-                    "cali": "cursando",
-                    "nombre": "'Introduccion a la Seguridad Informatica'"
+                    "cali": "'no cursada'",
+                    "nombre": "'Introduccion a la Seguridad Informatica'",
+                    "creditos": 5,
+                    "horario": [
+                        {
+                            "profesor": "'Anastacio Antolino'",
+                            "aula": "F1",
+                            "lunes": "13:00-14:00",
+                            "martes": "13:00-14:00",
+                            "miercoles": "13:00-14:00",
+                            "jueves": "13:00-14:00",
+                            "viernes": "13:00-14:00"
+                        }
+                    ]
                 },
                 {
-                    "hora": "'14:00'",
-                    "cali": "cursando",
-                    "nombre": "'Taller De Investigacion I'"
+                    "cali": "'no cursada'",
+                    "nombre": "'Taller De Investigacion I'",
+                    "creditos": 5,
+                    "horario": [
+                        {
+                            "profesor": "'Octavio Ortiz'",
+                            "aula": "F1",
+                            "lunes": "14:00-15:00",
+                            "martes": "14:00-15:00",
+                            "miercoles": "14:00-15:00",
+                            "jueves": "14:00-15:00"
+                        },
+                        {
+                            "profesor": "'Octavio Ortiz'",
+                            "aula": "F2",
+                            "lunes": "15:00-16:00",
+                            "martes": "15:00-16:00",
+                            "miercoles": "15:00-16:00",
+                            "jueves": "15:00-16:00"
+                        }
+                    ]
                 },
                 {
-                    "hora": "'16:00'",
-                    "cali": "cursando",
-                    "nombre": "'Redes Emergentes'"
+                    "cali": "'no cursada'",
+                    "nombre": "'Redes Emergentes'",
+                    "creditos": 5,
+                    "horario": [
+                        {
+                            "profesor": "'Jorge Mora'",
+                            "aula": "F1",
+                            "lunes": "16:00-17:00",
+                            "martes": "16:00-17:00",
+                            "miercoles": "16:00-17:00",
+                            "jueves": "16:00-17:00",
+                            "viernes": "16:00-17:00"
+                        },
+                        {
+                            "profesor": "'Jorge Mora'",
+                            "aula": "F2",
+                            "lunes": "15:00-16:00",
+                            "martes": "15:00-16:00",
+                            "miercoles": "15:00-16:00",
+                            "jueves": "15:00-16:00",
+                            "viernes": "15:00-16:00"
+                        }
+                    ]
                 },
                 {
-                    "hora": "'17:00'",
-                    "cali": "100",
-                    "nombre": "'Negocios Electronicos I'"
+                    "cali": "'no cursada'",
+                    "nombre": "'Negocios Electronicos I'",
+                    "creditos": 5,
+                    "horario": [
+                        {
+                            "profesor": "'Omar Hernandez'",
+                            "aula": "F2",
+                            "lunes": "19:00-20:00",
+                            "miercoles": "19:00-20:00",
+                            "jueves": "19:00-20:00"
+                        },
+                        {
+                            "profesor": "'Claudio Forian'",
+                            "aula": "F3",
+                            "miercoles": "18:00-19:00",
+                            "jueves": "18:00-19:00",
+                            "viernes": "18:00-19:00"
+                        }
+                    ]
                 },
                 {
-                    "hora": "'18:00'",
-                    "cali": "cursando",
-                    "nombre": "'Desarrollo de Aplicaciones para Dispositivos Moviles'"
+                    "cali": "'no cursada'",
+                    "nombre": "'Desarrollo de Aplicaciones para Dispositivos Moviles'",
+                    "creditos": 5,
+                    "horario": [
+                        {
+                            "profesor": "'Alejandro Amaro'",
+                            "aula": "LIS",
+                            "lunes": "18:00-19:00",
+                            "miercoles": "18:00-20:00",
+                            "jueves": "18:00-20:00"
+                        },
+                        {
+                            "profesor": "'Alejandro Amaro'",
+                            "aula": "LIS",
+                            "lunes": "19:00-20:00",
+                            "miercoles": "16:00-18:00",
+                            "jueves": "16:00-18:00"
+                        }
+                    ]
                 }
             ]
         }
@@ -272,12 +362,6 @@
     <string name="reticula">Avance reticular</string>
     <string name="datosPersonales">Datos personales</string>
     <string name="btnSalir">Cerrar sesión</string>
-
-    <string name="dia1">Lunes</string>
-    <string name="dia2">Martes</string>
-    <string name="dia3">Miercoles</string>
-    <string name="dia4">Jueves</string>
-    <string name="dia5">Viernes</string>
 
     <string-array name="diasDeLaSemana">
         <item>Lunes</item>
