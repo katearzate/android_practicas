@@ -357,6 +357,8 @@
     <string name="nombre">Nombre</string>
     <string name="carrera">Carrera</string>
     <string name="semestre">Semestre</string>
+
+    <string name="eleccion">Eleeción de materias</string>
     <string name="calificaciones">Calificaciones</string>
     <string name="horario">Horario</string>
     <string name="reticula">Avance reticular</string>

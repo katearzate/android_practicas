@@ -17,8 +17,11 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         var stringUsuario = intent.getStringExtra("usuario")
-        //println("*** USUARIO: ")
-        //println(stringUsuario)
+
+        binding.eleccion.setOnClickListener {
+            val intent = Intent(this, EleccionActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.calificaciones.setOnClickListener {
             val intent = Intent(this, CalificacionesActivity::class.java)

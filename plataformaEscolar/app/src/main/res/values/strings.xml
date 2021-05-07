@@ -358,6 +358,7 @@
     <string name="carrera">Career</string>
     <string name="semestre">Semester</string>
 
+    <string name="eleccion">Choice of subjects</string>
     <string name="calificaciones">Scores</string>
     <string name="horario">Schedule</string>
     <string name="reticula">Progress</string>
