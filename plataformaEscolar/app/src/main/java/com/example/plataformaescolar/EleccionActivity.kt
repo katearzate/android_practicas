@@ -12,6 +12,6 @@ class EleccionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityEleccionBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        
+
     }
 }
