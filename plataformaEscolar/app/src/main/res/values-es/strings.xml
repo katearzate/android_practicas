@@ -191,20 +191,20 @@
                         {
                             "profesor": "'Ireri Rojas'",
                             "aula": "F1",
-                            "lunes": "11:00-12:00",
-                            "martes": "11:00-12:00",
-                            "miercoles": "11:00-12:00",
-                            "jueves": "11:00-12:00",
-                            "viernes": "11:00-12:00"
+                            "lunes": "'11:00-12:00'",
+                            "martes": "'11:00-12:00'",
+                            "miercoles": "'11:00-12:00'",
+                            "jueves": "'11:00-12:00'",
+                            "viernes": "'11:00-12:00'"
                         },
                         {
                             "profesor": "'Cristhian Millarez'",
                             "aula": "F2",
-                            "lunes": "10:00-11:00",
-                            "martes": "10:00-11:00",
-                            "miercoles": "10:00-11:00",
-                            "jueves": "10:00-11:00",
-                            "viernes": "10:00-11:00"
+                            "lunes": "'10:00-11:00'",
+                            "martes": "'10:00-11:00'",
+                            "miercoles": "'10:00-11:00'",
+                            "jueves": "'10:00-11:00'",
+                            "viernes": "'10:00-11:00'"
                         }
                     ]
                 },
@@ -216,18 +216,18 @@
                         {
                             "profesor": "'Omar Hernandez'",
                             "aula": "F1",
-                            "lunes": "12:00-13:00",
-                            "martes": "12:00-13:00",
-                            "jueves": "12:00-13:00",
-                            "viernes": "12:00-13:00"
+                            "lunes": "'12:00-13:00'",
+                            "martes": "'12:00-13:00'",
+                            "jueves": "'12:00-13:00'",
+                            "viernes": "'12:00-13:00'"
                         },
                         {
                             "profesor": "'Cristhian Millarez'",
                             "aula": "F2",
-                            "lunes": "08:00-09:00",
-                            "martes": "08:00-09:00",
-                            "miercoles": "08:00-09:00",
-                            "jueves": "08:00-09:00"
+                            "lunes": "'08:00-09:00'",
+                            "martes": "'08:00-09:00'",
+                            "miercoles": "'08:00-09:00'",
+                            "jueves": "'08:00-09:00'"
                         }
                     ]
                 }
@@ -245,11 +245,11 @@
                         {
                             "profesor": "'Anastacio Antolino'",
                             "aula": "F1",
-                            "lunes": "13:00-14:00",
-                            "martes": "13:00-14:00",
-                            "miercoles": "13:00-14:00",
-                            "jueves": "13:00-14:00",
-                            "viernes": "13:00-14:00"
+                            "lunes": "'13:00-14:00'",
+                            "martes": "'13:00-14:00'",
+                            "miercoles": "'13:00-14:00'",
+                            "jueves": "'13:00-14:00'",
+                            "viernes": "'13:00-14:00'"
                         }
                     ]
                 },
@@ -261,18 +261,18 @@
                         {
                             "profesor": "'Octavio Ortiz'",
                             "aula": "F1",
-                            "lunes": "14:00-15:00",
-                            "martes": "14:00-15:00",
-                            "miercoles": "14:00-15:00",
-                            "jueves": "14:00-15:00"
+                            "lunes": "'14:00-15:00'",
+                            "martes": "'14:00-15:00'",
+                            "miercoles": "'14:00-15:00'",
+                            "jueves": "'14:00-15:00'"
                         },
                         {
                             "profesor": "'Octavio Ortiz'",
                             "aula": "F2",
-                            "lunes": "15:00-16:00",
-                            "martes": "15:00-16:00",
-                            "miercoles": "15:00-16:00",
-                            "jueves": "15:00-16:00"
+                            "lunes": "'15:00-16:00'",
+                            "martes": "'15:00-16:00'",
+                            "miercoles": "'15:00-16:00'",
+                            "jueves": "'15:00-16:00'"
                         }
                     ]
                 },
@@ -284,20 +284,20 @@
                         {
                             "profesor": "'Jorge Mora'",
                             "aula": "F1",
-                            "lunes": "16:00-17:00",
-                            "martes": "16:00-17:00",
-                            "miercoles": "16:00-17:00",
-                            "jueves": "16:00-17:00",
-                            "viernes": "16:00-17:00"
+                            "lunes": "'16:00-17:00'",
+                            "martes": "'16:00-17:00'",
+                            "miercoles": "'16:00-17:00'",
+                            "jueves": "'16:00-17:00'",
+                            "viernes": "'16:00-17:00'"
                         },
                         {
                             "profesor": "'Jorge Mora'",
                             "aula": "F2",
-                            "lunes": "15:00-16:00",
-                            "martes": "15:00-16:00",
-                            "miercoles": "15:00-16:00",
-                            "jueves": "15:00-16:00",
-                            "viernes": "15:00-16:00"
+                            "lunes": "'15:00-16:00'",
+                            "martes": "'15:00-16:00'",
+                            "miercoles": "'15:00-16:00'",
+                            "jueves": "'15:00-16:00'",
+                            "viernes": "'15:00-16:00'"
                         }
                     ]
                 },
@@ -309,16 +309,16 @@
                         {
                             "profesor": "'Omar Hernandez'",
                             "aula": "F2",
-                            "lunes": "19:00-20:00",
-                            "miercoles": "19:00-20:00",
-                            "jueves": "19:00-20:00"
+                            "lunes": "'19:00-20:00'",
+                            "miercoles": "'19:00-20:00'",
+                            "jueves": "'19:00-20:00'"
                         },
                         {
                             "profesor": "'Claudio Forian'",
                             "aula": "F3",
-                            "miercoles": "18:00-19:00",
-                            "jueves": "18:00-19:00",
-                            "viernes": "18:00-19:00"
+                            "miercoles": "'18:00-19:00'",
+                            "jueves": "'18:00-19:00'",
+                            "viernes": "'18:00-19:00'"
                         }
                     ]
                 },
@@ -330,16 +330,16 @@
                         {
                             "profesor": "'Alejandro Amaro'",
                             "aula": "LIS",
-                            "lunes": "18:00-19:00",
-                            "miercoles": "18:00-20:00",
-                            "jueves": "18:00-20:00"
+                            "lunes": "'18:00-19:00'",
+                            "miercoles": "'18:00-20:00'",
+                            "jueves": "'18:00-20:00'"
                         },
                         {
                             "profesor": "'Alejandro Amaro'",
                             "aula": "LIS",
-                            "lunes": "19:00-20:00",
-                            "miercoles": "16:00-18:00",
-                            "jueves": "16:00-18:00"
+                            "lunes": "'19:00-20:00'",
+                            "miercoles": "'16:00-18:00'",
+                            "jueves": "'16:00-18:00'"
                         }
                     ]
                 }
@@ -381,6 +381,8 @@
         <item>Semester 5</item>
         <item>Semester 6</item>
         <item>Semester 7</item>
+        <item>Semester 8</item>
+        <item>Semester 9</item>
     </string-array>
     <string name="act">Actualizar</string>
     <string name="regresar">Regresar</string>

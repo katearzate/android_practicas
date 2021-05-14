@@ -28,44 +28,6 @@ class HorarioActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener 
         val lista : MutableList<Materia> = mutableListOf()
         diaDeLaSemana = resources.getStringArray(R.array.diasDeLaSemana)[p2]
 
-        when(p2){
-            0-> {
-
-                lista.add(Materia("08:00", "Administracion y Seguridad de Redes"))
-                lista.add(Materia("10:00","Redes de Computadoras"))
-                lista.add(Materia("13:00","Telecomunicaciones"))
-                lista.add(Materia("14:00","Sistemas Operativos"))
-                lista.add(Materia("15:00", "Introduccion a la Seguridad Informatica"))
-                lista.add(Materia("17:00", "Desarrollo de Dispositivos Moviles"))
-                //binding.listViewDiaLaboral.adapter = AdapterMaterias(this, R.layout.lista_materias, lista)
-            }
-            1 -> {
-                lista.add(Materia("08:00", "Administracion y Seguridad de Redes"))
-                lista.add(Materia("09:00","Redes de Computadoras"))
-                lista.add(Materia("13:00","Telecomunicaciones"))
-                lista.add(Materia("14:00","Sistemas Operativos"))
-                lista.add(Materia("17:00", "Desarrollo de Dispositivos Moviles"))
-            }
-            2 -> {
-                lista.add(Materia("10:00","Redes de computadoras"))
-                lista.add(Materia("13:00","Telecomunicaciones"))
-                lista.add(Materia("14:00","Sistemas operativos"))
-                lista.add(Materia("15:00", "Introduccion a la Seguridad Informatica"))
-            }
-            3 -> {
-                lista.add(Materia("08:00", "Administracion y Seguridad de Redes"))
-                lista.add(Materia("09:00","Redes de Computadoras"))
-                lista.add(Materia("13:00","Telecomunicaciones"))
-                lista.add(Materia("14:00","Sistemas Operativos"))
-                lista.add(Materia("17:00", "Desarrollo de Dispositivos Moviles"))
-            }
-            4 -> {
-                lista.add(Materia("09:00","Redes de Computadoras"))
-                lista.add(Materia("13:00","Telecomunicaciones"))
-                lista.add(Materia("14:00","Sistemas Operativos"))
-            }
-        }
-        binding.listViewDiaLaboral.adapter = AdapterMaterias(this, R.layout.lista_materias, lista)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
