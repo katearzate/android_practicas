@@ -17,6 +17,14 @@ class HomeActivity : AppCompatActivity() {
 
         var stringUsuario = intent.getStringExtra("usuario")
 
+
+        binding.btnHomeDatosPersonales.setOnClickListener {
+            val intent = Intent(this, DatosPersonalesActivity::class.java)
+            intent.putExtra("usuario", stringUsuario)
+            startActivity(intent)
+            finish()
+        }
+
         binding.btnHomeSalir.setOnClickListener {
             intent.putExtra("usuario", stringUsuario)
             val intent = Intent(this, LoginActivity::class.java)
