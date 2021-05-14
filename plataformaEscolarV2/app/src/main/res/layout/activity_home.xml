@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity"
+    android:orientation="vertical"
+    android:padding="75dp"
+    android:gravity="center_vertical">
+
+    <Button
+        android:id="@+id/btnHomeEleccion"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Elección de materias"
+        android:layout_marginBottom="25dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#052925"/>
+
+    <Button
+        android:id="@+id/btnHomeCalificaciones"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Calificaciones"
+        android:layout_marginBottom="25dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnHomeHorario"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Horario"
+        android:layout_marginBottom="25dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnHomeReticula"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Retícula"
+        android:layout_marginBottom="25dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnHomeDatosPersonales"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Datos personales"
+        android:layout_marginBottom="25dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnHomeSalir"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Salir"
+        android:layout_gravity="center"
+        android:backgroundTint="#801818"/>
+
+</LinearLayout>
