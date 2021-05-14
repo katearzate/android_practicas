@@ -22,4 +22,111 @@
         }
     </string>
 
+    <string name="jsonMaterias">
+        {
+            "semestre1" : [
+                {
+                    "cali": "84",
+                    "nombre": "'Fundamentos De Investigacion'"
+                },
+                {
+                    "cali": "100",
+                    "nombre": "'Taller De Etica'"
+                },
+                {
+                    "cali": "88",
+                    "nombre": "'Matematicas Discretas I'"
+                },
+                {
+                    "cali": "81",
+                    "nombre": "'Calculo Diferencial'"
+                },
+                {
+                    "cali": "95",
+                    "nombre": "'Fundamentos De Programacion'"
+                },
+                {
+                    "cali": "86",
+                    "nombre": "'Introduccion A Las Tics'"
+                }
+            ],
+            "semestre2" : [
+                {
+                    "cali": "100",
+                    "nombre": "'Contabilidad Y Costos'"
+                },
+                {
+                    "cali": "100",
+                    "nombre": "'Calculo Integral'"
+                },
+                {
+                    "cali": "95",
+                    "nombre": "'Algebra Lineal'"
+                },
+                {
+                    "cali": "81",
+                    "nombre": "'Calculo Diferencial'"
+                },
+                {
+                    "cali": "95",
+                    "nombre": "'Probabilidad Y Estadistica'"
+                },
+                {
+                    "cali": "100",
+                    "nombre": "'Matematicas Discretas II'"
+                },
+                {
+                    "cali": "95",
+                    "nombre": "'Programacion Orientada A Objetos'"
+                }
+            ],
+            "semestre3" : [
+                {
+                    "cali": "90",
+                    "nombre": "'Desarrollo Sustentable'"
+                },
+                {
+                    "cali": "95",
+                    "nombre": "'Estructuras Y Organizacion De Datos'"
+                },
+                {
+                    "cali": "94",
+                    "nombre": "'Matematicas Para La Toma De Decisiones'"
+                },
+                {
+                    "cali": "93",
+                    "nombre": "'Fundamentos De Base De Datos'"
+                },
+                {
+                    "cali": "100",
+                    "nombre": "'Administracion Gerencial'"
+                },
+                {
+                    "cali": "97",
+                    "nombre": "'Electricidad Y Magnetismo'"
+                }
+            ]
+        }
+    </string>
+
+
+    <string-array name="diasDeLaSemana">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+    </string-array>
+
+    <string-array name="numSemestres">
+        <item>Semestre 1</item>
+        <item>Semestre 2</item>
+        <item>Semestre 3</item>
+        <item>Semestre 4</item>
+        <item>Semestre 5</item>
+        <item>Semestre 6</item>
+        <item>Semestre 7</item>
+        <item>Semestre 8</item>
+        <item>Semestre 9</item>
+    </string-array>
 </resources>

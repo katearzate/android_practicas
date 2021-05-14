@@ -17,19 +17,26 @@ class HomeActivity : AppCompatActivity() {
 
         var stringUsuario = intent.getStringExtra("usuario")
 
+        binding.btnHomeReticula.setOnClickListener {
+            invokeActivity(ReticulaActivity::class.java)
+        }
 
         binding.btnHomeDatosPersonales.setOnClickListener {
             val intent = Intent(this, DatosPersonalesActivity::class.java)
             intent.putExtra("usuario", stringUsuario)
-            startActivity(intent)
+            startActivityForResult(intent,1)
             finish()
         }
 
         binding.btnHomeSalir.setOnClickListener {
-            intent.putExtra("usuario", stringUsuario)
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun invokeActivity(clase : Class<*>){
+        val intent = Intent(this, clase)
+        startActivityForResult(intent,1)
     }
 
     override fun onBackPressed() {

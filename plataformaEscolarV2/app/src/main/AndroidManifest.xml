@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlataformaEscolarV2">
-        <activity android:name=".DatosPersonalesActivity"></activity>
+        <activity android:name=".ReticulaActivity"></activity>
+        <activity android:name=".DatosPersonalesActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SignInActivity" />
         <activity android:name=".LoginActivity">
