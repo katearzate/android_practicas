@@ -17,6 +17,10 @@ class HomeActivity : AppCompatActivity() {
 
         var stringUsuario = intent.getStringExtra("usuario")
 
+        binding.btnHomeCalificaciones.setOnClickListener {
+            invokeActivity(CalificacionesActivity::class.java)
+        }
+
         binding.btnHomeReticula.setOnClickListener {
             invokeActivity(ReticulaActivity::class.java)
         }

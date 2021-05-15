@@ -79,6 +79,20 @@ class ReticulaActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
                     lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
                 }
             }
+            7 -> {
+                var arrayMaterias = jsonMaterias1.getJSONArray("semestre8")
+                for (i in 0..(arrayMaterias.length() - 1)) {
+                    val jsonMateria = arrayMaterias.getJSONObject(i)
+                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
+                }
+            }
+            8 -> {
+                var arrayMaterias = jsonMaterias1.getJSONArray("semestre9")
+                for (i in 0..(arrayMaterias.length() - 1)) {
+                    val jsonMateria = arrayMaterias.getJSONObject(i)
+                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
+                }
+            }
         }
         binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
     }

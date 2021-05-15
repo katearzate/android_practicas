@@ -54,6 +54,16 @@
                     "cali": "86",
                     "creditos": 3,
                     "nombre": "'Introduccion A Las Tics'"
+                },
+                {
+                    "cali": "ACA",
+                    "creditos": 5,
+                    "nombre": "'Tutoria'"
+                },
+                {
+                    "cali": "ACA",
+                    "creditos": 5,
+                    "nombre": "'Actividades Fisicas para la Salud'"
                 }
             ],
             "semestre2" : [
@@ -86,6 +96,11 @@
                     "cali": "95",
                     "creditos": 5,
                     "nombre": "'Programacion Orientada A Objetos'"
+                },
+                {
+                    "cali": "ACA",
+                    "creditos": 5,
+                    "nombre": "'Apreciacion de las Artes y Diversidad'"
                 }
             ],
             "semestre3" : [
@@ -246,6 +261,65 @@
                     "cali": "'no cursada'",
                     "creditos": 5,
                     "nombre": "'Desarrollo de Aplicaciones para Dispositivos Moviles'"
+                }
+            ],
+            "semestre8" : [
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Computo en la Nube'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Seguridad en Sistemas Operativos'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Taller de Investigacion'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Administracion y Seguridad de Redes'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Auditoria en Tecnologias de la Informacion'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Negocios Electronicos II'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 10,
+                    "nombre": "'Servicio Social'"
+                }
+            ],
+            "semestre9" : [
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Seguridad en Redes'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Sistemas de Gestion de la Seguridad Informatica'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Ingenieria del Conocimiento'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 10,
+                    "nombre": "'Residencias Profesionales'"
                 }
             ]
         }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.isVisible
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Calificacion
 
@@ -43,6 +44,8 @@ class AdapterReticula (val context: Context, val layout: Int, val lista: List<Ca
             conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matSinAcreditar))
         }else if (calificacionRet.text.toString() == "reprobada"){
             conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matReprobada))
+        }else if (calificacionRet.text.toString() == "ACA"){
+            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.extracurricular))
         }
 
         return miView
