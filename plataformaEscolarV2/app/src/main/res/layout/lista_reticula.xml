@@ -14,7 +14,7 @@
         android:layout_height="105dp"
         android:layout_margin="10dp"
         android:padding="18dp"
-        android:background="#2E9F9D">
+        android:background="@color/matAcreditada">
 
         <TextView
             android:id="@+id/textViewNombreMateriaReticula"

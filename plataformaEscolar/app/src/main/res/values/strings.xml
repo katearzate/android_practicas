@@ -26,10 +26,12 @@
             "semestre1" : [
                 {
                     "cali": "84",
+                    "creditos": 4,
                     "nombre": "'Fundamentos De Investigacion'"
                 },
                 {
                     "cali": "100",
+                    "creditos": 4,
                     "nombre": "'Taller De Etica'"
                 },
                 {

@@ -27,83 +27,225 @@
             "semestre1" : [
                 {
                     "cali": "84",
+                    "creditos": 4,
                     "nombre": "'Fundamentos De Investigacion'"
                 },
                 {
                     "cali": "100",
+                    "creditos": 4,
                     "nombre": "'Taller De Etica'"
                 },
                 {
                     "cali": "88",
+                    "creditos": 5,
                     "nombre": "'Matematicas Discretas I'"
                 },
                 {
                     "cali": "81",
+                    "creditos": 5,
                     "nombre": "'Calculo Diferencial'"
                 },
                 {
                     "cali": "95",
+                    "creditos": 5,
                     "nombre": "'Fundamentos De Programacion'"
                 },
                 {
                     "cali": "86",
+                    "creditos": 3,
                     "nombre": "'Introduccion A Las Tics'"
                 }
             ],
             "semestre2" : [
                 {
                     "cali": "100",
+                    "creditos": 5,
                     "nombre": "'Contabilidad Y Costos'"
                 },
                 {
                     "cali": "100",
+                    "creditos": 5,
                     "nombre": "'Calculo Integral'"
                 },
                 {
                     "cali": "95",
+                    "creditos": 5,
                     "nombre": "'Algebra Lineal'"
                 },
                 {
-                    "cali": "81",
-                    "nombre": "'Calculo Diferencial'"
-                },
-                {
                     "cali": "95",
+                    "creditos": 5,
                     "nombre": "'Probabilidad Y Estadistica'"
                 },
                 {
                     "cali": "100",
+                    "creditos": 5,
                     "nombre": "'Matematicas Discretas II'"
                 },
                 {
                     "cali": "95",
+                    "creditos": 5,
                     "nombre": "'Programacion Orientada A Objetos'"
                 }
             ],
             "semestre3" : [
                 {
                     "cali": "90",
+                    "creditos": 5,
                     "nombre": "'Desarrollo Sustentable'"
                 },
                 {
                     "cali": "95",
+                    "creditos": 5,
                     "nombre": "'Estructuras Y Organizacion De Datos'"
                 },
                 {
                     "cali": "94",
+                    "creditos": 5,
                     "nombre": "'Matematicas Para La Toma De Decisiones'"
                 },
                 {
                     "cali": "63",
+                    "creditos": 5,
                     "nombre": "'Fundamentos De Base De Datos'"
                 },
                 {
                     "cali": "cursando",
+                    "creditos": 4,
                     "nombre": "'Administracion Gerencial'"
                 },
                 {
                     "cali": "'no cursada'",
+                    "creditos": 4,
                     "nombre": "'Electricidad Y Magnetismo'"
+                }
+            ],
+            "semestre4" : [
+                {
+                    "cali": "100",
+                    "creditos": 5,
+                    "nombre": "'Circuitos Electricos Y Electronicos'"
+                },
+                {
+                    "cali": "100",
+                    "creditos": 4,
+                    "nombre": "'Matematicas Aplicadas A Comunicaciones'"
+                },
+                {
+                    "cali": "98",
+                    "creditos": 5,
+                    "nombre": "'Fundamentos De Redes'"
+                },
+                {
+                    "cali": "98",
+                    "creditos": 5,
+                    "nombre": "'Programacion II'"
+                },
+                {
+                    "cali": "100",
+                    "creditos": 4,
+                    "nombre": "'Ingenieria De Software'"
+                },
+                {
+                    "cali": "100",
+                    "creditos": 4,
+                    "nombre": "'Taller De Base De Datos'"
+                }
+            ],
+            "semestre5" : [
+                {
+                    "cali": "88",
+                    "creditos": 5,
+                    "nombre": "'Administracion De Proyectos'"
+                },
+                {
+                    "cali": "90",
+                    "creditos": 4,
+                    "nombre": "'Arquitectura De Computadoras'"
+                },
+                {
+                    "cali": "100",
+                    "creditos": 5,
+                    "nombre": "'Redes De Computadoras'"
+                },
+                {
+                    "cali": "100",
+                    "creditos": 5,
+                    "nombre": "'Analisis De Señales Y Sistemas De Comunicacion'"
+                },
+                {
+                    "cali": "100",
+                    "creditos": 5,
+                    "nombre": "'Base De Datos Distribuidas'"
+                },
+                {
+                    "cali": "100",
+                    "creditos": 4,
+                    "nombre": "'Taller De Ingenieria De Software'"
+                }
+            ],
+            "semestre6" : [
+                {
+                    "cali": "100",
+                    "creditos": 5,
+                    "nombre": "'Programacion Web'"
+                },
+                {
+                    "cali": "94",
+                    "creditos": 5,
+                    "nombre": "'Tecnologias Inalambricas'",
+                },
+                {
+                    "cali": "86",
+                    "creditos": 5,
+                    "nombre": "'Desarrollo De Emprendedores'"
+                },
+                {
+                    "cali": "100",
+                    "creditos": 4,
+                    "nombre": "'Interaccion Humano Computadora'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Telecomunicaciones'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 4,
+                    "nombre": "'Sistemas Operativos I'"
+                }
+            ],
+            "semestre7" : [
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 4,
+                    "nombre": "'Sistemas Operativos II'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Introduccion a la Seguridad Informatica'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 4,
+                    "nombre": "'Taller De Investigacion I'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Redes Emergentes'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 4,
+                    "nombre": "'Negocios Electronicos I'"
+                },
+                {
+                    "cali": "'no cursada'",
+                    "creditos": 5,
+                    "nombre": "'Desarrollo de Aplicaciones para Dispositivos Moviles'"
                 }
             ]
         }

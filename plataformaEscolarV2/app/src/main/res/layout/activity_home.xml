@@ -19,18 +19,18 @@
         android:backgroundTint="#052925"/>
 
     <Button
-        android:id="@+id/btnHomeCalificaciones"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="Calificaciones"
-        android:layout_marginBottom="25dp"
-        android:layout_gravity="center"/>
-
-    <Button
         android:id="@+id/btnHomeHorario"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:text="Horario"
+        android:layout_marginBottom="25dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/btnHomeCalificaciones"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:text="Calificaciones"
         android:layout_marginBottom="25dp"
         android:layout_gravity="center"/>
 

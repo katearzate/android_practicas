@@ -41,7 +41,10 @@ class AdapterReticula (val context: Context, val layout: Int, val lista: List<Ca
             conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matDisponible))
         }else if (calificacionRet.text.toString().toInt() < 70){
             conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matSinAcreditar))
+        }else if (calificacionRet.text.toString() == "reprobada"){
+            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matReprobada))
         }
+
         return miView
     }
 }
