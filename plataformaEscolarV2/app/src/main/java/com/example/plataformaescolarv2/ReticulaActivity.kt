@@ -26,78 +26,60 @@ class ReticulaActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         val json1 = resources.getString(R.string.jsonMaterias)
         val jsonMaterias1 = JSONObject(json1)
 
-        val lista : MutableList<Calificacion> = mutableListOf()
         noSemestre = resources.getStringArray(R.array.numSemestres)[position]
 
         when(position){
             0 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre1")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre1", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
             1 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre2")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre2", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
             2 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre3")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre3", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
             3 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre4")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre4", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
             4 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre5")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre5", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
             5 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre6")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre6", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
             6 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre7")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre7", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
             7 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre8")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre8", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
             8 -> {
-                var arrayMaterias = jsonMaterias1.getJSONArray("semestre9")
-                for (i in 0..(arrayMaterias.length() - 1)) {
-                    val jsonMateria = arrayMaterias.getJSONObject(i)
-                    lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
-                }
+                var lista = semestreJson("semestre9", jsonMaterias1)
+                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
             }
         }
-        binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
+    }
+
+    private fun semestreJson(semestre: String, jsonMaterias1: JSONObject) : MutableList<Calificacion> {
+        var arrayMaterias = jsonMaterias1.getJSONArray(semestre)
+        val lista : MutableList<Calificacion> = mutableListOf()
+
+        for (i in 0..(arrayMaterias.length() - 1)) {
+            val jsonMateria = arrayMaterias.getJSONObject(i)
+            lista.add(Calificacion(jsonMateria.getString("cali"), jsonMateria.getString("nombre")))
+        }
+        return lista
     }
 }
