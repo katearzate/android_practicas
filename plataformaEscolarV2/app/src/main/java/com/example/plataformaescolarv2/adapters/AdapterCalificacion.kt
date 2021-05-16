@@ -34,6 +34,10 @@ class AdapterCalificacion(val context: Context, val layout: Int, val lista: List
         creditos.text = lista.get(position).creditos.toString()
         nomMateriaCalif.text = lista.get(position).nomMateriaCalificacion
 
+        if (calificacion.text.toString() == "no cursada" || calificacion.text.toString() == "cursando"){
+            calificacion.text = "-"
+        }
+
         return miView
     }
 }

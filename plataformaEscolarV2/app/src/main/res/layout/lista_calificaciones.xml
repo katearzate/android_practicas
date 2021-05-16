@@ -17,19 +17,20 @@
             android:id="@+id/textViewNombreMateriaCalificacion"
             android:textColor="@color/black"
             android:text="Nombre de la materia "
-            android:layout_width="260dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
             android:textSize="18dp"/>
 
         <TextView
             android:id="@+id/textViewCreditos"
-            android:text="creds"
+            android:text="cs"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
             android:textSize="18dp"
             android:layout_marginLeft="10dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/textViewCalificacion"
@@ -38,7 +39,8 @@
             android:layout_height="wrap_content"
             android:textSize="18dp"
             android:layout_marginLeft="10dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"/>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

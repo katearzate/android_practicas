@@ -210,17 +210,8 @@
                     "creditos": 5,
                     "nombre": "'Tecnologias Inalambricas'",
                     "grupo": "A",
-                    "profe": "Ireri Rojas",
-                    "horarios" : ["08:00-09:00", "08:00-09:00"]
-                    "aulas": ["F2", "F2"]
-                },
-                {
-                    "cali": "64",
-                    "creditos": 5,
-                    "nombre": "'Tecnologias Inalambricas'",
-                    "grupo": "B",
-                    "profe": "Ireri Rojas",
-                    "horarios" : ["10:00-11:00", "10:00-11:00"]
+                    "profe": "'Ireri Rojas'",
+                    "horarios" : ["'08:00-09:00'", "'08:00-09:00'"],
                     "aulas": ["F2", "F2"]
                 },
                 {

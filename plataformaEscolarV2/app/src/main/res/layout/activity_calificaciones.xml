@@ -9,7 +9,7 @@
 
     <TextView
         android:layout_marginTop="15dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#DDEDEC"
@@ -20,6 +20,16 @@
         android:textStyle="bold"
         android:textColor="@color/black"/>
 
+    <Spinner
+        android:id="@+id/SpinnerNoSemestreCalificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/numSemestres"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textSize="23dp"
+        android:layout_marginBottom="10dp"/>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -29,11 +39,10 @@
         <TextView
             android:textColor="@color/black"
             android:text="Materia"
-            android:layout_width="260dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
             android:textSize="15dp"
-            android:gravity="center_horizontal"
             android:textStyle="bold"/>
 
         <TextView
@@ -43,7 +52,6 @@
             android:textSize="15dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"
-            android:gravity="center_horizontal"
             android:textStyle="bold"/>
 
         <TextView
@@ -53,7 +61,6 @@
             android:textSize="15dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/black"
-            android:gravity="center_horizontal"
             android:textStyle="bold"/>
     </LinearLayout>
 
