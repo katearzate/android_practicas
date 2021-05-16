@@ -27,45 +27,12 @@ class ReticulaActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         val jsonMaterias1 = JSONObject(json1)
 
         noSemestre = resources.getStringArray(R.array.numSemestres)[position]
+        val arraySemestre = arrayOf("semestre1", "semestre2", "semestre3", "semestre4", "semestre5",
+                "semestre6", "semestre7", "semestre8", "semestre9")
 
-        when(position){
-            0 -> {
-                var lista = semestreJson("semestre1", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-            1 -> {
-                var lista = semestreJson("semestre2", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-            2 -> {
-                var lista = semestreJson("semestre3", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-            3 -> {
-                var lista = semestreJson("semestre4", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-            4 -> {
-                var lista = semestreJson("semestre5", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-            5 -> {
-                var lista = semestreJson("semestre6", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-            6 -> {
-                var lista = semestreJson("semestre7", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-            7 -> {
-                var lista = semestreJson("semestre8", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-            8 -> {
-                var lista = semestreJson("semestre9", jsonMaterias1)
-                binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-            }
-        }
+        var lista = semestreJson(arraySemestre[position], jsonMaterias1)
+        binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
+      
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {

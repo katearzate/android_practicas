@@ -120,17 +120,17 @@
                     "nombre": "'Matematicas Para La Toma De Decisiones'"
                 },
                 {
-                    "cali": "63",
+                    "cali": "93",
                     "creditos": 5,
                     "nombre": "'Fundamentos De Base De Datos'"
                 },
                 {
-                    "cali": "cursando",
+                    "cali": "100",
                     "creditos": 4,
                     "nombre": "'Administracion Gerencial'"
                 },
                 {
-                    "cali": "'no cursada'",
+                    "cali": "97",
                     "creditos": 4,
                     "nombre": "'Electricidad Y Magnetismo'"
                 }
@@ -211,8 +211,8 @@
                     "nombre": "'Tecnologias Inalambricas'",
                     "grupo": "A",
                     "profe": "'Ireri Rojas'",
-                    "horarios" : ["'08:00-09:00'", "'08:00-09:00'"],
-                    "aulas": ["F2", "F2"]
+                    "horarios" : ["", "'08:00-09:00'", "", "'08:00-09:00'", ""],
+                    "aulas": ["", "F2", "", "F2", ""]
                 },
                 {
                     "cali": "86",
