@@ -32,7 +32,7 @@ class ReticulaActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
 
         var lista = semestreJson(arraySemestre[position], jsonMaterias1)
         binding.listViewReticula.adapter = AdapterReticula(this, R.layout.lista_reticula, lista)
-      
+
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {

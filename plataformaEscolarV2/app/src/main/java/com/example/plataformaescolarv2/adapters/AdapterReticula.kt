@@ -36,6 +36,25 @@ class AdapterReticula (val context: Context, val layout: Int, val lista: List<Ca
 
         val conjuntoRet = miView.findViewById<LinearLayout>(R.id.Reticulabackground)
 
+        /*
+        val estadoMateria = calificacionRet.text.toString()
+
+        when(estadoMateria){
+            "cursando" -> {
+                conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matCursando))
+            }
+            "no cursanda" -> {
+                conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matDisponible))
+                calificacionRet.visibility = View.GONE
+            }
+            "reprobada" -> {
+                conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matReprobada))
+            }
+            "ACA" -> {
+                conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.extracurricular))
+            }
+        }*/
+
         if (calificacionRet.text.toString() == "cursando"){
             conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matCursando))
         }else if(calificacionRet.text.toString() == "no cursada") {
