@@ -30,20 +30,20 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"/>
 
-        <Spinner
-            android:id="@+id/SpinnerNoSemestreEleccion"
+        <Button
+            android:id="@+id/btnSubirMaterias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subir materias"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="5dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMateriasEleccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:entries="@array/numSemestres"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:textSize="23dp"/>
-
-        <ListView
-            android:id="@+id/listViewMateriasEleccion"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="#000000"/>
+            tools:listitem="@layout/recycler_horario"/>
     </LinearLayout>
 
 </ScrollView>

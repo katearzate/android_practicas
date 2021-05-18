@@ -17,6 +17,10 @@ class HomeActivity : AppCompatActivity() {
 
         var stringUsuario = intent.getStringExtra("usuario")
 
+        binding.btnHomeEleccion.setOnClickListener {
+            invokeActivity(EleccionMateriasActivity::class.java)
+        }
+
         binding.btnHomeHorario.setOnClickListener {
             invokeActivity(HorarioActivity::class.java)
         }
