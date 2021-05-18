@@ -5,14 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.R
+import com.example.plataformaescolarv2.getters.Horario
 import com.example.plataformaescolarv2.getters.Materia
 
-class AdapterHorario(var context: Context, var dias: MutableList<String>):
+class AdapterHorario(var context: Context, var dias: MutableList<Horario>):
 RecyclerView.Adapter<AdapterHorario.ViewHolder>(){
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val textViewDia : TextView = itemView.findViewById(R.id.listaHorarioDiadeSemana)
+        val recyclerMaterias : RecyclerView = itemView.findViewById(R.id.recyclerHorarioItems)
+
         init {
 
         }
@@ -24,9 +28,16 @@ RecyclerView.Adapter<AdapterHorario.ViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var dia : String = dias.get(position)
-        holder.textViewDia.text = dia
+        var horario : Horario = dias.get(position)
+        holder.textViewDia.text = horario.dia
+
+        llamarRecycler(holder.recyclerMaterias, horario.materias)
     }
 
     override fun getItemCount(): Int = dias.size
+
+    private fun llamarRecycler(recyclerView: RecyclerView, horarios: MutableList<Materia>){
+        recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        recyclerView.adapter = AdapterHorarioItems(context, horarios)
+    }
 }

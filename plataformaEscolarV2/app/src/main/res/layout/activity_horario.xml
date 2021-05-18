@@ -10,7 +10,7 @@
         android:id="@+id/recyclerHorario"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AcademicAdvanceActivity"
+        tools:context=".HorarioActivity"
         tools:listitem="@layout/recycler_horario"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
