@@ -1,32 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    android:padding="5dp"
+    android:background="@drawable/rectangle">
 
     <TextView
         android:id="@+id/horarioItemHora"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="08:00-09:00"
+        android:textColor="#04c496"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/horarioItemMateria"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="DADM"
+        android:textColor="@color/black"/>
 
-    <TextView
-        android:id="@+id/horarioItemAula"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/horarioItemAula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aula: F1 /"/>
 
-    <TextView
-        android:id="@+id/horarioItemProfesor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/horarioItemProfesor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profesor: Amaro /"/>
 
-    <TextView
-        android:id="@+id/horarioItemGrupo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
+        <TextView
+            android:id="@+id/horarioItemGrupo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grupo: A"/>
+    </LinearLayout>
 </LinearLayout>
