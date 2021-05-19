@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
         val arrayUsuarios = jsonUsuarios.getJSONArray("usuarios")
 
         binding.btnLogin.setOnClickListener {
-            val noControl = binding.noControlLogin.text.toString()
+            /*val noControl = binding.noControlLogin.text.toString()
             val contrasena = binding.contrasenaLogin.text.toString()
 
             var encontrado = false
@@ -40,7 +40,11 @@ class LoginActivity : AppCompatActivity() {
             }
             if (!encontrado) {
                 showAlert()
-            }
+            }*/
+
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         binding.redirigirSignin.setOnClickListener {
