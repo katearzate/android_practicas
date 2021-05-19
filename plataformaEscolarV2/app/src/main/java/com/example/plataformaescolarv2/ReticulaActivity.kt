@@ -12,7 +12,6 @@ import org.json.JSONObject
 class ReticulaActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: ActivityReticulaBinding
-    private var noSemestre = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +25,6 @@ class ReticulaActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener
         val json1 = resources.getString(R.string.jsonMaterias)
         val jsonMaterias1 = JSONObject(json1)
 
-        noSemestre = resources.getStringArray(R.array.numSemestres)[position]
         val arraySemestre = arrayOf("semestre1", "semestre2", "semestre3", "semestre4", "semestre5",
                 "semestre6", "semestre7", "semestre8", "semestre9")
 

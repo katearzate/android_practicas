@@ -9,13 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Materia
 
-class AdapterHorarioItems(var context: Context, var materias: MutableList<Materia>) : RecyclerView.Adapter<AdapterHorarioItems.ViewHolder>(){
+class AdapterHorarioItems(var context: Context, var materias: MutableList<Materia>)
+    : RecyclerView.Adapter<AdapterHorarioItems.ViewHolder>(){
+
     inner class ViewHolder(var itemView: View) : RecyclerView.ViewHolder(itemView){
-        val textViewHora : TextView = itemView.findViewById<TextView>(R.id.horarioItemHora)
-        val textViewMateria : TextView = itemView.findViewById<TextView>(R.id.horarioItemMateria)
-        val textViewProfe : TextView = itemView.findViewById<TextView>(R.id.horarioItemProfesor)
-        val textViewAula : TextView = itemView.findViewById<TextView>(R.id.horarioItemAula)
-        val textViewGrupo : TextView = itemView.findViewById<TextView>(R.id.horarioItemGrupo)
+        val textViewHora : TextView = itemView.findViewById(R.id.horarioItemHora)
+        val textViewMateria : TextView = itemView.findViewById(R.id.horarioItemMateria)
+        val textViewProfe : TextView = itemView.findViewById(R.id.horarioItemProfesor)
+        val textViewAula : TextView = itemView.findViewById(R.id.horarioItemAula)
+        val textViewGrupo : TextView = itemView.findViewById(R.id.horarioItemGrupo)
 
     }
 

@@ -13,17 +13,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/listaEleccionSemestres"
+            android:id="@+id/textViewEleccionSemestres"
             android:textColor="#FFF"
             android:gravity="center"
             android:text="Semestre #"
             android:background="#667380"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"/>
+            android:padding="10dp"
+            android:textSize="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerEleccinItems"
+            android:id="@+id/recyclerEleccionItems"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:listitem="@layout/lista_reticula"/>
