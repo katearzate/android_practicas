@@ -1,74 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card:cardCornerRadius="8dp"
-    card:cardElevation="10dp">
-
-
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="5dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TableLayout
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
+            android:padding="5dp">
 
-            <TextView
-                android:id="@+id/numeroCreditos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Creditos: "
-                android:textSize="18dp"
-                android:layout_marginLeft="10dp"/>
+            <TableRow>
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="Profesor"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Grupo"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:paddingRight="5dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Créditos"
+                    android:textSize="12dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"/>
+            </TableRow>
 
-            <TextView
-                android:id="@+id/textViewNombreMateria"
-                android:textColor="@color/black"
-                android:text="Nombre de la materia"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:paddingLeft="12dp"
-                android:textSize="18dp"/>
-        </LinearLayout>
+            <TableRow>
+                <TextView
+                    android:id="@+id/materiaSeleccionableProfesor"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="Alejandro Amaro Flores"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/materiaSeleccionableGrupo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="A"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:id="@+id/materiaSeleccionableCreditos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5"
+                    android:textSize="12dp"
+                    android:textColor="@color/black"/>
+            </TableRow>
+        </TableLayout>
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textViewHoraMateria"
-                android:text="16:00-19:00"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:layout_marginLeft="10dp"/>
-
-            <TextView
-                android:id="@+id/textViewNombreProfe"
-                android:textColor="@color/black"
-                android:text="Nombre del profe"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textSize="16dp"/>
-
-            <Button
-                android:id="@+id/btnEliminarMateriaSeleccionada"
-                android:text="eliminar"
-                android:textSize="10dp"
-                android:backgroundTint="#801818"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnMateriaSeleccionableSeleccionar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar"
+            android:textSize="9dp"
+            android:layout_marginLeft="5dp"/>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="10dp">
+        <TableRow>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Lunes"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="12dp"/>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Martes"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="12dp"/>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Miércoles"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="12dp"/>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Jueves"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="12dp"/>
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="Viernes"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="12dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/materiaSeleccionableHorarioLunes"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="08:00-09:00 / F4"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/black"
+                android:textSize="10dp"/>
+            <TextView
+                android:id="@+id/materiaSeleccionableHorarioMartes"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="08:00-09:00 / F4"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/black"
+                android:textSize="10dp"/>
+            <TextView
+                android:id="@+id/materiaSeleccionableHorarioMiercoles"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="08:00-09:00 / F4"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/black"
+                android:textSize="10dp"/>
+            <TextView
+                android:id="@+id/materiaSeleccionableHorarioJueves"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="08:00-09:00 / F4"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/black"
+                android:textSize="10dp"/>
+            <TextView
+                android:id="@+id/materiaSeleccionableHorarioViernes"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:text="08:00-09:00 / F4"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/black"
+                android:textSize="10dp"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

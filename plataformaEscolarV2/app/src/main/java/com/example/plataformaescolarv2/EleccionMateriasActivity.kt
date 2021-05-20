@@ -34,12 +34,10 @@ class EleccionMateriasActivity : AppCompatActivity() {
         val arraySemestre = arrayOf("semestre1", "semestre2", "semestre3", "semestre4", "semestre5",
                 "semestre6", "semestre7", "semestre8", "semestre9")
 
-
         for (i in arraySemestre.indices){
             var listaMaterias = semestreJson(arraySemestre[i], jsonMaterias)
             semestres.add(Semestre("Semestre ${i+1}", listaMaterias))
         }
-
         return semestres
     }
 
