@@ -5,11 +5,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.adapters.AdapterEleccion
-import com.example.plataformaescolarv2.adapters.AdapterHorario
-import com.example.plataformaescolarv2.adapters.AdapterReticula
 import com.example.plataformaescolarv2.databinding.ActivityEleccionMateriasBinding
 import com.example.plataformaescolarv2.getters.Calificacion
-import com.example.plataformaescolarv2.getters.Horario
 import com.example.plataformaescolarv2.getters.Materia
 import com.example.plataformaescolarv2.getters.Semestre
 import org.json.JSONObject
@@ -37,21 +34,26 @@ class EleccionMateriasActivity : AppCompatActivity() {
         val arraySemestre = arrayOf("semestre1", "semestre2", "semestre3", "semestre4", "semestre5",
                 "semestre6", "semestre7", "semestre8", "semestre9")
 
-        /*
-        for (i in 0..arraySemestre - 1){
+
+        for (i in arraySemestre.indices){
             var listaMaterias = semestreJson(arraySemestre[i], jsonMaterias)
-            semestres.add(Semestre(arraySemestre[i], listaMaterias))
-        }*/
-        var listaMaterias = semestreJson("semestre1", jsonMaterias)
-        semestres.add(Semestre("semestre 1", listaMaterias))
-
-        var listaMaterias2 = semestreJson("semestre2", jsonMaterias)
-        semestres.add(Semestre("semestre 2", listaMaterias2))
-
+            semestres.add(Semestre("Semestre ${i+1}", listaMaterias))
+        }
 
         return semestres
     }
 
+    private fun seleccionarSemestre(semestre: String, jsonMaterias: JSONObject) : MutableList<Materia>{
+        val arrayMaterias = jsonMaterias.getJSONArray(semestre)
+        val lista : MutableList<Materia> = mutableListOf()
+
+        for (i in 0..(arrayMaterias.length()-1)){
+            val jsonMateria = arrayMaterias.getJSONObject(i)
+            lista.add(Materia(jsonMateria.getString("creditos"),
+                    jsonMateria.getString("nombre"), jsonMateria.getString("clases")))  //acceder al arreglo 'clases'
+        }
+        return lista
+    }
 
     private fun semestreJson(semestre: String, jsonMaterias1: JSONObject) : MutableList<Calificacion> {
         var arrayMaterias = jsonMaterias1.getJSONArray(semestre)
