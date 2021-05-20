@@ -23,7 +23,7 @@ class AdapterMateriasElegidas(val context: Context, val layout: Int, val listaMa
     override fun getView(position: Int, view: View?, viewGroup: ViewGroup?): View {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val miView = inflater.inflate(layout, null)
-
+/*
         val tvCreditos : TextView = miView.findViewById(R.id.elegidaNumeroCreditos)
         val tvMateria : TextView = miView.findViewById(R.id.elegidaNombreMateria)
         val tvHora : TextView = miView.findViewById(R.id.elegidaHoraMateria)
@@ -33,7 +33,7 @@ class AdapterMateriasElegidas(val context: Context, val layout: Int, val listaMa
         tvMateria.text = listaMaterias.get(position).materia
         tvHora.text = listaMaterias.get(position).hora
         tvProfesor.text = listaMaterias.get(position).profesor
-
+*/
         return miView
     }
 

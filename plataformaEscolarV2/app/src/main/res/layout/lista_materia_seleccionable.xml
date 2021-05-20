@@ -45,7 +45,7 @@
                     android:id="@+id/materiaSeleccionableProfesor"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
-                    android:text="Alejandro Amaro Flores"
+                    android:text="Alejandro Amaro"
                     android:textSize="12dp"
                     android:textColor="@color/black"/>
                 <TextView
