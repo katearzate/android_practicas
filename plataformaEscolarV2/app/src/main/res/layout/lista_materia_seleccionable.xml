@@ -65,13 +65,15 @@
             </TableRow>
         </TableLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMateriaSeleccionableSeleccionar"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:text="Seleccionar"
             android:textSize="9dp"
-            android:layout_marginLeft="5dp"/>
+            card:cornerRadius="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"/>
     </LinearLayout>
 
     <TableLayout

@@ -318,13 +318,13 @@
                     "clases": [
                         {
                         "grupo": "A",
-                        "profe": "'Cristhian Torres'",
+                        "profe": "'Jorge Mora García'",
                         "horarios" : ["'17:00-18:00'", "'17:00-18:00'", "'17:00-18:00'", "'17:00-18:00'", "'17:00-18:00'"],
                         "aulas": ["F1", "F1", "LRD", "F1", "LRD"]
                         },
                         {
                         "grupo": "B",
-                        "profe": "'Ireri Rojas'",
+                        "profe": "'Jorge Mora García'",
                         "horarios" : ["'16:00-17:00'", "'16:00-17:00'", "'16:00-17:00'", "'16:00-17:00'", "'16:00-17:00'"],
                         "aulas": ["F1", "LRD", "F1", "F1", "LRD"]
                         }

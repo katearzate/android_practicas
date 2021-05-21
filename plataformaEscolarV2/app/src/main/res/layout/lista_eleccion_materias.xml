@@ -20,6 +20,13 @@
             android:layout_marginLeft="5dp"
             android:textSize="12dp"/>
         <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Profesor"
+            android:textColor="@color/black"
+            android:layout_marginLeft="5dp"
+            android:textSize="12dp"/>
+        <TextView
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="5"
@@ -63,7 +70,8 @@
             android:layout_height="wrap_content"
             android:text="10:00-11:00 / LRD"
             android:textColor="@color/black"
-            android:textSize="12dp"/>
+            android:textSize="12dp"
+            android:layout_marginLeft="5dp"/>
         <TextView
             android:layout_width="60dp"
             android:layout_height="wrap_content"

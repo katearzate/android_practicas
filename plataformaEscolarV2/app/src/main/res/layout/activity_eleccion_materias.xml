@@ -41,6 +41,14 @@
                     android:layout_marginLeft="5dp"
                     android:textSize="12dp"/>
                 <TextView
+                    android:layout_width="170dp"
+                    android:layout_height="wrap_content"
+                    android:text="Profesor"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="12dp"/>
+                <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:text="Créditos"
@@ -91,7 +99,8 @@
                     android:text="Viernes"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp"
+                    android:layout_marginLeft="5dp"/>
                 <TextView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
@@ -112,10 +121,11 @@
         android:id="@+id/eleccionNumeroCreditosTotales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total de créditos: "
+        android:text="Total de créditos: 10"
         android:textStyle="bold"
         android:textColor="@color/black"
-        android:layout_margin="10dp"/>
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/btnSubirMaterias"
