@@ -13,6 +13,7 @@
         android:orientation="horizontal"
         android:layout_margin="5dp">
         <TextView
+            android:id="@+id/materiasElegidaNombre"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Materia "
@@ -20,6 +21,7 @@
             android:layout_marginLeft="5dp"
             android:textSize="12dp"/>
         <TextView
+            android:id="@+id/materiasElegidaProfesor"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="Profesor"
@@ -27,6 +29,7 @@
             android:layout_marginLeft="5dp"
             android:textSize="12dp"/>
         <TextView
+            android:id="@+id/materiasElegidaCreditos"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="5"
@@ -34,38 +37,43 @@
             android:textSize="12dp"
             android:layout_marginRight="5dp"/>
         <TextView
+            android:id="@+id/materiasElegidaGrupo"
             android:layout_width="35dp"
             android:layout_height="wrap_content"
             android:text="B"
             android:textColor="@color/black"
             android:textSize="12dp"
             android:layout_marginRight="5dp"/>
-
         <TextView
+            android:id="@+id/materiasElegidaLunes"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="10:00-11:00 / F2"
             android:textColor="@color/black"
             android:textSize="12dp"/>
         <TextView
+            android:id="@+id/materiasElegidaMartes"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="10:00-11:00 / LRD"
             android:textColor="@color/black"
             android:textSize="12dp"/>
         <TextView
+            android:id="@+id/materiasElegidaMiercoles"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="10:00-11:00 / LRD"
             android:textColor="@color/black"
             android:textSize="12dp"/>
         <TextView
+            android:id="@+id/materiasElegidaJueves"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="10:00-11:00 / LRD"
             android:textColor="@color/black"
             android:textSize="12dp"/>
         <TextView
+            android:id="@+id/materiasElegidaViernes"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="10:00-11:00 / LRD"
@@ -73,6 +81,7 @@
             android:textSize="12dp"
             android:layout_marginLeft="5dp"/>
         <TextView
+            android:id="@+id/materiasElegidaEliminar"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:text="Eliminar"

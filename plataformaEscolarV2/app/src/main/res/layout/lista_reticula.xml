@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card:cardCornerRadius="8dp"
-    card:cardElevation="10dp">
+    card:cardElevation="10dp"
+    android:id="@+id/root_layout">
 
     <LinearLayout
         android:id="@+id/Reticulabackground"
@@ -34,19 +35,18 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:layout_marginLeft="10dp"
             android:textColor="@color/white"
             android:layout_gravity="center_horizontal"/>
 
         <Button
             android:id="@+id/btnSeleccionarMateria"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
+            android:layout_height="35dp"
             android:text="Seleccionar"
+            android:visibility="invisible"
             android:layout_gravity="center_horizontal"
             android:textSize="10dp"
-            android:backgroundTint="@color/extracurricular"
+            android:backgroundTint="#505050"
             />
 
     </LinearLayout>
