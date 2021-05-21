@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.EleccionMateriasActivity
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Calificacion
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class AdapterEleccionItems(var context: Context, var materias: MutableList<Calificacion>)
@@ -38,12 +39,12 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Calif
 
                 val popupWindow = PopupWindow(
                         view,
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
+                        LinearLayout.LayoutParams.WRAP_CONTENT,     //window width
+                        LinearLayout.LayoutParams.WRAP_CONTENT      //window height
                 )
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                    popupWindow.elevation = 10.0F
+                    popupWindow.elevation = 20.0F
                 }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -52,21 +53,19 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Calif
                     popupWindow.enterTransition = slideIn
 
                     val slideOut = Slide()
-                    slideOut.slideEdge = Gravity.RIGHT
+                    slideOut.slideEdge = Gravity.BOTTOM
                     popupWindow.exitTransition = slideOut
                 }
+
+                //Funcionalidad de items del popup
 
                 val btnCerrarPopup = view.findViewById<ExtendedFloatingActionButton>(R.id.btnCerrarPopup)
                 btnCerrarPopup.setOnClickListener{
                     popupWindow.dismiss()
                 }
 
-                TransitionManager.beginDelayedTransition(R.layout.activity_eleccion_materias)
-                popupWindow.showAtLocation(,
-                        Gravity.CENTER,
-                        0,
-                        0
-                )
+                TransitionManager.beginDelayedTransition(view as ViewGroup?)
+                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
 
             }
         }

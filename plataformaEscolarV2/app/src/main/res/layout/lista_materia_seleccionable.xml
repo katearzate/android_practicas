@@ -66,7 +66,7 @@
         </TableLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMateriaSeleccionableSeleccionar"
+            android:id="@+id/btnMateriaSeleccionableElegir"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="Elegir"
