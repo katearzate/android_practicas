@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.TextView
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Materia
+import com.google.android.material.button.MaterialButton
 
-class AdapterClases(val context: Context, val layout: Int, val listaClases: List<Materia>, val creditos: Int) : BaseAdapter() {
+abstract class AdapterClases(val context: Context, val layout: Int, val listaClases: List<Materia>, val creditos: Int) : BaseAdapter() {
     override fun getCount(): Int {
         return listaClases.size
     }
@@ -28,7 +30,7 @@ class AdapterClases(val context: Context, val layout: Int, val listaClases: List
 
         val profesor = miView.findViewById<TextView>(R.id.materiaSeleccionableProfesor)
         val grupo = miView.findViewById<TextView>(R.id.materiaSeleccionableGrupo)
-        val tvCreditos = miView.findViewById<TextView>(R.id.materiaSeleccionableCreditos)
+        val creditos = miView.findViewById<TextView>(R.id.materiaSeleccionableCreditos)
         val horaLunes = miView.findViewById<TextView>(R.id.materiaSeleccionableHorarioLunes)
         val horaMartes = miView.findViewById<TextView>(R.id.materiaSeleccionableHorarioMartes)
         val horaMiercoles = miView.findViewById<TextView>(R.id.materiaSeleccionableHorarioMiercoles)
@@ -39,7 +41,7 @@ class AdapterClases(val context: Context, val layout: Int, val listaClases: List
 
         profesor.text = materia.profesor
         grupo.text = materia.grupo
-        tvCreditos.text = this.creditos.toString()
+        creditos.text = this.creditos.toString()
 
         val listaHorario : Array<String?> = Array(5) {index -> ""}
         val listaAulas : Array<String?> = Array(5) {index -> ""}
@@ -55,6 +57,15 @@ class AdapterClases(val context: Context, val layout: Int, val listaClases: List
             horaViernes.text = "${listaHorario[4].orEmpty()} / ${listaAulas[4].orEmpty()}"
         }
 
+        val btnMateriaSeleccionada = miView.findViewById<MaterialButton>(R.id.btnMateriaSeleccionableElegir)
+        btnMateriaSeleccionada.setOnClickListener{
+            val posicionClase : Materia = listaClases.get(position)
+            clickClase(posicionClase)
+        }
+
         return miView
     }
+
+    abstract fun clickClase(materia: Materia)
+
 }

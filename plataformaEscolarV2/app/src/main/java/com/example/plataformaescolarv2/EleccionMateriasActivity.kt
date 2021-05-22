@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.adapters.AdapterEleccion
+import com.example.plataformaescolarv2.adapters.AdapterMateriasElegidas
 import com.example.plataformaescolarv2.databinding.ActivityEleccionMateriasBinding
 import com.example.plataformaescolarv2.getters.Calificacion
 import com.example.plataformaescolarv2.getters.ClasesDisponibles
@@ -16,6 +17,7 @@ import org.json.JSONObject
 class EleccionMateriasActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEleccionMateriasBinding
+    private var listaMateriasSeleccionadas : MutableList<Materia> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,15 @@ class EleccionMateriasActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.recyclerMateriasEleccion.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        binding.recyclerMateriasEleccion.adapter = AdapterEleccion(this, listaMaterias())
+        binding.recyclerMateriasEleccion.adapter = object : AdapterEleccion(this, listaMaterias()){
+            override fun clickClaseSeleccionada(materia: Materia) {
+                listaMateriasSeleccionadas.add(materia)
+                binding.listViewMateriasSeleccionadas.adapter = AdapterMateriasElegidas(this@EleccionMateriasActivity,
+                        R.layout.lista_eleccion_materias,
+                        listaMateriasSeleccionadas)
+            }
+
+        }
     }
 
     private fun listaMaterias(): MutableList<Semestre> {

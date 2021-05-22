@@ -23,17 +23,26 @@ class AdapterMateriasElegidas(val context: Context, val layout: Int, val listaMa
     override fun getView(position: Int, view: View?, viewGroup: ViewGroup?): View {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val miView = inflater.inflate(layout, null)
-/*
-        val tvCreditos : TextView = miView.findViewById(R.id.elegidaNumeroCreditos)
-        val tvMateria : TextView = miView.findViewById(R.id.elegidaNombreMateria)
-        val tvHora : TextView = miView.findViewById(R.id.elegidaHoraMateria)
-        val tvProfesor : TextView = miView.findViewById(R.id.elegidaNombreProfe)
 
-        tvCreditos.text = listaMaterias.get(position).creditos.toString()
-        tvMateria.text = listaMaterias.get(position).materia
-        tvHora.text = listaMaterias.get(position).hora
-        tvProfesor.text = listaMaterias.get(position).profesor
-*/
+        val creditos : TextView = miView.findViewById(R.id.materiaElegidaCreditos)
+        val nomMateria : TextView = miView.findViewById(R.id.materiaElegidaNombre)
+        val profesor : TextView = miView.findViewById(R.id.materiaElegidaProfesor)
+        val grupo : TextView = miView.findViewById(R.id.materiaElegidaGrupo)
+        val horaLunes : TextView = miView.findViewById(R.id.materiaElegidaLunes)
+        val horaMartes : TextView = miView.findViewById(R.id.materiaElegidaMartes)
+        val horaMiercoles : TextView = miView.findViewById(R.id.materiaElegidaMiercoles)
+        val horaJueves : TextView = miView.findViewById(R.id.materiaElegidaJueves)
+        val horaViernes : TextView = miView.findViewById(R.id.materiaElegidaViernes)
+
+        val materia : Materia = listaMaterias.get(position)
+
+        creditos.text = materia.creditos.toString()
+        nomMateria.text = materia.nombreMateria
+        profesor.text = materia.profesor
+        grupo.text = materia.grupo
+
+
+
         return miView
     }
 

@@ -11,9 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Calificacion
 import com.example.plataformaescolarv2.getters.ClasesDisponibles
+import com.example.plataformaescolarv2.getters.Materia
 import com.example.plataformaescolarv2.getters.Semestre
 
-class AdapterEleccion(var context: Context, var semestres: MutableList<Semestre>)
+abstract class AdapterEleccion(var context: Context, var semestres: MutableList<Semestre>)
     : RecyclerView.Adapter<AdapterEleccion.ViewHolder>(){
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -41,6 +42,13 @@ class AdapterEleccion(var context: Context, var semestres: MutableList<Semestre>
 
     private fun llamarRecycler(recyclerView: RecyclerView, materias: MutableList<ClasesDisponibles>){
         recyclerView.layoutManager = GridLayoutManager(context,2,RecyclerView.VERTICAL,false)
-        recyclerView.adapter = AdapterEleccionItems(context, materias)
+        recyclerView.adapter = object : AdapterEleccionItems(context, materias){
+            override fun clickClaseItem(materia: Materia) {
+                clickClaseSeleccionada(materia)
+            }
+
+        }
     }
+
+    abstract fun clickClaseSeleccionada(materia: Materia)
 }

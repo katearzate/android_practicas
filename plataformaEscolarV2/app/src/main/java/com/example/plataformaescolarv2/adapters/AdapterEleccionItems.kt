@@ -21,7 +21,7 @@ import com.example.plataformaescolarv2.getters.Materia
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
-class AdapterEleccionItems(var context: Context, var materias: MutableList<ClasesDisponibles>)
+abstract class AdapterEleccionItems(var context: Context, var materias: MutableList<ClasesDisponibles>)
     : RecyclerView.Adapter<AdapterEleccionItems.ViewHolder>(){
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
@@ -117,11 +117,18 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Clase
         nombreMateria.setText("Materia: ${materia.materia!!.nombreMateria}")
 
         val listaClases = view.findViewById<ListView>(R.id.listaPopupGrupos)
-        listaClases.adapter = AdapterClases(
+        listaClases.adapter = object : AdapterClases(
                 context,
                 R.layout.lista_materia_seleccionable,
                 materia.clases!!,
-                materia.materia?.creditos!!)
+                materia.materia?.creditos!!){
+            override fun clickClase(materiaElegida: Materia) {
+                materiaElegida.nombreMateria = materia.materia?.nombreMateria
+                materiaElegida.creditos = materia.materia?.creditos
+                clickClaseItem( materiaElegida)
+            }
+        }
+
 
         val btnCerrarPopup = view.findViewById<ExtendedFloatingActionButton>(R.id.btnCerrarPopup)
         btnCerrarPopup.isFocusable
@@ -133,5 +140,7 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Clase
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
 
     }
+
+    abstract fun clickClaseItem(materia: Materia)
 
 }
