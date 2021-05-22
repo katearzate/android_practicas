@@ -46,22 +46,27 @@ class FirstFragment : Fragment() {
         recyclerCartelera = view.findViewById(R.id.recyclerCartelera)
 
         cartelera = ArrayList()
-        cartelera.add(R.mipmap.cartelera1)
-        cartelera.add(R.mipmap.cartelera2)
-        cartelera.add(R.mipmap.cartelera3)
-        cartelera.add(R.mipmap.cartelera4)
-        cartelera.add(R.mipmap.cartelera5)
-        cartelera.add(R.mipmap.cartelera6)
-
-        "Exhibiendo ${cartelera.size} peliculas".toast(view.context)
+        cartelera.add(R.mipmap.carusel1)
+        cartelera.add(R.mipmap.carusel2)
+        cartelera.add(R.mipmap.carusel3)
+        cartelera.add(R.mipmap.carusel4)
+        cartelera.add(R.mipmap.carusel5)
+        cartelera.add(R.mipmap.carusel6)
+        cartelera.add(R.mipmap.carusel7)
+        cartelera.add(R.mipmap.carusel8)
+        cartelera.add(R.mipmap.carusel9)
+        //"Exhibiendo ${cartelera.size} peliculas".toast(view.context)
 
         val movies = ArrayList<Movie>()
-        movies.add( Movie(1,"Kimetsu no Yaiba", R.mipmap.cartelera1, arrayListOf("18:00", "20:00", "22:00")) )
+        movies.add( Movie(1,"Demon Slayer", R.mipmap.cartelera1, arrayListOf("18:00", "20:00", "22:00")) )
         movies.add( Movie(2,"Godzilla vs Kong", R.mipmap.cartelera2, arrayListOf("13:00", "15:00", "17:00", "19:00", "21:00")) )
-        movies.add( Movie(3,"Mortal Kombat", R.mipmap.cartelera3, arrayListOf("21:00", "23:00")) )
-        movies.add( Movie(4,"Tenet", R.mipmap.cartelera4, arrayListOf("14:00", "16:00")) )
-        movies.add( Movie(5,"The Croods 2", R.mipmap.cartelera5, arrayListOf("13:30", "15:30", "17:30")) )
-        movies.add( Movie(6,"The father", R.mipmap.cartelera6, arrayListOf("15:30", "17:30", "19:30")) )
+        movies.add( Movie(3,"End Game", R.mipmap.cartelera3, arrayListOf("21:00", "23:00")) )
+        movies.add( Movie(4,"X-MEN", R.mipmap.cartelera4, arrayListOf("14:00", "16:00")) )
+        movies.add( Movie(5,"Pikachu Detective", R.mipmap.cartelera5, arrayListOf("13:30", "15:30", "17:30")) )
+        movies.add( Movie(6,"Sonic", R.mipmap.cartelera6, arrayListOf("15:30", "17:30", "19:30")) )
+        movies.add( Movie(7,"WALL-E", R.mipmap.cartelera7, arrayListOf("15:30", "17:30", "19:30")) )
+        movies.add( Movie(8,"Fragmentado", R.mipmap.cartelera8, arrayListOf("15:30", "17:30", "19:30")) )
+        movies.add( Movie(9,"Bumblebee", R.mipmap.cartelera9, arrayListOf("15:30", "17:30", "19:30")) )
 
         recyclerCartelera.adapter = object : CarteleraAdapter(view.context, movies, R.layout.recycler_cartelera) {
             override fun verHorarios(movie: Movie) {
@@ -76,7 +81,7 @@ class FirstFragment : Fragment() {
             override fun setImageForPosition(position: Int, imageView: ImageView?) {
                 imageView?.let {
                     it.setImageResource(cartelera[position])
-                    it.scaleType = ImageView.ScaleType.FIT_CENTER
+                    it.scaleType = ImageView.ScaleType.CENTER_CROP
                 }
             }
         })

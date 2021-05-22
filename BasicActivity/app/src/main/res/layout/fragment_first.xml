@@ -18,7 +18,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCartelera"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="380dp"
+        tools:listitem="@layout/recycler_cartelera"
         android:layout_marginTop="@dimen/fab_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

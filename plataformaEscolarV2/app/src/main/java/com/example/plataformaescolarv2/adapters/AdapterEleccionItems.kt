@@ -9,10 +9,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.PopupWindow
-import android.widget.TextView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
@@ -51,10 +48,47 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Clase
         holder.textViewNombreMateria.text = materia.materia.nombreMateria
 
         holder.btnSeleccionarMateria.setOnClickListener {
-            showPopup()
+            val inflater:LayoutInflater = LayoutInflater.from(context) as LayoutInflater
+            val view = inflater.inflate(R.layout.popup_seleccionar_materias,null)
+
+            val popupWindow = PopupWindow(
+                    view,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,     //window width
+                    LinearLayout.LayoutParams.WRAP_CONTENT      //window height
+            )
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                popupWindow.elevation = 20.0F
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                val slideIn = Slide()
+                slideIn.slideEdge = Gravity.TOP
+                popupWindow.enterTransition = slideIn
+
+                val slideOut = Slide()
+                slideOut.slideEdge = Gravity.BOTTOM
+                popupWindow.exitTransition = slideOut
+            }
+
+            //Funcionalidad de items del popup
+            //val btnMateriaElegida = view.findViewById<MaterialButton>(R.id.btnMateriaSeleccionableElegir)
+
+            //********************************************crear funcion del btn creado btnMateriaElegida
+            val btnCerrarPopup = view.findViewById<ExtendedFloatingActionButton>(R.id.btnCerrarPopup)
+            btnCerrarPopup.setOnClickListener{
+                popupWindow.dismiss()
+            }
+
+            val nombreMateria = view.findViewById<TextView>(R.id.popupNombreMateria)
+            nombreMateria.setText("Materia: ${materia.materia.nombreMateria}")
+
+            val listaClases = view.findViewById<ListView>(R.id.listaPopupGrupos)
+
+
+            TransitionManager.beginDelayedTransition(view as ViewGroup?)
+            popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
         }
-
-
 
         when(holder.textViewCalificacion.text.toString()){
             "cursando" -> {

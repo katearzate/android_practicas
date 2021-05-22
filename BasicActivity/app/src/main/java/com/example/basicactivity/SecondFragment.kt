@@ -40,7 +40,7 @@ class SecondFragment : Fragment() {
         viewModel.getMovie()?.observe(requireActivity(), object : Observer<Movie?> {
             override fun onChanged(m: Movie?) {
                 m?.let {
-                    Toast.makeText(view.context,"Pelicula: ${it.name}",Toast.LENGTH_LONG).show()
+                    Toast.makeText(view.context,"${it.name}",Toast.LENGTH_LONG).show()
 
                     img.setImageResource(it.img)
                     tv.setText("Horarios de ${it.name}")

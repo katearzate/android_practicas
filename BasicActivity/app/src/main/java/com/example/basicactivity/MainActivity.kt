@@ -35,16 +35,6 @@ class MainActivity : AppCompatActivity() {
             it.setDisplayHomeAsUpEnabled(true)
         }
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
-            val snack = Snackbar.make(it, "¿Deseas salir?", Snackbar.LENGTH_LONG)
-            snack.setAction("Si", { finish() })
-            snack.setActionTextColor(Color.RED)
-            val layout = snack.view.layoutParams as CoordinatorLayout.LayoutParams
-            layout.gravity = Gravity.TOP
-            snack.view.layoutParams = layout
-            snack.show()
-        }
-
         bottomNav.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
                 return true

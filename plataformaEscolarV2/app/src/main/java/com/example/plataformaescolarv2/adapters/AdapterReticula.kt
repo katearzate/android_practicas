@@ -56,20 +56,6 @@ class AdapterReticula (val context: Context, val layout: Int, val lista: List<Ca
                 }
             }
         }
-/*
-        if (calificacionRet.text.toString() == "cursando"){
-            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matCursando))
-        }else if(calificacionRet.text.toString() == "no cursada") {
-            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matDisponible))
-            calificacionRet.visibility = View.GONE
-        }else if (calificacionRet.text.toString() == "reprobada"){
-            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matReprobada))
-        }else if (calificacionRet.text.toString() == "ACA"){
-            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.extracurricular))
-        }else if (calificacionRet.text.toString().toInt() < 70){
-            conjuntoRet.setBackgroundColor(context.resources.getColor(R.color.matSinAcreditar))
-        }
-*/
         return miView
     }
 }

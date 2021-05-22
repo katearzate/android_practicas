@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/imgHorarioPelicula"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/carusel5"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
@@ -19,13 +19,16 @@
         android:text="Pelicula"
         android:textSize="24sp"
         android:textColor="#000"
-        android:background="#ddd"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
 
     <ListView
         android:id="@+id/listHorarioPelicula"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
+
+    
 
 </LinearLayout>
