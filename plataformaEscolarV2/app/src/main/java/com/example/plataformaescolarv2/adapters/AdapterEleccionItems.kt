@@ -17,6 +17,7 @@ import com.example.plataformaescolarv2.EleccionMateriasActivity
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Calificacion
 import com.example.plataformaescolarv2.getters.ClasesDisponibles
+import com.example.plataformaescolarv2.getters.Materia
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
@@ -44,50 +45,11 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Clase
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onBindViewHolder(holder: AdapterEleccionItems.ViewHolder, position: Int) {
         var materia : ClasesDisponibles = materias.get(position)
-        holder.textViewCalificacion.text = materia.materia.calificacion
-        holder.textViewNombreMateria.text = materia.materia.nombreMateria
+        holder.textViewCalificacion.text = materia.materia!!.calificacion
+        holder.textViewNombreMateria.text = materia.materia!!.nombreMateria
 
         holder.btnSeleccionarMateria.setOnClickListener {
-            val inflater:LayoutInflater = LayoutInflater.from(context) as LayoutInflater
-            val view = inflater.inflate(R.layout.popup_seleccionar_materias,null)
-
-            val popupWindow = PopupWindow(
-                    view,
-                    LinearLayout.LayoutParams.WRAP_CONTENT,     //window width
-                    LinearLayout.LayoutParams.WRAP_CONTENT      //window height
-            )
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                popupWindow.elevation = 20.0F
-            }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                val slideIn = Slide()
-                slideIn.slideEdge = Gravity.TOP
-                popupWindow.enterTransition = slideIn
-
-                val slideOut = Slide()
-                slideOut.slideEdge = Gravity.BOTTOM
-                popupWindow.exitTransition = slideOut
-            }
-
-            //Funcionalidad de items del popup
-            //val btnMateriaElegida = view.findViewById<MaterialButton>(R.id.btnMateriaSeleccionableElegir)
-
-            //********************************************crear funcion del btn creado btnMateriaElegida
-            val btnCerrarPopup = view.findViewById<ExtendedFloatingActionButton>(R.id.btnCerrarPopup)
-            btnCerrarPopup.setOnClickListener{
-                popupWindow.dismiss()
-            }
-
-            val nombreMateria = view.findViewById<TextView>(R.id.popupNombreMateria)
-            nombreMateria.setText("Materia: ${materia.materia.nombreMateria}")
-
-            val listaClases = view.findViewById<ListView>(R.id.listaPopupGrupos)
-
-
-            TransitionManager.beginDelayedTransition(view as ViewGroup?)
-            popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
+            showPopup(materia)
         }
 
         when(holder.textViewCalificacion.text.toString()){
@@ -119,7 +81,7 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Clase
     override fun getItemCount(): Int = materias.size
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
-    fun showPopup(){
+    fun showPopup(materia : ClasesDisponibles){
         val inflater:LayoutInflater = LayoutInflater.from(context) as LayoutInflater
         val view = inflater.inflate(R.layout.popup_seleccionar_materias,null)
 
@@ -128,6 +90,8 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Clase
                 LinearLayout.LayoutParams.WRAP_CONTENT,     //window width
                 LinearLayout.LayoutParams.WRAP_CONTENT      //window height
         )
+
+        popupWindow.width = 1000
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             popupWindow.elevation = 20.0F
@@ -149,7 +113,14 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Clase
         //********************************************crear funcion del btn creado btnMateriaElegida
 
         val nombreMateria = view.findViewById<TextView>(R.id.popupNombreMateria)
-        nombreMateria.setText("Materia: ")
+        nombreMateria.setText("Materia: ${materia.materia!!.nombreMateria}")
+
+        val listaClases = view.findViewById<ListView>(R.id.listaPopupGrupos)
+        listaClases.adapter = AdapterClases(
+                context,
+                R.layout.lista_materia_seleccionable,
+                materia.clases!!,
+                materia.materia?.creditos!!)
 
         val btnCerrarPopup = view.findViewById<ExtendedFloatingActionButton>(R.id.btnCerrarPopup)
         btnCerrarPopup.isFocusable

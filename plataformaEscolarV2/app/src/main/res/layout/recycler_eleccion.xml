@@ -7,7 +7,8 @@
     android:layout_margin="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="20dp">
+    android:elevation="20dp"
+    android:layout_marginBottom="20dp">
 
     <TextView
         android:id="@+id/textViewEleccionSemestres"
@@ -16,7 +17,7 @@
         android:text="Semestre #"
         android:background="#667380"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:padding="10dp"
         android:textSize="16dp"/>
 
