@@ -19,10 +19,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.EleccionMateriasActivity
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Calificacion
+import com.example.plataformaescolarv2.getters.ClasesDisponibles
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
-class AdapterEleccionItems(var context: Context, var materias: MutableList<Calificacion>)
+class AdapterEleccionItems(var context: Context, var materias: MutableList<ClasesDisponibles>)
     : RecyclerView.Adapter<AdapterEleccionItems.ViewHolder>(){
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
@@ -33,41 +34,7 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Calif
         val conjuntoItems = itemView.findViewById<LinearLayout>(R.id.Reticulabackground)
 
         init {
-            btnSeleccionarMateria.setOnClickListener {
-                val inflater:LayoutInflater = LayoutInflater.from(context) as LayoutInflater
-                val view = inflater.inflate(R.layout.popup_seleccionar_materias,null)
 
-                val popupWindow = PopupWindow(
-                        view,
-                        LinearLayout.LayoutParams.WRAP_CONTENT,     //window width
-                        LinearLayout.LayoutParams.WRAP_CONTENT      //window height
-                )
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-                    popupWindow.elevation = 20.0F
-                }
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-                    val slideIn = Slide()
-                    slideIn.slideEdge = Gravity.TOP
-                    popupWindow.enterTransition = slideIn
-
-                    val slideOut = Slide()
-                    slideOut.slideEdge = Gravity.BOTTOM
-                    popupWindow.exitTransition = slideOut
-                }
-
-                //Funcionalidad de items del popup
-
-                val btnCerrarPopup = view.findViewById<ExtendedFloatingActionButton>(R.id.btnCerrarPopup)
-                btnCerrarPopup.setOnClickListener{
-                    popupWindow.dismiss()
-                }
-
-                TransitionManager.beginDelayedTransition(view as ViewGroup?)
-                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
-
-            }
         }
     }
 
@@ -77,30 +44,88 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Calif
         return ViewHolder(itemHolder)
     }
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onBindViewHolder(holder: AdapterEleccionItems.ViewHolder, position: Int) {
-        var materia : Calificacion = materias.get(position)
-        holder.textViewCalificacion.text = materia.calificacion
-        holder.textViewNombreMateria.text = materia.nomMateriaCalificacion
+        var materia : ClasesDisponibles = materias.get(position)
+        holder.textViewCalificacion.text = materia.materia.calificacion
+        holder.textViewNombreMateria.text = materia.materia.nombreMateria
 
-        if(holder.textViewCalificacion.text.toString() == "no cursada"){
-            holder.btnSeleccionarMateria.visibility = View.VISIBLE
-            holder.textViewCalificacion.visibility = View.GONE
-            holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matDisponible))
-        }else if(holder.textViewCalificacion.text.toString() == "ACA") {
-            holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.extracurricular))
-        }else if(holder.textViewCalificacion.text.toString() == "reprobada") {
-            holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matReprobada))
-        }else if(holder.textViewCalificacion.text.toString() == "cursando") {
-            holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matCursando))
-        }else if(holder.textViewCalificacion.text.toString().toInt() < 70) {
-            holder.btnSeleccionarMateria.visibility = View.VISIBLE
-            holder.textViewCalificacion.visibility = View.GONE
-            holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matSinAcreditar))
+        holder.btnSeleccionarMateria.setOnClickListener {
+            showPopup()
         }
+
+
+
+        when(holder.textViewCalificacion.text.toString()){
+            "cursando" -> {
+                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matCursando))
+            }
+            "no cursada" -> {
+                holder.btnSeleccionarMateria.visibility = View.VISIBLE
+                holder.textViewCalificacion.visibility = View.GONE
+                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matDisponible))
+            }
+            "reprobada" -> {
+                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matReprobada))
+            }
+            "ACA" -> {
+                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.extracurricular))
+            }
+            else -> {
+                if(holder.textViewCalificacion.text.toString().toInt() < 70){
+                    holder.btnSeleccionarMateria.visibility = View.VISIBLE
+                    holder.textViewCalificacion.visibility = View.GONE
+                    holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matSinAcreditar))
+                }
+            }
+        }
+
     }
 
     override fun getItemCount(): Int = materias.size
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
+    fun showPopup(){
+        val inflater:LayoutInflater = LayoutInflater.from(context) as LayoutInflater
+        val view = inflater.inflate(R.layout.popup_seleccionar_materias,null)
 
+        val popupWindow = PopupWindow(
+                view,
+                LinearLayout.LayoutParams.WRAP_CONTENT,     //window width
+                LinearLayout.LayoutParams.WRAP_CONTENT      //window height
+        )
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            popupWindow.elevation = 20.0F
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            val slideIn = Slide()
+            slideIn.slideEdge = Gravity.TOP
+            popupWindow.enterTransition = slideIn
+
+            val slideOut = Slide()
+            slideOut.slideEdge = Gravity.BOTTOM
+            popupWindow.exitTransition = slideOut
+        }
+
+        //Funcionalidad de items del popup
+        //val btnMateriaElegida = view.findViewById<MaterialButton>(R.id.btnMateriaSeleccionableElegir)
+
+        //********************************************crear funcion del btn creado btnMateriaElegida
+
+        val nombreMateria = view.findViewById<TextView>(R.id.popupNombreMateria)
+        nombreMateria.setText("Materia: ")
+
+        val btnCerrarPopup = view.findViewById<ExtendedFloatingActionButton>(R.id.btnCerrarPopup)
+        btnCerrarPopup.isFocusable
+        btnCerrarPopup.setOnClickListener{
+            popupWindow.dismiss()
+        }
+
+        TransitionManager.beginDelayedTransition(view as ViewGroup?)
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
+
+    }
 
 }

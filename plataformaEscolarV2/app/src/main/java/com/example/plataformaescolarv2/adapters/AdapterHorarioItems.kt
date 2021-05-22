@@ -29,7 +29,7 @@ class AdapterHorarioItems(var context: Context, var materias: MutableList<Materi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var materia : Materia = materias.get(position)
         holder.textViewHora.text = materia.hora
-        holder.textViewMateria.text = materia.materia
+        holder.textViewMateria.text = materia.nombreMateria
         holder.textViewProfe.text = materia.profesor
         holder.textViewAula.text = materia.aula
         holder.textViewGrupo.text = materia.grupo

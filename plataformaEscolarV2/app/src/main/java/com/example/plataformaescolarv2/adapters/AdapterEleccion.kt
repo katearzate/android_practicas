@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Calificacion
+import com.example.plataformaescolarv2.getters.ClasesDisponibles
 import com.example.plataformaescolarv2.getters.Semestre
 
 class AdapterEleccion(var context: Context, var semestres: MutableList<Semestre>)
@@ -37,7 +38,7 @@ class AdapterEleccion(var context: Context, var semestres: MutableList<Semestre>
 
     override fun getItemCount(): Int = semestres.size
 
-    private fun llamarRecycler(recyclerView: RecyclerView, materias: MutableList<Calificacion>){
+    private fun llamarRecycler(recyclerView: RecyclerView, materias: MutableList<ClasesDisponibles>){
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recyclerView.adapter = AdapterEleccionItems(context, materias)
     }
