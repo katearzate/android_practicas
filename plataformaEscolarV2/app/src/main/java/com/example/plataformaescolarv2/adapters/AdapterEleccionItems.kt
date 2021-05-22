@@ -92,6 +92,7 @@ class AdapterEleccionItems(var context: Context, var materias: MutableList<Clase
         )
 
         popupWindow.width = 1000
+        popupWindow.height = 1200
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             popupWindow.elevation = 20.0F

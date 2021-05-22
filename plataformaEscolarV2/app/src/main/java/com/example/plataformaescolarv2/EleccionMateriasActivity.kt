@@ -78,7 +78,9 @@ class EleccionMateriasActivity : AppCompatActivity() {
 
             listaMaterias.add(ClasesDisponibles(
                 Materia(calificacion = jsonMateria.getString("cali"),
-                    nombreMateria = jsonMateria.getString("nombre")),
+                    nombreMateria = jsonMateria.getString("nombre"),
+                    creditos = jsonMateria.getInt("creditos")),
+
                 listaClases))
         }
         return listaMaterias

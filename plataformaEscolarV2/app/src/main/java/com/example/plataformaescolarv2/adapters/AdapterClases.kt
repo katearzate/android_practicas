@@ -28,7 +28,7 @@ class AdapterClases(val context: Context, val layout: Int, val listaClases: List
 
         val profesor = miView.findViewById<TextView>(R.id.materiaSeleccionableProfesor)
         val grupo = miView.findViewById<TextView>(R.id.materiaSeleccionableGrupo)
-        val creditos = miView.findViewById<TextView>(R.id.materiaSeleccionableCreditos)
+        val tvCreditos = miView.findViewById<TextView>(R.id.materiaSeleccionableCreditos)
         val horaLunes = miView.findViewById<TextView>(R.id.materiaSeleccionableHorarioLunes)
         val horaMartes = miView.findViewById<TextView>(R.id.materiaSeleccionableHorarioMartes)
         val horaMiercoles = miView.findViewById<TextView>(R.id.materiaSeleccionableHorarioMiercoles)
@@ -39,7 +39,7 @@ class AdapterClases(val context: Context, val layout: Int, val listaClases: List
 
         profesor.text = materia.profesor
         grupo.text = materia.grupo
-        creditos.text = this.creditos.toString()
+        tvCreditos.text = this.creditos.toString()
 
         val listaHorario : Array<String?> = Array(5) {index -> ""}
         val listaAulas : Array<String?> = Array(5) {index -> ""}
@@ -54,8 +54,6 @@ class AdapterClases(val context: Context, val layout: Int, val listaClases: List
             horaJueves.text = "${listaHorario[3].orEmpty()} / ${listaAulas[3].orEmpty()}"
             horaViernes.text = "${listaHorario[4].orEmpty()} / ${listaAulas[4].orEmpty()}"
         }
-
-
 
         return miView
     }
