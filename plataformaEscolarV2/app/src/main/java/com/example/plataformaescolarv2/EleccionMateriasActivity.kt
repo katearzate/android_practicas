@@ -2,6 +2,7 @@ package com.example.plataformaescolarv2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.adapters.AdapterEleccion
@@ -18,6 +19,7 @@ class EleccionMateriasActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEleccionMateriasBinding
     private var listaMateriasSeleccionadas : MutableList<Materia> = mutableListOf()
+    private var creditosTotales : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +29,17 @@ class EleccionMateriasActivity : AppCompatActivity() {
         binding.recyclerMateriasEleccion.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         binding.recyclerMateriasEleccion.adapter = object : AdapterEleccion(this, listaMaterias()){
             override fun clickClaseSeleccionada(materia: Materia) {
-                listaMateriasSeleccionadas.add(materia)
-                binding.listViewMateriasSeleccionadas.adapter = AdapterMateriasElegidas(this@EleccionMateriasActivity,
-                        R.layout.lista_eleccion_materias,
-                        listaMateriasSeleccionadas)
+                creditosTotales += materia.creditos!!
+                if (creditosTotales <= 36){
+                    listaMateriasSeleccionadas.add(materia)
+                    binding.listViewMateriasSeleccionadas.adapter = AdapterMateriasElegidas(this@EleccionMateriasActivity,
+                            R.layout.lista_eleccion_materias,
+                            listaMateriasSeleccionadas)
+                } else {
+                    creditosTotales -= materia.creditos!!
+                    Toast.makeText(this@EleccionMateriasActivity, "Exedido limite de creditos", Toast.LENGTH_LONG).show()
+                }
+                binding.eleccionNumeroCreditosTotales.setText("Total de créditos: ${creditosTotales}")
             }
 
         }
