@@ -84,11 +84,6 @@ abstract class AdapterEleccionItems(var context: Context, var materias: MutableL
             popupWindow.exitTransition = slideOut
         }
 
-        //Funcionalidad de items del popup
-        //val btnMateriaElegida = view.findViewById<MaterialButton>(R.id.btnMateriaSeleccionableElegir)
-
-        //********************************************crear funcion del btn creado btnMateriaElegida
-
         val nombreMateria = view.findViewById<TextView>(R.id.popupNombreMateria)
         nombreMateria.setText("Materia: ${materia.materia!!.nombreMateria}")
 
@@ -105,13 +100,15 @@ abstract class AdapterEleccionItems(var context: Context, var materias: MutableL
                 popupWindow.dismiss()
 
                 if (materia.materia?.calificacion == "no cursada"){
-                    materia.materia?.calificacion == "cursando"
-                    holder.textViewCalificacion.text == "cursando"
+                    materia.materia?.calificacion = "cursando"
+                    holder.textViewCalificacion.text = "cursando"
                     estadoMateria(holder)
+                    holder.btnSeleccionarMateria.visibility = View.GONE
                 }else if (materia.materia?.calificacion!!.toInt() < 70){
-                    materia.materia?.calificacion == "reprobada"
-                    holder.textViewCalificacion.text == "cursando"
+                    materia.materia?.calificacion = "reprobada"
+                    holder.textViewCalificacion.text = "reprobada"
                     estadoMateria(holder)
+                    holder.btnSeleccionarMateria.visibility = View.GONE
                 }
             }
         }

@@ -46,7 +46,6 @@ abstract class AdapterEleccion(var context: Context, var semestres: MutableList<
             override fun clickClaseItem(materia: Materia) {
                 clickClaseSeleccionada(materia)
             }
-
         }
     }
 

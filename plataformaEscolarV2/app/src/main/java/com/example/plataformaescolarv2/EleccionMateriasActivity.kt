@@ -1,19 +1,20 @@
 package com.example.plataformaescolarv2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.adapters.AdapterEleccion
 import com.example.plataformaescolarv2.adapters.AdapterMateriasElegidas
 import com.example.plataformaescolarv2.databinding.ActivityEleccionMateriasBinding
-import com.example.plataformaescolarv2.getters.Calificacion
-import com.example.plataformaescolarv2.getters.ClasesDisponibles
-import com.example.plataformaescolarv2.getters.Materia
-import com.example.plataformaescolarv2.getters.Semestre
+import com.example.plataformaescolarv2.getters.*
 import org.json.JSONArray
 import org.json.JSONObject
+import java.util.ArrayList
 
 class EleccionMateriasActivity : AppCompatActivity() {
 
@@ -29,19 +30,31 @@ class EleccionMateriasActivity : AppCompatActivity() {
         binding.recyclerMateriasEleccion.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         binding.recyclerMateriasEleccion.adapter = object : AdapterEleccion(this, listaMaterias()){
             override fun clickClaseSeleccionada(materia: Materia) {
+
                 creditosTotales += materia.creditos!!
+                binding.eleccionNumeroCreditosTotales.visibility = View.VISIBLE
                 if (creditosTotales <= 36){
                     listaMateriasSeleccionadas.add(materia)
                     binding.listViewMateriasSeleccionadas.adapter = AdapterMateriasElegidas(this@EleccionMateriasActivity,
                             R.layout.lista_eleccion_materias,
                             listaMateriasSeleccionadas)
-                } else {
+                } else if(creditosTotales < 20){
+                    println("SE DEBE TOMAR MÁS MATERIAS")
+                } else{
                     creditosTotales -= materia.creditos!!
-                    Toast.makeText(this@EleccionMateriasActivity, "Exedido limite de creditos", Toast.LENGTH_LONG).show()
+                    println("LIMITE DE MATERIAS!!")
+                    Toast.makeText(this@EleccionMateriasActivity, "Límite de creditos excedido", Toast.LENGTH_LONG).show()
+                    //Toast no funciona, revisar el por qué
                 }
                 binding.eleccionNumeroCreditosTotales.setText("Total de créditos: ${creditosTotales}")
             }
+        }
 
+        binding.btnSubirMaterias.setOnClickListener {
+            val intent = Intent(this, HorarioActivity::class.java)
+            intent.putStringArrayListExtra("listaMaterias", listaMateriasSeleccionadas as ArrayList<String>)
+            startActivity(intent)
+            finish()
         }
     }
 
