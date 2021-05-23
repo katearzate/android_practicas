@@ -49,39 +49,15 @@ abstract class AdapterEleccionItems(var context: Context, var materias: MutableL
         holder.textViewNombreMateria.text = materia.materia!!.nombreMateria
 
         holder.btnSeleccionarMateria.setOnClickListener {
-            showPopup(materia)
+            showPopup(materia, holder)
         }
-
-        when(holder.textViewCalificacion.text.toString()){
-            "cursando" -> {
-                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matCursando))
-            }
-            "no cursada" -> {
-                holder.btnSeleccionarMateria.visibility = View.VISIBLE
-                holder.textViewCalificacion.visibility = View.GONE
-                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matDisponible))
-            }
-            "reprobada" -> {
-                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matReprobada))
-            }
-            "ACA" -> {
-                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.extracurricular))
-            }
-            else -> {
-                if(holder.textViewCalificacion.text.toString().toInt() < 70){
-                    holder.btnSeleccionarMateria.visibility = View.VISIBLE
-                    holder.textViewCalificacion.visibility = View.GONE
-                    holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matSinAcreditar))
-                }
-            }
-        }
-
+        estadoMateria(holder)
     }
 
     override fun getItemCount(): Int = materias.size
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
-    fun showPopup(materia : ClasesDisponibles){
+    fun showPopup(materia : ClasesDisponibles, holder: AdapterEleccionItems.ViewHolder){
         val inflater:LayoutInflater = LayoutInflater.from(context) as LayoutInflater
         val view = inflater.inflate(R.layout.popup_seleccionar_materias,null)
 
@@ -126,6 +102,17 @@ abstract class AdapterEleccionItems(var context: Context, var materias: MutableL
                 materiaElegida.nombreMateria = materia.materia?.nombreMateria
                 materiaElegida.creditos = materia.materia?.creditos
                 clickClaseItem( materiaElegida)
+                popupWindow.dismiss()
+
+                if (materia.materia?.calificacion == "no cursada"){
+                    materia.materia?.calificacion == "cursando"
+                    holder.textViewCalificacion.text == "cursando"
+                    estadoMateria(holder)
+                }else if (materia.materia?.calificacion!!.toInt() < 70){
+                    materia.materia?.calificacion == "reprobada"
+                    holder.textViewCalificacion.text == "cursando"
+                    estadoMateria(holder)
+                }
             }
         }
 
@@ -139,6 +126,33 @@ abstract class AdapterEleccionItems(var context: Context, var materias: MutableL
         TransitionManager.beginDelayedTransition(view as ViewGroup?)
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
 
+    }
+
+    private fun estadoMateria(holder: AdapterEleccionItems.ViewHolder){
+
+        when(holder.textViewCalificacion.text.toString()){
+            "cursando" -> {
+                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matCursando))
+            }
+            "no cursada" -> {
+                holder.btnSeleccionarMateria.visibility = View.VISIBLE
+                holder.textViewCalificacion.visibility = View.GONE
+                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matDisponible))
+            }
+            "reprobada" -> {
+                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matReprobada))
+            }
+            "ACA" -> {
+                holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.extracurricular))
+            }
+            else -> {
+                if(holder.textViewCalificacion.text.toString().toInt() < 70){
+                    holder.btnSeleccionarMateria.visibility = View.VISIBLE
+                    holder.textViewCalificacion.visibility = View.GONE
+                    holder.conjuntoItems.setBackgroundColor(context.resources.getColor(R.color.matSinAcreditar))
+                }
+            }
+        }
     }
 
     abstract fun clickClaseItem(materia: Materia)

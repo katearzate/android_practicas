@@ -41,7 +41,19 @@ class AdapterMateriasElegidas(val context: Context, val layout: Int, val listaMa
         profesor.text = materia.profesor
         grupo.text = materia.grupo
 
-
+        val listaHorario : Array<String?> = Array(5) {index -> ""}
+        val listaAulas : Array<String?> = Array(5) {index -> ""}
+        if (materia.horarios != null){
+            for (i in 0..materia.horarios!!.length()-1){
+                listaHorario[i] = (materia?.horarios?.optString(i, "") as String)
+                listaAulas[i] = (materia?.aulas?.optString(i, "") as String)
+            }
+            horaLunes.text = "${listaHorario[0].orEmpty()} / ${listaAulas[0].orEmpty()}"
+            horaMartes.text = "${listaHorario[1].orEmpty()} / ${listaAulas[1].orEmpty()}"
+            horaMiercoles.text = "${listaHorario[2].orEmpty()} / ${listaAulas[2].orEmpty()}"
+            horaJueves.text = "${listaHorario[3].orEmpty()} / ${listaAulas[3].orEmpty()}"
+            horaViernes.text = "${listaHorario[4].orEmpty()} / ${listaAulas[4].orEmpty()}"
+        }
 
         return miView
     }
