@@ -11,6 +11,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.example.basicactivity.myobjects.Utils.Companion.toast
 
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var topNav : Toolbar
     lateinit var bottomNav : BottomNavigationView
+
+    private lateinit var navigationController : NavController
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,11 +39,36 @@ class MainActivity : AppCompatActivity() {
             it.setDisplayHomeAsUpEnabled(true)
         }
 
+
+
         bottomNav.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                return true
+                when(item.itemId){
+                    R.id.menuCartelera -> {
+                        topNav.title = "Cartelera"
+                        val carteleraFrag =  FirstFragment()
+                        openFragment(carteleraFrag)
+                        return true
+                    }
+                    R.id.menuAlimentos -> {
+                        topNav.title = "Alimentos"
+                        return true
+                    }
+                    R.id.menuPerfil -> {
+                        topNav.title = "Perfil"
+                        return true
+                    }
+                }
+                return false
             }
         })
+    }
+
+    private fun openFragment(fragment: Fragment){
+        val transaccion = supportFragmentManager.beginTransaction()
+        transaccion.replace(R.id.container, fragment)
+        transaccion.addToBackStack(null)
+        transaccion.commit()
     }
 
     override fun onSupportNavigateUp(): Boolean {
