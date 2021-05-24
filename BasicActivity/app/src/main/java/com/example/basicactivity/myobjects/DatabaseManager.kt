@@ -57,15 +57,24 @@ class DatabaseManager (
         while (pointer.moveToNext()){
             results.add(
                 Compra(
-                    pointer.getString(0),
+                    pointer.getInt(0),
                     pointer.getString(1),
-                    pointer.getInt(2),
+                    pointer.getString(2),
                     pointer.getInt(3),
-                    pointer.getInt(4)
+                    pointer.getInt(4),
+                    pointer.getInt(5)
                 )
             )
         }
         db.close()
         return results
+    }
+
+    fun delete(compra: Compra) {
+        val db = writableDatabase
+        val sql = "DELETE FROM compras WHERE id=${compra.id}"
+
+        db.execSQL(sql)
+        db.close()
     }
 }

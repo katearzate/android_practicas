@@ -14,6 +14,7 @@ import com.example.basicactivity.myobjects.Compra
 import com.example.basicactivity.myobjects.DatabaseManager
 import com.example.basicactivity.myobjects.Movie
 import com.example.basicactivity.myobjects.MyViewModel
+import com.example.basicactivity.myobjects.Utils.Companion.toast
 import java.lang.Exception
 
 
@@ -92,33 +93,33 @@ class CarteleraSecondFragment : Fragment() {
                         builder.setMessage("¿Desea comprar ${noBoletos} boleto(s) para ${nombrePelicula.text.toString()} a las ${horarioSeleccionado}?")
                         builder.setPositiveButton("Aceptar", DialogInterface.OnClickListener{
                             dialog, it ->
-                            val compra = Compra("${horarioSeleccionado}",
+                            val compra = Compra(0,
                                 "${nombrePelicula.text}",
+                                "${horarioSeleccionado}",
                                 noBoletosSeleccionado,
                                 total,
                                 imgPelicula)
                             try {
                                 dbManager.add(compra)
-                                Toast.makeText(view.context,"Compra realizada",Toast.LENGTH_LONG).show()
+                                "Compra realizada".toast(activity!!)
                             }catch (e: Exception) {
                                 e.printStackTrace()
-                                Toast.makeText(view.context, "Error al registrar compra!", Toast.LENGTH_LONG).show()
+                                "Error al registrar compra!".toast(activity!!)
                             }
                             dialog.dismiss()
                         })
                         builder.setNegativeButton("Cancelar", DialogInterface.OnClickListener{
                             dialog, it ->
-                            Toast.makeText(view.context, "Compra cancelada!", Toast.LENGTH_LONG).show()
+                            "Compra cancelada!".toast(activity!!)
                             dialog.dismiss()
                         })
                         val alert = builder.create()
                         alert.setTitle("Confirmación de compra")
                         alert.show()
-
                     }
 
-
                 }
+
             }
         })
     }
