@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="20dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp">
+        <ImageView
+            android:id="@+id/recyclerCompraImg"
+            android:layout_width="80dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/cartelera5"
+            android:layout_marginRight="20dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/recyclerCompraNombrePelicula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pikachu"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/recyclerCompraHora"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hora de la función: 13:00"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:id="@+id/recyclerCompraNoBoletos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Numero de boletos: 3"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
+
+            <TextView
+                android:id="@+id/recyclerCompraTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pago total: $ 150.00"
+                android:textColor="@color/black"
+                android:textSize="15dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>
