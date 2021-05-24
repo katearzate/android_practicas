@@ -13,9 +13,7 @@ import com.example.basicactivity.myobjects.Compra
 import com.example.basicactivity.myobjects.Movie
 import com.example.basicactivity.myobjects.MyViewModel
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
+
 class SecondFragment : Fragment() {
 
     private lateinit var viewModel: MyViewModel
@@ -34,24 +32,31 @@ class SecondFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val img = view.findViewById<ImageView>(R.id.imgHorarioPelicula)
-        val tv = view.findViewById<TextView>(R.id.tvHorarioPelicula)
-        val list = view.findViewById<ListView>(R.id.listHorarioPelicula)
+        val nombrePelicula = view.findViewById<TextView>(R.id.tvHorarioPelicula)
+        val spinnerHorarios = view.findViewById<Spinner>(R.id.spinnerHorarioPelicula)
 
         viewModel.getMovie()?.observe(requireActivity(), object : Observer<Movie?> {
             override fun onChanged(m: Movie?) {
                 m?.let {
-                    Toast.makeText(view.context,"${it.name}",Toast.LENGTH_LONG).show()
+                    //Toast.makeText(view.context,"${it.name}",Toast.LENGTH_LONG).show()
 
-                    img.setImageResource(it.img)
-                    tv.setText("Horarios de ${it.name}")
-                    list.adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1, it.horarios)
+                    img.setImageResource(it.imgCarusel)
+                    nombrePelicula.setText(it.name)
+                    spinnerHorarios.adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1, it.horarios)
 
+                    spinnerHorarios.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                        override fun onItemSelected(p0: AdapterView<*>?, p1: View?, index: Int, p3: Long) {}
+
+                        override fun onNothingSelected(p0: AdapterView<*>?) {}
+                    }
+
+                    /*
                     list.setOnItemClickListener { adapterView, view, i, l ->
                         val compra = Compra(it.horarios[i], it, 0)
                         viewModel.setCompra(compra)
 
                         findNavController().navigate(R.id.action_SecondFragment_to_myFragment2)
-                    }
+                    }*/
                 }
             }
         })
