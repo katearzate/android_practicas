@@ -1,4 +1,4 @@
-package com.example.bd_operaciones.models
+package com.example.basicactivity.myobjects
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -7,7 +7,7 @@ import com.example.basicactivity.myobjects.Compra
 import kotlin.jvm.Throws
 
 
-class DataBaseManager (
+class DatabaseManager (
     context: Context?,
     name: String?,
     factory: SQLiteDatabase.CursorFactory?,
@@ -15,9 +15,6 @@ class DataBaseManager (
 ) : SQLiteOpenHelper(context, name, factory, version) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        //create DB from 'name', starting with the tables
-        //in SQLite only exists 4 data types: INT, TEXT, REAL (double/float), BLOB (bytes)
-
         val sql = """
             CREATE TABLE compras(
                 id INTEGER PRIMARY KEY NOT NULL, 

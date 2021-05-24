@@ -62,7 +62,7 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@mipmap/codigoQR"
+            android:src="@mipmap/codigoqr"
             android:layout_gravity="center_vertical"
             android:layout_margin="5dp"/>
     </LinearLayout>
