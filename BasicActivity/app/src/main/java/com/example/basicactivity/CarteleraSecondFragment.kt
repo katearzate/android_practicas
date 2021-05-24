@@ -8,16 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.get
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.basicactivity.myobjects.Compra
 import com.example.basicactivity.myobjects.Movie
 import com.example.basicactivity.myobjects.MyViewModel
 
 
-class SecondFragment : Fragment() {
+class CarteleraSecondFragment : Fragment() {
 
     private lateinit var viewModel: MyViewModel
 
@@ -28,7 +25,7 @@ class SecondFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        return inflater.inflate(R.layout.fragment_second_cartelera, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

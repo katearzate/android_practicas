@@ -1,16 +1,11 @@
 package com.example.basicactivity
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -46,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 when(item.itemId){
                     R.id.menuCartelera -> {
                         topNav.title = "Cartelera"
-                        val carteleraFrag =  FirstFragment()
+                        val carteleraFrag =  CarteleraFragment()
                         openFragment(carteleraFrag)
                         return true
                     }

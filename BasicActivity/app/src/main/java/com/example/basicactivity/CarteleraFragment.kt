@@ -15,13 +15,12 @@ import com.synnapps.carouselview.ImageListener
 import com.example.basicactivity.adapters.CarteleraAdapter
 import com.example.basicactivity.myobjects.Movie
 import com.example.basicactivity.myobjects.MyViewModel
-import com.example.basicactivity.myobjects.Utils.Companion.toast
 import java.util.ArrayList
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class CarteleraFragment : Fragment() {
 
     lateinit var carousel : CarouselView
     lateinit var recyclerCartelera : RecyclerView
@@ -36,7 +35,7 @@ class FirstFragment : Fragment() {
     ): View? {
         viewModel = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false)
+        return inflater.inflate(R.layout.fragment_cartelera, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -71,7 +70,7 @@ class FirstFragment : Fragment() {
         recyclerCartelera.adapter = object : CarteleraAdapter(view.context, movies, R.layout.recycler_cartelera) {
             override fun verHorarios(movie: Movie) {
                 viewModel.setMovie(movie)
-                findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+                findNavController().navigate(R.id.action_CarteleraFragment_to_CarteleraSecondFragment)
             }
         }
         recyclerCartelera.layoutManager = GridLayoutManager(view.context, 3)
