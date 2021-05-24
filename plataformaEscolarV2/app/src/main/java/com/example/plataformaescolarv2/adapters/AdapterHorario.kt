@@ -11,7 +11,7 @@ import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Horario
 import com.example.plataformaescolarv2.getters.Materia
 
-class AdapterHorario(var context: Context, var dias: MutableList<Horario>):
+class AdapterHorario(var context: Context, var dias: List<Horario>):
 RecyclerView.Adapter<AdapterHorario.ViewHolder>(){
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val textViewDia : TextView = itemView.findViewById(R.id.listaHorarioDiadeSemana)
@@ -36,7 +36,7 @@ RecyclerView.Adapter<AdapterHorario.ViewHolder>(){
 
     override fun getItemCount(): Int = dias.size
 
-    private fun llamarRecycler(recyclerView: RecyclerView, horarios: MutableList<Materia>){
+    private fun llamarRecycler(recyclerView: RecyclerView, horarios: List<Materia>){
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         recyclerView.adapter = AdapterHorarioItems(context, horarios)
     }

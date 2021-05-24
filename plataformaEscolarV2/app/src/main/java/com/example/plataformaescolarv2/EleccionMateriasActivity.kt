@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.adapters.AdapterEleccion
 import com.example.plataformaescolarv2.adapters.AdapterMateriasElegidas
 import com.example.plataformaescolarv2.databinding.ActivityEleccionMateriasBinding
 import com.example.plataformaescolarv2.getters.*
+import com.example.plataformaescolarv2.viewmodels.MateriasViewModel
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.ArrayList
@@ -21,6 +23,8 @@ class EleccionMateriasActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEleccionMateriasBinding
     private var listaMateriasSeleccionadas : MutableList<Materia> = mutableListOf()
     private var creditosTotales : Int = 0
+
+    private val viewModel: MateriasViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +56,8 @@ class EleccionMateriasActivity : AppCompatActivity() {
 
         binding.btnSubirMaterias.setOnClickListener {
             val intent = Intent(this, HorarioActivity::class.java)
-            intent.putStringArrayListExtra("listaMaterias", listaMateriasSeleccionadas as ArrayList<String>)
+            //intent.putStringArrayListExtra("listaMaterias", listaMateriasSeleccionadas as ArrayList<String>)
+            viewModel.setLista(listaMateriasSeleccionadas)
             startActivity(intent)
             finish()
         }

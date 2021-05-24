@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Materia
 
-class AdapterHorarioItems(var context: Context, var materias: MutableList<Materia>)
+class AdapterHorarioItems(var context: Context, var materias: List<Materia>)
     : RecyclerView.Adapter<AdapterHorarioItems.ViewHolder>(){
 
     inner class ViewHolder(var itemView: View) : RecyclerView.ViewHolder(itemView){

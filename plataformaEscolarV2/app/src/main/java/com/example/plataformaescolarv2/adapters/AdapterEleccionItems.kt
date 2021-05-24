@@ -103,11 +103,13 @@ abstract class AdapterEleccionItems(var context: Context, var materias: MutableL
                     materia.materia?.calificacion = "cursando"
                     holder.textViewCalificacion.text = "cursando"
                     estadoMateria(holder)
+                    holder.textViewCalificacion.visibility = View.VISIBLE
                     holder.btnSeleccionarMateria.visibility = View.GONE
                 }else if (materia.materia?.calificacion!!.toInt() < 70){
                     materia.materia?.calificacion = "reprobada"
-                    holder.textViewCalificacion.text = "reprobada"
+                    holder.textViewCalificacion.setText("reprobada")
                     estadoMateria(holder)
+                    holder.textViewCalificacion.visibility = View.VISIBLE
                     holder.btnSeleccionarMateria.visibility = View.GONE
                 }
             }
