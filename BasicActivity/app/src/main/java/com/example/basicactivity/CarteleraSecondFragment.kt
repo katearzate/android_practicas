@@ -54,7 +54,7 @@ class CarteleraSecondFragment : Fragment() {
             override fun onChanged(m: Movie?) {
                 m?.let {
                     //Toast.makeText(view.context,"${it.name}",Toast.LENGTH_LONG).show()
-                    imgPelicula = it.imgCarusel
+                    imgPelicula = it.img
                     img.setImageResource(it.imgCarusel)
                     nombrePelicula.setText(it.name)
                     spinnerHorarios.adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1, it.horarios)

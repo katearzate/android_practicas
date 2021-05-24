@@ -31,11 +31,12 @@ RecyclerView.Adapter<CompraRecyclerAdapter.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var compra : Compra = compras.get(position)
-        holder.img = compra.img as ImageView
+
+        holder.img.setImageResource(compra.img)
         holder.pelicula.text = compra.pelicula
-        holder.hora.text = compra.horario
-        holder.noBoletos.text = compra.cantidad.toString()
-        holder.total.text = compra.total.toString()
+        holder.hora.setText("Hora de la función: ${compra.horario}")
+        holder.noBoletos.setText("Número de boletos: ${compra.cantidad}")
+        holder.total.setText("Pago total: $${compra.total}.00")
     }
 
     override fun getItemCount(): Int = compras.size

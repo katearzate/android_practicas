@@ -8,15 +8,23 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.example.basicactivity.myobjects.DatabaseManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.example.basicactivity.myobjects.Utils.Companion.toast
+import com.google.android.material.bottomappbar.BottomAppBar
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var topNav : Toolbar
     lateinit var bottomNav : BottomNavigationView
+    lateinit var bottomBar : BottomAppBar
 
     private lateinit var navigationController : NavController
+    lateinit var dbManager : DatabaseManager
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,56 +32,54 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         topNav = findViewById(R.id.toolbar)
-
         setSupportActionBar(topNav)
-
-        bottomNav = findViewById(R.id.bottomNavigationView)
-
         supportActionBar?.let {
+            it.title = "Cineponys"
             it.setDefaultDisplayHomeAsUpEnabled(true)
             it.setDisplayHomeAsUpEnabled(true)
         }
 
+        bottomNav = findViewById(R.id.bottomNavigationView)
+        navigationController = findNavController(R.id.nav_main_container)
 
+        setupActionBarWithNavController(navigationController, AppBarConfiguration(setOf(
+            R.id.CarteleraFragment, R.id.alimentosFragment, R.id.perfilFragment
+        )))
 
-        bottomNav.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener {
-            override fun onNavigationItemSelected(item: MenuItem): Boolean {
-                when(item.itemId){
-                    R.id.menuCartelera -> {
-                        topNav.title = "Cartelera"
-                        val carteleraFrag =  CarteleraFragment()
-                        openFragment(carteleraFrag)
-                        return true
-                    }
-                    R.id.menuAlimentos -> {
-                        topNav.title = "Alimentos"
-                        return true
-                    }
-                    R.id.menuPerfil -> {
-                        topNav.title = "Perfil"
-                        return true
-                    }
+        bottomNav.setupWithNavController(navigationController)
+        bottomNav.background = null
+
+        bottomBar = findViewById(R.id.bottomAppBar)
+        bottomBar.background = null
+
+        bottomNav.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.menuCartelera -> {
+                    //topNav.title = "Cartelera"
+                    navigationController.navigate(R.id.CarteleraFragment)
+                    return@setOnNavigationItemSelectedListener true
                 }
-                return false
+                R.id.menuAlimentos -> {
+                    //topNav.title = "Alimentos"
+                    navigationController.navigate(R.id.alimentosFragment)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.menuPerfil -> {
+                    //topNav.title = "Perfil"
+                    navigationController.navigate(R.id.perfilFragment)
+                    dbManager = DatabaseManager(this, "DBpeliculas", null, 1)
+                    dbManager.show()
+                    return@setOnNavigationItemSelectedListener true
+                }
             }
-        })
-    }
+            return@setOnNavigationItemSelectedListener false
+        }
 
-    private fun openFragment(fragment: Fragment){
-        val transaccion = supportFragmentManager.beginTransaction()
-        transaccion.replace(R.id.container, fragment)
-        transaccion.addToBackStack(null)
-        transaccion.commit()
+        bottomNav.selectedItemId = R.id.menuCartelera
     }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
-        return super.onSupportNavigateUp()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
@@ -86,4 +92,11 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
 }

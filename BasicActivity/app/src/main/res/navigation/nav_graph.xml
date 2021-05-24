@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/CarteleraFragment"
         android:name="com.example.basicactivity.CarteleraFragment"
-        android:label="@string/first_fragment_label"
+        android:label="Cartelera"
         tools:layout="@layout/fragment_cartelera">
 
         <action
@@ -19,7 +19,20 @@
     <fragment
         android:id="@+id/CarteleraSecondFragment"
         android:name="com.example.basicactivity.CarteleraSecondFragment"
-        android:label="@string/second_fragment_label"
+        android:label=" "
         tools:layout="@layout/fragment_second_cartelera">
+        <action
+            android:id="@+id/action_CarteleraSecondFragment_to_CarteleraFragment"
+            app:destination="@id/CarteleraFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/alimentosFragment"
+        android:name="com.example.basicactivity.AlimentosFragment"
+        android:label="Alimentos"
+        tools:layout="@layout/fragment_alimentos" />
+    <fragment
+        android:id="@+id/perfilFragment"
+        android:name="com.example.basicactivity.PerfilFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_perfil"/>
 </navigation>
