@@ -18,8 +18,10 @@
             android:gravity="center"
             android:text="dia de la semana"
             android:background="#667380"
+            android:textStyle="bold"
+            android:textSize="18dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:padding="10dp"/>
 
         <androidx.recyclerview.widget.RecyclerView

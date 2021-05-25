@@ -1,4 +1,7 @@
 package com.example.plataformaescolarv2.getters
 
-class Horario (var dia : String, var materias : List<Materia>) {
+import java.io.Serializable
+import kotlin.collections.ArrayList
+
+class Horario(var dia: String, var materias: ArrayList<MateriaHorarios>) : Serializable {
 }

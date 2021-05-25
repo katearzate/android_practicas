@@ -12,7 +12,7 @@
         android:id="@+id/horarioItemHora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="08:00-09:00"
+        android:text="08:00-09:00 / F4"
         android:textColor="#04c496"
         android:textStyle="bold"
         android:textSize="16dp"/>
@@ -28,17 +28,12 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/horarioItemAula"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Aula: F1 /"/>
 
         <TextView
             android:id="@+id/horarioItemProfesor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Profesor: Amaro /"/>
+            android:text="Profesor: Amaro / "/>
 
         <TextView
             android:id="@+id/horarioItemGrupo"

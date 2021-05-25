@@ -21,7 +21,7 @@ import java.util.ArrayList
 class EleccionMateriasActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEleccionMateriasBinding
-    private var listaMateriasSeleccionadas : MutableList<Materia> = mutableListOf()
+    private var listaMateriasSeleccionadas : ArrayList<Materia> = arrayListOf()
     private var creditosTotales : Int = 0
 
     private val viewModel: MateriasViewModel by viewModels()
@@ -55,9 +55,15 @@ class EleccionMateriasActivity : AppCompatActivity() {
         }
 
         binding.btnSubirMaterias.setOnClickListener {
+            var listaMaterias : ArrayList<Materia> = arrayListOf()
+
             val intent = Intent(this, HorarioActivity::class.java)
-            //intent.putStringArrayListExtra("listaMaterias", listaMateriasSeleccionadas as ArrayList<String>)
-            viewModel.setLista(listaMateriasSeleccionadas)
+            listaMateriasSeleccionadas.forEach { materia ->
+                listaMaterias.add(materia)
+            }
+            intent.putExtra("materias", listaMaterias)
+
+            //intent.putStringArrayListExtra("listaMaterias", listaMateriasSeleccionadas)
             startActivity(intent)
             finish()
         }
@@ -108,8 +114,13 @@ class EleccionMateriasActivity : AppCompatActivity() {
                     listaClases.add(
                             Materia(profesor = jsonClases.getString("profe"),
                                     grupo = jsonClases.getString("grupo"),
-                                    horarios = jsonClases.getJSONArray("horarios"),
-                                    aulas = jsonClases.getJSONArray("aulas")))
+                                    dia1 = jsonClases.getString("dia1"),
+                                    dia2 = jsonClases.getString("dia2"),
+                                    dia3 = jsonClases.getString("dia3"),
+                                    dia4 = jsonClases.getString("dia4"),
+                                    dia5 = jsonClases.getString("dia5")))
+                                    //horarios = jsonClases.getJSONArray("horarios"),
+                                    //aulas = jsonClases.getJSONArray("aulas")))
                 }
             }
 

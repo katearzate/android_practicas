@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.View
 import com.example.plataformaescolarv2.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -19,6 +20,7 @@ class HomeActivity : AppCompatActivity() {
 
         binding.btnHomeEleccion.setOnClickListener {
             invokeActivity(EleccionMateriasActivity::class.java)
+            binding.btnHomeEleccion.visibility = View.GONE
         }
 
         binding.btnHomeHorario.setOnClickListener {

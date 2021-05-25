@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.R
 import com.example.plataformaescolarv2.getters.Horario
 import com.example.plataformaescolarv2.getters.Materia
+import com.example.plataformaescolarv2.getters.MateriaHorarios
 
 class AdapterHorario(var context: Context, var dias: List<Horario>):
 RecyclerView.Adapter<AdapterHorario.ViewHolder>(){
@@ -29,6 +30,7 @@ RecyclerView.Adapter<AdapterHorario.ViewHolder>(){
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var horario : Horario = dias.get(position)
+        //MANDAR AL RECYCLER SOLO LOS HORARIOS CORRESPONDIENTES
         holder.textViewDia.text = horario.dia
 
         llamarRecycler(holder.recyclerMaterias, horario.materias)
@@ -36,8 +38,8 @@ RecyclerView.Adapter<AdapterHorario.ViewHolder>(){
 
     override fun getItemCount(): Int = dias.size
 
-    private fun llamarRecycler(recyclerView: RecyclerView, horarios: List<Materia>){
+    private fun llamarRecycler(recyclerView: RecyclerView, materias: List<MateriaHorarios>){
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        recyclerView.adapter = AdapterHorarioItems(context, horarios)
+        recyclerView.adapter = AdapterHorarioItems(context, materias)
     }
 }

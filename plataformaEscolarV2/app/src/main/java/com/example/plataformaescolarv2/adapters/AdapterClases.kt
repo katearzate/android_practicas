@@ -42,7 +42,7 @@ abstract class AdapterClases(val context: Context, val layout: Int, val listaCla
         profesor.text = materia.profesor
         grupo.text = materia.grupo
         creditos.text = this.creditos.toString()
-
+        /*
         val listaHorario : Array<String?> = Array(5) {index -> ""}
         val listaAulas : Array<String?> = Array(5) {index -> ""}
         if (materia.horarios != null){
@@ -55,7 +55,12 @@ abstract class AdapterClases(val context: Context, val layout: Int, val listaCla
             horaMiercoles.text = "${listaHorario[2].orEmpty()} / ${listaAulas[2].orEmpty()}"
             horaJueves.text = "${listaHorario[3].orEmpty()} / ${listaAulas[3].orEmpty()}"
             horaViernes.text = "${listaHorario[4].orEmpty()} / ${listaAulas[4].orEmpty()}"
-        }
+        }*/
+        horaLunes.text = materia.dia1
+        horaMartes.text = materia.dia2
+        horaMiercoles.text = materia.dia3
+        horaJueves.text = materia.dia4
+        horaViernes.text = materia.dia5
 
         val btnMateriaSeleccionada = miView.findViewById<MaterialButton>(R.id.btnMateriaSeleccionableElegir)
         btnMateriaSeleccionada.setOnClickListener{
