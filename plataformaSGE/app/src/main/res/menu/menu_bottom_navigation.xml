@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.plataformasge.MainActivity">
+
+    <item
+        android:id="@+id/menuInicio"
+        android:orderInCategory="100"
+        android:title="Inicio"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menuHorario"
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:orderInCategory="101"
+        android:title="Horario"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menuKardex"
+        android:icon="?attr/actionModeCopyDrawable"
+        android:orderInCategory="102"
+        android:title="Kardex"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuReticula"
+        android:icon="@android:drawable/ic_menu_today"
+        android:orderInCategory="103"
+        android:title="Retícula"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menuDatosPersonales"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:orderInCategory="104"
+        android:title="Datos Personales"
+        app:showAsAction="never" />
+
+</menu>
