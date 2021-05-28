@@ -23,6 +23,8 @@ class AdapterHorarioItems(var context: Context, var materias: List<MateriaHorari
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemHolder = LayoutInflater.from(parent.context).inflate(R.layout.recycler_horario_items, parent, false)
+
+
         return ViewHolder(itemHolder)
     }
 
@@ -32,7 +34,7 @@ class AdapterHorarioItems(var context: Context, var materias: List<MateriaHorari
         holder.textViewMateria.text = materia.nombreMateria
         holder.textViewProfe.text = "Profesor: ${materia.profesor} / "
         holder.textViewGrupo.text = "Grupo: ${materia.grupo}"
-        holder.textViewHora.text = materia.dia1
+        holder.textViewHora.text = materia.dia2
 
         /*
         val listaHorario : Array<String?> = Array(5) {index -> ""}

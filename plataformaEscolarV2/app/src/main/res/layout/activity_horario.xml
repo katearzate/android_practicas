@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".HorarioActivity">
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnIrHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:backgroundTint="#FFFFFF"
+        app:icon="@drawable/abc_vector_test" />
     <TextView
         android:layout_marginTop="15dp"
         android:layout_marginBottom="30dp"

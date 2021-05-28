@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformaescolarv2.adapters.AdapterEleccion
@@ -37,35 +38,39 @@ class EleccionMateriasActivity : AppCompatActivity() {
 
                 creditosTotales += materia.creditos!!
                 binding.eleccionNumeroCreditosTotales.visibility = View.VISIBLE
+
                 if (creditosTotales <= 36){
                     listaMateriasSeleccionadas.add(materia)
-                    binding.listViewMateriasSeleccionadas.adapter = AdapterMateriasElegidas(this@EleccionMateriasActivity,
+                    binding.listViewMateriasSeleccionadas.adapter = AdapterMateriasElegidas(
+                            this@EleccionMateriasActivity,
                             R.layout.lista_eleccion_materias,
                             listaMateriasSeleccionadas)
-                } else if(creditosTotales < 20){
-                    println("SE DEBE TOMAR MÁS MATERIAS")
                 } else{
+                    showAlert("Límite de créditos", "No puedes agregar más materias, se ha excedido el límite")
+
                     creditosTotales -= materia.creditos!!
-                    println("LIMITE DE MATERIAS!!")
-                    Toast.makeText(this@EleccionMateriasActivity, "Límite de creditos excedido", Toast.LENGTH_LONG).show()
-                    //Toast no funciona, revisar el por qué
+                    Toast.makeText(
+                            this@EleccionMateriasActivity,
+                            "Límite de creditos excedido",
+                            Toast.LENGTH_LONG).show()   //no funciona el Toast :0
                 }
                 binding.eleccionNumeroCreditosTotales.setText("Total de créditos: ${creditosTotales}")
             }
         }
-
         binding.btnSubirMaterias.setOnClickListener {
             var listaMaterias : ArrayList<Materia> = arrayListOf()
 
-            val intent = Intent(this, HorarioActivity::class.java)
-            listaMateriasSeleccionadas.forEach { materia ->
-                listaMaterias.add(materia)
+            if (creditosTotales < 10){
+                showAlert("Error", "Debes seleccionar más materias para poder registrar el horario")
+            }else{
+                val intent = Intent(this, HorarioActivity::class.java)
+                listaMateriasSeleccionadas.forEach { materia ->
+                    listaMaterias.add(materia)
+                }
+                intent.putExtra("materias", listaMaterias)
+                startActivity(intent)
+                finish()
             }
-            intent.putExtra("materias", listaMaterias)
-
-            //intent.putStringArrayListExtra("listaMaterias", listaMateriasSeleccionadas)
-            startActivity(intent)
-            finish()
         }
     }
 
@@ -132,5 +137,14 @@ class EleccionMateriasActivity : AppCompatActivity() {
                 listaClases))
         }
         return listaMaterias
+    }
+
+    private fun showAlert(error: String, mensaje: String){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(error)
+        builder.setMessage(mensaje)
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 }

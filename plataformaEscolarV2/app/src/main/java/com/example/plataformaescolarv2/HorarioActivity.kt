@@ -1,5 +1,6 @@
 package com.example.plataformaescolarv2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,7 +48,10 @@ class HorarioActivity : AppCompatActivity() {
         binding.recyclerHorario.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         binding.recyclerHorario.adapter = AdapterHorario(this, materias)
 
-
+        binding.btnIrHome.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }
