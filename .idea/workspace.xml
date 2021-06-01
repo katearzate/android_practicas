@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9d12954-bb99-479e-a620-e580f3afe4fc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="e3870e0f-f121-4a07-8d9c-7f620ae84ec2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,35 +18,41 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1tJ07mKcr7oZ7x2wutBdxxNqZcu" />
+  <component name="ProjectId" id="1tJJeLgZwTsYXuDQyZJoNEUT2oe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/plataformaSGE" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d9d12954-bb99-479e-a620-e580f3afe4fc" name="Default Changelist" comment="" />
-      <created>1622471720978</created>
+      <changelist id="e3870e0f-f121-4a07-8d9c-7f620ae84ec2" name="Default Changelist" comment="" />
+      <created>1622481353127</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1622471720978</updated>
+      <updated>1622481353127</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="502" y="514" width="424" height="491" key="FileChooserDialogImpl" timestamp="1622471838674">
+    <state x="239" y="231" width="950" height="537" key="#PSD" timestamp="1622492292466">
+      <screen x="0" y="359" width="1366" height="768" />
+    </state>
+    <state x="239" y="231" width="950" height="537" key="#PSD/0.359.1366.768/1366.0.1360.768@0.359.1366.768" timestamp="1622492292466" />
+    <state x="502" y="277" width="424" height="491" key="FileChooserDialogImpl" timestamp="1622492506086">
+      <screen x="0" y="359" width="1366" height="768" />
+    </state>
+    <state x="502" y="277" width="424" height="491" key="FileChooserDialogImpl/0.359.1366.768/1366.0.1360.768@0.359.1366.768" timestamp="1622492506086" />
+    <state x="208" y="390" width="1022" height="737" key="SettingsEditor" timestamp="1622481368624">
       <screen x="72" y="386" width="1294" height="741" />
     </state>
-    <state x="502" y="514" width="424" height="491" key="FileChooserDialogImpl/72.386.1294.741/1366.0.1360.768@72.386.1294.741" timestamp="1622471838674" />
-    <state x="208" y="390" width="1022" height="737" key="SettingsEditor" timestamp="1622471826603">
-      <screen x="72" y="386" width="1294" height="741" />
-    </state>
-    <state x="208" y="390" width="1022" height="737" key="SettingsEditor/72.386.1294.741/1366.0.1360.768@72.386.1294.741" timestamp="1622471826603" />
+    <state x="208" y="390" width="1022" height="737" key="SettingsEditor/72.386.1294.741/1366.0.1360.768@72.386.1294.741" timestamp="1622481368624" />
   </component>
 </project>

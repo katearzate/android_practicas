@@ -6,36 +6,32 @@
 
     <item
         android:id="@+id/menuInicio"
-        android:orderInCategory="100"
+        android:icon="@drawable/home"
         android:title="Inicio"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/menuHorario"
-        android:icon="@android:drawable/ic_menu_recent_history"
-        android:orderInCategory="101"
+        android:icon="@drawable/horario"
         android:title="Horario"
         app:showAsAction="never"/>
 
     <item
         android:id="@+id/menuKardex"
-        android:icon="?attr/actionModeCopyDrawable"
-        android:orderInCategory="102"
+        android:icon="@drawable/kardex"
         android:title="Kardex"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menuReticula"
-        android:icon="@android:drawable/ic_menu_today"
-        android:orderInCategory="103"
+        android:icon="@drawable/avance"
         android:title="Retícula"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menuDatosPersonales"
-        android:icon="@android:drawable/ic_menu_my_calendar"
-        android:orderInCategory="104"
-        android:title="Datos Personales"
+        android:icon="@drawable/personal"
+        android:title="Datos"
         app:showAsAction="never" />
 
 </menu>
