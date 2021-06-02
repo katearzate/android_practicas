@@ -8,16 +8,21 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.plataformasge.HomeFragment"
-        android:label="fragment_home"
+        android:label="Inicio"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/kardexFragment"
         android:name="com.example.plataformasge.KardexFragment"
-        android:label="fragment_kardex"
+        android:label="Kardex de calificaciones"
         tools:layout="@layout/fragment_kardex" />
     <fragment
         android:id="@+id/reticulaFragment"
         android:name="com.example.plataformasge.ReticulaFragment"
-        android:label="fragment_reticula"
+        android:label="Retícula"
         tools:layout="@layout/fragment_reticula" />
+    <fragment
+        android:id="@+id/personalDataFragment"
+        android:name="com.example.plataformasge.DatosPersonalesFragment"
+        android:label="Información Personal"
+        tools:layout="@layout/fragment_personal_data" />
 </navigation>

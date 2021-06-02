@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         navigationController = findNavController(R.id.main_container)
         setupActionBarWithNavController(navigationController, AppBarConfiguration(setOf(
-            R.id.homeFragment, R.id.kardexFragment
+            R.id.homeFragment, R.id.kardexFragment, R.id.reticulaFragment, R.id.personalDataFragment
         )))
 
         binding.menuBottomNavigation.setupWithNavController(navigationController)
@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menuReticula -> {
                     navigationController.navigate(R.id.reticulaFragment)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.menuDatosPersonales -> {
+                    navigationController.navigate(R.id.personalDataFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
             }

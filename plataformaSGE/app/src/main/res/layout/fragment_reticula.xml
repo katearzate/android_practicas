@@ -5,12 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ReticulaFragment">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ReticulaActivity"
         android:fillViewport="true">
 
         <LinearLayout
