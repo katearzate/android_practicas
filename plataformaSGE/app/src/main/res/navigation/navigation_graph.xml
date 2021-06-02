@@ -10,4 +10,9 @@
         android:name="com.example.plataformasge.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/kardexFragment"
+        android:name="com.example.plataformasge.KardexFragment"
+        android:label="fragment_kardex"
+        tools:layout="@layout/fragment_kardex" />
 </navigation>

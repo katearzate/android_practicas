@@ -14,7 +14,7 @@
         android:elevation="40dp"
         android:background="#E1E1E1">
         <TextView
-            android:id="@+id/homeBienvenida"
+            android:id="@+id/homeNombreDeBienvenida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bienvenido de nuevo KATHERON"
