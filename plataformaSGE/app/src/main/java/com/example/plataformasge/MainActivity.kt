@@ -38,9 +38,9 @@ class MainActivity : AppCompatActivity() {
                     navigationController.navigate(R.id.kardexFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
-                else -> {
-                    //navigationController.navigate(R.id.homeFragment)
-                    return@setOnNavigationItemSelectedListener false
+                R.id.menuReticula -> {
+                    navigationController.navigate(R.id.reticulaFragment)
+                    return@setOnNavigationItemSelectedListener true
                 }
             }
             return@setOnNavigationItemSelectedListener false

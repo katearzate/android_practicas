@@ -15,4 +15,9 @@
         android:name="com.example.plataformasge.KardexFragment"
         android:label="fragment_kardex"
         tools:layout="@layout/fragment_kardex" />
+    <fragment
+        android:id="@+id/reticulaFragment"
+        android:name="com.example.plataformasge.ReticulaFragment"
+        android:label="fragment_reticula"
+        tools:layout="@layout/fragment_reticula" />
 </navigation>
