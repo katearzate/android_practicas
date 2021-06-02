@@ -1,10 +1,10 @@
 package com.example.plataformasge
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,10 +17,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navigationController : NavController
 
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.let {
+            it.title = "SGE"
+            it.setDefaultDisplayHomeAsUpEnabled(true)
+            it.setDisplayHomeAsUpEnabled(true)
+        }
 
         navigationController = findNavController(R.id.main_container)
         setupActionBarWithNavController(navigationController, AppBarConfiguration(setOf(
@@ -49,5 +57,25 @@ class MainActivity : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener false
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        //Inflate menu in any fragment
+        when(item.itemId) {
+            R.id.menuSalir -> finish()
+            else -> true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
     }
 }
