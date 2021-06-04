@@ -36,10 +36,6 @@ class ContactsAdapter (val context: Context, val res: Int, val contacts:ArrayLis
             val textTelephone = itemView.findViewById<TextView>(R.id.recyclerContactTelephone)
             val imageFavorite = itemView.findViewById<ImageView>(R.id.recyclerContactFavorite)
             val btnOptions = itemView.findViewById<FloatingActionButton>(R.id.recyclerContactOptions)
-            val fabEdit = itemView.findViewById<FloatingActionButton>(R.id.fabRowEdit)
-            val fabDelete = itemView.findViewById<FloatingActionButton>(R.id.fabRowDelete)
-            val fabCall = itemView.findViewById<FloatingActionButton>(R.id.fabRowCall)
-            val fabMsg = itemView.findViewById<FloatingActionButton>(R.id.fabRowMsg)
 
             textName.text = contact.name
             textTelephone.text = contact.celphone
@@ -59,11 +55,15 @@ class ContactsAdapter (val context: Context, val res: Int, val contacts:ArrayLis
             }
 
             btnOptions.setOnClickListener {
+
+            }
+            /*
+            btnOptions.setOnClickListener {
                 fabEdit.visibility = if(fabEdit.visibility == View.VISIBLE) View.INVISIBLE else View.VISIBLE
                 fabDelete.visibility = if(fabDelete.visibility == View.VISIBLE) View.INVISIBLE else View.VISIBLE
                 fabCall.visibility = if(fabCall.visibility == View.VISIBLE) View.INVISIBLE else View.VISIBLE
                 fabMsg.visibility = if(fabMsg.visibility == View.VISIBLE) View.INVISIBLE else View.VISIBLE
-            }
+            }*/
         }
 
     }

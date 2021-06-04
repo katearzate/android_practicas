@@ -9,7 +9,6 @@
         android:id="@+id/cardRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="15dp"
         app:contentPadding="2dp"
@@ -76,59 +75,6 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabRowEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_edit"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="11dp"
-        android:visibility="invisible"
-        app:elevation="30dp"
-        app:fabSize="mini"
-        app:layout_constraintBottom_toBottomOf="@+id/cardRow"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabRowDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="11dp"
-        android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:visibility="invisible"
-        app:backgroundTint="#77F4A2BE"
-        app:elevation="30dp"
-        app:fabSize="mini"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/cardRow" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabRowCall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="11dp"
-        android:src="@android:drawable/ic_menu_call"
-        android:visibility="invisible"
-        app:backgroundTint="#7700FFCC"
-        app:elevation="30dp"
-        app:fabSize="mini"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/cardRow" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabRowMsg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="250dp"
-        android:layout_marginBottom="11dp"
-        android:src="@android:drawable/sym_action_chat"
-        android:visibility="invisible"
-        app:backgroundTint="#7700CCFF"
-        app:elevation="30dp"
-        app:fabSize="mini"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/cardRow" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
