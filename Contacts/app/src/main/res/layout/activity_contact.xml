@@ -7,16 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".ContactActivity">
 
-    <ImageView
-        android:id="@+id/contactImage"
-        android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewImage"
+        android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="fitCenter"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="90dp">
+        <ImageView
+            android:id="@+id/contactImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#A604345A"
+            android:src="@drawable/ic_launcher_foreground"
+            android:scaleType="fitCenter"/>
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/contactBtnEditPhoto"
@@ -26,7 +33,7 @@
         android:layout_marginBottom="10dp"
         android:src="@android:drawable/ic_menu_edit"
         app:backgroundTint="#70CCCCCC"
-        app:layout_constraintBottom_toBottomOf="@+id/contactImage"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewImage"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -35,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contactImage">
+        app:layout_constraintTop_toBottomOf="@+id/cardViewImage">
 
         <EditText
             android:id="@+id/contactEditName"
@@ -68,12 +75,12 @@
         android:id="@+id/contactTGBtnFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Favorito"
-        android:textOn="Es favorito"
-        android:textOff="No es favorito"
-        android:drawableTop="@android:drawable/star_off"
-        android:background="#00ffffff"
         android:layout_marginTop="25dp"
+        android:background="#00ffffff"
+        android:drawableTop="@android:drawable/btn_star_big_off"
+        android:text="Favorito"
+        android:textOff="No es favorito"
+        android:textOn="Es favorito"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactInputLayoutTelephone" />
@@ -85,7 +92,10 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="25dp"
         android:text="Guardar"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_500"
         app:icon="@android:drawable/ic_menu_save"
+        app:iconTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactTGBtnFavorite" />
 
@@ -96,7 +106,9 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="50dp"
         android:text="Cancelar"
-        app:backgroundTint="#ECE3E3"
+        android:textColor="@color/white"
+        app:backgroundTint="#5A0101"
+        app:iconTint="@color/white"
         app:icon="@android:drawable/ic_menu_close_clear_cancel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactTGBtnFavorite" />
