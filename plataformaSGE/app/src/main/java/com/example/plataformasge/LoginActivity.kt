@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.example.plataformasge.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -20,5 +21,19 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.redirigirSignin.setOnClickListener {
+            val intent = Intent(this, SigninActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+
+    private fun showAlert(){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Error")
+        builder.setMessage("Numero de control o contraseña incorrecta")
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
     }
 }
