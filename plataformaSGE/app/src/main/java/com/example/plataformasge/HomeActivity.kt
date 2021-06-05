@@ -24,7 +24,6 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        setSupportActionBar(binding.toolbar)
         supportActionBar?.let {
             it.title = "SGE"
             it.setDefaultDisplayHomeAsUpEnabled(true)
