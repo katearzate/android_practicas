@@ -9,9 +9,9 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewImage"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:background="#A604345A"
             android:src="@drawable/ic_launcher_foreground"
-            android:scaleType="fitCenter"/>
+            android:scaleType="centerCrop"/>
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -77,7 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:background="#00ffffff"
-        android:drawableTop="@android:drawable/btn_star_big_off"
+        android:drawableStart="@android:drawable/star_off"
+        android:drawablePadding="10dp"
         android:text="Favorito"
         android:textOff="No es favorito"
         android:textOn="Es favorito"

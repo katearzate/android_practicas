@@ -1,14 +1,20 @@
 package com.example.contacts.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.contacts.ContactActivity
+import com.example.contacts.OptionsContactActivity
 import com.example.contacts.R
 import com.example.contacts.models.Contact
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -55,7 +61,15 @@ class ContactsAdapter (val context: Context, val res: Int, val contacts:ArrayLis
             }
 
             btnOptions.setOnClickListener {
+                val intent = Intent(context, OptionsContactActivity::class.java)
+                startActivity(context, intent, null)
 
+                /*var stringTelephone : String = String.format("tel: %s", textTelephone.getText().toString())
+
+                val call = Intent(Intent.ACTION_DIAL)
+                call.setData(Uri.parse(stringTelephone))
+                startActivity(context, call, stringTelephone)
+                */
             }
             /*
             btnOptions.setOnClickListener {

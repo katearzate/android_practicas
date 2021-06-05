@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="35dp"
-    tools:context=".models.OptionsContactActivity">
+    tools:context=".OptionsContactActivity">
 
     <ImageView
         android:id="@+id/optionsImage"
@@ -91,10 +91,11 @@
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         app:cornerRadius="25dp"
-        android:text="Editar"
+        android:backgroundTint="#5A0101"
+        android:text="Eliminar"
         android:textSize="12dp"
         app:iconSize="18dp"
-        app:icon="@android:drawable/ic_menu_edit"
+        app:icon="@android:drawable/ic_menu_delete"
         app:layout_constraintEnd_toStartOf="@+id/optionsBtnDelete"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optionsLinearLayout" />
@@ -104,10 +105,10 @@
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         app:cornerRadius="25dp"
-        android:text="Eliminar"
+        android:text="Editar"
         android:textSize="12dp"
         app:iconSize="18dp"
-        app:icon="@android:drawable/ic_menu_delete"
+        app:icon="@android:drawable/ic_menu_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/optionsBtnEdit"
         app:layout_constraintTop_toBottomOf="@+id/optionsLinearLayout" />

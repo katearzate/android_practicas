@@ -1,6 +1,7 @@
 package com.example.plataformasge
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -10,20 +11,20 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.plataformasge.databinding.ActivityMainBinding
+import com.example.plataformasge.databinding.ActivityHomeBinding
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityHomeBinding
     private lateinit var navigationController : NavController
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+//        setSupportActionBar(binding.toolbar)
         supportActionBar?.let {
             it.title = "SGE"
             it.setDefaultDisplayHomeAsUpEnabled(true)
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             when(item.itemId){
                 R.id.menuInicio -> {
                     navigationController.navigate(R.id.homeFragment)
+                    title = "SGE"
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.menuKardex -> {
@@ -67,7 +69,11 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         //Inflate menu in any fragment
         when(item.itemId) {
-            R.id.menuSalir -> finish()
+            R.id.menuSalir -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
             else -> true
         }
         return super.onOptionsItemSelected(item)
