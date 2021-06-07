@@ -1,5 +1,6 @@
 package com.example.contacts.models
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -93,14 +94,26 @@ class DBManager (
         db.close()
     }
 
+    @Throws
+    fun update(contact: Contact){
+        val db = writableDatabase
+        val values = ContentValues()
+
+        values.put("id", contact.id)
+        values.put("name", contact.name)
+        values.put("celphone", contact.celphone)
+        values.put("favorite", contact.favorite)
+        values.put("photo", contact.photo)
+
+        db.update("contacts", values, "id = ?", arrayOf(contact.id.toString()))
+        db.close()
+    }
 
     @Throws
-    fun delete(id : Editable? = null){
+    fun delete(id : String? = null){
         val db = writableDatabase
-        id.let {
-            var sql = "DELETE FROM contacts WHERE id = '%$it%'"
-            db.compileStatement(sql).execute()
-        }
+        db.delete("contacts", "id=?", arrayOf(id))
+
         db.close()
     }
 }

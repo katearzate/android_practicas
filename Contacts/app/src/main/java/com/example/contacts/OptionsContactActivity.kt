@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.example.contacts.models.Contact
 import com.example.contacts.models.DBManager
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import java.lang.Exception
 
 class OptionsContactActivity : AppCompatActivity() {
 
@@ -25,8 +28,6 @@ class OptionsContactActivity : AppCompatActivity() {
             null,
             resources.getInteger(R.integer.db_version)
         )
-
-        val telephoneIntent = intent.getStringExtra("telephone")
 
         lateinit var image : ImageView
         lateinit var name : TextView
@@ -44,11 +45,12 @@ class OptionsContactActivity : AppCompatActivity() {
         delete = findViewById(R.id.optionsBtnDelete)
         modify = findViewById(R.id.optionsBtnEdit)
 
+        val telephoneInt = intent.getStringExtra("telephone")
         name.setText(intent.getStringExtra("name"))
-        telephone.setText(telephoneIntent)
+        telephone.setText(telephoneInt)
 
         call.setOnClickListener {
-            var stringTelephone : String = String.format("tel: ${telephoneIntent}")
+            var stringTelephone : String = String.format("tel: ${telephoneInt}")
 
             val call = Intent(Intent.ACTION_DIAL)
             call.setData(Uri.parse(stringTelephone))
@@ -56,7 +58,7 @@ class OptionsContactActivity : AppCompatActivity() {
         }
 
         message.setOnClickListener {
-            var stringMessage : String = String.format("smsto: ${telephoneIntent}")
+            var stringMessage : String = String.format("smsto: ${telephoneInt}")
 
             val intent = Intent(Intent.ACTION_SENDTO)
             intent.setData(Uri.parse(stringMessage))
@@ -69,10 +71,21 @@ class OptionsContactActivity : AppCompatActivity() {
         }
 
         delete.setOnClickListener {
+            println("LISTO PARA ELIMINAR")
+           try {
+                Toast.makeText(this, "Registro eliminado", Toast.LENGTH_LONG).show()
+                dbManager.delete(intent.getStringExtra("id"))
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }catch (e: Exception){
+                Toast.makeText(this, "Eliminacion fallida", Toast.LENGTH_LONG).show()
+                e.printStackTrace()
+            }
+        }
 
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+        modify.setOnClickListener {
+            val intent = Intent(this, )
         }
     }
 }
