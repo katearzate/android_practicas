@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class OptionsContactActivity : AppCompatActivity() {
@@ -21,8 +22,8 @@ class OptionsContactActivity : AppCompatActivity() {
         lateinit var telephone : TextView
         lateinit var call : ExtendedFloatingActionButton
         lateinit var message : ExtendedFloatingActionButton
-        lateinit var delete : ExtendedFloatingActionButton
-        lateinit var modify : ExtendedFloatingActionButton
+        lateinit var delete : MaterialButton
+        lateinit var modify : MaterialButton
 
         image = findViewById(R.id.optionsImage)
         name = findViewById(R.id.optionsName)
@@ -32,8 +33,9 @@ class OptionsContactActivity : AppCompatActivity() {
         delete = findViewById(R.id.optionsBtnDelete)
         modify = findViewById(R.id.optionsBtnEdit)
 
-        call.setOnClickListener {
+        telephone.setText(telephoneIntent)
 
+        call.setOnClickListener {
             var stringTelephone : String = String.format("tel: ${telephoneIntent}")
 
             val call = Intent(Intent.ACTION_DIAL)
