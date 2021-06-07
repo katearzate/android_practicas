@@ -61,15 +61,12 @@ class ContactsAdapter (val context: Context, val res: Int, val contacts:ArrayLis
             }
 
             btnOptions.setOnClickListener {
-                val intent = Intent(context, OptionsContactActivity::class.java)
+
+                var intent = Intent(context, OptionsContactActivity::class.java)
+                intent.putExtra("telephone", ""+textTelephone)
+
                 startActivity(context, intent, null)
 
-                /*var stringTelephone : String = String.format("tel: %s", textTelephone.getText().toString())
-
-                val call = Intent(Intent.ACTION_DIAL)
-                call.setData(Uri.parse(stringTelephone))
-                startActivity(context, call, stringTelephone)
-                */
             }
             /*
             btnOptions.setOnClickListener {

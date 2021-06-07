@@ -92,4 +92,17 @@ class DBManager (
 
         db.close()
     }
+
+    /*
+    @Throws
+    fun delete(id : Editable? = null) : ArrayList<Contact>{
+        val db = writableDatabase
+        id.let {
+            var sql = "DELETE FROM contacts WHERE id = '%$it%'"
+        }
+
+        db.close()
+
+        return id
+    }*/
 }
