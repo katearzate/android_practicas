@@ -5,5 +5,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditContact">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewImage"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="90dp">
+        <ImageView
+            android:id="@+id/editContactImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#A604345A"
+            android:src="@drawable/ic_launcher_foreground"
+            android:scaleType="centerCrop"/>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/editBtnPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="10dp"
+        android:src="@android:drawable/ic_menu_edit"
+        app:backgroundTint="#70CCCCCC"
+        app:layout_constraintBottom_toBottomOf="@+id/cardViewImage"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contactInputLayoutName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewImage">
+
+        <EditText
+            android:id="@+id/editName"
+            android:background="#00ffffff"
+            android:hint="Ingresa el nombre del contacto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contactInputLayoutTelephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactInputLayoutName">
+
+        <EditText
+            android:id="@+id/editTelephone"
+            android:background="#00ffffff"
+            android:hint="Ingresa el celular del contacto"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ToggleButton
+        android:id="@+id/editTGBtnFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="#00ffffff"
+        android:drawableStart="@android:drawable/star_off"
+        android:drawablePadding="10dp"
+        android:text="Favorito"
+        android:textOff="No es favorito"
+        android:textOn="Es favorito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactInputLayoutTelephone" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/editBtnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
+        android:text="Guardar"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_500"
+        app:icon="@android:drawable/ic_menu_save"
+        app:iconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTGBtnFavorite" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/editBtnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
+        android:text="Cancelar"
+        android:textColor="@color/white"
+        app:backgroundTint="#5A0101"
+        app:iconTint="@color/white"
+        app:icon="@android:drawable/ic_menu_close_clear_cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTGBtnFavorite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,7 +71,6 @@ class OptionsContactActivity : AppCompatActivity() {
         }
 
         delete.setOnClickListener {
-            println("LISTO PARA ELIMINAR")
            try {
                 Toast.makeText(this, "Registro eliminado", Toast.LENGTH_LONG).show()
                 dbManager.delete(intent.getStringExtra("id"))
@@ -85,7 +84,8 @@ class OptionsContactActivity : AppCompatActivity() {
         }
 
         modify.setOnClickListener {
-            val intent = Intent(this, )
+            val intent = Intent(this, ContactActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -87,7 +87,7 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/optionsBtnEdit"
+        android:id="@+id/optionsBtnDelete"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         app:cornerRadius="25dp"
@@ -96,12 +96,12 @@
         android:textSize="12dp"
         app:iconSize="18dp"
         app:icon="@android:drawable/ic_menu_delete"
-        app:layout_constraintEnd_toStartOf="@+id/optionsBtnDelete"
+        app:layout_constraintEnd_toStartOf="@+id/optionsBtnEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optionsLinearLayout" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/optionsBtnDelete"
+        android:id="@+id/optionsBtnEdit"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         app:cornerRadius="25dp"
@@ -110,7 +110,7 @@
         app:iconSize="18dp"
         app:icon="@android:drawable/ic_menu_edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/optionsBtnEdit"
+        app:layout_constraintStart_toEndOf="@+id/optionsBtnDelete"
         app:layout_constraintTop_toBottomOf="@+id/optionsLinearLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

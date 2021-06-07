@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
             resources.getInteger(R.integer.db_version)
         )
 
+        refreshContacts()
+
         editSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {   }
 
@@ -52,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ContactActivity::class.java)
             startActivity(intent)
         }
-        refreshContacts()
+        //refreshContacts()
     }
 
     private fun refreshContacts() {
