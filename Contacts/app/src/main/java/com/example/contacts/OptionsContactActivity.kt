@@ -7,13 +7,24 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.example.contacts.models.DBManager
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
 class OptionsContactActivity : AppCompatActivity() {
+
+    lateinit var dbManager : DBManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_options_contact)
+
+        dbManager = DBManager(
+            this,
+            resources.getString(R.string.db_name),
+            null,
+            resources.getInteger(R.integer.db_version)
+        )
 
         val telephoneIntent = intent.getStringExtra("telephone")
 
@@ -33,6 +44,7 @@ class OptionsContactActivity : AppCompatActivity() {
         delete = findViewById(R.id.optionsBtnDelete)
         modify = findViewById(R.id.optionsBtnEdit)
 
+        name.setText(intent.getStringExtra("name"))
         telephone.setText(telephoneIntent)
 
         call.setOnClickListener {
@@ -43,5 +55,24 @@ class OptionsContactActivity : AppCompatActivity() {
             ContextCompat.startActivity(this, call, null)
         }
 
+        message.setOnClickListener {
+            var stringMessage : String = String.format("smsto: ${telephoneIntent}")
+
+            val intent = Intent(Intent.ACTION_SENDTO)
+            intent.setData(Uri.parse(stringMessage))
+            intent.putExtra("sms_body", "")
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            }else{
+                println("NO SE HA LOGRA ACCEDER A MENSAJES")
+            }
+        }
+
+        delete.setOnClickListener {
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
