@@ -1,10 +1,11 @@
-package com.example.plataformasge
+package com.example.plataformasge.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.plataformasge.R
 
 class HomeFragment : Fragment() {
 
