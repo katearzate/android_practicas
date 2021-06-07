@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.contacts.models.Contact
 import com.example.contacts.models.DBManager
@@ -72,11 +73,26 @@ class OptionsContactActivity : AppCompatActivity() {
 
         delete.setOnClickListener {
            try {
-                Toast.makeText(this, "Registro eliminado", Toast.LENGTH_LONG).show()
-                dbManager.delete(intent.getStringExtra("id"))
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                //Toast.makeText(this, "Registro eliminado", Toast.LENGTH_LONG).show()
+                //showAlert("Advertencia", "¿Seguro que desea Eliminar?")
+                /*if (){
+                    dbManager.delete(intent.getStringExtra("id"))
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }*/
+               val builder = AlertDialog.Builder(this)
+               builder.setTitle("Advertencia")
+               builder.setMessage("¿Seguro que desea Eliminar?")
+               builder.setPositiveButton("Si") { dialog, which ->
+                   dbManager.delete(intent.getStringExtra("id"))
+                   val intent = Intent(this, MainActivity::class.java)
+                   startActivity(intent)
+                   finish()
+               }
+               builder.setNegativeButton("No", null)
+               val dialog: AlertDialog = builder.create()
+               dialog.show()
             }catch (e: Exception){
                 Toast.makeText(this, "Eliminacion fallida", Toast.LENGTH_LONG).show()
                 e.printStackTrace()
@@ -88,4 +104,20 @@ class OptionsContactActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    /*
+    private fun showAlert(title: String, message: String){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(title)
+        builder.setMessage(message)
+        builder.setPositiveButton("Aceptar", null).apply {
+            dbManager.delete(intent.getStringExtra("id"))
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+        builder.setNegativeButton("Cancelar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }*/
 }
