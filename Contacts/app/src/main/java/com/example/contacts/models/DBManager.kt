@@ -99,7 +99,6 @@ class DBManager (
         val db = writableDatabase
         val values = ContentValues()
 
-        values.put("id", contact.id)
         values.put("name", contact.name)
         values.put("celphone", contact.celphone)
         values.put("favorite", contact.favorite)

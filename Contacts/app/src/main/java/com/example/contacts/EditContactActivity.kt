@@ -3,9 +3,13 @@ package com.example.contacts
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class EditContact : AppCompatActivity() {
+class EditContactActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_contact)
+
+        val id = intent.getStringExtra("id")
+
+
     }
 }

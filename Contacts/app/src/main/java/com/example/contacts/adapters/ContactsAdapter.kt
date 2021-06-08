@@ -64,10 +64,7 @@ class ContactsAdapter (val context: Context, val res: Int, val contacts:ArrayLis
             btnOptions.setOnClickListener {
 
                 var intent = Intent(context, OptionsContactActivity::class.java).apply {
-                    putExtra("id", "${id}")
-                    putExtra("name", "${textName.text}")
-                    putExtra("telephone", "${textTelephone.text}")
-
+                    putExtra("contact", contact)
                 }
                 startActivity(context, intent, null)
 

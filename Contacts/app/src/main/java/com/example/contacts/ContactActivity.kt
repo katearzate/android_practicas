@@ -1,6 +1,7 @@
 package com.example.contacts
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -42,6 +43,8 @@ class ContactActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact)
 
+        var edited: Boolean = false
+
         imgContact = findViewById(R.id.contactImage)
         btnEditPhoto = findViewById( R.id.contactBtnEditPhoto )
         editName = findViewById( R.id.contactEditName )
@@ -56,6 +59,20 @@ class ContactActivity : AppCompatActivity() {
             null,
             resources.getInteger(R.integer.db_version)
         )
+
+        var contact: Contact? = null
+        if (intent.extras != null){
+            contact = intent.getParcelableExtra("contact")
+            edited = true
+        }
+
+        if (edited == true){
+            editName.setText(contact?.name)
+            editTelephone.setText(contact?.celphone)
+            contact?.photo?.let {
+                imgContact.setImageBitmap(BitmapFactory.decodeByteArray(it, 0, it.size))
+            }
+        }
 
         btnEditPhoto.setOnClickListener {
             val getIntent = Intent(Intent.ACTION_GET_CONTENT)
@@ -87,34 +104,54 @@ class ContactActivity : AppCompatActivity() {
         btnCancel.setOnClickListener { finish() }
 
         btnSave.setOnClickListener {
-            var validated = true
-            if(editName.text.isEmpty()) {
-                validated = false
-                editName.setError("El nombre es requerido")
-            }
-            if(editTelephone.text.isEmpty()) {
-                validated = false
-                editTelephone.setError("El celular es requerido")
-            }
-
-            //If everything goes OK, then:
-            if(validated) {
-                val contacto = Contact(
-                    0,
-                    editName.text.toString(),
-                    editTelephone.text.toString(),
-                    if(tgBtnFavorite.isSelected) 1 else 0,
-                    byteFoto
-                )
-                // Se guarda en la BD
+            //update database
+            if (edited){
                 try {
-                    dbManager.create(contacto)
-                    Toast.makeText(this, "Se agrego el contacto ${editName.text}", Toast.LENGTH_LONG).show()
-                } catch (e: Exception) {
+                    dbManager.update(
+                        Contact(
+                            contact!!.id,
+                            editName.text.toString(),
+                            editTelephone.text.toString(),
+                            tgBtnFavorite.isSelected.toString().toInt(),
+                            null    //add image
+                    ))
+                    Toast.makeText(this, "Contacto actualizado", Toast.LENGTH_LONG).show()
+                    finish()
+                } catch (e: Exception){
                     e.printStackTrace()
-                    Toast.makeText(this, "Error al crear el contacto", Toast.LENGTH_LONG).show()
                 }
-                finish()
+
+
+            }else{
+                var validated = true
+                if(editName.text.isEmpty()) {
+                    validated = false
+                    editName.setError("El nombre es requerido")
+                }
+                if(editTelephone.text.isEmpty()) {
+                    validated = false
+                    editTelephone.setError("El celular es requerido")
+                }
+
+                //If everything goes OK, then:
+                if(validated) {
+                    val contacto = Contact(
+                        0,
+                        editName.text.toString(),
+                        editTelephone.text.toString(),
+                        if(tgBtnFavorite.isSelected) 1 else 0,
+                        byteFoto
+                    )
+                    // Added to database
+                    try {
+                        dbManager.create(contacto)
+                        Toast.makeText(this, "Se agrego el contacto ${editName.text}", Toast.LENGTH_LONG).show()
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        Toast.makeText(this, "Error al crear el contacto", Toast.LENGTH_LONG).show()
+                    }
+                    finish()
+                }
             }
         }
     }

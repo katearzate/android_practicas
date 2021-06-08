@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ContactActivity::class.java)
             startActivity(intent)
         }
-        //refreshContacts()
+        refreshContacts()
     }
 
     private fun refreshContacts() {
