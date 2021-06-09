@@ -37,7 +37,6 @@ class ContactsAdapter (val context: Context, val res: Int, val contacts:ArrayLis
     inner class ContactsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(contact: Contact) {
-            val id = contact.id
             val imagePhoto = itemView.findViewById<ImageView>(R.id.recyclerContactPhoto)
             val textName = itemView.findViewById<TextView>(R.id.recyclerContactName)
             val textTelephone = itemView.findViewById<TextView>(R.id.recyclerContactTelephone)

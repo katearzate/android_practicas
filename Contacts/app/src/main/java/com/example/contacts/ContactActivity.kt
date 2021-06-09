@@ -120,9 +120,13 @@ class ContactActivity : AppCompatActivity() {
                                 null    //add image
                             )
                         )
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
                         finish()
                     }
-                    builder.setNegativeButton("No", null)
+                    builder.setNegativeButton("No") { dialog, which ->
+                        finish()
+                    }
                     val dialog: AlertDialog = builder.create()
                     dialog.show()
 
