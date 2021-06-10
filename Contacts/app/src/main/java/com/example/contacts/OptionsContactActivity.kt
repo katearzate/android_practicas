@@ -82,18 +82,14 @@ class OptionsContactActivity : AppCompatActivity() {
 
             builder.setPositiveButton("Mandar") { dialog, which ->
                 var textMessage = inputMessage.text.toString()
-                /*var stringMessage : String = String.format("smsto: ${contact?.celphone}")
 
-                val intent = Intent(Intent.ACTION_SENDTO)
-                intent.setData(Uri.parse(stringMessage))
-                intent.putExtra("sms_body", textMessage)
-                if (intent.resolveActivity(packageManager) != null) {
-                    startActivity(intent)
-                }else{
-                    println("NO SE HA LOGRADO ACCEDER A MENSAJES")
-                }*/
                 val smsManager = SmsManager.getDefault() as SmsManager
-                smsManager.sendTextMessage(contact?.celphone, null, textMessage, null, null)
+                smsManager.sendTextMessage(
+                    contact?.celphone,
+                    null, textMessage,
+                    null,
+                    null
+                )
             }
             builder.setNegativeButton("Cancelar", null)
             val dialog: AlertDialog = builder.create()
