@@ -3,11 +3,17 @@ package com.example.contacts
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.transition.Slide
+import android.transition.TransitionManager
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.contacts.models.Contact
@@ -65,6 +71,7 @@ class OptionsContactActivity : AppCompatActivity() {
         }
 
         message.setOnClickListener {
+            /*
             var stringMessage : String = String.format("smsto: ${contact?.celphone}")
 
             val intent = Intent(Intent.ACTION_SENDTO)
@@ -75,6 +82,8 @@ class OptionsContactActivity : AppCompatActivity() {
             }else{
                 println("NO SE HA LOGRA ACCEDER A MENSAJES")
             }
+             */
+            showPopup(contact!!)
         }
 
         delete.setOnClickListener {
@@ -105,5 +114,62 @@ class OptionsContactActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
+    fun showPopup(contact: Contact){
+        val inflater: LayoutInflater = LayoutInflater.from(this) as LayoutInflater
+        val view = inflater.inflate(R.layout.popup_message,null)
+
+        val popupWindow = PopupWindow(
+            view,
+            LinearLayout.LayoutParams.WRAP_CONTENT,     //window width
+            LinearLayout.LayoutParams.WRAP_CONTENT      //window height
+        )
+
+        popupWindow.width = 1000
+        popupWindow.height = 1200
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            popupWindow.elevation = 20.0F
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            val slideIn = Slide()
+            slideIn.slideEdge = Gravity.TOP
+            popupWindow.enterTransition = slideIn
+
+            val slideOut = Slide()
+            slideOut.slideEdge = Gravity.BOTTOM
+            popupWindow.exitTransition = slideOut
+        }
+
+        val contactName = view.findViewById<TextView>(R.id.popupTelephone)
+        contactName.setText("Mensaje a: ${contact.name}")
+
+        //val message = view.findViewById<ListView>(R.id.popupMessage)
+        /*listaClases.adapter = object : AdapterClases(
+            context,
+            R.layout.lista_materia_seleccionable,
+            materia.clases!!,
+            materia.materia?.creditos!!){
+            override fun clickClase(materiaElegida: Materia) {
+                materiaElegida.nombreMateria = materia.materia?.nombreMateria
+                materiaElegida.creditos = materia.materia?.creditos
+                clickClaseItem( materiaElegida)
+                popupWindow.dismiss()
+
+            }
+        }*/
+
+
+        val btnClosePopup = view.findViewById<ExtendedFloatingActionButton>(R.id.popupBtnClose)
+        btnClosePopup.setOnClickListener{
+            popupWindow.dismiss()
+        }
+
+        TransitionManager.beginDelayedTransition(view as ViewGroup?)
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
+
     }
 }

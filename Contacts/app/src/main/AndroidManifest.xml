@@ -14,9 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Contacts">
-        <activity android:name=".EditContactActivity"></activity>
         <activity android:name=".OptionsContactActivity" />
-        <activity android:name=".models.OptionsContactActivity" />
         <activity android:name=".ContactActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
