@@ -88,15 +88,15 @@ class ContactActivity : AppCompatActivity() {
         }
 
         tgBtnFavorite.setOnClickListener {
-            if (tgBtnFavorite.isSelected) {
-                //tgBtnFavorite.textOn = "Es favorito"
+            if (tgBtnFavorite.isChecked) {
+                tgBtnFavorite.textOn = "Es favorito"
                 tgBtnFavorite.setCompoundDrawablesWithIntrinsicBounds(
                     resources.getDrawable(android.R.drawable.star_big_on), null, null, null
                 )
             } else {
-                //tgBtnFavorite.textOff = "No es favorito"
+                tgBtnFavorite.textOff = "No es favorito"
                 tgBtnFavorite.setCompoundDrawablesWithIntrinsicBounds(
-                    resources.getDrawable(android.R.drawable.star_big_off), null, null, null
+                    resources.getDrawable(android.R.drawable.star_off), null, null, null
                 )
             }
         }
@@ -116,7 +116,7 @@ class ContactActivity : AppCompatActivity() {
                                 contact!!.id,
                                 editName.text.toString(),
                                 editTelephone.text.toString(),
-                                tgBtnFavorite.isSelected.toInt(),
+                                tgBtnFavorite.isChecked.toInt(),
                                 null    //add image
                             )
                         )
