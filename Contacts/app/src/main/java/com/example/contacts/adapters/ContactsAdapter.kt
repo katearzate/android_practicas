@@ -49,7 +49,7 @@ class ContactsAdapter (val context: Context, val res: Int, val contacts:ArrayLis
             contact.favorite?.let {
                 imageFavorite.setImageResource(
                     if(it == 1) android.R.drawable.star_big_on
-                    else android.R.drawable.star_big_off
+                    else android.R.drawable.star_off
                 )
             }
 

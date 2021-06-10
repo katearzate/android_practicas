@@ -1,6 +1,7 @@
 package com.example.contacts
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -36,12 +37,13 @@ class ContactActivity : AppCompatActivity() {
 
     lateinit var dbManager: DBManager
     var byteFoto : ByteArray? = null
+    var edited: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact)
 
-        var edited: Boolean = false
+
 
         imgContact = findViewById(R.id.contactImage)
         btnEditPhoto = findViewById(R.id.contactBtnEditPhoto)
@@ -117,7 +119,7 @@ class ContactActivity : AppCompatActivity() {
                                 editName.text.toString(),
                                 editTelephone.text.toString(),
                                 tgBtnFavorite.isChecked.toInt(),
-                                null    //add image
+                                contact.photo,
                             )
                         )
                         val intent = Intent(this, MainActivity::class.java)
@@ -204,6 +206,7 @@ class ContactActivity : AppCompatActivity() {
                     // Actualizar imageView
                     val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, uri)
                     imgContact.setImageBitmap(bitmap)
+
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
