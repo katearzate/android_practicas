@@ -75,7 +75,8 @@
             android:layout_height="wrap_content"
             app:icon="@android:drawable/stat_sys_phone_call"
             app:iconTint="@color/black"
-            android:layout_marginEnd="5dp"/>
+            android:layout_marginEnd="5dp"
+            android:stateListAnimator="@null"/>
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/optionsMessage"
@@ -83,7 +84,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
             app:icon="@android:drawable/sym_action_chat"
-            app:iconTint="@color/black" />
+            app:iconTint="@color/black"
+            android:stateListAnimator="@null"/>
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton

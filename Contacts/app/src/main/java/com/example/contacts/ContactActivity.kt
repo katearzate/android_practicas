@@ -89,7 +89,7 @@ class ContactActivity : AppCompatActivity() {
 
         tgBtnFavorite.setOnClickListener {
             if (tgBtnFavorite.isSelected) {
-                tgBtnFavorite.textOn = "Es favorito"
+                //tgBtnFavorite.textOn = "Es favorito"
                 tgBtnFavorite.setCompoundDrawablesWithIntrinsicBounds(
                     resources.getDrawable(android.R.drawable.star_big_on), null, null, null
                 )
@@ -109,7 +109,7 @@ class ContactActivity : AppCompatActivity() {
                 try {
                     val builder = AlertDialog.Builder(this)
                     builder.setTitle("Advertencia")
-                    builder.setMessage("¿Seguro que desea Editar a ${contact?.name}?")
+                    builder.setMessage("¿Seguro que desea editar este contacto?")
                     builder.setPositiveButton("Si") { dialog, which ->
                         dbManager.update(
                             Contact(

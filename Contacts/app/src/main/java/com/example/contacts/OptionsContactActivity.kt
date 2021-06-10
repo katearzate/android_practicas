@@ -6,11 +6,12 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telephony.SmsManager
+import android.text.InputType
 import android.transition.Slide
 import android.transition.TransitionManager
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
@@ -20,6 +21,7 @@ import com.example.contacts.models.Contact
 import com.example.contacts.models.DBManager
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.lang.Exception
 
 class OptionsContactActivity : AppCompatActivity() {
@@ -71,19 +73,34 @@ class OptionsContactActivity : AppCompatActivity() {
         }
 
         message.setOnClickListener {
-            /*
-            var stringMessage : String = String.format("smsto: ${contact?.celphone}")
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Enviar mensaje a ${contact?.name}")
+            val inputMessage = EditText(this)
+            inputMessage.setHint("Ingresar mensaje")
+            inputMessage.inputType = InputType.TYPE_CLASS_TEXT
+            builder.setView(inputMessage)
 
-            val intent = Intent(Intent.ACTION_SENDTO)
-            intent.setData(Uri.parse(stringMessage))
-            intent.putExtra("sms_body", "")
-            if (intent.resolveActivity(packageManager) != null) {
-                startActivity(intent)
-            }else{
-                println("NO SE HA LOGRA ACCEDER A MENSAJES")
+            builder.setPositiveButton("Mandar") { dialog, which ->
+                var textMessage = inputMessage.text.toString()
+                /*var stringMessage : String = String.format("smsto: ${contact?.celphone}")
+
+                val intent = Intent(Intent.ACTION_SENDTO)
+                intent.setData(Uri.parse(stringMessage))
+                intent.putExtra("sms_body", textMessage)
+                if (intent.resolveActivity(packageManager) != null) {
+                    startActivity(intent)
+                }else{
+                    println("NO SE HA LOGRADO ACCEDER A MENSAJES")
+                }*/
+                val smsManager = SmsManager.getDefault() as SmsManager
+                smsManager.sendTextMessage(contact?.celphone, null, textMessage, null, null)
             }
-             */
-            showPopup(contact!!)
+            builder.setNegativeButton("Cancelar", null)
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            //showPopup(contact!!)
+
         }
 
         delete.setOnClickListener {
@@ -128,7 +145,6 @@ class OptionsContactActivity : AppCompatActivity() {
         )
 
         popupWindow.width = 1000
-        popupWindow.height = 1200
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             popupWindow.elevation = 20.0F
@@ -145,31 +161,36 @@ class OptionsContactActivity : AppCompatActivity() {
         }
 
         val contactName = view.findViewById<TextView>(R.id.popupTelephone)
-        contactName.setText("Mensaje a: ${contact.name}")
+        contactName.setText("Mensaje para ${contact.name}")
 
-        //val message = view.findViewById<ListView>(R.id.popupMessage)
-        /*listaClases.adapter = object : AdapterClases(
-            context,
-            R.layout.lista_materia_seleccionable,
-            materia.clases!!,
-            materia.materia?.creditos!!){
-            override fun clickClase(materiaElegida: Materia) {
-                materiaElegida.nombreMateria = materia.materia?.nombreMateria
-                materiaElegida.creditos = materia.materia?.creditos
-                clickClaseItem( materiaElegida)
+        val message = view.findViewById<EditText>(R.id.popupMessage)
+        val btnSend = view.findViewById<MaterialButton>(R.id.popupBtnSend)
+
+        btnSend.setOnClickListener {
+            if (message.text.isNotEmpty()){
+                /*val smsManager : SmsManager = SmsManager.getDefault()
+                smsManager.sendTextMessage(
+                    contact.celphone,
+                    null,
+                    message.toString(),
+                    null,
+                    null
+                )*/
+                Toast.makeText(this, "Mensaje enviado!", Toast.LENGTH_LONG).show()
+                println("MENSAJE COMPLETO")
                 popupWindow.dismiss()
-
+            }else{
+                Toast.makeText(this, "Mensaje vacío", Toast.LENGTH_LONG).show()
+                println("MENSAJE VACIOOOOO")
             }
-        }*/
+        }
 
-
-        val btnClosePopup = view.findViewById<ExtendedFloatingActionButton>(R.id.popupBtnClose)
+        val btnClosePopup = view.findViewById<FloatingActionButton>(R.id.popupBtnClose)
         btnClosePopup.setOnClickListener{
             popupWindow.dismiss()
         }
 
         TransitionManager.beginDelayedTransition(view as ViewGroup?)
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
-
     }
 }
