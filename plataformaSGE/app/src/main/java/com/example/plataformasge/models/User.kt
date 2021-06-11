@@ -1,9 +1,9 @@
 package com.example.plataformasge.models
 
 data class User(val id: Int,
-                val nombre:String = "",
-                val apellidos:String = "",
+                val name:String = "",
+                val lastNames:String = "",
                 val noControl:String = "",
-                val contrasena:String = "",
-                val carrera:String = "",
-                val semestre:Int = 0)
+                val password:String = "",
+                val career:String = "",
+                val semester:String = "")
