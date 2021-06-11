@@ -11,7 +11,7 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/menuHorario"
+        android:id="@+id/menuSchedule"
         android:icon="@drawable/horario"
         android:title="Horario"
         app:showAsAction=""/>

@@ -42,6 +42,10 @@ class HomeActivity : AppCompatActivity() {
                     navigationController.navigate(R.id.homeFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
+                R.id.menuSchedule -> {
+                    navigationController.navigate(R.id.scheduleFragment)
+                    return@setOnNavigationItemSelectedListener true
+                }
                 R.id.menuKardex -> {
                     navigationController.navigate(R.id.kardexFragment)
                     return@setOnNavigationItemSelectedListener true

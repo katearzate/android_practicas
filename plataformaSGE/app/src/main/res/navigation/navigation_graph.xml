@@ -10,6 +10,10 @@
         android:name="com.example.plataformasge.fragments.HomeFragment"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/scheduleFragment"
+        android:name="com.example.plataformasge.fragments.ScheduleFragment"
+        tools:layout="@layout/fragment_schedule" />
+    <fragment
         android:id="@+id/kardexFragment"
         android:name="com.example.plataformasge.fragments.KardexFragment"
         tools:layout="@layout/fragment_kardex" />
@@ -21,4 +25,5 @@
         android:id="@+id/personalDataFragment"
         android:name="com.example.plataformasge.fragments.PersonalDataFragment"
         tools:layout="@layout/fragment_personal_data" />
+
 </navigation>

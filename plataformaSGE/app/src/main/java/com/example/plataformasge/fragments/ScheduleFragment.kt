@@ -16,4 +16,21 @@ class ScheduleFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_schedule, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        /*
+        val spinnerCantidad = view.findViewById<Spinner>(R.id.spinnerCantidad)
+        val tvTotal = view.findViewById<TextView>(R.id.tvTotalCompra)
+        val btnConfirmar = view.findViewById<Button>(R.id.btnConfirmar)
+
+        spinnerCantidad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, index: Int, p3: Long) {
+                tvTotal.setText("TOTAL: ${(index+1)*50.0}")
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {}
+        }
+         */
+    }
 }
