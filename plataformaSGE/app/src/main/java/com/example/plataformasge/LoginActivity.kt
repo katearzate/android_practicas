@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
         binding.loginBtnEnter.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         binding.redirectSignin.setOnClickListener {
