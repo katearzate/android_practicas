@@ -23,7 +23,7 @@ class SigninActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        binding.signInBtnRegresar.setOnClickListener {
+        binding.signInBtnReturn.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
@@ -34,8 +34,8 @@ class SigninActivity : AppCompatActivity() {
         for(i in 1..12) {
             semestre.add("$i")
         }
-        binding.signInSemestre.adapter = ArrayAdapter(this, R.layout.simple_list_item_1, semestre)
-        binding.signInSemestre.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.signInSemester.adapter = ArrayAdapter(this, R.layout.simple_list_item_1, semestre)
+        binding.signInSemester.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 p1?.let {
                     val textView = it.findViewById<TextView>(android.R.id.text1)
@@ -46,7 +46,7 @@ class SigninActivity : AppCompatActivity() {
         }
 
         //************* Register a new user *************
-        binding.signInBtnConfirmar.setOnClickListener {
+        binding.signInBtnConfirm.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()

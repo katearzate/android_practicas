@@ -6,7 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.plataformasge.R
+import com.example.plataformasge.databinding.FragmentScheduleBinding
+
 class ScheduleFragment : Fragment() {
+
+    private var binding: FragmentScheduleBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

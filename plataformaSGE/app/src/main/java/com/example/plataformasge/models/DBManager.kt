@@ -13,7 +13,7 @@ class DBManager (
 ) : SQLiteOpenHelper(context, name, factory, version){
 
     override fun onCreate(db: SQLiteDatabase?) {
-        var users = """
+        val users = """
             CREATE TABLE users(
                 id_user INTEGER PRIMARY KEY NOT NULL,
                 name TEXT NOT NULL,
@@ -24,7 +24,7 @@ class DBManager (
                 semester TEXT NOT NULL
             );
         """.trimIndent()
-        var subjects = """
+        val subjects = """
             CREATE TABLE subjects(
                 id_subject INTEGER PRIMARY KEY NOT NULL,
                 name TEXT NOT NULL,
@@ -34,7 +34,7 @@ class DBManager (
                 credits INT NOT NULL
             );
         """.trimIndent()
-        var groups = """
+        val groups = """
             CREATE TABLE groups(
                 id_group INTEGER PRIMARY KEY NOT NULL, 
                 name TEXT NOT NULL, 
@@ -48,7 +48,7 @@ class DBManager (
             );
         """.trimIndent()
 
-        var user1 = """
+        val user1 = """
             INSERT INTO users(name, lastNames, noControl, password, career, semester) 
                 VALUES('Katherine', 'Arzate Serrano', '18121684', '123', 'Ingenieria en TICS', '6')
         """.trimIndent()
@@ -68,7 +68,7 @@ class DBManager (
     fun findUser(noControl : String, password :String) : ArrayList<User> {
         val db = readableDatabase
 
-        var sql = "SELECT * FROM users WHERE "
+        var sql = "SELECT * FROM users"
         noControl?.let {
             if(it.isNotEmpty()) {
                 sql += " WHERE noControl LIKE '%$it%'"

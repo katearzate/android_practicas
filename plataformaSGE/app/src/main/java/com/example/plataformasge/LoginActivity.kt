@@ -18,12 +18,12 @@ class LoginActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        binding.btnLogin.setOnClickListener {
+        binding.loginBtnEnter.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 
-        binding.redirigirSignin.setOnClickListener {
+        binding.redirectSignin.setOnClickListener {
             val intent = Intent(this, SigninActivity::class.java)
             startActivity(intent)
         }
