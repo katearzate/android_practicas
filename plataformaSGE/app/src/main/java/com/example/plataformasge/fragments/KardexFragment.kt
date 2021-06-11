@@ -27,6 +27,8 @@ class KardexFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var noSemester : String = resources.getStringArray(R.array.numSemestres)[position]
+
+        //**************** consulta desde la base de datos para mostrar las calificaciones *********
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}

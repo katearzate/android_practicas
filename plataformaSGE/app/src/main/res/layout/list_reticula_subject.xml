@@ -8,7 +8,7 @@
     android:id="@+id/root_layout">
 
     <LinearLayout
-        android:id="@+id/Reticulabackground"
+        android:id="@+id/listSubjectBackground"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="135dp"
@@ -17,7 +17,7 @@
         android:background="@color/matAcreditada">
 
         <TextView
-            android:id="@+id/listSubjectNombre"
+            android:id="@+id/listSubjectName"
             android:textColor="@color/white"
             android:text="Nombre de la materia"
             android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
             android:layout_gravity="center_horizontal"/>
 
         <TextView
-            android:id="@+id/listSubjectCalificacion"
+            android:id="@+id/listSubjectScore"
             android:text="calif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

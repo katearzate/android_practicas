@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.plataformasge.R
-import com.example.plataformasge.models.KardexScore
+import com.example.plataformasge.models.Score
 
-class KardexAdapter (val context: Context, val layout: Int, val list: List<KardexScore>) : BaseAdapter(){
+class KardexAdapter (val context: Context, val layout: Int, val list: List<Score>) : BaseAdapter(){
 
     override fun getCount(): Int = list.size
 
