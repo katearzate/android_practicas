@@ -34,7 +34,7 @@
                 android:layout_marginBottom="10dp"/>
 
             <Spinner
-                android:id="@+id/reticulaSpinnerNoSemestre"
+                android:id="@+id/reticulaSpinnerNoSemester"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries="@array/numSemestres"
@@ -43,11 +43,11 @@
                 android:textSize="23dp"/>
 
             <ListView
-                android:id="@+id/reticulaList"
+                android:id="@+id/listReticulaSubject"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:divider="#000000"
-                tools:listitem="@layout/list_subject"
+                tools:listitem="@layout/list_reticula_subject"
                 android:layout_margin="10dp"/>
         </LinearLayout>
 

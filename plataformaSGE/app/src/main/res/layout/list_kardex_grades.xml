@@ -14,7 +14,7 @@
         android:layout_margin="5dp">
 
         <TextView
-            android:id="@+id/gradesNombreDeMateria"
+            android:id="@+id/listGradesSubjectName"
             android:textColor="@color/black"
             android:text="Nombre de la materia"
             android:layout_width="250dp"
@@ -23,7 +23,7 @@
             android:textSize="18dp"/>
 
         <TextView
-            android:id="@+id/gradesCreditos"
+            android:id="@+id/listGradesCredits"
             android:text="crts"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:gravity="center_horizontal" />
 
         <TextView
-            android:id="@+id/gradesCalificacion"
+            android:id="@+id/listGradesScore"
             android:text="calif"
             android:layout_width="50dp"
             android:layout_height="wrap_content"

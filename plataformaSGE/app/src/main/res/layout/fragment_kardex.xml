@@ -28,7 +28,7 @@
             android:layout_marginBottom="10dp"/>
 
         <Spinner
-            android:id="@+id/kardexSpinnerNoSemestre"
+            android:id="@+id/kardexSpinnerNoSemester"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/numSemestres"
@@ -71,10 +71,10 @@
         </LinearLayout>
 
         <ListView
-            android:id="@+id/kardexListGrades"
+            android:id="@+id/listKardexGrades"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/list_grades"/>
+            tools:listitem="@layout/list_kardex_grades"/>
     </LinearLayout>
 
 </FrameLayout>

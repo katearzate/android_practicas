@@ -1,8 +1,7 @@
 <resources>
     <string name="app_name">SGE</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="registrar">¿No tienes cuenta? <u>Regístrate.</u></string>
     <string-array name="numSemestres">
         <item>Semestre 1</item>
         <item>Semestre 2</item>

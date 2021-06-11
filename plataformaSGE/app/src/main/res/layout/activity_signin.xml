@@ -16,7 +16,7 @@
         android:layout_marginBottom="35dp">
 
         <Button
-            android:id="@+id/signInBtnRegresar"
+            android:id="@+id/signInBtnReturn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:icon="?attr/actionModeCloseDrawable"
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:text="Nombre"/>
     <EditText
-        android:id="@+id/signInNombre"
+        android:id="@+id/signInName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"/>
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:text="Carrera"/>
     <EditText
-        android:id="@+id/signInCarrera"
+        android:id="@+id/signInCareer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"/>
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:text="Semestre"/>
     <Spinner
-        android:id="@+id/signInSemestre"
+        android:id="@+id/signInSemester"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
@@ -82,14 +82,14 @@
         android:layout_height="wrap_content"
         android:text="Contraseña"/>
     <EditText
-        android:id="@+id/signInContrasena"
+        android:id="@+id/signInPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:inputType="textPassword"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/signInBtnConfirmar"
+        android:id="@+id/signInBtnConfirm"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Entrar"
