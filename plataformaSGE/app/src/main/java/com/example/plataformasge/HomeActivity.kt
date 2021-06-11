@@ -40,7 +40,6 @@ class HomeActivity : AppCompatActivity() {
             when(item.itemId){
                 R.id.menuInicio -> {
                     navigationController.navigate(R.id.homeFragment)
-                    title = "SGE"
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.menuKardex -> {
@@ -51,7 +50,7 @@ class HomeActivity : AppCompatActivity() {
                     navigationController.navigate(R.id.reticulaFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.menuDatosPersonales -> {
+                R.id.menuPersonalData -> {
                     navigationController.navigate(R.id.personalDataFragment)
                     return@setOnNavigationItemSelectedListener true
                 }

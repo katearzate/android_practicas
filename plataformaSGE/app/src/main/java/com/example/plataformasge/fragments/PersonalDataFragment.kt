@@ -14,7 +14,7 @@ class PersonalDataFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reticula, container, false)
+        return inflater.inflate(R.layout.fragment_personal_data, container, false)
     }
 
 }
