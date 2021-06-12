@@ -25,7 +25,6 @@ class LoginActivity : AppCompatActivity() {
         //dbManager.deleteDatabase(this, "escolar")
 
         binding.loginBtnEnter.setOnClickListener {
-
             if (binding.loginNoControl.text.toString().isNotEmpty() &&
                 binding.loginPassword.text.toString().isNotEmpty()) {
                 val user = dbManager.findUser(binding.loginNoControl.text.toString(), binding.loginPassword.text.toString())
