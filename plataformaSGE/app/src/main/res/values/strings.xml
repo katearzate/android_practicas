@@ -13,4 +13,11 @@
         <item>Semestre 8</item>
         <item>Semestre 9</item>
     </string-array>
+
+    <string name="inserts">
+        INSERT INTO subjects (name, code, semester, score, credits) VALUES
+            ("'Fundamentos de Investigacion'", "'B1T6'", "'1'", "'89'", 5),
+            ("'Etica'", "'B1T4'", "'1'", "'100'", 4),
+            ("'Matematicas Discretas'", "'B1T3'", "'1'", "'98'", 5);
+    </string>
 </resources>

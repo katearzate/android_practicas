@@ -4,12 +4,14 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.text.Editable
+import android.util.Log
+import com.example.plataformasge.R
 
 class DBManager (
-    context: Context?,
-    name: String?,
-    factory: SQLiteDatabase.CursorFactory?,
-    version: Int
+    val context: Context?,
+    val name: String?,
+    val factory: SQLiteDatabase.CursorFactory?,
+    val version: Int
 ) : SQLiteOpenHelper(context, name, factory, version){
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -50,7 +52,7 @@ class DBManager (
 
         val user1 = """
             INSERT INTO users(name, lastNames, noControl, password, career, semester) 
-                VALUES('Katherine', 'Arzate Serrano', '18121684', '123', 'Ingenieria en TICS', '6')
+                VALUES('Katherine', 'Arzate Serrano', '18121684', '123', 'Ingenieria en TICS', '6');
         """.trimIndent()
 
         db?.let {
@@ -58,6 +60,12 @@ class DBManager (
             it.execSQL(subjects)
             it.execSQL(groups)
             it.execSQL(user1)
+
+            //insert subjects
+            val lineas = context?.getString(R.string.inserts)?.lines()
+            lineas?.forEach { linea ->
+                it.execSQL(linea)
+            }
         }
     }
 
@@ -65,21 +73,16 @@ class DBManager (
 
     //************************************** USERS ***********************************************
     @Throws
-    fun findUser(noControl : String, password :String) : ArrayList<User> {
+    fun findUser(noControl: String?, password: String?) : User? {
         val db = readableDatabase
+        var contact: User? = null
 
-        var sql = "SELECT * FROM users"
-        noControl?.let {
-            if(it.isNotEmpty()) {
-                sql += " WHERE noControl LIKE '%$it%'"
-            }
-        }
+        if(noControl?.isNotEmpty()!! && password?.isNotEmpty()!!){
+            var sql = "SELECT * FROM users WHERE noControl LIKE '%$noControl%' AND password LIKE '$password'"
+            val cursor = db.rawQuery(sql, null)
 
-        val users = ArrayList<User>()
-
-        val cursor = db.rawQuery(sql, null)
-        while (cursor.moveToNext()) {
-            val contact = User(
+            if(cursor.moveToNext() != null)
+            contact = User(
                 cursor.getInt(0),
                 cursor.getString(1),
                 cursor.getString(2),
@@ -88,12 +91,9 @@ class DBManager (
                 cursor.getString(5),
                 cursor.getString(6)
             )
-
-            users.add(contact)
         }
         db.close()
-
-        return users
+        return contact
     }
 
     @Throws
@@ -112,5 +112,10 @@ class DBManager (
 
         db.execSQL(sql)
         db.close()
+    }
+
+    @Throws
+    fun deleteDatabase(context: Context, nombreDB: String){
+        context.deleteDatabase(nombreDB)
     }
 }
