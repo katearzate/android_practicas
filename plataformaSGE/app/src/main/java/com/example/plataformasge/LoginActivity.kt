@@ -29,9 +29,12 @@ class LoginActivity : AppCompatActivity() {
                 binding.loginPassword.text.toString().isNotEmpty()) {
                 val user = dbManager.findUser(binding.loginNoControl.text.toString(), binding.loginPassword.text.toString())
                 user?.let{
-                    startActivity(Intent(this, HomeActivity::class.java))
-                    finish()
+                    val intent = Intent(this, HomeActivity::class.java).apply {
+                        putExtra("user", user)
+                    }
+                    startActivity(intent)
                 }
+
             } else{
                 showAlert()
             }

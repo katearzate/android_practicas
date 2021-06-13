@@ -62,7 +62,7 @@ class SigninActivity : AppCompatActivity() {
 
                 dbManager.addUser(
                     User(
-                        0,
+                        1,
                         binding.signInName.text.toString(),
                         binding.signInLastnames.text.toString(),
                         binding.signInNoControl.text.toString(),
@@ -71,7 +71,7 @@ class SigninActivity : AppCompatActivity() {
                         binding.signInPassword.text.toString()
                     )
                 )
-                val intent = Intent(this, HomeActivity::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
 

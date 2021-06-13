@@ -15,9 +15,62 @@
     </string-array>
 
     <string name="inserts">
-        INSERT INTO subjects (name, code, semester, score, credits) VALUES
-            ("'Fundamentos de Investigacion'", "'B1T6'", "'1'", "'89'", 5),
-            ("'Etica'", "'B1T4'", "'1'", "'100'", 4),
-            ("'Matematicas Discretas'", "'B1T3'", "'1'", "'98'", 5);
+        INSERT INTO subjects (id_subject, name, code, semester, score, credits) VALUES
+            (1, "'Calculo Diferencial'", "'B1T1'", "'1'", "'89'", 5),
+            (2, "'Fundamentos de Programacion'", "'B1T2'", "'1'", "'95'", 5),
+            (3, "'Matematicas Discretas I'", "'B1T3'", "'1'", "'98'", 5),
+            (4, "'Introduccion a las TICs'", "'B1T4'", "'1'", "'94'", 3),
+            (5, "'Taller de Etica'", "'B1T5'", "'1'", "'100'", 4),
+            (6, "'Fundamentos de Investigacion'", "'B1T6'", "'1'", "'85'", 4),
+            (7, "'Calculo Integral'", "'B2T1'", "'2'", "'96'", 5),
+            (8, "'Programacion Orientada a Objetos'", "'B2T2'", "'2'", "'95'", 5),
+            (9, "'Matematicas Discretas II'", "'B2T3'", "'2'", "'100'", 5),
+            (10, "'Algebra Lineal'", "'B2T4'", "'2'", "'98'", 5),
+            (11, "'Probabilidad y Estadistica'", "'B2T5'", "'2'", "'94'", 5),
+            (12,"'Contabilidad y Costos'", "'B2T6'", "'2'", "'100'", 5),
+            (13, "'Desarrollo Sustentable'", "'B3T1'", "'3'", "'98'", 5),
+            (14, "'Estructura y Organizacion de Datos'", "'B3T2'", "'3'", "'95'", 5),
+            (15, "'Matematicas para la Toma de Desiciones'", "'B3T3'", "'3'", "'100'", 5),
+            (16, "'Fundamentos de Base de Datos'", "'B3T4'", "'3'", "'94'", 5),
+            (17, "'Electricidad y Magnetismo'", "'B3T5'", "'3'", "'97'", 4),
+            (18 "'Administracion Gerencial'", "'B3T6'", "'3'", "'100'", 4),
+            (19, "'Matematicas Aplicadas a Comunicaciones'", "'B4T1'", "'4'", "'100'", 5),
+            (20, "'Programacion II'", "'B4T2'", "'4'", "'97'", 5),
+            (21, "'Fundamentos de Redes'", "'B4T3'", "'4'", "'98'", 5),
+            (22, "'Taller de Base de Datos'", "'B4T4'", "'4'", "'100'", 5),
+            (23, "'Circuitos Electricos y Electronicos'", "'B4T5'", "'4'", "'100'", 5),
+            (24, "'Ingenieria de Software'", "'B4T6'", "'4'", "'100'", 4),
+            (25, "'Analisis de Señales y Sistemas de Comunicacion'", "'B5T1'", "'5'", "'100'", 5),
+            (26, "'Administracion de Proyectos'", "'B5T2'", "'5'", "'87'", 5),
+            (27, "'Redes de Computadoras'", "'B5T3'", "'5'", "'100'", 5),
+            (28, "'Bases de Datos Distribuidas'", "'B5T4'", "'5'", "'100'", 5),
+            (29, "'Arquitectura de Computadoras'", "'B5T5'", "'5'", "'92'", 4),
+            (30, "'Taller de Ingenieria en Software'", "'B5T6'", "'5'", "'100'", 5),
+            (31, "'Telecomunicaciones'", "'B6T1'", "'6'", "'no cursada'", 5),
+            (32, "'Tecnologias Inalambricas'", "'B6T2'", "'6'", "'64'", 4),
+            (33, "'Interaccion Humano Computadora'", "'B6T3'", "'6'", "'100'", 4),
+            (34, "'Sistemas Operativos I'", "'B6T4'", "'6'", "'100'", 4),
+            (35, "'Programacion Web'", "'B6T5'", "'6'", "'100'", 5),
+            (36, "'Desarrollo de Emprendedores'", "'B6T6'", "'6'", "'88'", 5),
+            (37, "'Introduccion a la Seguridad de la Informacion'", "'B7T1'", "'7'", "'no cursada'", 5),
+            (38, "'Redes Emergentes'", "'B7T2'", "'7'", "'no cursada'", 5),
+            (39, "'Taller de Investigacion I'", "'B7T3'", "'7'", "'100'", 4),
+            (40, "'Sistemas Operativos II'", "'B7T4'", "'7'", "'no cursada'", 5),
+            (41, "'Desarrollo de Aplicaciones para Dispositivos Moviles'", "'B7T5'", "'7'", "'no cursada'", 5),
+            (42, "'Negocios Electronicos I'", "'B7T6'", "'7'", "'100'", 4),
+            (43, "'Computo en la Nube'", "'B8T1'", "'8'", "'no cursada'", 5),
+            (44, "'Seguridad en Sistemas Operativos'", "'B8T2'", "'8'", "'no cursada'", 5),
+            (45, "'Negocios Electronicos II'", "'B8T3'", "'8'", "'no cursada'", 5),
+            (46, "'Administracion y Seguridad de Redes'", "'B8T4'", "'8'", "'no cursada'", 5),
+            (47, "'Auditoria en Tecnologias de la Informacion'", "'B8T5'", "'8'", "'no cursada'", 5),
+            (48, "'Taller de Investigacion II'", "'B8T6'", "'8'", "'no cursada'", 5),
+            (49, "'Servicio Social'", "'B9T2'", "'8'", "'no cursada'", 10),
+            (50, "'Seguridad en Redes'", "'B9T7'", "'9'", "'98'", 5),
+            (51, "'Sistemas de Gestion de la Seguridad Informatica'", "'B9T8'", "'9'", "'no cursada'", 5),
+            (52, "'Ingenieria del Conocimiento'", "'B9T4'", "'9'", "'no cursada'", 5),
+            (53, "'Residencias Profesionales'", "'B9T3'", "'9'", "'no cursada'", 10);
+
+        INSERT INTO groups VALUES(id_group, name, horaMonday, horaTuesday, horaWednesday, horaThursday, horaFriday, id_subject) VALUES
+            ()
     </string>
 </resources>
