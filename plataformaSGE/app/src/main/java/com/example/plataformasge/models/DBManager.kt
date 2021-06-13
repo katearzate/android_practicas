@@ -39,12 +39,13 @@ class DBManager (
         val groups = """
             CREATE TABLE groups(
                 id_group INTEGER PRIMARY KEY NOT NULL, 
-                name TEXT NOT NULL, 
-                horaMonday TEXT NOT NULL, 
-                horaTuesday TEXT NOT NULL, 
-                horaWednesday TEXT NOT NULL, 
-                horaThursday TEXT NOT NULL, 
-                horaFriday TEXT NOT NULL, 
+                name TEXT NOT NULL,
+                profesor TEXT NOT NULL,   
+                hourMonday TEXT NOT NULL, 
+                hourTuesday TEXT NOT NULL, 
+                hourWednesday TEXT NOT NULL, 
+                hourThursday TEXT NOT NULL, 
+                hourFriday TEXT NOT NULL, 
                 id_subject INTEGER NOT NULL,
                 FOREIGN KEY (id_subject) REFERENCES subjects(id_subject) ON UPDATE CASCADE ON DELETE CASCADE
             );
