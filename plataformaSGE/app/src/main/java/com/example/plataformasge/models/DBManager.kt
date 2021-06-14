@@ -115,6 +115,9 @@ class DBManager (
         db.close()
     }
 
+    //**************************************** SUBJECTS ********************************************
+    
+
     @Throws
     fun deleteDatabase(context: Context, nombreDB: String){
         context.deleteDatabase(nombreDB)

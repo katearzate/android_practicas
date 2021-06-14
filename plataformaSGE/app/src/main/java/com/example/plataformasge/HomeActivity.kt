@@ -7,17 +7,21 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.plataformasge.databinding.ActivityHomeBinding
+import com.example.plataformasge.models.User
+import com.example.plataformasge.models.ViewModelHomeFragments
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var navigationController : NavController
+    private val viewModel: ViewModelHomeFragments by viewModels()
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +34,9 @@ class HomeActivity : AppCompatActivity() {
             it.setDefaultDisplayHomeAsUpEnabled(true)
             it.setDisplayHomeAsUpEnabled(true)
         }
+
+        var user = intent.getParcelableExtra<User>("user")
+        viewModel.setUser(user!!)
 
         navigationController = findNavController(R.id.main_container)
         setupActionBarWithNavController(navigationController, AppBarConfiguration(setOf(
@@ -62,6 +69,7 @@ class HomeActivity : AppCompatActivity() {
             }
             return@setOnNavigationItemSelectedListener false
         }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

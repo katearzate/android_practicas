@@ -32,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this, HomeActivity::class.java).apply {
                         putExtra("user", user)
                     }
+                    println("USUARIO: ${user}")
                     startActivity(intent)
                 }
 
