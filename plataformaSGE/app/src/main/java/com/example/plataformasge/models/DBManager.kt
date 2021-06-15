@@ -1,10 +1,9 @@
 package com.example.plataformasge.models
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.text.Editable
-import android.util.Log
 import com.example.plataformasge.R
 
 class DBManager (
@@ -76,14 +75,14 @@ class DBManager (
     @Throws
     fun findUser(noControl: String?, password: String?) : User? {
         val db = readableDatabase
-        var contact: User? = null
+        var user: User? = null
 
         if(noControl?.isNotEmpty()!! && password?.isNotEmpty()!!){
             var sql = "SELECT * FROM users WHERE noControl LIKE '%$noControl%' AND password LIKE '$password'"
             val cursor = db.rawQuery(sql, null)
 
             if(cursor.moveToNext())
-            contact = User(
+            user = User(
                 cursor.getInt(0),
                 cursor.getString(1),
                 cursor.getString(2),
@@ -94,7 +93,7 @@ class DBManager (
             )
         }
         db.close()
-        return contact
+        return user
     }
 
     @Throws
@@ -112,6 +111,22 @@ class DBManager (
         """.trimIndent()
 
         db.execSQL(sql)
+        db.close()
+    }
+
+    @Throws
+    fun updateUser(user: User){
+        val db = writableDatabase
+        val values = ContentValues()
+
+        values.put("name", user.name)
+        values.put("lastNames", user.lastNames)
+        values.put("noControl", user.noControl)
+        values.put("password", user.password)
+        values.put("career", user.career)
+        values.put("semester", user.semester)
+
+        db.update("users", values, "id = ?", arrayOf(user.id.toString()))
         db.close()
     }
 
