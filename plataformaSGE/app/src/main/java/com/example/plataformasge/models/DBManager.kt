@@ -82,7 +82,7 @@ class DBManager (
             var sql = "SELECT * FROM users WHERE noControl LIKE '%$noControl%' AND password LIKE '$password'"
             val cursor = db.rawQuery(sql, null)
 
-            if(cursor.moveToNext() != null)
+            if(cursor.moveToNext())
             contact = User(
                 cursor.getInt(0),
                 cursor.getString(1),

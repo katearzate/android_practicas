@@ -28,16 +28,18 @@ class LoginActivity : AppCompatActivity() {
             if (binding.loginNoControl.text.toString().isNotEmpty() &&
                 binding.loginPassword.text.toString().isNotEmpty()) {
                 val user = dbManager.findUser(binding.loginNoControl.text.toString(), binding.loginPassword.text.toString())
-                user?.let{
+                if (user != null){
                     val intent = Intent(this, HomeActivity::class.java).apply {
                         putExtra("user", user)
                     }
                     println("USUARIO: ${user}")
                     startActivity(intent)
+                }else {
+                    showAlert("Error", "Numero de control o contraseña incorrecta")
                 }
 
             } else{
-                showAlert()
+                showAlert("Error", "Se debe completar todos los campos")
             }
         }
 
@@ -46,10 +48,10 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun showAlert(){
+    private fun showAlert(title: String, message: String){
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Error")
-        builder.setMessage("Numero de control o contraseña incorrecta")
+        builder.setTitle(title)
+        builder.setMessage(message)
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()

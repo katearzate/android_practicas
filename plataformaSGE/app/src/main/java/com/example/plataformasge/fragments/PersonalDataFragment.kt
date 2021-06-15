@@ -18,10 +18,11 @@ class PersonalDataFragment : Fragment() {
     private val viewModel: ViewModelHomeFragments by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentPersonalDataBinding.inflate(inflater, container, false)
+        _binding = FragmentPersonalDataBinding.inflate(layoutInflater)
 
         viewModel.userEntered.observe(viewLifecycleOwner, Observer { user ->
             binding.personalDataNoControl.setText(user.noControl)
@@ -39,8 +40,7 @@ class PersonalDataFragment : Fragment() {
             //llamar db para actualizar
         }
 
-
-        return inflater.inflate(R.layout.fragment_personal_data, container, false)
+        return binding.root
     }
 
 }
