@@ -61,7 +61,7 @@ class DBManager (
             it.execSQL(groups)
             it.execSQL(user1)
 
-            //insert subjects
+            //insert subjects and groups
             val lineas = context?.getString(R.string.inserts)?.lines()
             lineas?.forEach { linea ->
                 it.execSQL(linea)
@@ -142,9 +142,9 @@ class DBManager (
     fun showScores(semester: String): List<Score>{
         val db = readableDatabase
 
-        var sql = "SELECT name, score, credits, semester FROM subjects WHERE semester = '%$semester%'"
+        var sql = "SELECT name, score, credits, semester FROM subjects WHERE semester = '$semester'"
 
-        val subjects = ArrayList<Score>()
+        val subjects: MutableList<Score> = mutableListOf()
         val cursor = db.rawQuery(sql, null)
         while (cursor.moveToNext() != null){
             subjects.add(
@@ -161,24 +161,5 @@ class DBManager (
         return subjects
     }
 
-    /*
-    @Throws
-    fun showGroups(subject: String): ArrayList<Score>{
-        val db = readableDatabase
-        val result: MutableList<Score> = mutableListOf()
-
-        var sql = """SELECT * FROM groups 
-            INNER JOIN subjects ON id_subject = id_subject
-            WHERE subject = '%$subject%'
-        """.trimIndent()
-
-        val cursor = db.rawQuery(sql, null)
-        while (cursor.moveToNext()){
-            //result.add()
-        }
-        db.close()
-
-        return result
-    }*/
 
 }

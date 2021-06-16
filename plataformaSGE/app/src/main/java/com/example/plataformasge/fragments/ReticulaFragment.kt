@@ -11,6 +11,7 @@ import com.example.plataformasge.adapters.ReticulaAdapter
 import com.example.plataformasge.databinding.FragmentKardexBinding
 import com.example.plataformasge.databinding.FragmentReticulaBinding
 import com.example.plataformasge.models.DBManager
+import java.lang.Exception
 
 class ReticulaFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
@@ -36,11 +37,16 @@ class ReticulaFragment : Fragment(), AdapterView.OnItemSelectedListener {
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         var noSemester: String = (position+1).toString()
 
-        binding.listReticulaSubject.adapter = ReticulaAdapter(
-            requireContext(),
-            R.layout.list_reticula_subject,
-            dbManager.showScores(noSemester)
-        )
+        try {
+            binding.listReticulaSubject.adapter = ReticulaAdapter(
+                requireContext(),
+                R.layout.list_reticula_subject,
+                dbManager.showScores(noSemester)
+            )
+        } catch (e: Exception){
+            e.printStackTrace()
+        }
+
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}

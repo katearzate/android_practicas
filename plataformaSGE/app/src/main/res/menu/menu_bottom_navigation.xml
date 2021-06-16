@@ -14,7 +14,7 @@
         android:id="@+id/menuSchedule"
         android:icon="@drawable/horario"
         android:title="Horario"
-        app:showAsAction=""/>
+        app:showAsAction="never"/>
 
     <item
         android:id="@+id/menuKardex"

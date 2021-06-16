@@ -6,18 +6,36 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.plataformasge.R
+import com.example.plataformasge.databinding.FragmentReticulaBinding
 import com.example.plataformasge.databinding.FragmentScheduleBinding
+import com.example.plataformasge.models.DBManager
 
 class ScheduleFragment : Fragment() {
 
-    private var binding: FragmentScheduleBinding? = null
+    private var _binding: FragmentScheduleBinding? = null
+    private val binding get() = _binding!!
+
+    private var _dbManager: DBManager? = null
+    private val dbManager get() = _dbManager!!
+
+    private val created: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false)
+        _binding = FragmentScheduleBinding.inflate(layoutInflater)
+        _dbManager = DBManager(requireContext(), "escolar", null, 1)
+
+        //AL REGISTRAR HORARIO, OCULTAR BOTON DE REGISTRAR Y APARECER A: recyclerSchedule con visibility = visible
+        if (created == true){
+            binding.scheduleBtnCreateSchedule.visibility = View.GONE
+            binding.scheduleText.visibility = View.GONE
+
+            binding.recyclerSchedule.visibility = View.VISIBLE
+        }
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
