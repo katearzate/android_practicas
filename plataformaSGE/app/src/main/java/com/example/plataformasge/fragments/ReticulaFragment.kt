@@ -29,7 +29,6 @@ class ReticulaFragment : Fragment(), AdapterView.OnItemSelectedListener {
         _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
         binding.reticulaSpinnerNoSemester.onItemSelectedListener = this
-        //binding.listReticulaSubject.adapter = ReticulaAdapter(requireContext(), R.layout.list_reticula_subject, lista)
 
         return binding.root
     }

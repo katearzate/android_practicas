@@ -45,7 +45,7 @@
             <ListView
                 android:id="@+id/listReticulaSubject"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:divider="#000000"
                 tools:listitem="@layout/list_reticula_subject"
                 android:layout_margin="10dp"/>

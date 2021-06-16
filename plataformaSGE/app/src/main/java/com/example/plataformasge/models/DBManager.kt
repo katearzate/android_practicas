@@ -40,11 +40,11 @@ class DBManager (
                 id_group INTEGER PRIMARY KEY NOT NULL, 
                 name TEXT NOT NULL,
                 profesor TEXT NOT NULL,   
-                hourMonday TEXT NOT NULL, 
-                hourTuesday TEXT NOT NULL, 
-                hourWednesday TEXT NOT NULL, 
-                hourThursday TEXT NOT NULL, 
-                hourFriday TEXT NOT NULL, 
+                hourMonday TEXT, 
+                hourTuesday TEXT, 
+                hourWednesday TEXT, 
+                hourThursday TEXT, 
+                hourFriday TEXT, 
                 id_subject INTEGER NOT NULL,
                 FOREIGN KEY (id_subject) REFERENCES subjects(id_subject) ON UPDATE CASCADE ON DELETE CASCADE
             );
@@ -84,7 +84,7 @@ class DBManager (
         var user: User? = null
 
         if(noControl?.isNotEmpty()!! && password?.isNotEmpty()!!){
-            var sql = "SELECT * FROM users WHERE noControl LIKE '%$noControl%' AND password LIKE '$password'"
+            var sql = "SELECT * FROM users WHERE noControl = '$noControl' AND password = '$password'"
             val cursor = db.rawQuery(sql, null)
 
             if(cursor.moveToNext())
@@ -146,7 +146,7 @@ class DBManager (
 
         val subjects: MutableList<Score> = mutableListOf()
         val cursor = db.rawQuery(sql, null)
-        while (cursor.moveToNext() != null){
+        while (cursor.moveToNext()){
             subjects.add(
                 Score(
                     cursor.getString(0),

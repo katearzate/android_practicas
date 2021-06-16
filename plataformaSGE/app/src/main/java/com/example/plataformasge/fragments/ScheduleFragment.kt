@@ -37,7 +37,7 @@ class ScheduleFragment : Fragment() {
         }
 
         binding.scheduleBtnCreateSchedule.setOnClickListener {
-            startActivity(Intent(requireContext(), ))
+            //startActivity(Intent(requireContext(), ))
         }
 
         return binding.root
