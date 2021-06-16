@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card:cardCornerRadius="8dp"
+    card:cardElevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="5dp">
+        <TextView
+            android:id="@+id/materiaElegidaNombre"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Materia "
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaProfesor"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Profesor"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaCreditos"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="5"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:layout_marginRight="5dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaGrupo"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:text="B"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:layout_marginRight="5dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaLunes"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="10:00-11:00 / LRD"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaMartes"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="10:00-11:00 / LRD"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaMiercoles"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="10:00-11:00 / LRD"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaJueves"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="10:00-11:00 / LRD"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaViernes"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="10:00-11:00 / LRD"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+        <TextView
+            android:id="@+id/materiaElegidaEliminar"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:textColor="#DC0101"
+            android:textSize="12dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -39,9 +39,17 @@ class HomeActivity : AppCompatActivity() {
         viewModel.setUser(user!!)
 
         navigationController = findNavController(R.id.main_container)
-        setupActionBarWithNavController(navigationController, AppBarConfiguration(setOf(
-            R.id.homeFragment, R.id.kardexFragment, R.id.reticulaFragment, R.id.personalDataFragment
-        )))
+        setupActionBarWithNavController(
+            navigationController, AppBarConfiguration(
+                setOf(
+                    R.id.homeFragment,
+                    R.id.scheduleFragment,
+                    R.id.kardexFragment,
+                    R.id.reticulaFragment,
+                    R.id.personalDataFragment
+                )
+            )
+        )
 
         binding.menuBottomNavigation.setupWithNavController(navigationController)
         binding.menuBottomNavigation.setOnNavigationItemSelectedListener { item ->

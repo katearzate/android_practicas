@@ -1,5 +1,6 @@
 package com.example.plataformasge.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,12 +28,16 @@ class ScheduleFragment : Fragment() {
         _binding = FragmentScheduleBinding.inflate(layoutInflater)
         _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
-        //AL REGISTRAR HORARIO, OCULTAR BOTON DE REGISTRAR Y APARECER A: recyclerSchedule con visibility = visible
         if (created == true){
             binding.scheduleBtnCreateSchedule.visibility = View.GONE
             binding.scheduleText.visibility = View.GONE
 
             binding.recyclerSchedule.visibility = View.VISIBLE
+            //TODO: SHOW SHEDULE CREATED!
+        }
+
+        binding.scheduleBtnCreateSchedule.setOnClickListener {
+            startActivity(Intent(requireContext(), ))
         }
 
         return binding.root
