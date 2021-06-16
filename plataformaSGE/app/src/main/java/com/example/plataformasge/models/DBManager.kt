@@ -71,6 +71,12 @@ class DBManager (
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {}
 
+    @Throws
+    fun deleteDatabase(context: Context, nombreDB: String){
+        context.deleteDatabase(nombreDB)
+    }
+
+
     //************************************** USERS ***********************************************
     @Throws
     fun findUser(noControl: String?, password: String?) : User? {
@@ -130,11 +136,49 @@ class DBManager (
         db.close()
     }
 
-    //**************************************** SUBJECTS ********************************************
-    
 
+    //**************************************** SUBJECTS ********************************************
     @Throws
-    fun deleteDatabase(context: Context, nombreDB: String){
-        context.deleteDatabase(nombreDB)
+    fun showScores(semester: String): List<Score>{
+        val db = readableDatabase
+
+        var sql = "SELECT name, score, credits, semester FROM subjects WHERE semester = '%$semester%'"
+
+        val subjects = ArrayList<Score>()
+        val cursor = db.rawQuery(sql, null)
+        while (cursor.moveToNext() != null){
+            subjects.add(
+                Score(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getInt(2),
+                    cursor.getString(3)
+                )
+            )
+        }
+        db.close()
+
+        return subjects
     }
+
+    /*
+    @Throws
+    fun showGroups(subject: String): ArrayList<Score>{
+        val db = readableDatabase
+        val result: MutableList<Score> = mutableListOf()
+
+        var sql = """SELECT * FROM groups 
+            INNER JOIN subjects ON id_subject = id_subject
+            WHERE subject = '%$subject%'
+        """.trimIndent()
+
+        val cursor = db.rawQuery(sql, null)
+        while (cursor.moveToNext()){
+            //result.add()
+        }
+        db.close()
+
+        return result
+    }*/
+
 }

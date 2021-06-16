@@ -10,26 +10,37 @@ import com.example.plataformasge.R
 import com.example.plataformasge.adapters.ReticulaAdapter
 import com.example.plataformasge.databinding.FragmentKardexBinding
 import com.example.plataformasge.databinding.FragmentReticulaBinding
+import com.example.plataformasge.models.DBManager
 
 class ReticulaFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private var _binding: FragmentReticulaBinding? = null
     private val binding get() = _binding!!
 
+    private var _dbManager: DBManager? = null
+    private val dbManager get() = _dbManager!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentReticulaBinding.inflate(inflater, container, false)
+        _binding = FragmentReticulaBinding.inflate(layoutInflater)
+        _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
         binding.reticulaSpinnerNoSemester.onItemSelectedListener = this
         //binding.listReticulaSubject.adapter = ReticulaAdapter(requireContext(), R.layout.list_reticula_subject, lista)
 
-        return inflater.inflate(R.layout.fragment_reticula, container, false)
+        return binding.root
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var noSemester : String = resources.getStringArray(R.array.numSemestres)[position]
+        var noSemester: String = (position+1).toString()
+
+        binding.listReticulaSubject.adapter = ReticulaAdapter(
+            requireContext(),
+            R.layout.list_reticula_subject,
+            dbManager.showScores(noSemester)
+        )
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}
