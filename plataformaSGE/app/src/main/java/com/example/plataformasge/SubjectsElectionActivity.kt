@@ -2,6 +2,8 @@ package com.example.plataformasge
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformasge.databinding.ActivitySubjectsElectionBinding
 
 class SubjectsElectionActivity : AppCompatActivity() {
@@ -13,6 +15,12 @@ class SubjectsElectionActivity : AppCompatActivity() {
         binding = ActivitySubjectsElectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.recyclerElection.layoutManager = LinearLayoutManager(
+            this,
+            RecyclerView.VERTICAL,
+            false
+        )
+        //binding.recyclerElection.adapter =
 
     }
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.plataformasge.R
+import com.example.plataformasge.SubjectsElectionActivity
 import com.example.plataformasge.databinding.FragmentReticulaBinding
 import com.example.plataformasge.databinding.FragmentScheduleBinding
 import com.example.plataformasge.models.DBManager
@@ -37,7 +38,7 @@ class ScheduleFragment : Fragment() {
         }
 
         binding.scheduleBtnCreateSchedule.setOnClickListener {
-            //startActivity(Intent(requireContext(), ))
+            startActivity(Intent(requireContext(), SubjectsElectionActivity::class.java))
         }
 
         return binding.root
