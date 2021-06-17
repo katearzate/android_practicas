@@ -27,9 +27,9 @@ data class User(val id: Int,
         parcel.writeString(name)
         parcel.writeString(lastNames)
         parcel.writeString(noControl)
+        parcel.writeString(password)
         parcel.writeString(career)
         parcel.writeString(semester)
-        parcel.writeString(password)
     }
 
     override fun describeContents(): Int {

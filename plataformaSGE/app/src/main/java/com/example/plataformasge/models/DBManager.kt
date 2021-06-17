@@ -51,8 +51,8 @@ class DBManager (
         """.trimIndent()
 
         val user1 = """
-            INSERT INTO users(name, lastNames, noControl, password, career, semester) 
-                VALUES('Katherine', 'Arzate Serrano', '18121684', '123', 'Ingenieria en TICS', '6');
+            INSERT INTO users(id_user, name, lastNames, noControl, password, career, semester) 
+                VALUES(1, 'Katherine', 'Arzate Serrano', '18121684', '123', 'Ingenieria en TICS', '6');
         """.trimIndent()
 
         db?.let {
@@ -62,29 +62,27 @@ class DBManager (
             it.execSQL(user1)
 
             //insert subjects and groups
-            val lineas = context?.getString(R.string.inserts)?.lines()
-            lineas?.forEach { linea ->
-                it.execSQL(linea)
+            val lines = context?.getString(R.string.inserts)?.lines()
+            lines?.forEach { line ->
+                it.execSQL(line)
             }
         }
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {}
 
-    @Throws
     fun deleteDatabase(context: Context, nombreDB: String){
         context.deleteDatabase(nombreDB)
     }
 
 
     //************************************** USERS ***********************************************
-    @Throws
     fun findUser(noControl: String?, password: String?) : User? {
         val db = readableDatabase
         var user: User? = null
 
         if(noControl?.isNotEmpty()!! && password?.isNotEmpty()!!){
-            var sql = "SELECT * FROM users WHERE noControl = '$noControl' AND password = '$password'"
+            val sql = "SELECT * FROM users WHERE noControl = '$noControl' AND password = '$password'"
             val cursor = db.rawQuery(sql, null)
 
             if(cursor.moveToNext())
@@ -97,12 +95,13 @@ class DBManager (
                 cursor.getString(5),
                 cursor.getString(6)
             )
+            cursor.close()
         }
+
         db.close()
         return user
     }
 
-    @Throws
     fun addUser(user: User){
         val db = writableDatabase
         val sql = """
@@ -120,7 +119,6 @@ class DBManager (
         db.close()
     }
 
-    @Throws
     fun updateUser(user: User){
         val db = writableDatabase
         val values = ContentValues()
@@ -132,17 +130,16 @@ class DBManager (
         values.put("career", user.career)
         values.put("semester", user.semester)
 
-        db.update("users", values, "id = ?", arrayOf(user.id.toString()))
+        db.update("users", values, "id_user = ?", arrayOf(user.id.toString()))
         db.close()
     }
 
 
     //**************************************** SUBJECTS ********************************************
-    @Throws
     fun showScores(semester: String): List<Score>{
         val db = readableDatabase
 
-        var sql = "SELECT name, score, credits, semester FROM subjects WHERE semester = '$semester'"
+        val sql = "SELECT name, score, credits, semester FROM subjects WHERE semester = '$semester'"
 
         val subjects: MutableList<Score> = mutableListOf()
         val cursor = db.rawQuery(sql, null)
@@ -156,10 +153,10 @@ class DBManager (
                 )
             )
         }
+        cursor.close()
         db.close()
 
         return subjects
     }
-
 
 }

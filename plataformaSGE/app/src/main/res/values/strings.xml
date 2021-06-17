@@ -15,8 +15,7 @@
     </string-array>
 
     <string name="inserts">
-        INSERT INTO subjects (id_subject, name, code, semester, score, credits) VALUES
-            (1, "'Calculo Diferencial'", "'B1T1'", "'1'", "'89'", 5),
+        INSERT INTO subjects (id_subject, name, code, semester, score, credits) VALUES (1, "'Calculo Diferencial'", "'B1T1'", "'1'", "'89'", 5),
             (2, "'Fundamentos de Programacion'", "'B1T2'", "'1'", "'95'", 5),
             (3, "'Matematicas Discretas I'", "'B1T3'", "'1'", "'98'", 5),
             (4, "'Introduccion a las TICs'", "'B1T4'", "'1'", "'94'", 3),
@@ -70,8 +69,7 @@
             (52, "'Ingenieria del Conocimiento'", "'B9T4'", "'9'", "'no cursada'", 5),
             (53, "'Residencias Profesionales'", "'B9T3'", "'9'", "'no cursada'", 10);\n\
 
-        INSERT INTO groups (id_group, name, profesor, hourMonday, hourTuesday, hourWednesday, hourThursday, hourFriday, id_subject) VALUES
-            (1, "'A'", "'Cristhian Torres Millarez'", "'11:00-12:00 / F4'", "'11:00-12:00 / F4'", "'11:00-12:00 / F4'", "'11:00-12:00 / F4'", "'11:00-12:00 / LRD'", 31),
+        INSERT INTO groups (id_group, name, profesor, hourMonday, hourTuesday, hourWednesday, hourThursday, hourFriday, id_subject) VALUES (1, "'A'", "'Cristhian Torres Millarez'", "'11:00-12:00 / F4'", "'11:00-12:00 / F4'", "'11:00-12:00 / F4'", "'11:00-12:00 / F4'", "'11:00-12:00 / LRD'", 31),
             (2, "'B'", "'Ireri Rojas Prospero'", "'09:00-10:00 / LRD'", "'09:00-10:00 / F3'", "'09:00-10:00 / F3'", "'09:00-10:00 / F3'", "'09:00-10:00 / F3'", 31),
             (3, "'A'", "'Ireri Rojas Prospero'", null,  "'08:00-09:00 / F2'", null,  "'08:00-09:00 / F2'", null, 32),
             (4, "'B'", "'Juan Jesus Ruiz Lagunas'", null, "'07:00-08:00 / F3'", null, "'07:00-08:00 / F3'", null, 32),
