@@ -21,7 +21,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 class ElectionItemsAdapter (var context: Context, var subjects: MutableList<Subject>)
     : RecyclerView.Adapter<ElectionItemsAdapter.ViewHolder>(){
 
-    inner class ViewHolder(var itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val score: TextView = itemView.findViewById(R.id.listSubjectScore)
         val subjectName: TextView = itemView.findViewById(R.id.listSubjectName)
         val btnSelectSubject: MaterialButton = itemView.findViewById(R.id.listSubjectBtnSelectSubject)
@@ -45,7 +45,7 @@ class ElectionItemsAdapter (var context: Context, var subjects: MutableList<Subj
         holder.subjectName.setText(subject.subjectName)
 
         holder.btnSelectSubject.setOnClickListener {
-
+            showPopup(subject, holder)
         }
         subjectStatus(holder)
     }
