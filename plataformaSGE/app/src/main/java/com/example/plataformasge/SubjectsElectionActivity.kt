@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformasge.adapters.ElectionAdapter
 import com.example.plataformasge.databinding.ActivitySubjectsElectionBinding
 import com.example.plataformasge.models.DBManager
+import com.example.plataformasge.models.Semester
+import com.example.plataformasge.models.Subject
+import java.util.ArrayList
 
 class SubjectsElectionActivity : AppCompatActivity() {
 
@@ -26,8 +29,14 @@ class SubjectsElectionActivity : AppCompatActivity() {
             RecyclerView.VERTICAL,
             false
         )
+
+        var semesters = arrayListOf<Semester>()
+        for (s in 1..2){
+            semesters.add(Semester(s.toString(), dbManager.showGroups(s.toString())))
+        }
         //TODO: mandar llamar una funcion desde el dbmanager para llenar la reticula
-        //binding.recyclerElection.adapter = ElectionAdapter(this, )
+        binding.recyclerElection.adapter = ElectionAdapter(this, semesters)
 
     }
+
 }

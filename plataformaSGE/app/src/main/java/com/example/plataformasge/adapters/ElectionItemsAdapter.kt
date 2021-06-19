@@ -18,7 +18,7 @@ import com.example.plataformasge.models.Subject
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
-class ElectionItemsAdapter (var context: Context, var subjects: MutableList<Subject>)
+class ElectionItemsAdapter (var context: Context, var subjects: List<Subject>)
     : RecyclerView.Adapter<ElectionItemsAdapter.ViewHolder>(){
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){

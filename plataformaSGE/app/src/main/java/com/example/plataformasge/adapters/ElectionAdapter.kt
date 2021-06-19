@@ -11,7 +11,7 @@ import com.example.plataformasge.R
 import com.example.plataformasge.models.Semester
 import com.example.plataformasge.models.Subject
 
-class ElectionAdapter (var context: Context, var semesters: MutableList<Semester>)
+class ElectionAdapter (var context: Context, var semesters: List<Semester>)
     : RecyclerView.Adapter<ElectionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -31,14 +31,14 @@ class ElectionAdapter (var context: Context, var semesters: MutableList<Semester
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var semester: Semester = semesters.get(position)
-        holder.noSemester.text = semester.semester
+        holder.noSemester.setText("Semestre "+semester.semester)
 
         callRecycler(holder.recyclerSubjects, semester.subjects)
     }
 
     override fun getItemCount(): Int = semesters.size
 
-    private fun callRecycler(recyclerView: RecyclerView, subjects: MutableList<Subject>) {
+    private fun callRecycler(recyclerView: RecyclerView, subjects: List<Subject>) {
         recyclerView.layoutManager = GridLayoutManager(
             context,
             2,
