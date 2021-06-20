@@ -14,11 +14,12 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformasge.R
+import com.example.plataformasge.models.Score
 import com.example.plataformasge.models.Subject
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
-class ElectionItemsAdapter (var context: Context, var subjects: List<Subject>)
+class ElectionItemsAdapter (var context: Context, var subjects: List<Score>)
     : RecyclerView.Adapter<ElectionItemsAdapter.ViewHolder>(){
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -40,7 +41,7 @@ class ElectionItemsAdapter (var context: Context, var subjects: List<Subject>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var subject: Subject = subjects.get(position)
+        var subject: Score = subjects.get(position)
         holder.score.setText(subject.score)
         holder.subjectName.setText(subject.subjectName)
 
@@ -52,7 +53,7 @@ class ElectionItemsAdapter (var context: Context, var subjects: List<Subject>)
 
     override fun getItemCount(): Int = subjects.size
 
-    fun showPopup(subject: Subject, holder: ElectionItemsAdapter.ViewHolder){
+    fun showPopup(subject: Score, holder: ElectionItemsAdapter.ViewHolder){
         val inflater:LayoutInflater = LayoutInflater.from(context) as LayoutInflater
         val view = inflater.inflate(R.layout.popup_available_subjects,null)
 

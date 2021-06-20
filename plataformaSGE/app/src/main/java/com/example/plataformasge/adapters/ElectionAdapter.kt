@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformasge.R
+import com.example.plataformasge.models.Score
 import com.example.plataformasge.models.Semester
 import com.example.plataformasge.models.Subject
 
@@ -38,7 +39,7 @@ class ElectionAdapter (var context: Context, var semesters: List<Semester>)
 
     override fun getItemCount(): Int = semesters.size
 
-    private fun callRecycler(recyclerView: RecyclerView, subjects: List<Subject>) {
+    private fun callRecycler(recyclerView: RecyclerView, subjects: List<Score>) {
         recyclerView.layoutManager = GridLayoutManager(
             context,
             2,

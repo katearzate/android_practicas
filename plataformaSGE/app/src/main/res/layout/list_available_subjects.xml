@@ -42,21 +42,21 @@
 
             <TableRow>
                 <TextView
-                    android:id="@+id/materiaSeleccionableProfesor"
+                    android:id="@+id/availableSubjectProfesor"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:text="Alejandro Amaro"
                     android:textSize="12dp"
                     android:textColor="@color/black"/>
                 <TextView
-                    android:id="@+id/materiaSeleccionableGrupo"
+                    android:id="@+id/availableSubjectGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="A"
                     android:textSize="12dp"
                     android:textColor="@color/black"/>
                 <TextView
-                    android:id="@+id/materiaSeleccionableCreditos"
+                    android:id="@+id/availableSubjectCredits"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5"
@@ -66,7 +66,7 @@
         </TableLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnMateriaSeleccionableElegir"
+            android:id="@+id/availableSubjectBtnSelect"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="Elegir"
@@ -121,7 +121,7 @@
         </TableRow>
         <TableRow>
             <TextView
-                android:id="@+id/materiaSeleccionableHorarioLunes"
+                android:id="@+id/availableSubjectHourMonday"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:text="08:00-09:00 / F4"
@@ -129,7 +129,7 @@
                 android:textColor="@color/black"
                 android:textSize="10dp"/>
             <TextView
-                android:id="@+id/materiaSeleccionableHorarioMartes"
+                android:id="@+id/availableSubjectHourTuesday"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:text="08:00-09:00 / F4"
@@ -137,7 +137,7 @@
                 android:textColor="@color/black"
                 android:textSize="10dp"/>
             <TextView
-                android:id="@+id/materiaSeleccionableHorarioMiercoles"
+                android:id="@+id/availableSubjectHourWednesday"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:text="08:00-09:00 / F4"
@@ -145,7 +145,7 @@
                 android:textColor="@color/black"
                 android:textSize="10dp"/>
             <TextView
-                android:id="@+id/materiaSeleccionableHorarioJueves"
+                android:id="@+id/availableSubjectHourThursday"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:text="08:00-09:00 / F4"
@@ -153,7 +153,7 @@
                 android:textColor="@color/black"
                 android:textSize="10dp"/>
             <TextView
-                android:id="@+id/materiaSeleccionableHorarioViernes"
+                android:id="@+id/availableSubjectHourFriday"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:text="08:00-09:00 / F4"

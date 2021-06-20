@@ -38,8 +38,8 @@ class DBManager (
         val groups = """
             CREATE TABLE groups(
                 id_group INTEGER PRIMARY KEY NOT NULL, 
-                name TEXT NOT NULL,
-                profesor TEXT NOT NULL,   
+                name TEXT,
+                profesor TEXT,   
                 hourMonday TEXT, 
                 hourTuesday TEXT, 
                 hourWednesday TEXT, 

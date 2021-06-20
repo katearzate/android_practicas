@@ -31,10 +31,9 @@ class SubjectsElectionActivity : AppCompatActivity() {
         )
 
         var semesters = arrayListOf<Semester>()
-        for (s in 1..2){
-            semesters.add(Semester(s.toString(), dbManager.showGroups(s.toString())))
+        for (s in 1..8){
+            semesters.add(Semester(s.toString(), dbManager.showScores(s.toString())))
         }
-        //TODO: mandar llamar una funcion desde el dbmanager para llenar la reticula
         binding.recyclerElection.adapter = ElectionAdapter(this, semesters)
 
     }
