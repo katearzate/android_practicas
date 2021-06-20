@@ -165,7 +165,7 @@ class DBManager (
         val sql = """SELECT s.name, g.name,  profesor, credits, score,
             hourMonday, hourTuesday, hourWednesday, hourThursday, hourFriday FROM groups AS g 
             INNER JOIN subjects AS s ON s.id_subject = g.id_subject
-            WHERE s.semester = '$subject'; """.trimMargin()
+            WHERE s.name = '$subject'; """.trimMargin()
 
         val groups: MutableList<Subject> = mutableListOf()
         val cursor = db.rawQuery(sql, null)

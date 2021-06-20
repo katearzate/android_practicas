@@ -12,8 +12,10 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.PopupWindow
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformasge.R
+import com.example.plataformasge.models.DBManager
 import com.example.plataformasge.models.Score
 import com.example.plataformasge.models.Subject
 import com.google.android.material.button.MaterialButton
@@ -21,6 +23,9 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 
 class ElectionItemsAdapter (var context: Context, var subjects: List<Score>)
     : RecyclerView.Adapter<ElectionItemsAdapter.ViewHolder>(){
+
+    private var _dbManager: DBManager? = null
+    private val dbManager get() = _dbManager!!
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val score: TextView = itemView.findViewById(R.id.listSubjectScore)
@@ -83,8 +88,17 @@ class ElectionItemsAdapter (var context: Context, var subjects: List<Score>)
         val subjectName = view.findViewById<TextView>(R.id.popupSubjectName)
         subjectName.setText("Materia: ${subject.subjectName}")
 
+        //*********************** SHOW GROUPS AVAILABLE *********************
+        _dbManager = DBManager(context, "escolar", null, 1)
+
         val listGroups = view.findViewById<ListView>(R.id.popupListGroups)
 
+        listGroups.adapter = GroupsAdapter(
+            context,
+            R.layout.list_available_subjects,
+            dbManager.showGroups(holder.subjectName.toString())
+        )
+        println("MATERIA: "+holder.subjectName)
         /*
         listaClases.adapter = object : AdapterClases(
             context,

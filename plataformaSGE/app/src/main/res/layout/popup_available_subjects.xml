@@ -38,7 +38,7 @@
             android:id="@+id/popupListGroups"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/lista_materia_seleccionable"/>
+            tools:listitem="@layout/list_available_subjects"/>
     </HorizontalScrollView>
 
 </LinearLayout>
