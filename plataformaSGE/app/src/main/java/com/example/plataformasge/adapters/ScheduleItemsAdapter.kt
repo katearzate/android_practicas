@@ -36,7 +36,14 @@ class ScheduleItemsAdapter(var context: Context, var subjects: List<ScheduleItem
         holder.subject.text = subject.subject
         holder.professor.text = "Profesor: ${subject.profesor} / "
         holder.group.text = "Grupo: ${subject.group}"
-        holder.hour.text = subject.hour
+
+        when(position){
+            0 -> holder.hour.text = subject.hourMonday
+            1 -> holder.hour.text = subject.hourTuesday
+            2 -> holder.hour.text = subject.hourWednesday
+            3 -> holder.hour.text = subject.hourThursday
+            4 -> holder.hour.text = subject.hourFriday
+        }
     }
 
     override fun getItemCount(): Int = subjects.size

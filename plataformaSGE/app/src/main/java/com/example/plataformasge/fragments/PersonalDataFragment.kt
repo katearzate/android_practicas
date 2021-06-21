@@ -65,8 +65,6 @@ class PersonalDataFragment : Fragment() {
             }
         })
 
-
-
         return binding.root
     }
 

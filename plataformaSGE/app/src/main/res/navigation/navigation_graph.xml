@@ -12,7 +12,11 @@
     <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.example.plataformasge.fragments.ScheduleFragment"
-        tools:layout="@layout/fragment_schedule" />
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/action_scheduleFragment_to_electionFragment"
+            app:destination="@id/electionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/kardexFragment"
         android:name="com.example.plataformasge.fragments.KardexFragment"
@@ -25,5 +29,13 @@
         android:id="@+id/personalDataFragment"
         android:name="com.example.plataformasge.fragments.PersonalDataFragment"
         tools:layout="@layout/fragment_personal_data" />
+    <fragment
+        android:id="@+id/electionFragment"
+        android:name="com.example.plataformasge.fragments.ElectionFragment"
+        tools:layout="@layout/fragment_election" >
+        <action
+            android:id="@+id/action_electionFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment" />
+    </fragment>
 
 </navigation>

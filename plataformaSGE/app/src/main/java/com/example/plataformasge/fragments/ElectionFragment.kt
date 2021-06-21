@@ -1,41 +1,47 @@
-package com.example.plataformasge
+package com.example.plataformasge.fragments
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.activity.viewModels
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.plataformasge.R
 import com.example.plataformasge.adapters.ElectionAdapter
 import com.example.plataformasge.adapters.SubjectedSelectedAdapter
-import com.example.plataformasge.databinding.ActivitySubjectsElectionBinding
-import com.example.plataformasge.fragments.ScheduleFragment
+import com.example.plataformasge.databinding.FragmentElectionBinding
 import com.example.plataformasge.models.DBManager
 import com.example.plataformasge.models.Semester
 import com.example.plataformasge.models.Subject
 import com.example.plataformasge.models.ViewModelSchedule
 import java.util.ArrayList
 
-class SubjectsElectionActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySubjectsElectionBinding
+class ElectionFragment: Fragment() {
+    private var _binding: FragmentElectionBinding? = null
+    private val binding get() = _binding!!
     private var _dbManager: DBManager? = null
     private val dbManager get() = _dbManager!!
-    private val viewModel: ViewModelSchedule by viewModels()
+
+    private val viewModel: ViewModelSchedule by activityViewModels()
 
     private var listSubjectSelected : ArrayList<Subject> = arrayListOf()
     private var totalCredits : Int = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivitySubjectsElectionBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        _dbManager = DBManager(this, "escolar", null, 1)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentElectionBinding.inflate(layoutInflater)
+
+        _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
         binding.recyclerElection.layoutManager = LinearLayoutManager(
-            this,
+            requireContext(),
             RecyclerView.VERTICAL,
             false
         )
@@ -44,7 +50,7 @@ class SubjectsElectionActivity : AppCompatActivity() {
         for (s in 5..8){
             semesters.add(Semester(s.toString(), dbManager.showScores(s.toString())))
         }
-        binding.recyclerElection.adapter = object : ElectionAdapter(this, semesters){
+        binding.recyclerElection.adapter = object : ElectionAdapter(requireContext(), semesters){
             override fun groupSelectedElection(group: Subject) {
                 totalCredits += group.credits!!
                 binding.electionTotalCredits.visibility = View.VISIBLE
@@ -52,7 +58,7 @@ class SubjectsElectionActivity : AppCompatActivity() {
                 if (totalCredits <= 36){
                     listSubjectSelected.add(group)
                     binding.electionListofSubjectsSelected.adapter = SubjectedSelectedAdapter(
-                        this@SubjectsElectionActivity,
+                        requireContext(),
                         R.layout.list_subjects_selected,
                         listSubjectSelected
                     )
@@ -73,17 +79,22 @@ class SubjectsElectionActivity : AppCompatActivity() {
                 listSubjectSelected.forEach { subject ->
                     subjectList.add(subject)
                 }
+                findNavController().navigate(R.id.action_electionFragment_to_scheduleFragment)
+                childFragmentManager.setFragmentResult("subjects", bundleOf("bundleKey" to subjectList))
+
                 //viewModel.setList(subjectList)
-                val intent = Intent(this, HomeActivity::class.java)
+                /*val intent = Intent(this, HomeActivity::class.java)
                 intent.putExtra("subjects", subjectList)
                 startActivity(intent)
-                finish()
+                finish()*/
             }
         }
+
+        return binding.root
     }
 
     private fun showAlert(error: String, mensaje: String){
-        val builder = AlertDialog.Builder(this)
+        val builder = AlertDialog.Builder(requireContext())
         builder.setTitle(error)
         builder.setMessage(mensaje)
         builder.setPositiveButton("Aceptar", null)

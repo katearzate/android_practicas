@@ -14,13 +14,17 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.plataformasge.databinding.ActivityHomeBinding
+import com.example.plataformasge.models.Subject
+import com.example.plataformasge.models.User
 import com.example.plataformasge.models.ViewModelPersonalData
+import com.example.plataformasge.models.ViewModelSchedule
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var navigationController : NavController
-    private val viewModel: ViewModelPersonalData by viewModels()
+    private val viewModelPD: ViewModelPersonalData by viewModels()
+    private val viewModelS: ViewModelSchedule by viewModels()
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,9 +38,11 @@ class HomeActivity : AppCompatActivity() {
             it.setDisplayHomeAsUpEnabled(true)
         }
 /*
+        var subjects: ArrayList<Subject> = intent.getSerializableExtra("subjects") as ArrayList<Subject>
+        viewModelS.setList(subjects)*/
         var user = intent.getParcelableExtra<User>("user")
-        viewModel.setUser(user!!)
-*/
+        viewModelPD.setUser(user!!)
+
         navigationController = findNavController(R.id.main_container)
         setupActionBarWithNavController(
             navigationController, AppBarConfiguration(

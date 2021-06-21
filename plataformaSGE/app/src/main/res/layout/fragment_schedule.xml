@@ -48,6 +48,6 @@
         android:layout_height="wrap_content"
         tools:listitem="@layout/recycler_schedule"
         android:layout_margin="10dp"
-        android:visibility="gone"/>
+        android:visibility="invisible"/>
 
 </LinearLayout>

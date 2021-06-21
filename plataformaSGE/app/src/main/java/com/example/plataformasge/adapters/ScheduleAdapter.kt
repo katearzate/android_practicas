@@ -32,7 +32,6 @@ class ScheduleAdapter (var context: Context, var days: List<Schedule>):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val schedule : Schedule = days.get(position)
-
         holder.day.text = schedule.day
 
         callRecycler(holder.recyclerSubjects, schedule.subjects)

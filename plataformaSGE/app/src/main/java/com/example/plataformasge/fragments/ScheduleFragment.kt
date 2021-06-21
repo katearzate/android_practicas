@@ -7,62 +7,80 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.plataformasge.R
 import com.example.plataformasge.SubjectsElectionActivity
+import com.example.plataformasge.adapters.ScheduleAdapter
 import com.example.plataformasge.databinding.FragmentScheduleBinding
-import com.example.plataformasge.models.DBManager
+import com.example.plataformasge.models.Schedule
+import com.example.plataformasge.models.ScheduleItems
+import com.example.plataformasge.models.Subject
 import com.example.plataformasge.models.ViewModelSchedule
-import java.util.*
+import kotlin.collections.ArrayList
 
 class ScheduleFragment : Fragment() {
 
     private var _binding: FragmentScheduleBinding? = null
     private val binding get() = _binding!!
-    private var _dbManager: DBManager? = null
-    private val dbManager get() = _dbManager!!
     private val viewModel: ViewModelSchedule by activityViewModels()
-
-    private val created: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentScheduleBinding.inflate(layoutInflater)
-        _dbManager = DBManager(requireContext(), "escolar", null, 1)
+        val arrayDays = arrayOf("Lunes", "Martes", "Miercoles", "Jueves", "Viernes")
 
-        if (created == true){
-            binding.scheduleBtnCreateSchedule.visibility = View.GONE
-            binding.scheduleText.visibility = View.GONE
+        //viewModel.listSubjects.observe(viewLifecycleOwner, Observer{ subjects ->
+        parentFragmentManager.setFragmentResultListener("TextoBundle", this) { key, bundle ->
+            val subjects = bundle.getParcelableArrayList<Subject>("bundleKey")
+            showComponents()
 
-            binding.recyclerSchedule.visibility = View.VISIBLE
-            //TODO: SHOW SCHEDULE CREATED!
-            viewModel.listSubjects.observe(viewLifecycleOwner, androidx.lifecycle.Observer { subjects ->
+            var arraySchedule: ArrayList<Schedule> = arrayListOf()
+            var arrayScheduleItems: ArrayList<ScheduleItems> = arrayListOf()
+            arrayDays.forEach { day ->
+                subjects?.forEach {
+                    arrayScheduleItems.add(
+                        ScheduleItems(
+                            it.subjectName,
+                            it.profesor,
+                            it.group,
+                            it.hourMonday,
+                            it.hourTuesday,
+                            it.hourWednesday,
+                            it.hourThursday,
+                            it.hourFriday
+                        )
+                    )
+                }
+                arraySchedule.add(Schedule(day, arrayScheduleItems))
+            }
 
-            })
+            binding.recyclerSchedule.layoutManager = LinearLayoutManager(
+                requireContext(),
+                RecyclerView.VERTICAL,
+                false
+            )
+            binding.recyclerSchedule.adapter = ScheduleAdapter(
+                requireContext(),
+                arraySchedule
+            )
         }
 
         binding.scheduleBtnCreateSchedule.setOnClickListener {
-            startActivity(Intent(requireContext(), SubjectsElectionActivity::class.java))
+            findNavController().navigate(R.id.action_scheduleFragment_to_electionFragment)
+            //startActivity(Intent(requireContext(), SubjectsElectionActivity::class.java))
         }
 
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        /*
-        val spinnerCantidad = view.findViewById<Spinner>(R.id.spinnerCantidad)
-        val tvTotal = view.findViewById<TextView>(R.id.tvTotalCompra)
-        val btnConfirmar = view.findViewById<Button>(R.id.btnConfirmar)
-
-        spinnerCantidad.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, index: Int, p3: Long) {
-                tvTotal.setText("TOTAL: ${(index+1)*50.0}")
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {}
-        }
-         */
+    fun showComponents(){
+        binding.scheduleText.visibility = View.GONE
+        binding.scheduleBtnCreateSchedule.visibility = View.GONE
+        binding.recyclerSchedule.visibility = View.VISIBLE
     }
 }
