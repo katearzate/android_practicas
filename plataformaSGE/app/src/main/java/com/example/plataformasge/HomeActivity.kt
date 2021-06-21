@@ -14,14 +14,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.plataformasge.databinding.ActivityHomeBinding
-import com.example.plataformasge.models.User
-import com.example.plataformasge.models.ViewModelHomeFragments
+import com.example.plataformasge.models.ViewModelPersonalData
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var navigationController : NavController
-    private val viewModel: ViewModelHomeFragments by viewModels()
+    private val viewModel: ViewModelPersonalData by viewModels()
 
     @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +35,6 @@ class HomeActivity : AppCompatActivity() {
         }
 /*
         var user = intent.getParcelableExtra<User>("user")
-        println("USUARIO DESDE homeact = "+user)
         viewModel.setUser(user!!)
 */
         navigationController = findNavController(R.id.main_container)

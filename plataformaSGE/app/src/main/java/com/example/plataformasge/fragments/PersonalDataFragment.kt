@@ -1,26 +1,24 @@
 package com.example.plataformasge.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import com.example.plataformasge.databinding.FragmentPersonalDataBinding
 import com.example.plataformasge.models.DBManager
 import com.example.plataformasge.models.User
-import com.example.plataformasge.models.ViewModelHomeFragments
+import com.example.plataformasge.models.ViewModelPersonalData
 import java.lang.Exception
 
 class PersonalDataFragment : Fragment() {
 
     private var _binding: FragmentPersonalDataBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ViewModelHomeFragments by activityViewModels()
+    private val viewModel: ViewModelPersonalData by activityViewModels()
 
     private var _dbManager: DBManager? = null
     private val dbManager get() = _dbManager!!

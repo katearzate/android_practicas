@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ViewModelHomeFragments : ViewModel() {
+class ViewModelPersonalData : ViewModel() {
     private var user = MutableLiveData<User>()
     val userEntered: LiveData<User> get() = user
 

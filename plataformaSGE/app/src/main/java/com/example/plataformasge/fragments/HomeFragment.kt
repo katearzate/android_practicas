@@ -7,16 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import com.example.plataformasge.R
 import com.example.plataformasge.databinding.FragmentHomeBinding
-import com.example.plataformasge.databinding.FragmentPersonalDataBinding
-import com.example.plataformasge.models.ViewModelHomeFragments
+import com.example.plataformasge.models.ViewModelPersonalData
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ViewModelHomeFragments by activityViewModels()
+    private val viewModel: ViewModelPersonalData by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

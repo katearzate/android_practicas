@@ -6,19 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.plataformasge.R
+import androidx.fragment.app.activityViewModels
 import com.example.plataformasge.SubjectsElectionActivity
-import com.example.plataformasge.databinding.FragmentReticulaBinding
 import com.example.plataformasge.databinding.FragmentScheduleBinding
 import com.example.plataformasge.models.DBManager
+import com.example.plataformasge.models.ViewModelSchedule
+import java.util.*
 
 class ScheduleFragment : Fragment() {
 
     private var _binding: FragmentScheduleBinding? = null
     private val binding get() = _binding!!
-
     private var _dbManager: DBManager? = null
     private val dbManager get() = _dbManager!!
+    private val viewModel: ViewModelSchedule by activityViewModels()
 
     private val created: Boolean = false
 
@@ -34,7 +35,10 @@ class ScheduleFragment : Fragment() {
             binding.scheduleText.visibility = View.GONE
 
             binding.recyclerSchedule.visibility = View.VISIBLE
-            //TODO: SHOW SHEDULE CREATED!
+            //TODO: SHOW SCHEDULE CREATED!
+            viewModel.listSubjects.observe(viewLifecycleOwner, androidx.lifecycle.Observer { subjects ->
+
+            })
         }
 
         binding.scheduleBtnCreateSchedule.setOnClickListener {
