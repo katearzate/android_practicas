@@ -1,11 +1,13 @@
 package com.example.plataformasge
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.plataformasge.adapters.ElectionAdapter
-import com.example.plataformasge.adapters.GroupsAdapter
 import com.example.plataformasge.adapters.SubjectedSelectedAdapter
 import com.example.plataformasge.databinding.ActivitySubjectsElectionBinding
 import com.example.plataformasge.models.DBManager
@@ -20,8 +22,8 @@ class SubjectsElectionActivity : AppCompatActivity() {
     private var _dbManager: DBManager? = null
     private val dbManager get() = _dbManager!!
 
-
     private var listSubjectSelected : ArrayList<Subject> = arrayListOf()
+    private var totalCredits : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,17 +43,47 @@ class SubjectsElectionActivity : AppCompatActivity() {
         }
         binding.recyclerElection.adapter = object : ElectionAdapter(this, semesters){
             override fun groupSelectedElection(group: Subject) {
+                totalCredits += group.credits!!
+                binding.electionTotalCredits.visibility = View.VISIBLE
 
-                listSubjectSelected.add(group)
-                binding.electionListofSubjectsSelected.adapter = SubjectedSelectedAdapter(
-                    this@SubjectsElectionActivity,
-                    R.layout.list_subjects_selected,
-                    listSubjectSelected
-                )
+                if (totalCredits <= 36){
+                    listSubjectSelected.add(group)
+                    binding.electionListofSubjectsSelected.adapter = SubjectedSelectedAdapter(
+                        this@SubjectsElectionActivity,
+                        R.layout.list_subjects_selected,
+                        listSubjectSelected
+                    )
+                }else{
+                    showAlert("Límite de créditos", "No puedes agregar más materias, se ha excedido el límite")
+                    totalCredits -= group.credits!!
+                }
+                binding.electionTotalCredits.setText("Total de créditos: ${totalCredits}")
             }
-
         }
 
+        binding.electionBtnRegisterSchedule.setOnClickListener {
+            var subjectList: ArrayList<Subject> = arrayListOf()
+
+            if (totalCredits< 10){
+                showAlert("Error", "Debes seleccionar más materias para poder registrar el horario")
+            }else{
+                listSubjectSelected.forEach { subject ->
+                    subjectList.add(subject)
+                }
+                val intent = Intent(this, HomeActivity::class.java)
+                intent.putExtra("subjects", subjectList)
+                startActivity(intent)
+                finish()
+            }
+        }
     }
 
+    private fun showAlert(error: String, mensaje: String){
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(error)
+        builder.setMessage(mensaje)
+        builder.setPositiveButton("Aceptar", null)
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
 }
