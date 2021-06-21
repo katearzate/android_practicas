@@ -11,7 +11,7 @@ import com.example.plataformasge.R
 import com.example.plataformasge.models.Subject
 import com.google.android.material.button.MaterialButton
 
-class GroupsAdapter (val context: Context, val layout: Int, val list: List<Subject>):
+abstract class GroupsAdapter (val context: Context, val layout: Int, val list: List<Subject>):
     BaseAdapter() {
 
     override fun getCount(): Int = list.size
@@ -47,12 +47,12 @@ class GroupsAdapter (val context: Context, val layout: Int, val list: List<Subje
 
         btnSelect.setOnClickListener{
             val group : Subject = list.get(position)
-            Toast.makeText(context, "MATERIA SELECCIONADA", Toast.LENGTH_LONG).show()
-            //groupSelected(group)
+            //Toast.makeText(context, "MATERIA SELECCIONADA", Toast.LENGTH_LONG).show()
+            groupSelected(group)
         }
 
         return myView
     }
 
-    //abstract fun groupSelected(subject: Subject)
+    abstract fun groupSelected(group: Subject)
 }

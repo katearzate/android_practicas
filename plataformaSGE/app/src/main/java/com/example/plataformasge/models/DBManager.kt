@@ -162,7 +162,7 @@ class DBManager (
     fun showGroups(subject: String): List<Subject>{
         val db = readableDatabase
 
-        val sql = """SELECT s.name, g.name,  profesor, credits, score,
+        val sql = """SELECT s.name, g.name,  profesor, credits, score, code,
             hourMonday, hourTuesday, hourWednesday, hourThursday, hourFriday FROM groups AS g 
             INNER JOIN subjects AS s ON s.id_subject = g.id_subject
             WHERE s.name = '$subject'; """.trimMargin()
@@ -182,7 +182,8 @@ class DBManager (
                     cursor.getString(6),
                     cursor.getString(7),
                     cursor.getString(8),
-                    cursor.getString(9)
+                    cursor.getString(9),
+                    cursor.getString(10)
                 )
             )
         }

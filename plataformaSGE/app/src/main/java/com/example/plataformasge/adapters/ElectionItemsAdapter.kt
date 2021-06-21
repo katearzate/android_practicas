@@ -21,14 +21,15 @@ import com.example.plataformasge.models.Subject
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 
-class ElectionItemsAdapter (var context: Context, var subjects: List<Score>)
+abstract class ElectionItemsAdapter (var context: Context, var subjects: List<Score>)
     : RecyclerView.Adapter<ElectionItemsAdapter.ViewHolder>(){
 
     private var _dbManager: DBManager? = null
     private val dbManager get() = _dbManager!!
+    private val hashMap: HashMap<String, Subject> = hashMapOf()
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val score: TextView = itemView.findViewById(R.id.listSubjectScore)
+        var score: TextView = itemView.findViewById(R.id.listSubjectScore)
         val subjectName: TextView = itemView.findViewById(R.id.listSubjectName)
         val btnSelectSubject: MaterialButton = itemView.findViewById(R.id.listSubjectBtnSelectSubject)
         val reticulaBackground: LinearLayout =  itemView.findViewById(R.id.listSubjectBackground)
@@ -93,24 +94,16 @@ class ElectionItemsAdapter (var context: Context, var subjects: List<Score>)
 
         val listGroups = view.findViewById<ListView>(R.id.popupListGroups)
 
-        listGroups.adapter = GroupsAdapter(
+        listGroups.adapter = object : GroupsAdapter(
             context,
             R.layout.list_available_subjects,
-            dbManager.showGroups(holder.subjectName.toString())
-        )
-        println("MATERIA: "+holder.subjectName)
-        /*
-        listaClases.adapter = object : AdapterClases(
-            context,
-            R.layout.lista_materia_seleccionable,
-            materia.clases!!,
-            materia.materia?.creditos!!){
-            override fun clickClase(materiaElegida: Materia) {
-                materiaElegida.nombreMateria = materia.materia?.nombreMateria
-                materiaElegida.creditos = materia.materia?.creditos
-                clickClaseItem( materiaElegida)
+            dbManager.showGroups(subject.subjectName.toString())
+        ){
+            override fun groupSelected(group: Subject) {
+                //hashMap.put(group.code!!, group)
                 popupWindow.dismiss()
 
+                groupSelectedElectionItem(group)
                 if (subject.score == "no cursada"){
                     subject.score = "cursando"
                     holder.score.text = "cursando"
@@ -126,7 +119,6 @@ class ElectionItemsAdapter (var context: Context, var subjects: List<Score>)
                 }
             }
         }
-*/
 
         val btnCerrarPopup = view.findViewById<ExtendedFloatingActionButton>(R.id.popupbtnClose)
         btnCerrarPopup.setOnClickListener{
@@ -162,4 +154,6 @@ class ElectionItemsAdapter (var context: Context, var subjects: List<Score>)
             }
         }
     }
+
+    abstract fun groupSelectedElectionItem(group: Subject)
 }

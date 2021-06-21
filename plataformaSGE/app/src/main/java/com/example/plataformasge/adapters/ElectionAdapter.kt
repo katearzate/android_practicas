@@ -12,7 +12,7 @@ import com.example.plataformasge.models.Score
 import com.example.plataformasge.models.Semester
 import com.example.plataformasge.models.Subject
 
-class ElectionAdapter (var context: Context, var semesters: List<Semester>)
+abstract class ElectionAdapter (var context: Context, var semesters: List<Semester>)
     : RecyclerView.Adapter<ElectionAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -47,7 +47,14 @@ class ElectionAdapter (var context: Context, var semesters: List<Semester>)
             false
         )
 
-        recyclerView.adapter = ElectionItemsAdapter(context, subjects)
+        recyclerView.adapter = object : ElectionItemsAdapter(context, subjects){
+            override fun groupSelectedElectionItem(group: Subject) {
+                groupSelectedElection(group)
+            }
+        }
     }
+
+
+    abstract fun groupSelectedElection(group: Subject)
 
 }
