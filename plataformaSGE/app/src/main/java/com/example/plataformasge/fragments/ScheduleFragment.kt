@@ -15,16 +15,15 @@ import com.example.plataformasge.R
 import com.example.plataformasge.SubjectsElectionActivity
 import com.example.plataformasge.adapters.ScheduleAdapter
 import com.example.plataformasge.databinding.FragmentScheduleBinding
-import com.example.plataformasge.models.Schedule
-import com.example.plataformasge.models.ScheduleItems
-import com.example.plataformasge.models.Subject
-import com.example.plataformasge.models.ViewModelSchedule
+import com.example.plataformasge.models.*
 import kotlin.collections.ArrayList
 
 class ScheduleFragment : Fragment() {
 
     private var _binding: FragmentScheduleBinding? = null
     private val binding get() = _binding!!
+    private var _dbManager: DBManager? = null
+    private val dbManager get() = _dbManager!!
     private val viewModel: ViewModelSchedule by activityViewModels()
 
     override fun onCreateView(
@@ -32,15 +31,31 @@ class ScheduleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentScheduleBinding.inflate(layoutInflater)
-        val arrayDays = arrayOf("Lunes", "Martes", "Miercoles", "Jueves", "Viernes")
+        _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
-        //viewModel.listSubjects.observe(viewLifecycleOwner, Observer{ subjects ->
-        parentFragmentManager.setFragmentResultListener("TextoBundle", this) { key, bundle ->
+
+        binding.scheduleBtnCreateSchedule.setOnClickListener {
+            findNavController().navigate(R.id.action_scheduleFragment_to_electionFragment)
+            showComponents()
+            //startActivity(Intent(requireContext(), SubjectsElectionActivity::class.java))
+        }
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val arrayDays = arrayOf("lunes", "martes", "miercoles", "jueves", "viernes")
+        var arraySchedule: ArrayList<Schedule> = arrayListOf()
+        var arrayScheduleItems: ArrayList<ScheduleItems> = arrayListOf()
+
+
+        /*
+        parentFragmentManager.setFragmentResultListener("subjects", this) { key, bundle ->
             val subjects = bundle.getParcelableArrayList<Subject>("bundleKey")
             showComponents()
 
-            var arraySchedule: ArrayList<Schedule> = arrayListOf()
-            var arrayScheduleItems: ArrayList<ScheduleItems> = arrayListOf()
             arrayDays.forEach { day ->
                 subjects?.forEach {
                     arrayScheduleItems.add(
@@ -57,25 +72,19 @@ class ScheduleFragment : Fragment() {
                     )
                 }
                 arraySchedule.add(Schedule(day, arrayScheduleItems))
-            }
+            }*/
 
-            binding.recyclerSchedule.layoutManager = LinearLayoutManager(
-                requireContext(),
-                RecyclerView.VERTICAL,
-                false
-            )
-            binding.recyclerSchedule.adapter = ScheduleAdapter(
-                requireContext(),
-                arraySchedule
-            )
-        }
+        binding.recyclerSchedule.layoutManager = LinearLayoutManager(
+            requireContext(),
+            RecyclerView.VERTICAL,
+            false
+        )
+        binding.recyclerSchedule.adapter = ScheduleAdapter(
+            requireContext(),
+            arraySchedule
+        )
 
-        binding.scheduleBtnCreateSchedule.setOnClickListener {
-            findNavController().navigate(R.id.action_scheduleFragment_to_electionFragment)
-            //startActivity(Intent(requireContext(), SubjectsElectionActivity::class.java))
-        }
 
-        return binding.root
     }
 
     fun showComponents(){

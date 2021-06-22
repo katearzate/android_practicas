@@ -77,13 +77,16 @@ class ElectionFragment: Fragment() {
                 showAlert("Error", "Debes seleccionar más materias para poder registrar el horario")
             }else{
                 listSubjectSelected.forEach { subject ->
-                    subjectList.add(subject)
+                    //subjectList.add(subject)
+                    dbManager.insertSubjects(subject)
                 }
                 findNavController().navigate(R.id.action_electionFragment_to_scheduleFragment)
-                childFragmentManager.setFragmentResult("subjects", bundleOf("bundleKey" to subjectList))
 
-                //viewModel.setList(subjectList)
-                /*val intent = Intent(this, HomeActivity::class.java)
+
+                /*childFragmentManager.setFragmentResult("subjects", bundleOf("bundleKey" to subjectList))
+
+                viewModel.setList(subjectList)
+                val intent = Intent(this, HomeActivity::class.java)
                 intent.putExtra("subjects", subjectList)
                 startActivity(intent)
                 finish()*/

@@ -22,9 +22,10 @@ class LoginActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
         _dbManager = DBManager(this, "escolar", null, 1)
-        //dbManager.deleteDatabase(this, "escolar")
+        dbManager.deleteDatabase(this, "escolar")
 
         binding.loginBtnEnter.setOnClickListener {
+            /*
             if (binding.loginNoControl.text.toString().isNotEmpty() &&
                 binding.loginPassword.text.toString().isNotEmpty()) {
                 val user = dbManager.findUser(binding.loginNoControl.text.toString(), binding.loginPassword.text.toString())
@@ -39,8 +40,8 @@ class LoginActivity : AppCompatActivity() {
 
             } else{
                 showAlert("Error", "Se debe completar todos los campos")
-            }
-            //startActivity(Intent(this, HomeActivity::class.java))
+            }*/
+            startActivity(Intent(this, HomeActivity::class.java))
         }
 
         binding.redirectSignin.setOnClickListener {

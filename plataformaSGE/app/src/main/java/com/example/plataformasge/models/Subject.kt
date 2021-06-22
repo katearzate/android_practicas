@@ -2,7 +2,6 @@ package com.example.plataformasge.models
 
 import android.os.Parcel
 import android.os.Parcelable
-import java.io.Serializable
 
 data class Subject (var subjectName: String?,
                     var group: String? = "",
@@ -18,6 +17,20 @@ data class Subject (var subjectName: String?,
 ): Parcelable {
 
 
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readInt(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString()
+    )
+
     override fun describeContents(): Int = 0
 
     override fun writeToParcel(parcel: Parcel?, flags: Int) {
@@ -32,5 +45,15 @@ data class Subject (var subjectName: String?,
         parcel?.writeString(hourWednesday)
         parcel?.writeString(hourThursday)
         parcel?.writeString(hourFriday)
+    }
+
+    companion object CREATOR : Parcelable.Creator<Subject> {
+        override fun createFromParcel(parcel: Parcel): Subject {
+            return Subject(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Subject?> {
+            return arrayOfNulls(size)
+        }
     }
 }

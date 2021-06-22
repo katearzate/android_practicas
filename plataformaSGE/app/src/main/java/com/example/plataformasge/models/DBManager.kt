@@ -49,8 +49,21 @@ class DBManager (
                 FOREIGN KEY (id_subject) REFERENCES subjects(id_subject) ON UPDATE CASCADE ON DELETE CASCADE
             );
         """.trimIndent()
+        val schedule = """
+            CREATE TABLE schedule(
+                id INTEGER PRIMARY KEY NOT NULL, 
+                subjectName TEXT NOT NULL,
+                profesor TEXT, 
+                groupLetter TEXT,
+                lunes TEXT, 
+                martes TEXT, 
+                miercoles TEXT, 
+                jueves TEXT, 
+                viernes TEXT
+            );
+        """.trimIndent()
 
-        val user1 = """
+        val user = """
             INSERT INTO users(id_user, name, lastNames, noControl, password, career, semester) 
                 VALUES(1, 'Katherine', 'Arzate Serrano', '18121684', '123', 'Ingenieria en TICS', '6');
         """.trimIndent()
@@ -59,7 +72,8 @@ class DBManager (
             it.execSQL(users)
             it.execSQL(subjects)
             it.execSQL(groups)
-            it.execSQL(user1)
+            it.execSQL(schedule)
+            it.execSQL(user)
 
             //insert subjects and groups
             val lines = context?.getString(R.string.inserts)?.lines()
@@ -139,7 +153,7 @@ class DBManager (
     fun showScores(semester: String): List<Score>{
         val db = readableDatabase
 
-        val sql = "SELECT name, score, credits, semester FROM subjects WHERE semester = '$semester'"
+        val sql = "SELECT name, score, credits, semester, code FROM subjects WHERE semester = '$semester'"
 
         val subjects: MutableList<Score> = mutableListOf()
         val cursor = db.rawQuery(sql, null)
@@ -149,7 +163,8 @@ class DBManager (
                     cursor.getString(0),
                     cursor.getString(1),
                     cursor.getInt(2),
-                    cursor.getString(3)
+                    cursor.getString(3),
+                    cursor.getString(4)
                 )
             )
         }
@@ -191,6 +206,55 @@ class DBManager (
         db.close()
 
         return groups
+    }
+
+    //************************************** SCHEDULE *********************************************
+    fun insertSubjects(subject: Subject){
+        val db = writableDatabase
+        val sql = """
+           INSERT INTO schedule(subject, profesor, groupLetter, lunes, martes, miercoles, jueves, viernes) VALUES(
+                '${subject.subjectName}',
+                '${subject.profesor}',
+                '${subject.group}',
+                '${subject.hourMonday}',
+                '${subject.hourTuesday}',
+                '${subject.hourWednesday}',
+                '${subject.hourThursday}',
+                '${subject.hourFriday}'
+           ) 
+        """.trimIndent()
+
+        db.execSQL(sql)
+        db.close()
+    }
+
+    fun deleteSubjects(){
+        val db = writableDatabase
+
+        db.execSQL("DELETE FROM schedule")
+        db.close()
+    }
+
+    fun showSchedule(day: String): List<ScheduleItems>{
+        val db = readableDatabase
+        val sql = "SELECT subjectName, profesor, group, $day FROM schedule WHERE $day IS NOT NULL"
+
+        val schedule: MutableList<ScheduleItems> = mutableListOf()
+        val cursor = db.rawQuery(sql, null)
+        while (cursor.moveToNext()){
+            schedule.add(
+                ScheduleItems(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3)
+                )
+            )
+        }
+        cursor.close()
+        db.close()
+
+        return schedule
     }
 
 }

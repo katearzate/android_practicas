@@ -39,9 +39,9 @@ class HomeActivity : AppCompatActivity() {
         }
 /*
         var subjects: ArrayList<Subject> = intent.getSerializableExtra("subjects") as ArrayList<Subject>
-        viewModelS.setList(subjects)*/
+        viewModelS.setList(subjects)
         var user = intent.getParcelableExtra<User>("user")
-        viewModelPD.setUser(user!!)
+        viewModelPD.setUser(user!!)*/
 
         navigationController = findNavController(R.id.main_container)
         setupActionBarWithNavController(
