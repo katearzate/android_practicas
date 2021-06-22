@@ -22,10 +22,13 @@ class ReticulaAdapter (val context: Context, val layout: Int, val list: List<Sco
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val myView = inflater.inflate(layout, null)
 
-        val subject = myView.findViewById<TextView>(R.id.listSubjectScore)
-        val score = myView.findViewById<TextView>(R.id.listSubjectName)
+        val code = myView.findViewById<TextView>(R.id.listSubjectCode)
+        val subject = myView.findViewById<TextView>(R.id.listSubjectName)
+        val score = myView.findViewById<TextView>(R.id.listSubjectScore)
         val background = myView.findViewById<LinearLayout>(R.id.listSubjectBackground)
 
+        code.visibility = View.VISIBLE
+        code.text = list.get(position).code
         subject.text = list.get(position).subjectName
         score.text = list.get(position).score
 
