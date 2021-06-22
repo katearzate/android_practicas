@@ -79,6 +79,7 @@ class ElectionFragment: Fragment() {
                 listSubjectSelected.forEach { subject ->
                     //subjectList.add(subject)
                     dbManager.insertSubjects(subject)
+                    println("Insercion exitosa!")
                 }
                 findNavController().navigate(R.id.action_electionFragment_to_scheduleFragment)
 

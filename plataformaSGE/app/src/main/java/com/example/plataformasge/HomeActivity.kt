@@ -51,7 +51,8 @@ class HomeActivity : AppCompatActivity() {
                     R.id.scheduleFragment,
                     R.id.kardexFragment,
                     R.id.reticulaFragment,
-                    R.id.personalDataFragment
+                    R.id.personalDataFragment,
+                    R.id.electionFragment
                 )
             )
         )

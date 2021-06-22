@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
         _dbManager = DBManager(this, "escolar", null, 1)
-        dbManager.deleteDatabase(this, "escolar")
+        //dbManager.deleteDatabase(this, "escolar")
 
         binding.loginBtnEnter.setOnClickListener {
             /*

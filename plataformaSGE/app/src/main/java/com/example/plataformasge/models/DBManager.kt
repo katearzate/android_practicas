@@ -212,7 +212,7 @@ class DBManager (
     fun insertSubjects(subject: Subject){
         val db = writableDatabase
         val sql = """
-           INSERT INTO schedule(subject, profesor, groupLetter, lunes, martes, miercoles, jueves, viernes) VALUES(
+           INSERT INTO schedule(subjectName, profesor, groupLetter, lunes, martes, miercoles, jueves, viernes) VALUES(
                 '${subject.subjectName}',
                 '${subject.profesor}',
                 '${subject.group}',

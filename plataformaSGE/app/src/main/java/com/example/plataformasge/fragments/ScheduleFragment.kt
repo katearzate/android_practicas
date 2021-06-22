@@ -26,6 +26,8 @@ class ScheduleFragment : Fragment() {
     private val dbManager get() = _dbManager!!
     private val viewModel: ViewModelSchedule by activityViewModels()
 
+    var created: Boolean = false
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,24 +35,17 @@ class ScheduleFragment : Fragment() {
         _binding = FragmentScheduleBinding.inflate(layoutInflater)
         _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
-
         binding.scheduleBtnCreateSchedule.setOnClickListener {
             findNavController().navigate(R.id.action_scheduleFragment_to_electionFragment)
-            showComponents()
-            //startActivity(Intent(requireContext(), SubjectsElectionActivity::class.java))
+            created = true
         }
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+        
         val arrayDays = arrayOf("lunes", "martes", "miercoles", "jueves", "viernes")
         var arraySchedule: ArrayList<Schedule> = arrayListOf()
         var arrayScheduleItems: ArrayList<ScheduleItems> = arrayListOf()
 
-
+        if (created) showComponents()
         /*
         parentFragmentManager.setFragmentResultListener("subjects", this) { key, bundle ->
             val subjects = bundle.getParcelableArrayList<Subject>("bundleKey")
@@ -85,6 +80,8 @@ class ScheduleFragment : Fragment() {
         )
 
 
+
+        return binding.root
     }
 
     fun showComponents(){

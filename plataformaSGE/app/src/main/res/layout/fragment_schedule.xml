@@ -25,29 +25,11 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"/>
 
-    <TextView
-        android:id="@+id/scheduleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"
-        android:text="NOTA: Aun no se han elegido materias."
-        android:padding="35dp"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/scheduleBtnCreateSchedule"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        app:cornerRadius="25dp"
-        android:text="Registrar horario"
-        android:layout_gravity="center_horizontal"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerSchedule"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:listitem="@layout/recycler_schedule"
-        android:layout_margin="10dp"
-        android:visibility="invisible"/>
+        android:layout_margin="10dp"/>
 
 </LinearLayout>
