@@ -237,7 +237,7 @@ class DBManager (
 
     fun showSchedule(day: String): List<ScheduleItems>{
         val db = readableDatabase
-        val sql = "SELECT subjectName, profesor, groupLetter, $day FROM schedule WHERE $day IS NOT NULL"
+        val sql = "SELECT subjectName, profesor, groupLetter, $day FROM schedule WHERE $day IS NOT 'null'"
 
         val schedule: MutableList<ScheduleItems> = mutableListOf()
         val cursor = db.rawQuery(sql, null)

@@ -43,6 +43,7 @@ class SubjectedSelectedAdapter(val context: Context, val layout: Int, val list: 
         hThursday.setText(subject.hourThursday)
         hFriday.setText(subject.hourFriday)
 
+
         return myView
     }
 }

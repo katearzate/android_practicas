@@ -12,10 +12,7 @@ import com.example.plataformasge.adapters.ElectionAdapter
 import com.example.plataformasge.adapters.SubjectedSelectedAdapter
 import com.example.plataformasge.databinding.ActivitySubjectsElectionBinding
 import com.example.plataformasge.fragments.ScheduleFragment
-import com.example.plataformasge.models.DBManager
-import com.example.plataformasge.models.Semester
-import com.example.plataformasge.models.Subject
-import com.example.plataformasge.models.ViewModelSchedule
+import com.example.plataformasge.models.*
 import java.util.ArrayList
 
 class SubjectsElectionActivity : AppCompatActivity() {
@@ -34,6 +31,8 @@ class SubjectsElectionActivity : AppCompatActivity() {
         setContentView(binding.root)
         _dbManager = DBManager(this, "escolar", null, 1)
 
+        var user = intent.getParcelableExtra<User>("user")
+
         binding.recyclerElection.layoutManager = LinearLayoutManager(
             this,
             RecyclerView.VERTICAL,
@@ -41,7 +40,7 @@ class SubjectsElectionActivity : AppCompatActivity() {
         )
 
         var semesters = arrayListOf<Semester>()
-        for (s in 5..8){
+        for (s in 6..8){
             semesters.add(Semester(s.toString(), dbManager.showScores(s.toString())))
         }
         binding.recyclerElection.adapter = object : ElectionAdapter(this, semesters){
@@ -71,7 +70,10 @@ class SubjectsElectionActivity : AppCompatActivity() {
                 listSubjectSelected.forEach { subject ->
                     dbManager.insertSubjects(subject)
                 }
-                startActivity(Intent(this, HomeActivity::class.java))
+                val intent = Intent(this, HomeActivity::class.java).apply {
+                    putExtra("user", user)
+                }
+                startActivity(intent)
                 finish()
             }
         }

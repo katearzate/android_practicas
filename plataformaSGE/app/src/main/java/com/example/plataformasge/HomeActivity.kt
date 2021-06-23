@@ -37,9 +37,9 @@ class HomeActivity : AppCompatActivity() {
             it.setDefaultDisplayHomeAsUpEnabled(true)
             it.setDisplayHomeAsUpEnabled(true)
         }
-/*
+
         var user = intent.getParcelableExtra<User>("user")
-        viewModelPD.setUser(user!!)*/
+        viewModelPD.setUser(user!!)
 
         navigationController = findNavController(R.id.main_container)
         setupActionBarWithNavController(
