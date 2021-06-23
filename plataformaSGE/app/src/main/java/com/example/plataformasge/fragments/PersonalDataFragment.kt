@@ -29,18 +29,12 @@ class PersonalDataFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentPersonalDataBinding.inflate(layoutInflater)
-
         _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
-        viewModel.userEntered.observe(viewLifecycleOwner, Observer { user ->
-            binding.personalDataNoControl.setText(user.noControl)
-            binding.personalDataStudentName.setText(user.name)
-            binding.personalDataStudentLastnames.setText(user.lastNames)
-            binding.personalDataCareer.setText(user.career)
-            binding.personalDataSemester.setText(user.semester)
-            binding.personalDataPassword.setText(user.password)
-            println("USUARIO DESDE FRAGMENTO: "+user)
 
+
+        viewModel.userEntered.observe(viewLifecycleOwner, Observer { user ->
+            showPersonalData(user)
 
             binding.personalDataBtnUpdate.setOnClickListener {
                 try {
@@ -68,4 +62,13 @@ class PersonalDataFragment : Fragment() {
         return binding.root
     }
 
+    fun showPersonalData(user: User){
+        val showUser = dbManager.findUser(user.noControl, user.password)
+        binding.personalDataNoControl.setText(showUser!!.noControl)
+        binding.personalDataStudentName.setText(showUser.name)
+        binding.personalDataStudentLastnames.setText(showUser.lastNames)
+        binding.personalDataCareer.setText(showUser.career)
+        binding.personalDataSemester.setText(showUser.semester)
+        binding.personalDataPassword.setText(showUser.password)
+    }
 }
