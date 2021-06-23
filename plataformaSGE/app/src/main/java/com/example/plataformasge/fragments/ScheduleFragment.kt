@@ -1,22 +1,16 @@
 package com.example.plataformasge.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.plataformasge.R
-import com.example.plataformasge.SubjectsElectionActivity
 import com.example.plataformasge.adapters.ScheduleAdapter
 import com.example.plataformasge.databinding.FragmentScheduleBinding
 import com.example.plataformasge.models.*
-import kotlin.collections.ArrayList
 
 class ScheduleFragment : Fragment() {
 
@@ -26,8 +20,6 @@ class ScheduleFragment : Fragment() {
     private val dbManager get() = _dbManager!!
     private val viewModel: ViewModelSchedule by activityViewModels()
 
-    var created: Boolean = false
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,39 +27,12 @@ class ScheduleFragment : Fragment() {
         _binding = FragmentScheduleBinding.inflate(layoutInflater)
         _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
-        binding.scheduleBtnCreateSchedule.setOnClickListener {
-            findNavController().navigate(R.id.action_scheduleFragment_to_electionFragment)
-            created = true
-        }
-
-        
         val arrayDays = arrayOf("lunes", "martes", "miercoles", "jueves", "viernes")
-        var arraySchedule: ArrayList<Schedule> = arrayListOf()
-        var arrayScheduleItems: ArrayList<ScheduleItems> = arrayListOf()
+        var arraySchedule: MutableList<Schedule> = mutableListOf()
 
-        if (created) showComponents()
-        /*
-        parentFragmentManager.setFragmentResultListener("subjects", this) { key, bundle ->
-            val subjects = bundle.getParcelableArrayList<Subject>("bundleKey")
-            showComponents()
-
-            arrayDays.forEach { day ->
-                subjects?.forEach {
-                    arrayScheduleItems.add(
-                        ScheduleItems(
-                            it.subjectName,
-                            it.profesor,
-                            it.group,
-                            it.hourMonday,
-                            it.hourTuesday,
-                            it.hourWednesday,
-                            it.hourThursday,
-                            it.hourFriday
-                        )
-                    )
-                }
-                arraySchedule.add(Schedule(day, arrayScheduleItems))
-            }*/
+        arrayDays.forEach { day ->
+            arraySchedule.add(Schedule(day, dbManager.showSchedule(day)))
+        }
 
         binding.recyclerSchedule.layoutManager = LinearLayoutManager(
             requireContext(),
@@ -79,14 +44,7 @@ class ScheduleFragment : Fragment() {
             arraySchedule
         )
 
-
-
         return binding.root
     }
 
-    fun showComponents(){
-        binding.scheduleText.visibility = View.GONE
-        binding.scheduleBtnCreateSchedule.visibility = View.GONE
-        binding.recyclerSchedule.visibility = View.VISIBLE
-    }
 }

@@ -65,18 +65,13 @@ class SubjectsElectionActivity : AppCompatActivity() {
         }
 
         binding.electionBtnRegisterSchedule.setOnClickListener {
-            var subjectList: ArrayList<Subject> = arrayListOf()
-
-            if (totalCredits< 3){
+            if (totalCredits < 3){
                 showAlert("Error", "Debes seleccionar más materias para poder registrar el horario")
             }else{
                 listSubjectSelected.forEach { subject ->
-                    subjectList.add(subject)
+                    dbManager.insertSubjects(subject)
                 }
-                //viewModel.setList(subjectList)
-                val intent = Intent(this, HomeActivity::class.java)
-                intent.putExtra("subjects", subjectList)
-                startActivity(intent)
+                startActivity(Intent(this, HomeActivity::class.java))
                 finish()
             }
         }

@@ -81,8 +81,6 @@ class ElectionFragment: Fragment() {
                     dbManager.insertSubjects(subject)
                     println("Insercion exitosa!")
                 }
-                findNavController().navigate(R.id.action_electionFragment_to_scheduleFragment)
-
 
                 /*childFragmentManager.setFragmentResult("subjects", bundleOf("bundleKey" to subjectList))
 

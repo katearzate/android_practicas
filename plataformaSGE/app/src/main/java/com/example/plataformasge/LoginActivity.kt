@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.loginPassword.text.toString().isNotEmpty()) {
                 val user = dbManager.findUser(binding.loginNoControl.text.toString(), binding.loginPassword.text.toString())
                 if (user != null){
-                    val intent = Intent(this, HomeActivity::class.java).apply {
+                    val intent = Intent(this, RegisterScheduleActivity::class.java).apply {
                         putExtra("user", user)
                     }
                     startActivity(intent)
@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
             } else{
                 showAlert("Error", "Se debe completar todos los campos")
             }*/
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, RegisterScheduleActivity::class.java))
         }
 
         binding.redirectSignin.setOnClickListener {

@@ -38,8 +38,6 @@ class HomeActivity : AppCompatActivity() {
             it.setDisplayHomeAsUpEnabled(true)
         }
 /*
-        var subjects: ArrayList<Subject> = intent.getSerializableExtra("subjects") as ArrayList<Subject>
-        viewModelS.setList(subjects)
         var user = intent.getParcelableExtra<User>("user")
         viewModelPD.setUser(user!!)*/
 
@@ -51,8 +49,7 @@ class HomeActivity : AppCompatActivity() {
                     R.id.scheduleFragment,
                     R.id.kardexFragment,
                     R.id.reticulaFragment,
-                    R.id.personalDataFragment,
-                    R.id.electionFragment
+                    R.id.personalDataFragment
                 )
             )
         )
