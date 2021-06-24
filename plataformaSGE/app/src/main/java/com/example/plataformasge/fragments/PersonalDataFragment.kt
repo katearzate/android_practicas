@@ -31,11 +31,8 @@ class PersonalDataFragment : Fragment() {
         _binding = FragmentPersonalDataBinding.inflate(layoutInflater)
         _dbManager = DBManager(requireContext(), "escolar", null, 1)
 
-
-
         viewModel.userEntered.observe(viewLifecycleOwner, Observer { user ->
             showPersonalData(user)
-
             binding.personalDataBtnUpdate.setOnClickListener {
                 try {
                     dbManager.updateUser(
@@ -58,7 +55,6 @@ class PersonalDataFragment : Fragment() {
                 }
             }
         })
-
         return binding.root
     }
 
