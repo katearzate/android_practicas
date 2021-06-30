@@ -40,7 +40,7 @@ class SubjectsElectionActivity : AppCompatActivity() {
         )
 
         var semesters = arrayListOf<Semester>()
-        for (s in 6..8){
+        for (s in 1..8){
             semesters.add(Semester(s.toString(), dbManager.showScores(s.toString())))
         }
         binding.recyclerElection.adapter = object : ElectionAdapter(this, semesters){
@@ -64,7 +64,7 @@ class SubjectsElectionActivity : AppCompatActivity() {
         }
 
         binding.electionBtnRegisterSchedule.setOnClickListener {
-            if (totalCredits < 3){
+            if (totalCredits < 15){
                 showAlert("Error", "Debes seleccionar más materias para poder registrar el horario")
             }else{
                 listSubjectSelected.forEach { subject ->
