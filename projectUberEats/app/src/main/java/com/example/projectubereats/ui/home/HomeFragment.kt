@@ -13,6 +13,7 @@ import com.example.projectubereats.R
 import com.example.projectubereats.models.Commerce
 import com.example.projectubereats.utils.Tools
 import com.example.projectubereats.utils.Tools.Companion.toast
+import mx.edu.itm.link.dadm_u3proyb.adapters.CommerceAdapter
 import org.json.JSONObject
 
 class HomeFragment : Fragment() {
