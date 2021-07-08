@@ -15,6 +15,7 @@ import com.example.projectubereats.databinding.ActivityMenuBinding
 import com.example.projectubereats.models.User
 import com.example.projectubereats.utils.Tools.Companion.dbRemove
 import com.example.projectubereats.utils.Tools.Companion.toast
+import www.sanju.motiontoast.MotionToast
 
 class MenuActivity : AppCompatActivity() {
 
@@ -29,6 +30,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         user = intent.getSerializableExtra("user") as User
         lat = intent.getDoubleExtra("lat", 0.0)
@@ -48,6 +50,8 @@ class MenuActivity : AppCompatActivity() {
             println("No puedo funcionar sin la ubicación")
             finish()
         }
+
+
 
         val navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(

@@ -47,23 +47,24 @@ class HomeFragment : Fragment() {
                     for(i in 0..output.length()-1) {
                         val jsonCommerce = output.getJSONObject(i)
                         val negocio = Commerce(
-                            jsonCommerce.getInt("id"),
-                            jsonCommerce.getString("negocio"),
-                            jsonCommerce.getString("descripcion"),
-                            jsonCommerce.getString("direccion"),
-                            jsonCommerce.getDouble("latitud"),
-                            jsonCommerce.getDouble("longitud"),
-                            jsonCommerce.getInt("id_categoria"),
-                            jsonCommerce.getString("categoria"),
-                            if(jsonCommerce.getInt("favorito")==1) true else false,
-                            jsonCommerce.getString("foto")
+                            jsonCommerce.getInt("id_business"),
+                            jsonCommerce.getString("business"),
+                            jsonCommerce.getString("description"),
+                            jsonCommerce.getString("address"),
+                            jsonCommerce.getDouble("latitude"),
+                            jsonCommerce.getDouble("longitude"),
+                            jsonCommerce.getInt("id_category"),
+                            jsonCommerce.getString("category"),
+                            if(jsonCommerce.getInt("favorite")==1) true else false,
+                            jsonCommerce.getString("photo")
                         )
 
                         negocios.add(negocio)
                     }
 
-                    recyclerNegocios.adapter = CommerceAdapter(view.context, R.layout.recycler_row_commerce, negocios)
                     recyclerNegocios.layoutManager = LinearLayoutManager(view.context)
+                    recyclerNegocios.adapter = CommerceAdapter(view.context, R.layout.recycler_row_commerce, negocios)
+
 
                 } catch (e: Exception) {
                     e.printStackTrace()

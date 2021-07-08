@@ -23,6 +23,7 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
 import com.google.gson.Gson
 import org.json.JSONObject
+import www.sanju.motiontoast.MotionToast
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         dbGet()?.let {
             myLocation()
             val intent = Intent(this@MainActivity, MenuActivity::class.java)
-            intent.putExtra("usuario", it)
+            intent.putExtra("user", it)
             intent.putExtra("lat", lat)
             intent.putExtra("lng", lng)
             startActivity(intent)
@@ -105,7 +106,7 @@ class MainActivity : AppCompatActivity() {
             if (hasGps) {
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0F, object:
                     LocationListener {
-                    override fun onLocationChanged(p0: Location?) {
+                    override fun onLocationChanged(p0: Location) {
                         p0?.let {
                             lat = it.latitude
                             lng = it.longitude
@@ -115,9 +116,9 @@ class MainActivity : AppCompatActivity() {
 
                     override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {}
 
-                    override fun onProviderEnabled(p0: String?) {}
+                    override fun onProviderEnabled(provider: String) {}
 
-                    override fun onProviderDisabled(p0: String?) {}
+                    override fun onProviderDisabled(provider: String) {}
                 })
                 val localGpsLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
                 localGpsLocation?.let {
@@ -129,7 +130,7 @@ class MainActivity : AppCompatActivity() {
             if (hasNetwork) {
                 locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0F, object:
                     LocationListener {
-                    override fun onLocationChanged(p0: Location?) {
+                    override fun onLocationChanged(p0: Location) {
                         p0?.let {
                             lat = it.latitude
                             lng = it.longitude
@@ -139,9 +140,9 @@ class MainActivity : AppCompatActivity() {
 
                     override fun onStatusChanged(p0: String?, p1: Int, p2: Bundle?) {}
 
-                    override fun onProviderEnabled(p0: String?) {}
+                    override fun onProviderEnabled(provider: String) {}
 
-                    override fun onProviderDisabled(p0: String?) {}
+                    override fun onProviderDisabled(provider: String) {}
                 })
                 val localNetworkLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
                 localNetworkLocation?.let {
@@ -182,7 +183,9 @@ class MainActivity : AppCompatActivity() {
             override fun formatResponse(response: String) {
                 Log.i("Consume", response)
                 try {
-                    val json = JSONObject(response)
+                    val respon2 = response.replaceFirst("Array", "", true)
+                    Log.d("AQUI",respon2)
+                    val json = JSONObject(respon2)
                     val output = json.getJSONArray("output")
 
                     val gson = Gson()
@@ -194,7 +197,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     val intent = Intent(this@MainActivity, MenuActivity::class.java)
-                    intent.putExtra("usuario", usuario)
+                    intent.putExtra("user", usuario)
                     intent.putExtra("lat", lat)
                     intent.putExtra("lng", lng)
                     startActivity(intent)

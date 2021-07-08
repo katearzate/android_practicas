@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 class User (
-    @SerializedName("id")
+    @SerializedName("id_user")
     val id: Int,
-    @SerializedName("usuario")
+    @SerializedName("mail")
     val usr: String,
-    @SerializedName("contrasenia")
+    @SerializedName("password")
     val pass: String,
-    @SerializedName("nombre")
+    @SerializedName("name")
     val name: String,
-    @SerializedName("telefono")
+    @SerializedName("telephone")
     val celphone: String
 ): Serializable
