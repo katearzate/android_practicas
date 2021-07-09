@@ -19,6 +19,8 @@
             android:id="@+id/textInfoCommerce"
             android:text="Datos del negocio"
             android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -35,8 +37,10 @@
             android:layout_margin="10dp"
             android:elevation="10dp"
             android:text="Realizar compra"
-            app:backgroundTint="@color/purple_500"
-            app:icon="@android:drawable/ic_lock_idle_low_battery" />
+            android:textColor="@color/white"
+            app:backgroundTint="@color/button"
+            app:icon="@android:drawable/ic_lock_idle_low_battery"
+            app:iconTint="@color/white"/>
 
     </LinearLayout>
 

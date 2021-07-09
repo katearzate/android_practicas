@@ -127,9 +127,9 @@ class ProductsActivity : AppCompatActivity() {
                                 val jsonOutput = json.getJSONArray("output")
 
                                 if(jsonOutput.getString(0).equals("1")) {
-                                    binding.fabFavProducts.setImageResource(R.mipmap.heart_24dp)
+                                    binding.fabFavProducts.setIconResource(R.mipmap.heart_24dp)
                                 } else {
-                                    binding.fabFavProducts.setImageResource(R.mipmap.heart_border_24dp)
+                                    binding.fabFavProducts.setIconResource(R.mipmap.heart_border_24dp)
                                 }
                             } catch (e: Error) {
                                 e.printStackTrace()
