@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
+                android:theme="@style/Widget.AppCompat.Toolbar"
                 app:popupTheme="@style/Theme.ProjectUberEats"/>
 
             <ImageView
@@ -36,12 +37,13 @@
                 android:src="@mipmap/ic_launcher"
                 android:scaleType="fitXY"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_scrolling" />
+    <include layout="@layout/content_scrolling"/>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabFavProducts"

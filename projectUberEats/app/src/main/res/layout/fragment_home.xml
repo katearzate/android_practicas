@@ -8,17 +8,30 @@
 
     <EditText
         android:id="@+id/editSearch"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="25dp"
         android:drawableStart="@android:drawable/ic_menu_search"
         android:hint="¿Qué deseas comer?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabOnlyFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:icon="@mipmap/heart_24dp"
+        app:iconTint="@color/white"
+        app:backgroundTint="@color/button_fav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editSearch" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCommerces"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="155dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="64dp"
@@ -27,18 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSearch" />
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fabOnlyFav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        app:icon="@mipmap/heart_24dp"
-        app:iconTint="@color/white"
-        app:backgroundTint="@color/button_fav"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/fabOnlyFav"
+        tools:listitem="@layout/recycler_row_commerce"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

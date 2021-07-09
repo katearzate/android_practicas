@@ -18,9 +18,10 @@
         <TextView
             android:id="@+id/textInfoCommerce"
             android:text="Datos del negocio"
-            android:layout_margin="10dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -28,7 +29,8 @@
             android:id="@+id/recyclerProducts"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/recycler_row_products"/>
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/btnBuyProducts"

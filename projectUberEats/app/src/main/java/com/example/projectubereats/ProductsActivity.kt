@@ -1,10 +1,12 @@
 package com.example.projectubereats
 
 import android.content.DialogInterface
+import android.graphics.Color
 import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
+import android.text.style.StyleSpan
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -62,6 +64,7 @@ class ProductsActivity : AppCompatActivity() {
         }
 
         findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).title = commerce.commerce
+        findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).setCollapsedTitleTextColor(Color.WHITE)
 
         val textInfoCommerce: TextView = findViewById(R.id.textInfoCommerce)
         textInfoCommerce.text = "Descripción: ${commerce.description}"
