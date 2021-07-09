@@ -52,7 +52,7 @@
         app:layout_anchorGravity="bottom|end"
         app:icon="@mipmap/heart_border_24dp"
         app:iconTint="@color/white"
-        android:backgroundTint="#888E8E"
+        android:backgroundTint="@color/button_fav"
         android:elevation="10dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
