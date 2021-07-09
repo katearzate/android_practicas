@@ -4,24 +4,24 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 class Commerce(
-    @SerializedName("id")
+    @SerializedName("id_business")
     val id: Int,
-    @SerializedName("negocio")
+    @SerializedName("business")
     val commerce: String,
-    @SerializedName("descripcion")
+    @SerializedName("description")
     val description: String,
-    @SerializedName("direccion")
+    @SerializedName("address")
     val address: String,
-    @SerializedName("latitud")
+    @SerializedName("latitude")
     val lat: Double,
-    @SerializedName("longitud")
+    @SerializedName("longitude")
     val lng: Double,
-    @SerializedName("id_categoria")
+    @SerializedName("id_category")
     val idCategory: Int,
-    @SerializedName("categoria")
+    @SerializedName("category")
     val category: String,
-    @SerializedName("favorito")
+    @SerializedName("favorite")
     val favorite: Boolean,
-    @SerializedName("foto")
+    @SerializedName("photo")
     val photo: String?
 ) : Serializable

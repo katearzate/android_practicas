@@ -184,7 +184,6 @@ class MainActivity : AppCompatActivity() {
                 Log.i("Consume", response)
                 try {
                     val respon2 = response.replaceFirst("Array", "", true)
-                    Log.d("AQUI",respon2)
                     val json = JSONObject(respon2)
                     val output = json.getJSONArray("output")
 

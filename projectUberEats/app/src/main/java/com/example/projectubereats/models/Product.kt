@@ -4,16 +4,16 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 class Product(
-    @SerializedName("id")
+    @SerializedName("id_product")
     val id: Int,
-    @SerializedName("producto")
+    @SerializedName("product")
     val product: String,
-    @SerializedName("descripcion_producto")
+    @SerializedName("product_description")
     val productDescription: String,
-    @SerializedName("id_negocio")
+    @SerializedName("id_business")
     val idCommerce: Int,
-    @SerializedName("precio")
+    @SerializedName("price")
     val price: Double,
-    @SerializedName("foto")
+    @SerializedName("photo")
     val photo: String?
 ) : Serializable

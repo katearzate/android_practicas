@@ -54,7 +54,7 @@ class CommerceAdapter(val context: Context, val res: Int, val list: ArrayList<Co
 
             itemView.setOnClickListener {
                 val intent = Intent(context, ProductsActivity::class.java)
-                intent.putExtra("negocio", negocio)
+                intent.putExtra("commerce", negocio)
                 context.startActivity(intent)
             }
         }
