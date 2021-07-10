@@ -59,13 +59,12 @@ class DashboardFragment : Fragment() {
 
         childFragmentManager.findFragmentById(R.id.map)?.let{
             val map = it as SupportMapFragment
+            val zoomLevel = 5f
 
-            if(lat > 0.0 && lng > 0.0) {
-                map.getMapAsync {
-                    val current = LatLng(lat, lng)
-                    it.addMarker(MarkerOptions().position(current).title("Current location"))
-                    it.moveCamera(CameraUpdateFactory.newLatLng(current))
-                }
+            map.getMapAsync {
+                val current = LatLng(lat, lng)
+                it.addMarker(MarkerOptions().position(current).title("Current location"))
+                it.moveCamera(CameraUpdateFactory.newLatLngZoom(current, zoomLevel))
             }
         }
     }
