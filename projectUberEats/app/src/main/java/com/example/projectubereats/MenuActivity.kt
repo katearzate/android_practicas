@@ -63,7 +63,7 @@ class MenuActivity : AppCompatActivity() {
             "Bienvenido",
             "¿Qué te apetece hoy ${user.name}?",
             MotionToast.TOAST_SUCCESS,
-            MotionToast.GRAVITY_CENTER,
+            MotionToast.GRAVITY_BOTTOM,
             MotionToast.LONG_DURATION,
             ResourcesCompat.getFont(this,R.font.helvetica_regular)
         )

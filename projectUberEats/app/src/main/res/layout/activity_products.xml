@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                android:theme="@style/Widget.AppCompat.Toolbar"/>
+                android:theme="@style/Widget.AppCompat.Toolbar" />
 
             <ImageView
                 android:id="@+id/imgProducts"

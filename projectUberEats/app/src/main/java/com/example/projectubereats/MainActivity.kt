@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
+        supportActionBar?.hide()
 
         dbGet()?.let {
             myLocation()
@@ -75,6 +76,10 @@ class MainActivity : AppCompatActivity() {
                 myLocation()
                 login(binding.editUsr.text.toString(), binding.editPass.text.toString())
             }
+        }
+
+        binding.btnRegister.setOnClickListener {
+            startActivity(Intent(this, SignInActivity::class.java))
         }
 
     }

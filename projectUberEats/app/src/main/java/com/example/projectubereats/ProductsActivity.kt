@@ -3,11 +3,9 @@ package com.example.projectubereats
 import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
-import android.text.style.StyleSpan
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.EditText
