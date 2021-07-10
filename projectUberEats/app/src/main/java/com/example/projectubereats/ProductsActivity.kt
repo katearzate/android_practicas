@@ -1,6 +1,7 @@
 package com.example.projectubereats
 
 import android.content.DialogInterface
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
@@ -64,6 +65,8 @@ class ProductsActivity : AppCompatActivity() {
         }
 
         findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).title = commerce.commerce
+        findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).setExpandedTitleTextColor(
+            ColorStateList.valueOf(Color.WHITE))
         findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).setCollapsedTitleTextColor(Color.WHITE)
 
         val textInfoCommerce: TextView = findViewById(R.id.textInfoCommerce)
