@@ -48,6 +48,7 @@ class ProductsActivity : AppCompatActivity() {
         binding = ActivityProductsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
         commerce = intent.getSerializableExtra("commerce") as Commerce
         recyclerProducts = findViewById(R.id.recyclerProducts)
         btnBuy = findViewById(R.id.btnBuyProducts)

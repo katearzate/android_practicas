@@ -7,12 +7,14 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.res.ResourcesCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.projectubereats.databinding.ActivityMenuBinding
 import com.example.projectubereats.models.User
+import com.example.projectubereats.ui.dashboard.DashboardViewModel
 import com.example.projectubereats.utils.Tools.Companion.dbRemove
 import com.example.projectubereats.utils.Tools.Companion.toast
 import www.sanju.motiontoast.MotionToast
@@ -20,6 +22,7 @@ import www.sanju.motiontoast.MotionToast
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
+    private lateinit var viewModel: DashboardViewModel
 
     private lateinit var user: User
     private var lat: Double = 0.0
@@ -51,7 +54,19 @@ class MenuActivity : AppCompatActivity() {
             finish()
         }
 
+        viewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
+        viewModel.setLat(lat)
+        viewModel.setLng(lng)
 
+        MotionToast.createToast(
+            this,
+            "Bienvenido",
+            "¿Qué te apetece hoy ${user.name}?",
+            MotionToast.TOAST_SUCCESS,
+            MotionToast.GRAVITY_CENTER,
+            MotionToast.LONG_DURATION,
+            ResourcesCompat.getFont(this,R.font.helvetica_regular)
+        )
 
         val navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(
