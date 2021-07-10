@@ -3,27 +3,40 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignInActivity"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_margin="@dimen/margenes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <EditText
-            android:id="@+id/editUsr"
-            android:hint="Usuario"
+            android:id="@+id/signinEditMail"
+            android:hint="Correo"
             android:background="#00ffffff"
             android:drawableEnd="@android:drawable/ic_dialog_email"
             android:layout_margin="@dimen/margenes"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_margin="@dimen/margenes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/signinEditPass"
+            android:hint="Contraseña"
+            android:background="#00ffffff"
+            android:drawableEnd="@android:drawable/ic_lock_idle_lock"
+            android:layout_margin="@dimen/margenes"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -32,34 +45,34 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/editPass"
-            android:hint="Contraseña"
-            android:background="#00ffffff"
-            android:drawableEnd="@android:drawable/ic_lock_idle_lock"
-            android:layout_margin="@dimen/margenes"
-            android:inputType="textPassword"
+            android:id="@+id/signinEditName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margenes"
+            android:background="#00ffffff"
+            android:drawableEnd="@android:drawable/ic_dialog_info"
+            android:hint="Nombre"
+            android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_margin="@dimen/margenes"
-        android:text="¿No tienes cuenta? Registrate"
-        app:icon="@android:drawable/ic_menu_add"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Switch
-        android:id="@+id/switchRemember"
-        android:text="Recordarme"
-        android:layout_margin="@dimen/margenes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/signinEditTel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margenes"
+            android:background="#00ffffff"
+            android:drawableEnd="@android:drawable/ic_menu_call"
+            android:hint="Telefono"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/btnAccess"
+        android:id="@+id/signinBtnRegister"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margenes"
@@ -68,6 +81,7 @@
         android:gravity="center"
         app:backgroundTint="@color/button"
         app:icon="@android:drawable/ic_lock_idle_charging"
-        app:iconTint="@color/white"/>
+        app:iconTint="@color/white"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

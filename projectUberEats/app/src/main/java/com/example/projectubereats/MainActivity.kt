@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
                 localGpsLocation?.let {
                     lat = it.latitude
                     lng = it.longitude
-                    println("Lat: $lat y Lng: $lng")
+                    //println("Lat: $lat y Lng: $lng")
                 }
             }
             if (hasNetwork) {
