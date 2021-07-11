@@ -22,7 +22,7 @@ import www.sanju.motiontoast.MotionToast
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
-    private lateinit var viewModel: DashboardViewModel
+    private lateinit var viewModelDash: DashboardViewModel
 
     private lateinit var user: User
     private var lat: Double = 0.0
@@ -53,9 +53,9 @@ class MenuActivity : AppCompatActivity() {
             finish()
         }
 
-        viewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
-        viewModel.setLat(lat)
-        viewModel.setLng(lng)
+        viewModelDash = ViewModelProvider(this).get(DashboardViewModel::class.java)
+        viewModelDash.setLat(lat)
+        viewModelDash.setLng(lng)
 
         MotionToast.createToast(
             this,
@@ -67,19 +67,42 @@ class MenuActivity : AppCompatActivity() {
             ResourcesCompat.getFont(this,R.font.helvetica_regular)
         )
 
+        supportActionBar?.let {
+            it.title = "Uberri Eats"
+            it.setDefaultDisplayHomeAsUpEnabled(true)
+            it.setDisplayHomeAsUpEnabled(true)
+        }
+
         val navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home,
+                R.id.navigation_dashboard,
+                R.id.navigation_notifications
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
 
-        supportActionBar?.let {
-            it.setDefaultDisplayHomeAsUpEnabled(true)
-            it.setDisplayHomeAsUpEnabled(true)
+        binding.navView.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
+                R.id.menu_home -> {
+                    navController.navigate(R.id.navigation_home)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.menu_dashboard -> {
+                    navController.navigate(R.id.navigation_dashboard)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.menu_notifications -> {
+                    navController.navigate(R.id.navigation_notifications)
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            return@setOnNavigationItemSelectedListener false
         }
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
