@@ -46,11 +46,11 @@ abstract class ProductsAdapter(val context:Context, val res:Int, val list:ArrayL
                 Picasso.get().load(urlPhoto).into(imgProduct)
             }
 
-            itemView.setOnClickListener { crearPedido(producto) }
+            itemView.setOnClickListener { createOrder(producto) }
         }
 
     }
 
-    abstract fun crearPedido(producto: Product)
+    abstract fun createOrder(producto: Product)
 
 }

@@ -69,9 +69,10 @@ class ProductsActivity : AppCompatActivity() {
         findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).setCollapsedTitleTextColor(Color.WHITE)
 
         val textInfoCommerce: TextView = findViewById(R.id.textInfoCommerce)
-        textInfoCommerce.text = "Descripción: ${commerce.description}"
-        textInfoCommerce.text = "${textInfoCommerce.text}\nDirección: ${commerce.address} (${commerce.lat},${commerce.lng})"
-        textInfoCommerce.text = "${textInfoCommerce.text}\nCategoria: ${commerce.category}"
+        textInfoCommerce.text = """Descripción: ${commerce.description}
+            |Dirección: ${commerce.address} (${commerce.lat},${commerce.lng})
+            |Categoria: ${commerce.category}
+        """.trimMargin()
 
         try {
             val endPoint = "${url}menu_negocio.php?id=${commerce.id}"
@@ -81,21 +82,21 @@ class ProductsActivity : AppCompatActivity() {
                         val json = JSONObject(response)
                         val output = json.getJSONArray("output")
 
-                        val productos = ArrayList<Product>()
+                        val products = ArrayList<Product>()
                         for(i in 0..output.length()-1) {
                             val jsonProduct = output.getJSONObject(i)
 
                             val producto = Gson().fromJson(jsonProduct.toString(), Product::class.java)
 
-                            productos.add(producto)
+                            products.add(producto)
                         }
 
                         recyclerProducts.adapter = object: ProductsAdapter(
                             this@ProductsActivity,
                             R.layout.recycler_row_products,
-                            productos
+                            products
                         ) {
-                            override fun crearPedido(producto: Product) {
+                            override fun createOrder(producto: Product) {
                                 this@ProductsActivity.pedir(producto)
                             }
                         }
@@ -113,8 +114,6 @@ class ProductsActivity : AppCompatActivity() {
             Log.e("Productos","Error\n$e")
         }
 
-        //setSupportActionBar(findViewById(R.id.toolbar))
-
         binding.fabFavProducts.setOnClickListener { view ->
             try {
                 this.dbGet()?.let{
@@ -126,7 +125,6 @@ class ProductsActivity : AppCompatActivity() {
 
                     object : Tools(){
                         override fun formatResponse(response: String) {
-                            //Log.d("Fav",response)
                             try {
                                 val json = JSONObject(response)
                                 val jsonOutput = json.getJSONArray("output")
@@ -151,7 +149,6 @@ class ProductsActivity : AppCompatActivity() {
                 Log.e("Fav","Error:\n$e")
             }
         }
-
         btnBuy.setOnClickListener {
             finish()
         }
@@ -163,11 +160,11 @@ class ProductsActivity : AppCompatActivity() {
 
         // Lista del pedido y su evento click
         alert.setAdapter(
-            ArrayAdapter<String>(
+            ArrayAdapter(
             this,
             android.R.layout.simple_list_item_1,
             order
-        )
+            )
         ) { dialogInterface: DialogInterface, i: Int ->
             // Evento click de la lista
         }
@@ -186,7 +183,7 @@ class ProductsActivity : AppCompatActivity() {
             if(editCantidad.text.isNotEmpty()) {
                 val subtotal = (p.price * editCantidad.text.toString().toDouble())
                 total += subtotal
-                order.add("${editCantidad.text} ... ${p.product}: $subtotal")
+                order.add("${editCantidad.text} .. ${p.product} = $subtotal")
                 btnBuy.text = "Realizar compra por \$${total}"
 
                 MotionToast.createToast(
@@ -194,14 +191,13 @@ class ProductsActivity : AppCompatActivity() {
                     "Se agregó",
                     "Producto agregado a tu pedido",
                     MotionToast.TOAST_SUCCESS,
-                    MotionToast.GRAVITY_CENTER,
+                    MotionToast.GRAVITY_BOTTOM,
                     MotionToast.LONG_DURATION,
                     ResourcesCompat.getFont(this,R.font.helvetica_regular)
                 )
             }
             dialogInterface.dismiss()
         }
-
         alert.show()
     }
 }

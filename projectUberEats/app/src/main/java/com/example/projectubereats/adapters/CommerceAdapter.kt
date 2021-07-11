@@ -57,6 +57,8 @@ class CommerceAdapter(val context: Context, val res: Int, val list: ArrayList<Co
                 intent.putExtra("commerce", negocio)
                 context.startActivity(intent)
             }
+
+
         }
 
     }
