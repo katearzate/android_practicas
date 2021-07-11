@@ -57,11 +57,6 @@
             android:layout_gravity="center"
             android:layout_margin="30dp"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerOrders"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"/>
     </LinearLayout>
 
 </FrameLayout>

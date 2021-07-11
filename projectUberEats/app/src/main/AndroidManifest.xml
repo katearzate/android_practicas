@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUberEats"
         android:usesCleartextTraffic="true">
-        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".EditProfileActivity"></activity>
+        <activity android:name=".SignInActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -26,7 +27,7 @@
             android:theme="@style/Theme.ProjectUberEats" />
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_activity_menu"></activity>
+            android:label="@string/title_activity_menu" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

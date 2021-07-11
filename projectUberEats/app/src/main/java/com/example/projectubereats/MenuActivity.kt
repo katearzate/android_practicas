@@ -15,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.projectubereats.databinding.ActivityMenuBinding
 import com.example.projectubereats.models.User
 import com.example.projectubereats.ui.dashboard.DashboardViewModel
+import com.example.projectubereats.ui.notifications.NotificationsViewModel
 import com.example.projectubereats.utils.Tools.Companion.dbRemove
 import com.example.projectubereats.utils.Tools.Companion.toast
 import www.sanju.motiontoast.MotionToast
@@ -23,6 +24,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
     private lateinit var viewModelDash: DashboardViewModel
+    private lateinit var viewModelProfile: NotificationsViewModel
 
     private lateinit var user: User
     private var lat: Double = 0.0
@@ -56,6 +58,9 @@ class MenuActivity : AppCompatActivity() {
         viewModelDash = ViewModelProvider(this).get(DashboardViewModel::class.java)
         viewModelDash.setLat(lat)
         viewModelDash.setLng(lng)
+
+        viewModelProfile = ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        viewModelProfile.setUser(user)
 
         MotionToast.createToast(
             this,
