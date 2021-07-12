@@ -29,7 +29,7 @@ class EditProfileActivity : AppCompatActivity() {
         binding.editProfileTel.setText(user.celphone)
 
         binding.editProfileBtnUpdate.setOnClickListener {
-            if(binding.editProfilePass.text.isNotEmpty()){
+            if(binding.editProfileMail.text.isNotEmpty() || binding.editProfileName.text.isNotEmpty()){
                 val dialog = AlertDialog.Builder(this)
                     .setTitle("Actualización de datos")
                     .setMessage("¿Estás seguro que desea actualizar? (Se tendrá que iniciar sesión de nuevo)")
@@ -41,7 +41,6 @@ class EditProfileActivity : AppCompatActivity() {
 
                         params.put("id", user.id.toString())
                         params.put("usr", binding.editProfileMail.text.toString())
-                        params.put("pass", binding.editProfilePass.text.toString())
                         params.put("name", binding.editProfileName.text.toString())
                         params.put("tel", binding.editProfileTel.text.toString())
 

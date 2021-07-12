@@ -37,20 +37,6 @@
         android:layout_margin="@dimen/margenes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/editProfilePass"
-            android:hint="Contraseña"
-            android:background="#00ffffff"
-            android:drawableEnd="@android:drawable/ic_lock_idle_lock"
-            android:layout_margin="@dimen/margenes"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_margin="@dimen/margenes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <EditText
             android:id="@+id/editProfileName"

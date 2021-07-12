@@ -20,7 +20,6 @@ import java.lang.Exception
 
 class HomeFragment : Fragment() {
 
-    private val homeViewModel: HomeViewModel by activityViewModels()
     private lateinit var url : String
     lateinit var recyclerNegocios: RecyclerView
     lateinit var editSearch: EditText

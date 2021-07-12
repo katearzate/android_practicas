@@ -9,22 +9,29 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.projectubereats.R
+import com.example.projectubereats.adapters.OrdersAdapter
 import com.example.projectubereats.models.Commerce
 import com.example.projectubereats.models.Location
+import com.example.projectubereats.models.Order
 import com.example.projectubereats.utils.Tools
+import com.example.projectubereats.utils.Tools.Companion.dbGet
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import mx.edu.itm.link.dadm_u3proyb.adapters.CommerceAdapter
 import org.json.JSONObject
 
 class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var url : String
+    lateinit var recyclerOrders: RecyclerView
     private var lat = 0.0
     private var lng = 0.0
 
@@ -57,6 +64,7 @@ class DashboardFragment : Fragment() {
         })
 
         map = childFragmentManager.findFragmentById(R.id.map)
+        recyclerOrders = root.findViewById(R.id.recyclerOrders)
 
         return root
     }
@@ -94,6 +102,46 @@ class DashboardFragment : Fragment() {
                 }
             }
         }.consumeGet(view.context, url)
+
+        requireContext().dbGet()?.let{ user ->
+            val urlOrders = "${resources.getString(R.string.api)}ver_ordenes.php?id=${user.id}"
+
+            object : Tools(){
+                override fun formatResponse(response: String) {
+                    try {
+                        val json = JSONObject(response)
+                        val output = json.getJSONArray("output")
+
+                        val negocios = ArrayList<Order>()
+                        for(i in 0..output.length()-1) {
+                            val jsonCommerce = output.getJSONObject(i)
+                            val negocio = Order(
+                                jsonCommerce.getInt("id_business"),
+                                jsonCommerce.getString("business"),
+                                jsonCommerce.getString("address"),
+                                jsonCommerce.getDouble("latitude"),
+                                jsonCommerce.getDouble("longitude"),
+                                jsonCommerce.getString("photo"),
+                                jsonCommerce.getDouble("total")
+                            )
+                            negocios.add(negocio)
+                        }
+                        recyclerOrders.layoutManager = LinearLayoutManager(requireContext())
+                        recyclerOrders.adapter = OrdersAdapter(
+                            requireContext(),
+                            R.layout.recycler_row_orders,
+                            negocios
+                        )
+
+                    } catch (e: java.lang.Exception) {
+                        e.printStackTrace()
+                        "ERROR. No hay ordenes".toast(requireContext())
+                    }
+                }
+            }.consumeGet(requireContext(), urlOrders)
+        }
+
+
 
     }
 
