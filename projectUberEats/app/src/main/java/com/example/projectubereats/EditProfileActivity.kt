@@ -3,6 +3,7 @@ package com.example.projectubereats
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import com.example.projectubereats.databinding.ActivityEditProfileBinding
 import com.example.projectubereats.models.User
 import com.example.projectubereats.utils.Tools
@@ -29,24 +30,38 @@ class EditProfileActivity : AppCompatActivity() {
 
         binding.editProfileBtnUpdate.setOnClickListener {
             if(binding.editProfilePass.text.isNotEmpty()){
-                val params = HashMap<String,String?>()
+                val dialog = AlertDialog.Builder(this)
+                    .setTitle("Actualización de datos")
+                    .setMessage("¿Estás seguro que desea actualizar? (Se tendrá que iniciar sesión de nuevo)")
+                    .setNegativeButton("Cancelar") { view, _ ->
+                        view.dismiss()
+                    }
+                    .setPositiveButton("Aceptar") { view, _ ->
+                        val params = HashMap<String,String?>()
 
-                params.put("id", user.id.toString())
+                        params.put("id", user.id.toString())
+                        params.put("usr", binding.editProfileMail.text.toString())
+                        params.put("pass", binding.editProfilePass.text.toString())
+                        params.put("name", binding.editProfileName.text.toString())
+                        params.put("tel", binding.editProfileTel.text.toString())
 
-                params.put("usr", binding.editProfileMail.text.toString())
-                params.put("pass", binding.editProfilePass.text.toString())
-                params.put("name", binding.editProfileName.text.toString())
-                params.put("tel", binding.editProfileTel.text.toString())
+                        object : Tools(){
+                            override fun formatResponse(response: String) {}
+                        }.consumePost(this, url, params)
+                        this.dbRemove()
 
-                object : Tools(){
-                    override fun formatResponse(response: String) {}
-                }.consumePost(this, url, params)
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                        "Datos actualizados".toast(this)
 
-                this.dbRemove()
+                        view.dismiss()
+                    }
+                    .setCancelable(false)
+                    .create()
 
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                dialog.show()
+
             }else{
                 "Campo(s) nulo(s)".toast(this)
             }
