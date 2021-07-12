@@ -3,26 +3,24 @@ package com.example.projectubereats.ui.home
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectubereats.R
 import com.example.projectubereats.models.Commerce
 import com.example.projectubereats.utils.Tools
-import com.example.projectubereats.utils.Tools.Companion.toast
 import mx.edu.itm.link.dadm_u3proyb.adapters.CommerceAdapter
 import org.json.JSONObject
 import java.lang.Exception
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private val homeViewModel: HomeViewModel by activityViewModels()
     private lateinit var url : String
     lateinit var recyclerNegocios: RecyclerView
     lateinit var editSearch: EditText
@@ -31,7 +29,6 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         url = resources.getString(R.string.api)+"comercios.php"

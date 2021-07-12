@@ -149,8 +149,25 @@ class ProductsActivity : AppCompatActivity() {
                 Log.e("Fav","Error:\n$e")
             }
         }
+
         btnBuy.setOnClickListener {
-            finish()
+            val urlOrder = "${url}ordenes.php"
+            dbGet()?.let { user ->
+                val params = HashMap<String,String?>()
+
+                params.put("id_user", user.id.toString())
+                params.put("id_business", commerce.id.toString())
+                params.put("total", total.toString())
+
+                object : Tools(){
+                    override fun formatResponse(response: String) {}
+                }.consumePost(this, urlOrder, params)
+
+                "Orden registrada".toast(this)
+                finish()
+            }
+
+
         }
     }
 
