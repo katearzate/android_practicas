@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        url = resources.getString(R.string.api)+"comercios.php"
+
 
         recyclerNegocios = view.findViewById(R.id.recyclerCommerces)
         editSearch = view.findViewById(R.id.editSearch)
@@ -60,15 +60,7 @@ class HomeFragment : Fragment() {
     }
 
     fun refreshContacts(){
-        val params = HashMap<String,String?>()
-/*
-        if(editSearch.text.isNotEmpty() || editSearch.text.isNotBlank()){
-            params.clear()
-            params.put("filter", editSearch.text.toString())
-        }
-
- */
-        params.put("filter", "Pizzas")
+        url = "${resources.getString(R.string.api)}comercios.php?filter=${editSearch.text}"
 
         object : Tools(){
             override fun formatResponse(response: String) {
@@ -105,7 +97,7 @@ class HomeFragment : Fragment() {
                     "Error, no hay negocios disponibles".toast(requireContext())
                 }
             }
-        }.consumePost(requireContext(), url, params) //agregar params para la búsqueda
+        }.consumeGet(requireContext(), url) //agregar params para la búsqueda
 
     }
 
