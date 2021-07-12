@@ -29,7 +29,7 @@ class DashboardFragment : Fragment() {
     private var lng = 0.0
 
     private lateinit var currentMarker: Marker
-    private lateinit var businessMarker: Marker
+    private var map: Fragment? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,6 +56,7 @@ class DashboardFragment : Fragment() {
             }
         })
 
+        map = childFragmentManager.findFragmentById(R.id.map)
 
         return root
     }
@@ -65,7 +66,6 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val commercesList : ArrayList<Location> = arrayListOf()
         url = resources.getString(R.string.api)+"comercios.php"
         object : Tools(){
             override fun formatResponse(response: String) {
@@ -74,16 +74,18 @@ class DashboardFragment : Fragment() {
                     val json = JSONObject(response)
                     val output = json.getJSONArray("output")
 
-                    for(i in 0..output.length()-1) {
-                        val jsonCommerce = output.getJSONObject(i)
-                        commercesList.add(
-                            Location(
-                            jsonCommerce.getDouble("latitude"),
-                            jsonCommerce.getDouble("longitude")
-                        )
-                        )
-
-                        println("NUMERO ${i}: ${commercesList.get(i)}")
+                    val commercesList : ArrayList<LatLng> = arrayListOf()
+                    map?.let {
+                        for(i in 0..output.length()-1) {
+                            val jsonCommerce = output.getJSONObject(i)
+                            commercesList.add(
+                                LatLng(
+                                    jsonCommerce.getDouble("latitude"),
+                                    jsonCommerce.getDouble("longitude")
+                                )
+                            )
+                        }
+                        setMarker(map as SupportMapFragment, commercesList)
                     }
 
                 } catch (e: Exception) {
@@ -93,21 +95,8 @@ class DashboardFragment : Fragment() {
             }
         }.consumeGet(view.context, url)
 
-        //El problema es acceder al arreglo de elementos con sus ubicaciones...
 
         //************************************ MAP *************************************+
-        childFragmentManager.findFragmentById(R.id.map)?.let {
-            val map = it as SupportMapFragment
-            val zoomLevel = 13f
-
-            map.getMapAsync {
-                val current = LatLng(lat, lng)
-                currentMarker = it.addMarker(MarkerOptions().position(current).title("Current location"))
-                //businessMarker = it.addMarker(MarkerOptions().position(commercesList.get(0)).title("Business"))
-
-                it.moveCamera(CameraUpdateFactory.newLatLngZoom(current, zoomLevel))
-            }
-        }
 
         /*
         childFragmentManager.findFragmentById(R.id.map)?.let{
@@ -120,7 +109,6 @@ class DashboardFragment : Fragment() {
                 it.addMarker(MarkerOptions().position(current).title("Current location"))
                 it.moveCamera(CameraUpdateFactory.newLatLngZoom(current, zoomLevel))
 
-
                 it.addMarker(MarkerOptions().position(commercesList.get(1)).title("Business"))
 
                 for (i in 0 until commercesList.size) {
@@ -131,10 +119,28 @@ class DashboardFragment : Fragment() {
                     )
                     it.moveCamera(CameraUpdateFactory.newLatLngZoom(commercesList.get(i), zoomLevel))
                 }
-
-
             }
         }*/
+    }
+
+    private fun setMarker(map: SupportMapFragment, markers: ArrayList<LatLng>){
+        val zoomLevel = 11f
+
+        map.getMapAsync {
+            val current = LatLng(lat, lng)
+            currentMarker = it.addMarker(MarkerOptions().position(current).title("Current location"))
+
+            for (i in 0 until markers.size) {
+                it.addMarker(
+                    MarkerOptions()
+                        .position(markers.get(i))
+                        .title("Negocio")
+                )
+                it.moveCamera(CameraUpdateFactory.newLatLngZoom(markers.get(i), zoomLevel))
+            }
+
+            it.moveCamera(CameraUpdateFactory.newLatLngZoom(current, zoomLevel))
+        }
     }
 
 }

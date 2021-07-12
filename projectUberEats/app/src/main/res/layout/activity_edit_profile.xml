@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/editProfileEditMail"
+            android:id="@+id/editProfileMail"
             android:hint="Correo"
             android:background="#00ffffff"
             android:drawableEnd="@android:drawable/ic_dialog_email"
@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:id="@+id/editProfileEditPass"
+            android:id="@+id/editProfilePass"
             android:hint="Contraseña"
             android:background="#00ffffff"
             android:drawableEnd="@android:drawable/ic_lock_idle_lock"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/editProfileEditName"
+            android:id="@+id/editProfileName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margenes"
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/editProfileEditTel"
+            android:id="@+id/editProfileTel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margenes"

@@ -1,5 +1,6 @@
 package com.example.projectubereats.ui.notifications
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.projectubereats.EditProfileActivity
 import com.example.projectubereats.R
 import com.example.projectubereats.models.User
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import org.w3c.dom.Text
 
 class NotificationsFragment : Fragment() {
@@ -20,6 +23,7 @@ class NotificationsFragment : Fragment() {
     private lateinit var mail: TextView
     private lateinit var name: TextView
     private lateinit var tel: TextView
+    private lateinit var btnModif: ExtendedFloatingActionButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,12 +36,7 @@ class NotificationsFragment : Fragment() {
         mail = root.findViewById(R.id.notifMail)
         name = root.findViewById(R.id.notifName)
         tel = root.findViewById(R.id.notifTel)
-
-        /*val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-
+        btnModif = root.findViewById(R.id.notifBtnChange)
 
         notificationsViewModel.getUser()?.observe(viewLifecycleOwner, { u ->
             u?.let {
@@ -46,8 +45,15 @@ class NotificationsFragment : Fragment() {
                 name.setText("Nombre: ${it.name}")
                 tel.setText("Telefono: ${it.celphone}")
                 println("USER: $it")
+
+                btnModif.setOnClickListener {
+                    val intent = Intent(requireContext(), EditProfileActivity::class.java)
+                    intent.putExtra("user", user)
+                    startActivity(intent)
+                }
+
             }
-        })*/
+        })
 
         return root
     }

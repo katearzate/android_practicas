@@ -22,16 +22,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:icon="@mipmap/heart_24dp"
+        app:icon="@mipmap/heart_border_24dp"
         app:iconTint="@color/white"
         app:backgroundTint="@color/button_fav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSearch" />
 
+    <TextView
+        android:id="@+id/textFavoritesShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comercios Favoritos"
+        android:textSize="20dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fabOnlyFav"
+        android:visibility="invisible"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCommerces"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="175dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="64dp"
@@ -40,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fabOnlyFav"
+        app:layout_constraintTop_toBottomOf="@+id/textFavoritesShow"
         tools:listitem="@layout/recycler_row_commerce"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
