@@ -7,6 +7,7 @@ import com.example.projectubereats.databinding.ActivityEditProfileBinding
 import com.example.projectubereats.models.User
 import com.example.projectubereats.utils.Tools
 import com.example.projectubereats.utils.Tools.Companion.dbRemove
+import com.example.projectubereats.utils.Tools.Companion.toast
 
 class EditProfileActivity : AppCompatActivity() {
 
@@ -22,31 +23,34 @@ class EditProfileActivity : AppCompatActivity() {
         user = intent.getSerializableExtra("user") as User
 
         binding.editProfileMail.setText(user.usr)
-        binding.editProfilePass.setText(user.pass)
+        //binding.editProfilePass.setText(user.pass)
         binding.editProfileName.setText(user.name)
         binding.editProfileTel.setText(user.celphone)
 
         binding.editProfileBtnUpdate.setOnClickListener {
-            val params = HashMap<String,String?>()
+            if(binding.editProfilePass.text.isNotEmpty()){
+                val params = HashMap<String,String?>()
 
-            params.put("id", user.id.toString())
+                params.put("id", user.id.toString())
 
-            params.put("usr", binding.editProfileMail.text.toString())
-            params.put("pass", binding.editProfilePass.text.toString())
-            params.put("name", binding.editProfileName.text.toString())
-            params.put("tel", binding.editProfileTel.text.toString())
+                params.put("usr", binding.editProfileMail.text.toString())
+                params.put("pass", binding.editProfilePass.text.toString())
+                params.put("name", binding.editProfileName.text.toString())
+                params.put("tel", binding.editProfileTel.text.toString())
 
-            object : Tools(){
-                override fun formatResponse(response: String) {}
-            }.consumePost(this, url, params)
+                object : Tools(){
+                    override fun formatResponse(response: String) {}
+                }.consumePost(this, url, params)
 
-            this.dbRemove()
-/*
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
- */
-            //cerrar sesión!
+                this.dbRemove()
+
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }else{
+                "Campo(s) nulo(s)".toast(this)
+            }
+
         }
     }
 

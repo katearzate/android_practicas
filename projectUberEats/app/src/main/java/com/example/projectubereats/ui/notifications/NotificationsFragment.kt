@@ -43,7 +43,6 @@ class NotificationsFragment : Fragment() {
                 mail.setText("Correo: ${it.usr}")
                 name.setText("Nombre: ${it.name}")
                 tel.setText("Telefono: ${it.celphone}")
-                println("USER: $it")
 
                 btnModif.setOnClickListener {
                     val intent = Intent(requireContext(), EditProfileActivity::class.java)
