@@ -95,34 +95,9 @@ class DashboardFragment : Fragment() {
             }
         }.consumeGet(view.context, url)
 
-
-        //************************************ MAP *************************************+
-
-        /*
-        childFragmentManager.findFragmentById(R.id.map)?.let{
-            val map = it as SupportMapFragment
-            val zoomLevel = 8f
-
-            map.getMapAsync {
-                val current = LatLng(lat, lng)
-
-                it.addMarker(MarkerOptions().position(current).title("Current location"))
-                it.moveCamera(CameraUpdateFactory.newLatLngZoom(current, zoomLevel))
-
-                it.addMarker(MarkerOptions().position(commercesList.get(1)).title("Business"))
-
-                for (i in 0 until commercesList.size) {
-                    it.addMarker(
-                        MarkerOptions()
-                            .position(commercesList.get(i))
-                            .title("Marker")
-                    )
-                    it.moveCamera(CameraUpdateFactory.newLatLngZoom(commercesList.get(i), zoomLevel))
-                }
-            }
-        }*/
     }
 
+    //************************************ MAP **************************************
     private fun setMarker(map: SupportMapFragment, markers: ArrayList<LatLng>){
         val zoomLevel = 11f
 

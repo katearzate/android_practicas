@@ -33,7 +33,7 @@ abstract class Tools {
 
     }
 
-    fun consumePost(c: Context, url: String, params : MutableMap<String,String>) {
+    fun consumePost(c: Context, url: String, params : MutableMap<String,String?>) {
         val stringRequest = object : StringRequest(
             Request.Method.POST, url,
             Response.Listener { response ->
@@ -42,7 +42,7 @@ abstract class Tools {
             Response.ErrorListener { println("Error al consumir:\n$it") }
 
         ) {
-            override fun getParams(): MutableMap<String, String> {
+            override fun getParams(): MutableMap<String, String?> {
                 return params
             }
         }
@@ -62,7 +62,7 @@ abstract class Tools {
         Volley.newRequestQueue(c).add(stringRequest)
     }
 
-    fun consumeGet(c: Context, url: String, params : MutableMap<String,String>) {
+    fun consumeGetP(c: Context, url: String, params : MutableMap<String,String?>) {
         val stringRequest = object : StringRequest(
             Request.Method.GET, url,
             Response.Listener<String> { response ->
@@ -70,7 +70,7 @@ abstract class Tools {
             },
             Response.ErrorListener { println("Error al consumir:\n$it") }
         ){
-            override fun getParams(): MutableMap<String, String> {
+            override fun getParams(): MutableMap<String, String?> {
                 return params
             }
         }

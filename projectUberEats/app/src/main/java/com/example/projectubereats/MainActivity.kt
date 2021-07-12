@@ -180,7 +180,7 @@ class MainActivity : AppCompatActivity() {
         val url = "${resources.getString(R.string.api)}encuentra.php"
         Log.d("URL",url)
 
-        val params = HashMap<String,String>()
+        val params = HashMap<String,String?>()
         params.put("usr", usr)
         params.put("pass", pass)
 

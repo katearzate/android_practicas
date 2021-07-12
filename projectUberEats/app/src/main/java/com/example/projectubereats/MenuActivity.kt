@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import android.view.Menu
 import android.view.MenuItem
 import androidx.core.content.res.ResourcesCompat
@@ -24,7 +25,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
     private lateinit var viewModelDash: DashboardViewModel
-    private lateinit var viewModelProfile: NotificationsViewModel
+    private val viewModelProfile: NotificationsViewModel by viewModels()
 
     private lateinit var user: User
     private var lat: Double = 0.0
@@ -59,7 +60,6 @@ class MenuActivity : AppCompatActivity() {
         viewModelDash.setLat(lat)
         viewModelDash.setLng(lng)
 
-        viewModelProfile = ViewModelProvider(this).get(NotificationsViewModel::class.java)
         viewModelProfile.setUser(user)
 
         MotionToast.createToast(

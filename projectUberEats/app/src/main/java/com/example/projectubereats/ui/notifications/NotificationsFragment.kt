@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.projectubereats.EditProfileActivity
@@ -17,7 +18,7 @@ import org.w3c.dom.Text
 
 class NotificationsFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private val notificationsViewModel: NotificationsViewModel by activityViewModels()
     private lateinit var user: User
 
     private lateinit var mail: TextView
@@ -29,8 +30,6 @@ class NotificationsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_notifications, container, false)
 
         mail = root.findViewById(R.id.notifMail)
@@ -38,7 +37,7 @@ class NotificationsFragment : Fragment() {
         tel = root.findViewById(R.id.notifTel)
         btnModif = root.findViewById(R.id.notifBtnChange)
 
-        notificationsViewModel.getUser()?.observe(viewLifecycleOwner, { u ->
+        notificationsViewModel.userLog.observe(viewLifecycleOwner, Observer{ u ->
             u?.let {
                 user = it
                 mail.setText("Correo: ${it.usr}")

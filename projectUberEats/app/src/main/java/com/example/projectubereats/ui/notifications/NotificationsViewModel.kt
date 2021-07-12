@@ -7,21 +7,11 @@ import com.example.projectubereats.models.User
 
 class NotificationsViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "Datos"
-    }
-    val text: LiveData<String> = _text
-
     private var user = MutableLiveData<User>()
+    val userLog: LiveData<User> get() = user
 
-    fun setUser(usr: User?) {
-        usr?.let {
-            user.value = it
-        }
-    }
-
-    fun getUser(): LiveData<User?>? {
-        return user
+    fun setUser(usr: User) {
+        user.value = usr
     }
 
 }

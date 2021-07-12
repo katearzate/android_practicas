@@ -32,11 +32,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_home, container, false)
-    }
+        val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         url = resources.getString(R.string.api)+"comercios.php"
 
         recyclerNegocios = view.findViewById(R.id.recyclerCommerces)
@@ -57,66 +54,67 @@ class HomeFragment : Fragment() {
 
         refreshContacts()
 
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
     }
 
     fun refreshContacts(){
-        val negocios = ArrayList<Commerce>()
-        val params = HashMap<String,String>()
-
-        if(editSearch.text.toString() != ""){
+        val params = HashMap<String,String?>()
+/*
+        if(editSearch.text.isNotEmpty() || editSearch.text.isNotBlank()){
             params.clear()
             params.put("filter", editSearch.text.toString())
-
-            println("PARAMS: "+params)
         }
 
-        try {
-            object : Tools(){
-                override fun formatResponse(response: String) {
-                    try {
-                        val json = JSONObject(response)
-                        val output = json.getJSONArray("output")
+ */
+        params.put("filter", "Pizzas")
 
-                        for(i in 0..output.length()-1) {
-                            val jsonCommerce = output.getJSONObject(i)
-                            val negocio = Commerce(
-                                jsonCommerce.getInt("id_business"),
-                                jsonCommerce.getString("business"),
-                                jsonCommerce.getString("description"),
-                                jsonCommerce.getString("address"),
-                                jsonCommerce.getDouble("latitude"),
-                                jsonCommerce.getDouble("longitude"),
-                                jsonCommerce.getInt("id_category"),
-                                jsonCommerce.getString("category"),
-                                if(jsonCommerce.getInt("favorite")==1) true else false,
-                                jsonCommerce.getString("photo")
-                            )
-                            negocios.add(negocio)
-                        }
+        object : Tools(){
+            override fun formatResponse(response: String) {
+                try {
+                    val json = JSONObject(response)
+                    val output = json.getJSONArray("output")
 
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                        "Error, no hay negocios disponibles".toast(requireContext())
+                    val negocios = ArrayList<Commerce>()
+                    for(i in 0..output.length()-1) {
+                        val jsonCommerce = output.getJSONObject(i)
+                        val negocio = Commerce(
+                            jsonCommerce.getInt("id_business"),
+                            jsonCommerce.getString("business"),
+                            jsonCommerce.getString("description"),
+                            jsonCommerce.getString("address"),
+                            jsonCommerce.getDouble("latitude"),
+                            jsonCommerce.getDouble("longitude"),
+                            jsonCommerce.getInt("id_category"),
+                            jsonCommerce.getString("category"),
+                            if(jsonCommerce.getInt("favorite")==1) true else false,
+                            jsonCommerce.getString("photo")
+                        )
+                        negocios.add(negocio)
                     }
+                    recyclerNegocios.layoutManager = LinearLayoutManager(requireContext())
+                    recyclerNegocios.adapter = CommerceAdapter(
+                        requireContext(),
+                        R.layout.recycler_row_commerce,
+                        negocios
+                    )
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    "Error, no hay negocios disponibles".toast(requireContext())
                 }
-            }.consumeGet(requireContext(), url) //agregar params para la búsqueda
+            }
+        }.consumePost(requireContext(), url, params) //agregar params para la búsqueda
 
-            recyclerNegocios.layoutManager = LinearLayoutManager(requireContext())
-            recyclerNegocios.adapter = CommerceAdapter(
-                requireContext(),
-                R.layout.recycler_row_commerce,
-                negocios
-            )
-
-        }catch (e: Exception){
-            e.printStackTrace()
-        }
     }
 
-    /*
     override fun onResume() {
         super.onResume()
         refreshContacts()
     }
-     */
 }

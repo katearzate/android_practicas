@@ -27,7 +27,7 @@ class EditProfileActivity : AppCompatActivity() {
         binding.editProfileTel.setText(user.celphone)
 
         binding.editProfileBtnUpdate.setOnClickListener {
-            val params = HashMap<String,String>()
+            val params = HashMap<String,String?>()
 
             params.put("id", user.id.toString())
 

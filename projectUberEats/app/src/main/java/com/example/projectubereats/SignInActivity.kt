@@ -19,7 +19,7 @@ class SignInActivity : AppCompatActivity() {
         url = "${resources.getString(R.string.api)}agrega_usuario.php"
 
         binding.signinBtnRegister.setOnClickListener {
-            val params = HashMap<String,String>()
+            val params = HashMap<String,String?>()
             params.put("usr", binding.signinEditMail.text.toString())
             params.put("pass", binding.signinEditPass.text.toString())
             params.put("name", binding.signinEditName.text.toString())

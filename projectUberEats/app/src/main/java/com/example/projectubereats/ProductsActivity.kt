@@ -119,7 +119,7 @@ class ProductsActivity : AppCompatActivity() {
                 this.dbGet()?.let{
                     val endP = "${url}fav.php"
 
-                    val params = HashMap<String,String>()
+                    val params = HashMap<String,String?>()
                     params.put("usr", it.id.toString())
                     params.put("com", commerce.id.toString())
 
